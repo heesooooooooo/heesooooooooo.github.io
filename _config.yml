@@ -4,11 +4,11 @@
 markdown: kramdown
 highlighter: rouge
 paginate: 5
-language: 'en-uk'
+language: 'utf-8'
 
 # Website info
-name: 'Finding The Way Home'
-description: "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
+name: '...Developing...'
+description: "수 정 중"
 
 short_url: 'jekyller.github.io/jasper/'
 google_analytics: UA-69281367-1
