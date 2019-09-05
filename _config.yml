@@ -14,7 +14,7 @@ short_url: 'jekyller.github.io/jasper/'
 google_analytics: UA-69281367-1
 disqus: username
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: /
+baseurl: ""
 
 # Permalinks
 permalink: /:title
@@ -45,13 +45,13 @@ plugins: [jekyll-paginate]
 # or "master" otherwise
 safe: false
 lsi: false
-username: jekyller
-repo: jasper
+username: heesooooooooo
+repo: heesooooooooo.github.io #jasper
 branch: master
-relative_source: ../jasper/
-destination: ../jasper-pages/
-production_url:  https://jekyller.github.io/jasper/
-source_url:  https://github.com/jekyller/jasper/
+relative_source: ../heesooooooooo.github.io/ #../jasper/
+destination: ../_posts #../jasper-pages/ 빌드시 작업파일이 저장될 경로
+production_url: https://heesooooooooo.github.io/ #https://jekyller.github.io/jasper/
+source_url: https://github.com/heesooooooooo/heesooooooooo.github.io.git #https://github.com/jekyller/jasper/
 
 exclude:
   - README.md
