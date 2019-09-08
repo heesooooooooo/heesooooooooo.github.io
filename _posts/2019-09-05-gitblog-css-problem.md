@@ -4,10 +4,10 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법"
 date: 2019-09-05 20:50:00
-tags: github blog
-subclass: 'post tag-test tag-content'
+tags: fables
+subclass: 'post tag-fables'
 logo: 'assets/images/ghost.png'
-author: heesoo
+author: casper
 categories: casper
 ---
 Github 블로그를 fork하여 개설하는 과정에서 css가 깨지는 현상을 목격하였다. 메인 홈에서는 아무런 문제가 없었지만 다른 카테고리에서는 전부 css 적용이 안됐다ㅠ^ㅠ

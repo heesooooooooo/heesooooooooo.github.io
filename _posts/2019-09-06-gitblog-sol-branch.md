@@ -7,7 +7,7 @@ date: 2019-09-06 19:33:00
 tags: github blog
 subclass: 'post tag-test tag-content'
 logo: 'assets/images/ghost.png'
-author: heesoo
+author: casper
 categories: casper
 ---
 미루고 미루던 유저네임을 변경했다.
