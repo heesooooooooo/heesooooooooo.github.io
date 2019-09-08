@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>jekyller.github.io/jasper/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>수 정 중!</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법</title>
+	  <link>/blog//gitblog-css-problem</link>
+	  <author></author>
+	  <pubDate>2019-09-06T05:50:00+09:00</pubDate>
+	  <guid>/blog//gitblog-css-problem</guid>
+	  <description><![CDATA[
+	     <p>Github 블로그를 fork하여 개설하는 과정에서 css가 깨지는 현상을 목격하였다. 메인 홈에서는 아무런 문제가 없었지만 다른 카테고리에서는 전부 css 적용이 안됐다ㅠ^ㅠ</p>
+
+<p>원인: 기존의 작성된 경로와 fork를 딴 후 나의 경로는 다르기 때문에 파일 경로를 찾지 못해 오류가 발생한다.</p>
+
+<p>따라서 <strong>baseurl의 주소를 변경해야한다!</strong></p>
+
+<p>해결 방법:
+config.yml파일의 baseurl을 repo이름으로 바꾼다.
+나의 경우 baseurl:/blog/가 되는 것이다!</p>
+
+<p>그래도 잘 모르겠다면
+<a href="https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap">https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap</a>
+을 참고해보자^.^</p>
+
+<p>—-2019.09.06 추가—-
+보통 baseurl은 ““나 /를 통해 공백으로 두는 경우가 대부분인데, 나와 같이 repo의 이름으로 작성해야하는 경우는
+블로그가 프로젝트 주소 페이지로 생성되었기 때문이다.</p>
+
+<p>(나는 구글이 시키는 대로 했는데 언제 프로젝트로 생성된건지 모르겠다..)</p>
+
+<p><a href="https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/">https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/</a>
+를 참고하면 github블로그 주소 생성 방식이 USERNAME.github.io 형태나 USERNAME.github.io/repo 형태가 있다는 것을 확인할 수 있다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[알고리즘/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</title>
+	  <link>/blog//boj10951</link>
+	  <author></author>
+	  <pubDate>2019-08-08T06:36:00+09:00</pubDate>
+	  <guid>/blog//boj10951</guid>
+	  <description><![CDATA[
+	     <p>입력이 끝날 때까지 while문을 사용하고 싶다면 어떻게 해야할까?</p>
+
+<p><strong>Scanner의 hasNext()함수를 사용한다!</strong></p>
+
+<p>Scanner이 다음 토큰이 존재하는지 확인한 후 있다면 true를, 없다면 false를 리턴한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">think</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">;</span>
+
+		<span class="k">while</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+			<span class="n">a</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">b</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>			
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>첫 포스팅</title>
+	  <link>/blog//first-posting</link>
+	  <author></author>
+	  <pubDate>2019-06-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//first-posting</guid>
+	  <description><![CDATA[
+	     <p>6월 14일 첫 포스팅&amp;블로그 수정 중</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>The Businessman & the fisherman</title>
+	  <link>/blog//the-businessman-and-fisherman</link>
+	  <author></author>
+	  <pubDate>2014-08-12T19:18:00+09:00</pubDate>
+	  <guid>/blog//the-businessman-and-fisherman</guid>
+	  <description><![CDATA[
+	     <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.</p>
+
+<p>“How long did it take you to catch them?” the American asked.</p>
+
+<p>“Only a little while,” the Mexican replied in surprisingly good English.</p>
+
+<p>“Why don’t you stay out longer and catch more fish?” the American then asked.</p>
+
+<p>“I have enough to support my family and give a few to friends,” the Mexican said as he unloaded them into a basket.</p>
+
+<p>“But… What do you do with the rest of your time?”</p>
+
+<p>The Mexican looked up and smiled. “I sleep late, fish a little, play with my children, take a siesta with my wife, Julia, and stroll into the village each evening, where I sip wine and play guitar with my amigos. I have a full and busy life, señor.”</p>
+
+<p>The American laughed and stood tall. “Sir, I’m a Harvard M.B.A. and can help you. You should spend more time fishing, and with the proceeds, buy a bigger boat. In no time, you could buy several boats with the increased haul. Eventually, you would have a fleet of fishing boats.”</p>
+
+<p>He continued, “Instead of selling your catch to a middleman, you would sell directly to the consumers, eventually opening your own cannery. You would control the product, processing, and distribution. You would need to leave this small coastal fishing village, of course, and move to Mexico City, then to Los Angeles, and eventually to New York City, where you could run your expanded enterprise with proper management.</p>
+
+<p>The Mexican fisherman asked, “But, señor, how long will all this take?”</p>
+
+<p>To which the American replied, “15-20 years, 25 tops.”</p>
+
+<p>“But what then, señor?”</p>
+
+<p>The American laughed and said, “That’s the best part. When the time is right, you would announce an IPO and sell your company stock to the public and become very rich. You would make millions.”</p>
+
+<p>“Millions señor? Then what?”</p>
+
+<p>“Then you would retire and move to a small coastal fishing village, where you would sleep late, fish a little, play with your kids, take a siesta with your wife, and stroll in to the village in the evenings where you could sip wine and play your guitar with your amigos.”</p>
+
+<p>Adapted from the “Anekdote zur Senkung der Arbeitsmoral” by <strong>Heinrich Böll</strong></p>
+
+<p>An influential German write and Nobel Prize for Literature in 1972.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Gettysburg Address</title>
+	  <link>/blog//gettysburg-address</link>
+	  <author></author>
+	  <pubDate>1863-11-19T19:18:00+09:00</pubDate>
+	  <guid>/blog//gettysburg-address</guid>
+	  <description><![CDATA[
+	     <p>Fourscore and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.</p>
+
+<p>Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.</p>
+
+<p>But, in a larger sense, we can not dedicate-we can not consecrate-we can not hallow-this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us-that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion-that we here highly resolve that these dead shall not have died in vain-that this nation, under God, shall have a new birth of freedom-and that government of the people, by the people, for the people shall not perish from the earth.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

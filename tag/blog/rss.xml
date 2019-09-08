@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>jekyller.github.io/jasper/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>수 정 중!</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크</title>
+	  <link>/blog//gitblog-sol-branch</link>
+	  <author></author>
+	  <pubDate>2019-09-07T04:33:00+09:00</pubDate>
+	  <guid>/blog//gitblog-sol-branch</guid>
+	  <description><![CDATA[
+	     <p>미루고 미루던 유저네임을 변경했다.</p>
+
+<p>덕분에 블로그 css가 또 망가졌다. <del>나 광광울어</del></p>
+
+<p>F12로 블로그를 체크해보니 경로주소가 자꾸 이상한 곳을 가리키고 <del>난 분명히 baseurl 바꿨는데</del> config.yml에 정보를 가져다 쓰지 않고 갓 fork할 때 본 초기 블로그 모습을 보여줬다.</p>
+
+<p>몇 시간의 구글링 결과 branch가 잘못되었음을 확인하였다.</p>
+
+<p>프로젝트 주소 페이지의 경우(USERNAME.github.io/repo) push할 때 gh-page 브랜치를 이용해야한다.
+<del>왜때문인지는 이해하지 못했다. 그리고 유저네임 바꾸기 전에는 master로 잘 해왔는데 이제와서 안되는 것도 이상하다.</del></p>
+
+<p>아무튼 <span style="color:red">해결 방법</span>은 너무 간단해서 화가 났다^.^</p>
+
+<p><strong>setting에서 브랜치를 마스터로만 바꿔주면 된다!</strong></p>
+
+<p><img src="./assets/images/190906_1.png" alt="190906_1" />
+레파지토리의 setting을 클릭 후</p>
+
+<p><img src="./assets/images/190906_2.png" alt="190906_2" />
+아래로 스크롤을 내려서 gh-pages branch를 master로 바꿔주면 된다.</p>
+
+<p>후…이제 css깨지는 건 해결했고 카테고리가 왜 안되는지 찾아야한다. 아무것도 건드린게 없는데 왜 404인지 정말 모르겠다. 울고 싶다…</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Github블로그] 제발</title>
+	  <link>/blog//gitblog-sol-branch2</link>
+	  <author></author>
+	  <pubDate>2019-09-07T04:33:00+09:00</pubDate>
+	  <guid>/blog//gitblog-sol-branch2</guid>
+	  <description><![CDATA[
+	     <p>젯 발</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
