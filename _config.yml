@@ -10,7 +10,7 @@ language: 'utf-8'
 name: '...Developing...'
 description: "수 정 중!"
 
-short_url: 'jekyller.github.io/jasper/'
+short_url: 'iamheesoo.github.io/blog/'
 google_analytics: UA-69281367-1
 disqus: username
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)

@@ -1,3 +1,11 @@
+heesoo:
+  username: heesoo
+  name: HEESOO
+  location: South Korea
+  url_full: http://iamheesoo.github.io/blog/
+  url: iamheesoo.github.io/blog
+  bio: Hello
+  assets: assets/images/casper.png
 casper:
   username: casper
   name: Casper McFadden
