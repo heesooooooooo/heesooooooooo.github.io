@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>수 정 중!</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크</title>
+	  <link>/blog//gitblog-sol-branch</link>
+	  <author></author>
+	  <pubDate>2019-09-07T04:33:00+09:00</pubDate>
+	  <guid>/blog//gitblog-sol-branch</guid>
+	  <description><![CDATA[
+	     <p>미루고 미루던 유저네임을 변경했다.</p>
+
+<p>덕분에 블로그 css가 또 망가졌다. <del>나 광광울어</del></p>
+
+<p>F12로 블로그를 체크해보니 경로주소가 자꾸 이상한 곳을 가리키고 난 분명히 baseurl 바꿨는데 config.yml에 정보를 가져다 쓰지 않고 갓 fork할 때 본 초기 블로그 모습을 보여줬다.</p>
+
+<p>몇 시간의 구글링 결과 branch가 잘못되었음을 확인하였다.</p>
+
+<p>프로젝트 주소 페이지의 경우(USERNAME.github.io/repo) push할 때 gh-page 브랜치를 이용해야한다.
+<del>왜때문인지는 이해하지 못했다. 그리고 유저네임 바꾸기 전에는 master로 잘 해왔는데 이제와서 안되는 것도 이상하다.</del></p>
+
+<p>아무튼 해결 방법은 너무 간단해서 화가 났다^.^</p>
+
+<p><strong>setting에서 브랜치를 마스터로만 바꿔주면 된다!</strong></p>
+
+<p><img src="./assets/images/190906_1.png" alt="setting" />
+레파지토리의 setting을 클릭 후</p>
+
+<p><img src="./assets/images/190906_2.png" alt="branch" />
+아래로 스크롤을 내려서 gh-pages branch를 master로 바꿔주면 된다.</p>
+
+<p>후…이제 css깨지는 건 해결했고 카테고리가 왜 안되는지 찾아야한다. 아무것도 건드린게 없는데 왜 404인지 정말 모르겠다. 울고 싶다…</p>
+
+<p><span style="color:red">2019.09.09 추가</span>
+웬만하면 프로젝트형 주소를 사용할 경우 gh-pages를 쓰자.
+필수는 아니지만 암묵적인 룰인듯?
+내 블로그의 경우 md형 포스트는 master에, jekyll로 실행한 후의 결과물은 gh-pages에 올려서 블로그를 운영하기로 결정했다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법</title>
+	  <link>/blog//gitblog-css-problem</link>
+	  <author></author>
+	  <pubDate>2019-09-06T05:50:00+09:00</pubDate>
+	  <guid>/blog//gitblog-css-problem</guid>
+	  <description><![CDATA[
+	     <p>Github 블로그를 fork하여 개설하는 과정에서 css가 깨지는 현상을 목격하였다. 메인 홈에서는 아무런 문제가 없었지만 다른 카테고리에서는 전부 css 적용이 안됐다ㅠ^ㅠ</p>
+
+<p>원인: 기존의 작성된 경로와 fork를 딴 후 나의 경로는 다르기 때문에 파일 경로를 찾지 못해 오류가 발생한다.</p>
+
+<p>따라서 <strong>baseurl의 주소를 변경해야한다!</strong></p>
+
+<p>해결 방법:
+config.yml파일의 baseurl을 repo이름으로 바꾼다.
+나의 경우 baseurl:/blog/가 되는 것이다!</p>
+
+<p>그래도 잘 모르겠다면
+<a href="https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap">https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap</a>
+을 참고해보자^.^</p>
+
+<p>—-2019.09.06 추가—-
+보통 baseurl은 ““나 /를 통해 공백으로 두는 경우가 대부분인데, 나와 같이 repo의 이름으로 작성해야하는 경우는
+블로그가 프로젝트 주소 페이지로 생성되었기 때문이다.</p>
+
+<p>(나는 구글이 시키는 대로 했는데 언제 프로젝트로 생성된건지 모르겠다..)</p>
+
+<p><a href="https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/">https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/</a>
+를 참고하면 github블로그 주소 생성 방식이 USERNAME.github.io 형태나 USERNAME.github.io/repo 형태가 있다는 것을 확인할 수 있다.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
