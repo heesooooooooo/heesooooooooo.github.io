@@ -26,12 +26,7 @@
    0. normalize.css v3.0.3 | MIT License | git.io/normalize | (minified)
    ========================================================================== */
 
-/* 폰트 설정 font-family에 'NanumGothic'사용
-@font-face { font-family: 'NanumGothic';
-src: url('/fonts/NanumGothic.eot');
-src: url('/fonts/NanumGothic.eot') format('embedded-opentype'),
-url('/fonts/NanumGothic.woff') format('woff');}
-*/
+
 html {
     font-family:sans-serif;
     -ms-text-size-adjust: 100%;
@@ -120,6 +115,14 @@ td, th{ padding: 0; }
     font-weight: normal;
     font-style: normal;
 }
+/* 폰트 설정 font-family에 'NanumGothic'사용
+@font-face {
+   font-family: 'NanumGothic';
+   src: url('../fonts/NanumGothic.eot?v=1');
+   src: url('../fonts/NanumGothic.eot?v=1#iefix') format('embedded-opentype'),
+        url('../fonts/NanumGothic.woff?v=1') format('woff');
+}*/
+
 
 /* Apply these base styles to all icons */
 [class^="icon-"]:before, [class*=" icon-"]:before {

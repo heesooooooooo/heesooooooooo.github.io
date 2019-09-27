@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법</title>
+    <title>[Github블로그] 카테고리 404에러 Jekyll로 해결하기</title>
     <meta name="description" content="수 정 중!" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//gitblog-css-problem" />
+        <link rel="canonical" href="http://localhost:4000/blog//gitblog-sol-jekyll" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법" />
+    <meta property="og:title" content="[Github블로그] 카테고리 404에러 Jekyll로 해결하기" />
     <meta property="og:description" content="수 정 중!" />
-    <meta property="og:url" content="http://localhost:4000/blog//gitblog-css-problem" />
+    <meta property="og:url" content="http://localhost:4000/blog//gitblog-sol-jekyll" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법" />
+    <meta name="twitter:title" content="[Github블로그] 카테고리 404에러 Jekyll로 해결하기" />
     <meta name="twitter:description" content="수 정 중!" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//gitblog-css-problem" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//gitblog-sol-jekyll" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법",
-    "url": "http://localhost:4000/blog//gitblog-css-problem",
+    "name": "[Github블로그] 카테고리 404에러 Jekyll로 해결하기",
+    "url": "http://localhost:4000/blog//gitblog-sol-jekyll",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "수 정 중!"
 }
@@ -121,7 +121,7 @@
     <article class="post tag-git">
 
         <header class="post-header">
-            <h1 class="post-title">[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법</h1>
+            <h1 class="post-title">[Github블로그] 카테고리 404에러 Jekyll로 해결하기</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -140,7 +140,7 @@
             
                 
             
-            <time class="post-date" datetime="2019-09-06">06 Sep 2019</time>
+            <time class="post-date" datetime="2019-09-10">10 Sep 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -154,7 +154,7 @@
                     
                 
                     
-                       <a href='/blog/tag/error'>Error</a>
+                       <a href='/blog/tag/jekyll'>Jekyll</a>
                     
                 
                 
@@ -163,28 +163,46 @@
 
         <section class="post-content">
 
-            <p>Github 블로그를 fork하여 개설하는 과정에서 css가 깨지는 현상을 목격하였다. 메인 홈에서는 아무런 문제가 없었지만 다른 카테고리에서는 전부 css 적용이 안됐다ㅠ^ㅠ</p>
+            <p>내 블로그 테마는 <a href="https://github.com/jekyller/jasper">https://github.com/jekyller/jasper</a>를 사용하였다.</p>
 
-<p>원인: 기존의 작성된 경로와 fork를 딴 후 나의 경로는 다르기 때문에 파일 경로를 찾지 못해 오류가 발생한다.</p>
+<p>근데 나처럼 home과 about을 제외한 카테고리 클릭 시 404가 발생하는 사람들이 많았나보다. 이슈에까지 등록되었으니..</p>
 
-<p>따라서 <strong>baseurl의 주소를 변경해야한다!</strong></p>
+<p>일단 404의 에러가 코드의 문제는 아니었기 때문에(포크따온 그대로여서 틀렸을 리 없었다) 안되는 경우의 수를 모두 생각했다.</p>
 
-<p>해결 방법:
-config.yml파일의 baseurl을 repo이름으로 바꾼다.
-나의 경우 baseurl:/blog/가 되는 것이다!</p>
+<p><span style="color:purple">༼;´༎ຶ ۝ ༎ຶ༽<del>여기서부터 개발의 울화통 터지기 시작</del></span></p>
 
-<p>그래도 잘 모르겠다면
-<a href="https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap">https://stackoverflow.com/questions/25466166/stylesheets-not-working-for-jekyll-theme-freelancer-bootstrap</a>
-을 참고해보자^.^</p>
+<p>내가 생각한 안되는 이유는 gh-pages로 push하지 않아서가 아닐까 했는데 역시나 이건 아니었고~!</p>
 
-<p>—-2019.09.06 추가—-
-보통 baseurl은 ““나 /를 통해 공백으로 두는 경우가 대부분인데, 나와 같이 repo의 이름으로 작성해야하는 경우는
-블로그가 프로젝트 주소 페이지로 생성되었기 때문이다.</p>
+<p>결론은 jekyll을 사용하지 않아서였다.
+다른 테마는 어떤지 모르겠지만 내 것은 보안상의 이유로 Github가 plugins 폴더를 읽지 않아서 이런 오류가 발생하였다.
+그리고 이 설명은 테마 개발자의 README.md에 자세히 적혀 있었다.</p>
 
-<p>(나는 구글이 시키는 대로 했는데 언제 프로젝트로 생성된건지 모르겠다..)</p>
+<h3 id="해결-방법"><span style="color:blue">해결 방법</span></h3>
 
-<p><a href="https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/">https://nolboo.kim/blog/2013/10/15/free-blog-with-github-jekyll/</a>
-를 참고하면 github블로그 주소 생성 방식이 USERNAME.github.io 형태나 USERNAME.github.io/repo 형태가 있다는 것을 확인할 수 있다.</p>
+<ol>
+  <li>ruby를 다운받는다.</li>
+</ol>
+<p><a href="https://rubyinstaller.org/downloads/">https://rubyinstaller.org/downloads/</a></p>
+
+<ol>
+  <li>ruby 프롬프트 창을 열고
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span> <span class="n">bundler</span>
+</code></pre></div>    </div>
+    <p>을 입력하면 jekyll이 다운받아진다.</p>
+  </li>
+  <li>이제 블로그 파일들이 있는 곳에서 cmd창을 연 후, <code class="highlighter-rouge">bundle exec jekyll serve</code>를 입력한다.</li>
+</ol>
+
+<p><img src="./assets/images/190909_1.png" alt="명령실행" /></p>
+
+<p>Server address를 열면 실행되는 블로그를 확인할 수 있다. 이때 jekyll serve를 실행하면서 나온 파일들은 Destination의 위치에 저장된다(해당 위치는 config.yml에서 변경할 수 있다).
+나의 경우 작성한 새 포스트들은 master에, jekyll을 실행한 후의 파일들은 gh-pages에 push하여 블로그를 업로드한다.</p>
+
+<h1 id="해결-완료">해결 완료!</h1>
+
+<p>jekyll을 사용하기 이전에는 push한 후에만 갱신된 블로그를 볼 수 있어서 불편했는데, 이제는 로컬 호스트로 블로그를 확인한 후 최종을 github에 올릴 수 있게 됐다!</p>
+
+<p>결론은.. 남의 코드를 쓸 때는 README.md를 잘 읽어보자T.T</p>
 
 
         </section>
@@ -217,15 +235,15 @@ config.yml파일의 baseurl을 repo이름으로 바꾼다.
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법&amp;url=http://localhost:4000gitblog-css-problem"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[Github블로그] 카테고리 404에러 Jekyll로 해결하기&amp;url=http://localhost:4000gitblog-sol-jekyll"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000gitblog-css-problem"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000gitblog-sol-jekyll"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000gitblog-css-problem"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000gitblog-sol-jekyll"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -256,20 +274,20 @@ config.yml파일의 baseurl을 repo이름으로 바꾼다.
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/gitblog-sol-branch">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog01">
             <section class="post">
-                <h2>[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크</h2>
-                <p>미루고 미루던 유저네임을 변경했다. 덕분에 블로그 css가 또 망가졌다. ~~나 광광울어~~ F12로 블로그를 체크해보니 경로주소가...</p>
+                <h2>[JAVA/프로그래머스] 해시_완주하지 못한 선수: 링크드리스트와 해시의 효율성 차이</h2>
+                <p>## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. 전체 마라톤 선수 participant를...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cloud.jpg)" href="/blog/boj10951">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/gitblog-sol-branch">
             <section class="post">
-                <h2>[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</h2>
-                <p>입력이 끝날 때까지 while문을 사용하고 싶다면 어떻게 해야할까? Scanner의 hasNext()함수를 사용한다! Scanner이 다음 토큰이 존재하는지...</p>
+                <h2>[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크</h2>
+                <p>미루고 미루던 유저네임을 변경했다. 덕분에 블로그 css가 또 망가졌다. 나 광광울어 F12로 블로그를 체크해보니 경로주소가...</p>
             </section>
         </a>
     

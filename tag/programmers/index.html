@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Author</title>
+    <title>...Developing...</title>
     <meta name="description" content="수 정 중!" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//author/java/" />
+        <link rel="canonical" href="http://localhost:4000/blog//tag/programmers/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Author" />
+    <meta property="og:title" content="...Developing..." />
     <meta property="og:description" content="수 정 중!" />
-    <meta property="og:url" content="http://localhost:4000/blog//author/java/" />
-    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//tag/programmers/" />
+    <meta property="og:image" content="/blog/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Author" />
+    <meta name="twitter:title" content="...Developing..." />
     <meta name="twitter:description" content="수 정 중!" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//author/java/" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//tag/programmers/" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "Author",
-    "url": "http://localhost:4000/blog//author/java/",
-    "image": "/blog/assets/images/cover4.jpg",
+    "name": "...Developing...",
+    "url": "http://localhost:4000/blog//tag/programmers/",
+    "image": "/blog/assets/images/cover2.jpg",
     "description": "수 정 중!"
 }
     </script>
@@ -62,7 +62,7 @@
 
 
 </head>
-<body class="author-template nav-closed">
+<body class="tag-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -74,10 +74,10 @@
       <!-- home, boj, etc-->
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
-        <li class="nav-java  nav-current" role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
         <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
-        <li class="nav-gitblog " role="presentation"><a href="/blog/tag/gitblog">Github Blog</a></li>
         <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
         <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
         <!--
@@ -99,52 +99,44 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default}} -->
+        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header -->
-
-<!-- Everything inside the #author tags pulls data from the author -->
-<!-- #author  -->
-    <header class="main-header author-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
-            
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            
-        </nav>
-    </header>
-
-    <section class="author-profile inner">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/blog/assets/images/cover2.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
-            
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Programmers</h1>
+            <h2 class="page-description">
             
-        
+			    A 1-post collection
             
-        
-            
-        
-            
-        
-            
-        
-    </section>
-<!-- /author -->
+            </h2>
+        </div>
+    </div>
+</header>
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs  -->
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
             <nav class="pagination" role="pagination">
     
     <span class="page-number"> Page 1 of 1 </span>
-    
+     
 </nav>
-
         
     </div>
 
@@ -152,10 +144,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/boj10951">[알고리즘/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</a></h2>
+            <h2 class="post-title"><a href="/blog/algo-prog01">[JAVA/프로그래머스] 해시_완주하지 못한 선수: 링크드리스트와 해시의 효율성 차이</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>입력이 끝날 때까지 while문을 사용하고 싶다면 어떻게 해야할까? Scanner의 hasNext()함수를 사용한다! Scanner이 다음 토큰이 존재하는지 확인한 후 있다면 true를, 없다면 false를 리턴한다. package think; import java.util.Scanner;... <a class="read-more" href="/blog/boj10951">&raquo;</a></p>
+            <p>( ᐛ )و 첫 번째 도전 1. 설계 전체 마라톤 선수 participant를 링크드리스트에 저장한다. 완주한 선수들의 배열 completion을 처음부터 순회하며 링크드리스트에 동일한 값을 삭제한다. 마지막 남은... <a class="read-more" href="/blog/algo-prog01">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -183,19 +175,15 @@
                 on
                 
                     
-                       <a href='/blog/tag/java'>Java</a>,
-                    
-                
-                    
                        <a href='/blog/tag/algorithm'>Algorithm</a>,
                     
                 
                     
-                       <a href='/blog/tag/boj'>Boj</a>
+                       <a href='/blog/tag/programmers'>Programmers</a>
                     
                 
             
-            <time class="post-date" datetime="2019-08-08">08 Aug 2019</time>
+            <time class="post-date" datetime="2019-09-25">25 Sep 2019</time>
         </footer>
     </article>
     
@@ -205,9 +193,8 @@
         <nav class="pagination" role="pagination">
     
     <span class="page-number"> Page 1 of 1 </span>
-    
+     
 </nav>
-
     
 
 

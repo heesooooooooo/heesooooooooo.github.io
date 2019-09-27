@@ -12,7 +12,7 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>[알고리즘/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</title>
+	  <title>[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</title>
 	  <link>/blog//boj10951</link>
 	  <author></author>
 	  <pubDate>2019-08-08T06:36:00+09:00</pubDate>
