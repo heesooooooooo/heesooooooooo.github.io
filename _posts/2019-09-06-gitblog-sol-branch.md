@@ -4,11 +4,11 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크"
 date: 2019-09-06 19:33:00
-tags: gitblog error
-subclass: 'post tag-gitblog'
+tags: git gitblog error
+subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
 author: heesoo
-categories: gitblog
+categories: git
 ---
 미루고 미루던 유저네임을 변경했다.
 

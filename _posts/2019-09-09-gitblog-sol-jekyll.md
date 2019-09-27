@@ -4,11 +4,11 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 카테고리 404에러 Jekyll로 해결하기"
 date: 2019-09-09 22:32:00
-tags: gitblog jekyll
-subclass: 'post tag-gitblog'
+tags: git gitblog jekyll
+subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
 author: heesoo
-categories: gitblog
+categories: git
 ---
 내 블로그 테마는 <https://github.com/jekyller/jasper>를 사용하였다.
 
