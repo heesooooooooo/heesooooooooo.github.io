@@ -2,9 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>...Developing... - Articles</title>
-    <description>수 정 중!</description>
+    <description>(◍•ᴗ•◍)</description>
     <link>
     http://localhost:4000</link>
+    
+      
+      <item>
+        <title>[Github블로그] 마크다운 코드 블록 폰트, 색상 변경</title>
+        
+          <description>&lt;h2 id=&quot;이전-코드-블록&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;이전 코드 블록&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./assets/images/190930_2.png&quot; alt=&quot;캡처&quot; /&gt;
+…할많하않&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 01 Oct 2019 07:46:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/gitblog-css-code</link>
+        <guid isPermaLink="true">http://localhost:4000/gitblog-css-code</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 해시_위장: 종류별로 카운트하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42578&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42578&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 01 Oct 2019 06:09:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42578</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42578</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이</title>
+        
+          <description>&lt;h2 id=&quot;-ᐛ-و-첫-번째-도전&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;( ᐛ )و 첫 번째 도전&lt;/span&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sat, 28 Sep 2019 03:22:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42577</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42577</guid>
+      </item>
+      
     
       
       <item>
@@ -16,8 +64,8 @@
         
         <pubDate>Wed, 25 Sep 2019 06:26:00 +0900</pubDate>
         <link>
-        http://localhost:4000/algo-prog01</link>
-        <guid isPermaLink="true">http://localhost:4000/algo-prog01</guid>
+        http://localhost:4000/algo-prog42576</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42576</guid>
       </item>
       
     

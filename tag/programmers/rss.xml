@@ -6,17 +6,163 @@
       <title>iamheesoo.github.io/blog/</title>
    
    <link>http://localhost:4000</link>
-   <description>수 정 중!</description>
+   <description>(◍•ᴗ•◍)</description>
    <language>utf-8</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 해시_위장: 종류별로 카운트하기</title>
+	  <link>/blog//algo-prog42578</link>
+	  <author></author>
+	  <pubDate>2019-10-01T06:09:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42578</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42578">https://programmers.co.kr/learn/courses/30/lessons/42578</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계"><span style="color:purple">1. 설계</span></h3>
+<ol>
+  <li>key는 의상의 종류(clothes[i][1]), value는 종류의 갯수를 가지는 해쉬맵을 선언한다.</li>
+  <li>(의상종류A+1)x(B+1)x…x(N+1)-1이 answer이다.
+이때 각 종류에 +1은 해당 의상 종류를 선택하지 않는 경우(null)이며, 마지막 -1은 모든 종류가 없는 경우(null)이다.</li>
+</ol>
+
+<h3 id="2-구현"><span style="color:purple">2. 구현</span></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[][]</span> <span class="n">clothes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">temp</span><span class="o">;</span>
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">clothes</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">if</span><span class="o">(!</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">clothes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">])){</span>
+                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">clothes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span><span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">temp</span><span class="o">=</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">clothes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+                <span class="n">map</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="n">clothes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span><span class="n">temp</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">key:</span><span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">()){</span>
+            <span class="n">answer</span><span class="o">*=</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)+</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">--;</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과"><span style="color:purple">3. 결과</span></h3>
+<p><img src="./assets/images/190930_1.png" alt="실행결과" />
+<span style="color:purple">성공٩(˘◊˘)۶</span></p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<p>map의 값을 변경할 때 replace를 사용하였는데, put 역시 replace와 같은 기능을 한다는 것을 기억해두자!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이</title>
+	  <link>/blog//algo-prog42577</link>
+	  <author></author>
+	  <pubDate>2019-09-28T03:22:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42577</guid>
+	  <description><![CDATA[
+	     <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계"><span style="color:purple">1. 설계</span></h3>
+<ol>
+  <li>이중 for문을 사용하여 배열 phone_book의 원소를 두 개씩 비교한다.</li>
+  <li>String 라이브러리의 startsWith메소드로 원소 i가 j의 접두사인지 확인한다.</li>
+</ol>
+
+<h3 id="2-구현"><span style="color:purple">2. 구현</span></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">phone_book</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과"><span style="color:purple">3. 결과</span></h3>
+<p><img src="./assets/images/190927_1.png" alt="실행결과" />
+테스트 8, 9에서 실패하였다.</p>
+
+<h3 id="4-문제점"><span style="color:purple">4. 문제점</span></h3>
+<p>phone_book=[“98765”,…,”98”]일 때, 위 코드를 실행했을 경우 마지막 원소 “98”이 0번째 원소인 “98765”의 접두사임을 찾지 못한다.
+따라서 배열을 길이에 따라 오름차순으로 정렬한 후 if문을 체크해야한다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1"><span style="color:purple">1. 설계</span></h3>
+<ol>
+  <li>phone_book을 sort한다.</li>
+  <li>이중 for문으로 접두사인지 체크한다.</li>
+</ol>
+
+<h3 id="2-구현-1"><span style="color:purple">2. 구현</span></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">phone_book</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">phone_book</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과-1"><span style="color:purple">3. 결과</span></h3>
+<p><img src="./assets/images/190927_2.png" alt="실행결과" />
+<span style="color:purple">성공٩(˘◊˘)۶</span></p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<p>문제가 해시 카테고리에 있는데도 구글링한 결과 해시로 푼 사람은 한명밖에 찾지 못했다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 해시_완주하지 못한 선수: 링크드리스트와 해시의 효율성 차이</title>
-	  <link>/blog//algo-prog01</link>
+	  <link>/blog//algo-prog42576</link>
 	  <author></author>
 	  <pubDate>2019-09-25T06:26:00+09:00</pubDate>
-	  <guid>/blog//algo-prog01</guid>
+	  <guid>/blog//algo-prog42576</guid>
 	  <description><![CDATA[
 	     <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 

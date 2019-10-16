@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</title>
+    <title>[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//boj10951" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42577" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//boj10951" />
-    <meta property="og:image" content="/blog/assets/images/cloud.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42577" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//boj10951" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cloud.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42577" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?",
-    "url": "http://localhost:4000/blog//boj10951",
-    "image": "/blog/assets/images/cloud.jpg",
+    "name": "[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이",
+    "url": "http://localhost:4000/blog//algo-prog42577",
+    "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
     </script>
@@ -74,7 +74,7 @@
       <!-- home, boj, etc-->
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
-        <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
         <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
         <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
@@ -107,7 +107,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/blog/assets/images/cloud.jpg) ">
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -121,7 +121,7 @@
     <article class="post tag-algorithm">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</h1>
+            <h1 class="post-title">[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -140,7 +140,7 @@
             
                 
             
-            <time class="post-date" datetime="2019-08-08">08 Aug 2019</time>
+            <time class="post-date" datetime="2019-09-28">28 Sep 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -150,7 +150,7 @@
                     
                 
                     
-                       <a href='/blog/tag/boj'>Boj</a>
+                       <a href='/blog/tag/programmers'>Programmers</a>
                     
                 
                 
@@ -159,34 +159,81 @@
 
         <section class="post-content">
 
-            <p>입력이 끝날 때까지 while문을 사용하고 싶다면 어떻게 해야할까?</p>
+            <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 
-<p><strong>Scanner의 hasNext()함수를 사용한다!</strong></p>
+<h3 id="1-설계"><span style="color:purple">1. 설계</span></h3>
+<ol>
+  <li>이중 for문을 사용하여 배열 phone_book의 원소를 두 개씩 비교한다.</li>
+  <li>String 라이브러리의 startsWith메소드로 원소 i가 j의 접두사인지 확인한다.</li>
+</ol>
 
-<p>Scanner이 다음 토큰이 존재하는지 확인한 후 있다면 true를, 없다면 false를 리턴한다.</p>
+<h3 id="2-구현"><span style="color:purple">2. 구현</span></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">phone_book</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">think</span><span class="o">;</span>
+<h3 id="3-결과"><span style="color:purple">3. 결과</span></h3>
+<p><img src="./assets/images/190927_1.png" alt="실행결과" />
+테스트 8, 9에서 실패하였다.</p>
 
-<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<h3 id="4-문제점"><span style="color:purple">4. 문제점</span></h3>
+<p>phone_book=[“98765”,…,”98”]일 때, 위 코드를 실행했을 경우 마지막 원소 “98”이 0번째 원소인 “98765”의 접두사임을 찾지 못한다.
+따라서 배열을 길이에 따라 오름차순으로 정렬한 후 if문을 체크해야한다.</p>
 
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1"><span style="color:purple">1. 설계</span></h3>
+<ol>
+  <li>phone_book을 sort한다.</li>
+  <li>이중 for문으로 접두사인지 체크한다.</li>
+</ol>
+
+<h3 id="2-구현-1"><span style="color:purple">2. 구현</span></h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
  *
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-		<span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">;</span>
-
-		<span class="k">while</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
-			<span class="n">a</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">b</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">);</span>			
-		<span class="o">}</span>
-	<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">phone_book</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">phone_book</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">phone_book</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">startsWith</span><span class="o">(</span><span class="n">phone_book</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<h3 id="3-결과-1"><span style="color:purple">3. 결과</span></h3>
+<p><img src="./assets/images/190927_2.png" alt="실행결과" />
+<span style="color:purple">성공٩(˘◊˘)۶</span></p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<p>문제가 해시 카테고리에 있는데도 구글링한 결과 해시로 푼 사람은 한명밖에 찾지 못했다.</p>
 
 
         </section>
@@ -219,15 +266,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?&amp;url=http://localhost:4000boj10951"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 해시_전화번호 목록: 링크드리스트와 해시의 효율성 차이&amp;url=http://localhost:4000algo-prog42577"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000boj10951"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42577"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000boj10951"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42577"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -258,21 +305,20 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/gitblog-css-problem">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42578">
             <section class="post">
-                <h2>[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법</h2>
-                <p>Github 블로그를 fork하여 개설하는 과정에서 css가 깨지는 현상을 목격하였다. 메인 홈에서는 아무런 문제가 없었지만 다른...</p>
+                <h2>[JAVA/프로그래머스] 해시_위장: 종류별로 카운트하기</h2>
+                <p>## 문제 ## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. key는 의상의...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cloud.jpg)" href="/blog/first-posting">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42576">
             <section class="post">
-                <h2>첫 포스팅</h2>
-                <p>6월 14일 첫 포스팅&amp;블로그 수정 중
-</p>
+                <h2>[JAVA/프로그래머스] 해시_완주하지 못한 선수: 링크드리스트와 해시의 효율성 차이</h2>
+                <p>( ᐛ )و 첫 번째 도전 1. 설계 전체 마라톤 선수 participant를 링크드리스트에 저장한다. 완주한...</p>
             </section>
         </a>
     
