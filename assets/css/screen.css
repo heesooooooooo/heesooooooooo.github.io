@@ -115,14 +115,24 @@ td, th{ padding: 0; }
     font-weight: normal;
     font-style: normal;
 }
-/* 폰트 설정 font-family에 'NanumGothic'사용
 @font-face {
-   font-family: 'NanumGothic';
-   src: url('../fonts/NanumGothic.eot?v=1');
-   src: url('../fonts/NanumGothic.eot?v=1#iefix') format('embedded-opentype'),
-        url('../fonts/NanumGothic.woff?v=1') format('woff');
-}*/
-
+   font-family: 'NanumBarunGothic';
+   src: url('../fonts/NanumBarunGothic.eot?v=2');
+   src: url('../fonts/NanumBarunGothic.eot?v=2#iefix') format('embedded-opentype'),
+        url('../fonts/NanumBarunGothic.woff?v=2') format('woff'),
+        url('../fonts/NanumBarunGothic.ttf?v=2') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+@font-face {
+   font-family: 'NanumBarunGothicBold';
+   src: url('../fonts/NanumBarunGothicBold.eot?v=3');
+   src: url('../fonts/NanumBarunGothicBold.eot?v=3#iefix') format('embedded-opentype'),
+        url('../fonts/NanumBarunGothicBold.woff?v=3') format('woff'),
+        url('../fonts/NanumBarunGothicBold.ttf?v=3') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
 
 /* Apply these base styles to all icons */
 [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -193,11 +203,12 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: "Merriweather", serif;
+    font-family: "NanumBarunGothic","Merriweather", serif;
     letter-spacing: 0.01rem;
     font-size: 1.8rem;
     line-height: 1.75em;
-    color: #3A4145;
+    color: #3A4145;/*글씨 색깔*/
+    background: black;
     -webkit-font-feature-settings: 'kern' 1;
     -moz-font-feature-settings: 'kern' 1;
     -o-font-feature-settings: 'kern' 1;
@@ -220,7 +231,7 @@ h4, h5, h6 {
     color: #2E2E2E;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
-    font-family:  "Open Sans", sans-serif;
+    font-family:  "NanumBarunGothicBold","Open Sans", sans-serif;
     text-rendering: geometricPrecision;
 }
 
@@ -349,13 +360,13 @@ mark {
     background-color: #fdffb6;
 }
 
-code, tt {
+code, tt {/*^^*/
     padding: 1px 3px;
-    font-family:  Inconsolata, monospace, sans-serif;
+    font-family:  Consolas, Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
     border: #E3EDF3 1px solid;
-    background: #F7FAFB;
+    background-color: #F7FAFB;
     border-radius: 2px;
     -webkit-font-feature-settings: "liga" 0;
     -moz-font-feature-settings: "liga" 0;
@@ -380,7 +391,7 @@ pre {
 pre code, pre tt {
     font-size: inherit;
     white-space: pre-wrap;
-    background: transparent;
+    background: black;/*transparent;*/
     border: none;
     padding: 0;
 }
@@ -967,7 +978,7 @@ body.nav-opened .nav {
     font-size: 2rem;
     line-height: 1.5em;
     font-weight: 400;
-    font-family: "Merriweather", serif;
+    font-family: "NanumBarunGothic", "Merriweather", serif;
     letter-spacing: 0.01rem;
     color: rgba(255,255,255,0.8);
 }
@@ -1410,7 +1421,7 @@ body.page-template .post-title {
 /* Location, website, and link */
 .author-profile .author-meta {
     margin: 2rem 0;
-    font-family: "Merriweather", serif;
+    font-family: "NanumBarunGothic", "Merriweather", serif;
     letter-spacing: 0.01rem;
     font-size: 1.7rem;
 }
