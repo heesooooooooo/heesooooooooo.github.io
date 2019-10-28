@@ -42,6 +42,11 @@ audio, canvas, progress, video {
     display: inline-block;
     vertical-align: baseline;
 }
+/*내가 추가함, 포스팅의 article 부분
+article{
+  background-color: red;
+}
+*/
 audio:not([controls]) { display: none; height: 0; }
 [hidden], template { display: none; }
 a { background-color: transparent;}
@@ -264,12 +269,12 @@ h6 {
 }
 
 a {
-    color: #4A4A4A;
+    color: #4A4A4A; /*메인화면 포스팅 제목 색깔*/
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #111;
+    color: #111; /*메인화면 포스팅 제목에 커서댔을 때 색깔*/
 }
 
 p, ul, ol, dl {
