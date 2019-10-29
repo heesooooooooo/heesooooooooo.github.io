@@ -25,10 +25,10 @@ F12로 블로그를 체크해보니 경로주소가 자꾸 이상한 곳을 가�
 
 **setting에서 브랜치를 마스터로만 바꿔주면 된다!**
 
-![setting](./assets/images/190906_1.png)
+![setting](./assets/images/190906_1.PNG)
 레파지토리의 setting을 클릭 후
 
-![branch](./assets/images/190906_2.png)
+![branch](./assets/images/190906_2.PNG)
 아래로 스크롤을 내려서 gh-pages branch를 master로 바꿔주면 된다.
 
 후...이제 css깨지는 건 해결했고 카테고리가 왜 안되는지 찾아야한다. 아무것도 건드린게 없는데 왜 404인지 정말 모르겠다. 울고 싶다...
