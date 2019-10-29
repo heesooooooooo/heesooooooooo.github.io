@@ -48,7 +48,7 @@
   <li>이제 블로그 파일들이 있는 곳에서 cmd창을 연 후, <code class="highlighter-rouge">bundle exec jekyll serve</code>를 입력한다.</li>
 </ol>
 
-<p><img src="./assets/images/190909_1.png" alt="명령실행" /></p>
+<p><img src="./assets/images/190909_1.PNG" alt="명령실행" /></p>
 
 <p>Server address를 열면 실행되는 블로그를 확인할 수 있다. 이때 jekyll serve를 실행하면서 나온 파일들은 Destination의 위치에 저장된다(해당 위치는 config.yml에서 변경할 수 있다).
 나의 경우 작성한 새 포스트들은 master에, jekyll을 실행한 후의 파일들은 gh-pages에 push하여 블로그를 업로드한다.</p>
