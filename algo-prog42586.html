@@ -140,7 +140,11 @@
                     
                 
                     
-                       <a href='/blog/tag/programmers'>Programmers</a>
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/queue'>Queue</a>
                     
                 
                 
@@ -154,7 +158,7 @@
 
 <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 
-<h3 id="1-설계"><span style="color:purple">1. 설계</span></h3>
+<h3 id="1-설계">1. 설계</h3>
 <ol>
   <li>소요되는 날 계산해서 Queue에 저장한다.</li>
   <li>temp에 큐의 맨 앞 값 넣는다.</li>
@@ -162,7 +166,7 @@
   <li>temp보다 큰거 발견하면 그자리에서 끝, cnt를 answer에 저장한다.</li>
 </ol>
 
-<h3 id="2-구현"><span style="color:purple">2. 구현</span></h3>
+<h3 id="2-구현">2. 구현</h3>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.lang.Math</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
@@ -221,11 +225,11 @@
   <li>ArrayList<Inger> array: 날마다 배포되는 기능 갯수인 cnt를 저장한다. cnt의 값은 유동적이기 때문에 선언시 크기를 지정하지 않아도 되는 ArrayList를 선택하였다.</Inger></li>
 </ul>
 
-<h3 id="3-결과"><span style="color:purple">3. 결과</span></h3>
+<h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191028_2.PNG" alt="실행결과" />
-<span style="color:purple">성공٩(˘◊˘)۶</span></p>
+성공٩(˘◊˘)۶</p>
 
-<h3 id="4-참고"><span style="color:purple">4. 참고</span></h3>
+<h3 id="4-참고">4. 참고</h3>
 <p><img src="./assets/images/191028_1.PNG" alt="결과화면" />
 마지막 ArrayList array를 배열 answer로 복사하는 과정에서 List 라이브러리의 toArray()메소드를 사용하려고 했는데, 이 경우 ArrayList와 배열 모두 Integer로 선언되어야 한다. 나의 경우 배열 answer이 int형으로 선언되었기 때문에 그냥 for문으로 값을 복사해주었다.</p>
 
@@ -302,6 +306,13 @@
 <aside class="read-next">
 
     <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42587">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 스택/큐_프린터</h2>
+                <p>## 문제 ## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. 중요도(priorities)와 위치(location)을...</p>
+            </section>
+        </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
