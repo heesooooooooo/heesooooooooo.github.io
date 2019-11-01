@@ -3,7 +3,7 @@ layout: post
 cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 마크다운 코드 블록 폰트, 색상 변경"
-date: 2019-09-30 22:46:00
+date: 2019-09-30 00:00:00
 tags: git gitblog css
 subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'

@@ -3,7 +3,7 @@ layout: post
 cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크"
-date: 2019-09-06 19:33:00
+date: 2019-09-06 00:00:00
 tags: git gitblog error
 subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
