@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>(◍•ᴗ•◍)</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/프로그래머스] 스택/큐_탑</title>
+	  <link>/blog//algo-prog42588</link>
+	  <author></author>
+	  <pubDate>2019-10-30T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42588</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42588">https://programmers.co.kr/learn/courses/30/lessons/42588</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>Stack에 탑의 위치, 높이를 함께 저장하기위해 Top클래스를 선언한 후, Stack에 푸쉬한다.</li>
+  <li>현재 탑을 now, 왼쪽 값을 next에 저장한다.</li>
+  <li>now의 높이가 next 높이보다 크면(now.height&gt;next.height) answer에 next의 위치를 저장한다.</li>
+  <li>아니라면 next는 한 칸 왼쪽 값을 같는다.</li>
+  <li>마지막까지 찾지 못하면 answer=0한다.</li>
+  <li>이때 패스하는 값들은 stTemp에 다시 써야하기 때문에 stTemp에 저장한다.</li>
+  <li>answer에 값이 채워지고 stTemp에 값이 존재할 경우 다시 원상복구한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Top</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">location</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Top</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">location</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">stTemp</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Top</span> <span class="n">now</span><span class="o">,</span> <span class="n">next</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Top</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()||</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">2</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">now</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="o">}</span>          
+            <span class="k">while</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">height</span><span class="o">&gt;=</span><span class="n">next</span><span class="o">.</span><span class="na">height</span><span class="o">){</span><span class="c1">//next조건에 안맞음</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">stTemp</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+                    <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//next가 없다면</span>
+                    <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span><span class="c1">//알맞은 next찾음</span>
+
+
+            <span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">next</span><span class="o">.</span><span class="na">location</span><span class="o">;</span>    
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">stTemp</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span><span class="c1">//stTemp에 값이 있다면 원상복구</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stTemp</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191030_1.PNG" alt="실행결과" />
+실패.
+answer[2]의 값이 다르다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>next의 조건에 안맞아 왼쪽으로 한 칸 이동하였는데, 이때 조건에 맞지않은 next의 값을 따로 저장해두지 않아 방문해야 할 3번째 탑이 사라졌다.
+라인19: next 조건에 맞지 않으므로 왼쪽에 조건에 맞는 값이 있는지 확인해야한다. 이때 현재 next의 값이 사라지지 않도록 스택이 비어있는지 유무에 상관없이 stTemp에 저장해둬야한다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>next조건에 맞지 않는 값이 사라지지않도록 stTemp에 저장한다. 이때 스택 st에 원소가 존재하는지 유무와는 관계없다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Top</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">location</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Top</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">location</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">stTemp</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Top</span> <span class="n">now</span><span class="o">,</span> <span class="n">next</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Top</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()||</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">2</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">now</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="o">}</span>          
+            <span class="k">while</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">height</span><span class="o">&gt;=</span><span class="n">next</span><span class="o">.</span><span class="na">height</span><span class="o">){</span><span class="c1">//next조건에 안맞음</span>
+                <span class="n">stTemp</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//next가 없다면</span>
+                    <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span><span class="c1">//알맞은 next찾음</span>
+
+
+            <span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">next</span><span class="o">.</span><span class="na">location</span><span class="o">;</span>    
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">stTemp</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span><span class="c1">//stTemp에 값이 있다면 원상복귀</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stTemp</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Document nowDoc: ArrayList의 첫 번째 값(또는 그 다음 값)을 나타낸다. 앞에 최댓값이 있을 경우 다음으로 넘어간다.</li>
+  <li>Document nextDoc: nowDoc 뒤의 값들이다.</li>
+  <li>ArrayList<Document> array: 중요도와 순서의 값을 가지는 Document클래스를 생성하여 ArrayList에 저장한다. 중간에서 값을 삭제하고 맨 뒤에 추가할 경우가 있으므로 이가 쉬운 ArrayList를 사용한다.</Document></li>
+</ul>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191030_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>스택으로 풀다가 잘 안되서 링크드리스트를 생각했는데, next의 값을 바꿔버리면 다음 노드를 방문할 수 없으므로 포기했다.
+다음으로 더블링크드리스트로 next로 탑을 순서대로 하고 prev로 송신할 수 있는 탑을 가리키도록 하는 건 어떨까 생각해봤지만, 라이브러리에 있는 구조를 이용하면서 prev와 next를 어떻게 바꾸는지 모르겠어서 포기했다(그렇다고 더블을 구현하는건 아닌 것 같아서^0^).</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</title>
+	  <link>/blog//java-stack01</link>
+	  <author></author>
+	  <pubDate>2019-10-30T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-stack01</guid>
+	  <description><![CDATA[
+	     <h2 id="스택"><span style="color:navy">스택</span></h2>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html</a>
+<img src="./assets/images/191030_3.png" alt="스택" /></p>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/191030_4.PNG" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>후입선출(last-in-first-out, LIFO)</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/*...*/</span>
+<span class="c1">//Stack&lt;E&gt; st=new Stack&lt;E&gt;();</span>
+<span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="cm">/*...*/</span>
+</code></pre></div></div>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">public void push(E item);</code>
+    <ul>
+      <li>역할: 탑처럼 아래서 부터 차곡차곡 쌓는다.</li>
+      <li>파라미터: item(삽입할 값)</li>
+      <li>리턴: item</li>
+      <li>특징: addElement(item)메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element pop();</code>
+    <ul>
+      <li>역할: 스택 맨 위의 값(top)을 삭제한다.</li>
+      <li>리턴: top</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element peek();</code>
+    <ul>
+      <li>역할: 스택 맨 위의 값(가장 최근에 넣은 값, top)을 가져온다.</li>
+      <li>리턴: top</li>
+      <li>특징: 스택에서 top이 삭제되지 않는다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public boolean isEmpty();</code>
+    <ul>
+      <li>역할: 스택안에 item이 있는지 확인한다.</li>
+      <li>리턴: true(스택이 비었을 경우), false(아닌 경우)</li>
+      <li>특징: empty()메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int size();</code>
+    <ul>
+      <li>역할: 스택의 크기를 확인한다.</li>
+      <li>리턴: item 갯수</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="5-예외처리">5. 예외처리</h3>
+<ul>
+  <li>EmptyStackException: 스택안에 값이 없을 경우 발생한다.
+st.isEmpty()를 이용해 예외처리를 한다.</li>
+</ul>
+
+<h3 id="6-스택이-사용되는-곳">6. 스택이 사용되는 곳</h3>
+<ul>
+  <li>마지막에 등록된 것을 먼저 사용하는 경우.</li>
+  <li>웹 브라우저 방문 기록, 뒤로가기.</li>
+  <li>실행취소(undo).</li>
+  <li>역순 출력.</li>
+  <li>수식의 괄호 검사(연산자 우선순위 표현).</li>
+  <li>후위표기법 계산.</li>
+  <li>OS, 시스템 스택: 프로그램 호출 순서와 복귀 순서는 반대이기 때문에 가장 나중에 호출된 함수가 제일 먼저 실행된다.</li>
+  <li>Compilers(컴파일러)</li>
+  <li>JVM(자바 가상 머신): 자바가 실행될 때 각각의 스레드는 한 개의 스택을 가지 모든 메소드를 트랙킹한다. 새로운 프레임이 생기면 스택에 삽입, 메소드가 끝나면 스택에서 제거된다.</li>
+</ul>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li><a href="https://wayhome25.github.io/cs/2017/05/28/algorithm/">https://wayhome25.github.io/cs/2017/05/28/algorithm/</a></li>
+  <li><a href="https://muckycode.blogspot.com/2015/01/stack.html">https://muckycode.blogspot.com/2015/01/stack.html</a></li>
+  <li><a href="https://ryumin13.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D%EC%9D%98-%EC%9D%91%EC%9A%A9">https://ryumin13.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D%EC%9D%98-%EC%9D%91%EC%9A%A9</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

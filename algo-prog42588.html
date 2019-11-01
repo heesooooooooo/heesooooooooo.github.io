@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[JAVA/프로그래머스] 스택/큐_탑</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42588" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 스택/큐_탑" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42588" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 스택/큐_탑" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42588" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[JAVA/프로그래머스] 스택/큐_탑",
+    "url": "http://localhost:4000/blog//algo-prog42588",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-algorithm">
+
+        <header class="post-header">
+            <h1 class="post-title">[JAVA/프로그래머스] 스택/큐_탑</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2019-10-30">30 Oct 2019</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/algorithm'>Algorithm</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/stack'>Stack</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42588">https://programmers.co.kr/learn/courses/30/lessons/42588</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>Stack에 탑의 위치, 높이를 함께 저장하기위해 Top클래스를 선언한 후, Stack에 푸쉬한다.</li>
+  <li>현재 탑을 now, 왼쪽 값을 next에 저장한다.</li>
+  <li>now의 높이가 next 높이보다 크면(now.height&gt;next.height) answer에 next의 위치를 저장한다.</li>
+  <li>아니라면 next는 한 칸 왼쪽 값을 같는다.</li>
+  <li>마지막까지 찾지 못하면 answer=0한다.</li>
+  <li>이때 패스하는 값들은 stTemp에 다시 써야하기 때문에 stTemp에 저장한다.</li>
+  <li>answer에 값이 채워지고 stTemp에 값이 존재할 경우 다시 원상복구한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Top</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">location</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Top</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">location</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">stTemp</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Top</span> <span class="n">now</span><span class="o">,</span> <span class="n">next</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Top</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()||</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">2</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">now</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="o">}</span>          
+            <span class="k">while</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">height</span><span class="o">&gt;=</span><span class="n">next</span><span class="o">.</span><span class="na">height</span><span class="o">){</span><span class="c1">//next조건에 안맞음</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">stTemp</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+                    <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//next가 없다면</span>
+                    <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span><span class="c1">//알맞은 next찾음</span>
+
+
+            <span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">next</span><span class="o">.</span><span class="na">location</span><span class="o">;</span>    
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">stTemp</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span><span class="c1">//stTemp에 값이 있다면 원상복구</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stTemp</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191030_1.PNG" alt="실행결과" />
+실패.
+answer[2]의 값이 다르다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>next의 조건에 안맞아 왼쪽으로 한 칸 이동하였는데, 이때 조건에 맞지않은 next의 값을 따로 저장해두지 않아 방문해야 할 3번째 탑이 사라졌다.
+라인19: next 조건에 맞지 않으므로 왼쪽에 조건에 맞는 값이 있는지 확인해야한다. 이때 현재 next의 값이 사라지지 않도록 스택이 비어있는지 유무에 상관없이 stTemp에 저장해둬야한다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>next조건에 맞지 않는 값이 사라지지않도록 stTemp에 저장한다. 이때 스택 st에 원소가 존재하는지 유무와는 관계없다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Top</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">location</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Top</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">location</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">heights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;</span> <span class="n">stTemp</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Top</span><span class="o">&gt;();</span>
+        <span class="n">Top</span> <span class="n">now</span><span class="o">,</span> <span class="n">next</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Top</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">heights</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">heights</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()||</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&lt;</span><span class="mi">2</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">now</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="o">}</span>          
+            <span class="k">while</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">height</span><span class="o">&gt;=</span><span class="n">next</span><span class="o">.</span><span class="na">height</span><span class="o">){</span><span class="c1">//next조건에 안맞음</span>
+                <span class="n">stTemp</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">next</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//next가 없다면</span>
+                    <span class="n">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span><span class="c1">//알맞은 next찾음</span>
+
+
+            <span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">next</span><span class="o">.</span><span class="na">location</span><span class="o">;</span>    
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">next</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">stTemp</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span><span class="c1">//stTemp에 값이 있다면 원상복귀</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stTemp</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Document nowDoc: ArrayList의 첫 번째 값(또는 그 다음 값)을 나타낸다. 앞에 최댓값이 있을 경우 다음으로 넘어간다.</li>
+  <li>Document nextDoc: nowDoc 뒤의 값들이다.</li>
+  <li>ArrayList<Document> array: 중요도와 순서의 값을 가지는 Document클래스를 생성하여 ArrayList에 저장한다. 중간에서 값을 삭제하고 맨 뒤에 추가할 경우가 있으므로 이가 쉬운 ArrayList를 사용한다.</Document></li>
+</ul>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191030_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>스택으로 풀다가 잘 안되서 링크드리스트를 생각했는데, next의 값을 바꿔버리면 다음 노드를 방문할 수 없으므로 포기했다.
+다음으로 더블링크드리스트로 next로 탑을 순서대로 하고 prev로 송신할 수 있는 탑을 가리키도록 하는 건 어떨까 생각해봤지만, 라이브러리에 있는 구조를 이용하면서 prev와 next를 어떻게 바꾸는지 모르겠어서 포기했다(그렇다고 더블을 구현하는건 아닌 것 같아서^0^).</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
+
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 스택/큐_탑&amp;url=http://localhost:4000algo-prog42588"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42588"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42588"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/java-stack01">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</h2>
+                <p>## 스택 ![스택](./assets/images/191030_3.png) ### 1. 클래스 ![구조](./assets/images/191030_4.PNG) ### 2. 특징 - 후입선출(last-in-first-out, LIFO) ### 3....</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42587">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 스택/큐_프린터</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42587 ( ᐛ )و 첫 번째 도전 1. 설계 중요도(priorities)와 위치(location)을 값으로 가지는 Document...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2019</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>

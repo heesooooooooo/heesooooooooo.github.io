@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42583" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42583" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42583" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭",
+    "url": "http://localhost:4000/blog//algo-prog42583",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-algorithm">
+
+        <header class="post-header">
+            <h1 class="post-title">[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2019-11-01">01 Nov 2019</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/algorithm'>Algorithm</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/queue'>Queue</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42583">https://programmers.co.kr/learn/courses/30/lessons/42583</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>큐를 이용해 다리를 지나고 있는 트럭을 관리한다.</li>
+  <li>트럭의 무게와 다리를 지나는 시간을 인자로 가지는 클래스 Truck을 생성한다.</li>
+  <li>다리에 다음 트럭이 들어올 자리가 있다면 큐에 삽입한다.</li>
+  <li>큐를 순회하며 트럭에게 1초씩 추가하고, 경과시간이 다 채워지면 큐에서 삭제한다. answer에도 1을 추가하여 다리 건너는 시간을 측정한다.</li>
+  <li>마지막 트럭까지 다리를 건넌다면 while문을 빠져나와 answer을 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Truck</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Truck</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">bridge_length</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">truck_weights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+
+        <span class="kt">int</span> <span class="n">q_weight</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">truck_idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">truck_idx</span><span class="o">&lt;</span><span class="n">truck_weights</span><span class="o">.</span><span class="na">length</span><span class="o">&amp;&amp;</span><span class="n">q_weight</span><span class="o">+</span><span class="n">truck_weights</span><span class="o">[</span><span class="n">truck_idx</span><span class="o">]&lt;=</span><span class="n">weight</span><span class="o">){</span><span class="c1">//다리에 다음 트럭이 들어올 자리가 있다면</span>
+                <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Truck</span><span class="o">(</span><span class="n">truck_weights</span><span class="o">[</span><span class="n">truck_idx</span><span class="o">],</span><span class="mi">0</span><span class="o">));</span>
+                <span class="n">q_weight</span><span class="o">+=</span><span class="n">truck_weights</span><span class="o">[</span><span class="n">truck_idx</span><span class="o">];</span>
+                <span class="n">truck_idx</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="k">for</span><span class="o">(</span><span class="n">Truck</span> <span class="nl">t:</span><span class="n">q</span><span class="o">){</span><span class="c1">//1초 추가</span>
+                <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+                <span class="n">answer</span><span class="o">++;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span><span class="c1">//경과시간이 다 채워지면 삭제</span>
+                    <span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">truck_idx</span><span class="o">-</span><span class="mi">1</span><span class="o">==</span><span class="n">truck_weights</span><span class="o">.</span><span class="na">length</span><span class="o">&amp;&amp;</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191101_2.PNG" alt="실행결과" />
+실패.
+오류 발생.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>해당 오류는 수정을 허용하지 않는 객체를 수정할 때 발생하는 exception이다.
+라인29 for문에서 큐의 모든 Truck을 순회하는데, if 조건문으로 큐의 원소가 삭제되면 큐의 크기와 for문 인덱스의 불일치 때문에 에러가 발생한다.
+따라서 Iterator를 이용하여 루프 도중 아이템을 오류없이 삭제해야 한다.
+또한, 라인36에서 if 조건이 truck_idx==truck_weight.length-1로 바뀌어야 하고, 바뀐다 해도 truck_idx가 마지막이지만 아직 마지막 아이템을 사용하지 않았으며 큐가 비어있을 경우에 break에 걸려 종료될 수 있다(테스트1).</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>다리는 건너는 트럭(q_bridge)과 대기 트럭(q_wait)을 저장하는 큐를 두 개 선언한다.</li>
+  <li>대기 트럭에 Truck형태로 값을 넣은 후, 조건이 맞을 때 q_bridge에 넣는다.</li>
+  <li>Iterator를 사용하여 경과시간이 다 된 트럭은 삭제한다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Truck</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Truck</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">bridge_length</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">truck_weights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_bridge</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_wait</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">w:</span><span class="n">truck_weights</span><span class="o">){</span>
+            <span class="n">q_wait</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Truck</span><span class="o">(</span><span class="n">w</span><span class="o">,</span><span class="mi">0</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">bridge_weight</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="k">if</span><span class="o">(!</span><span class="n">q_wait</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">bridge_weight</span><span class="o">+</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">&lt;=</span><span class="n">weight</span><span class="o">){</span>
+                <span class="n">bridge_weight</span><span class="o">+=</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+                <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+                <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
+                    <span class="n">bridge_weight</span><span class="o">-=</span><span class="n">t</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+                    <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">answer</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191101_4.PNG" alt="실행결과" />
+실패.</p>
+
+<h3 id="4-문제점-1">4. 문제점</h3>
+<p>while문을 시작하기 전에 q_bridge에 처음 값을 넣으므로 answer은 1부터 시작해아한다.
+while(!q_bridge.isEmpty())가 잘못되었다.
+테스트1에서 7이 다리를 홀로 건너는데, 다 건너고 나면 q_bridge는 0이 되고, 뒤에 트럭이 더 남아있지만 while문을 종료하기 때문이다.</p>
+
+<h2 id="-ᐛ-و-세-번째-도전"><span style="color:navy">( ᐛ )و 세 번째 도전</span></h2>
+
+<h3 id="1-설계-2">1. 설계</h3>
+<ol>
+  <li>answer은 1로 초기화한다.</li>
+  <li>while문을 true로 바꾼 후, 두 큐가 다 비었을 때 while문을 종료하게 한다.</li>
+</ol>
+
+<h3 id="2-구현-2">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Truck</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Truck</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">bridge_length</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">truck_weights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_bridge</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_wait</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">w:</span><span class="n">truck_weights</span><span class="o">){</span>
+            <span class="n">q_wait</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Truck</span><span class="o">(</span><span class="n">w</span><span class="o">,</span><span class="mi">0</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">bridge_weight</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(!</span><span class="n">q_wait</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">bridge_weight</span><span class="o">+</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">&lt;=</span><span class="n">weight</span><span class="o">){</span>
+                <span class="n">bridge_weight</span><span class="o">+=</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+                <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+                <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
+                    <span class="n">bridge_weight</span><span class="o">-=</span><span class="n">t</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+                    <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">+</span><span class="s">"분에 "</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="na">weight</span><span class="o">+</span><span class="s">"나감"</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">answer</span><span class="o">++;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">q_wait</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과-2">3. 결과</h3>
+<p><img src="./assets/images/191101_5.PNG" alt="실행결과" />
+테스트3에서 실패.
+이 테스트에서는 1초마다 트럭이 모두 들어온 후 100초부터 하나씩 나가야하는데 100초에 두 개가 나갔다.</p>
+
+<h3 id="4-문제점-2">4. 문제점</h3>
+<p>1초일 때 while문 밖에서 q_bridge에 처음 트럭을 넣으므로 첫 while문 방문 시에는 아무 것도 넣으면 안된다.</p>
+
+<h2 id="-ᐛ-و-네-번째-도전"><span style="color:navy">( ᐛ )و 네 번째 도전</span></h2>
+
+<h3 id="1-설계-3">1. 설계</h3>
+<ol>
+  <li>while문 첫 방문 시에는 q_bridge에 트럭을 넣지 않는다.</li>
+</ol>
+
+<h3 id="2-구현-3">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Truck</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Truck</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">bridge_length</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">truck_weights</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_bridge</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;</span> <span class="n">q_wait</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Truck</span><span class="o">&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">w:</span><span class="n">truck_weights</span><span class="o">){</span>
+            <span class="n">q_wait</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Truck</span><span class="o">(</span><span class="n">w</span><span class="o">,</span><span class="mi">0</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">bridge_weight</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">answer</span><span class="o">!=</span><span class="mi">1</span><span class="o">&amp;&amp;!</span><span class="n">q_wait</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">bridge_weight</span><span class="o">+</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">&lt;=</span><span class="n">weight</span><span class="o">){</span>
+                <span class="n">bridge_weight</span><span class="o">+=</span><span class="n">q_wait</span><span class="o">.</span><span class="na">peek</span><span class="o">().</span><span class="na">weight</span><span class="o">;</span>
+                <span class="n">q_bridge</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">q_wait</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+                <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
+                    <span class="n">bridge_weight</span><span class="o">-=</span><span class="n">t</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+                    <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="n">answer</span><span class="o">++;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">q_bridge</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">q_wait</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과-3">3. 결과</h3>
+<p><img src="./assets/images/191101_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>데이터를 루프로 순회하고 있을 때 안전하게 삭제하는 Iterator를 배웠다. 테스트3이 안되는 이유를 몰라서 고민을 했었는데, 역시 컴퓨터는 거짓말을 하지 않는다….^ㅠ^</p>
+
+<h2 id="참고"><span style="color:navy">참고</span></h2>
+<ul>
+  <li>루프 도중 안전하게 삭제하기  <a href="https://offbyone.tistory.com/170">https://offbyone.tistory.com/170</a></li>
+  <li>java.util.concurrentModificationException이 발생했을 경우!  <a href="https://devnumgo.tistory.com/entry/javautilconcurrentModificationException%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%96%88%EC%9D%84-%EA%B2%BD%EC%9A%B0">https://devnumgo.tistory.com/entry/javautilconcurrentModificationException%EC%9D%B4-%EB%B0%9C%EC%83%9D%ED%96%88%EC%9D%84-%EA%B2%BD%EC%9A%B0</a></li>
+</ul>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
+
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 스택/큐_다리를 지나는 트럭&amp;url=http://localhost:4000algo-prog42583"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42583"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42583"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/gitblog-sol-date">
+            <section class="post">
+                <h2>[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제 해결하기</h2>
+                <p>여태까지 지킬을 이용하며 갓 작성한 포스트는 하루 정도 지나야 로컬에서 확인할 수 있었다. md로 작성한...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/java-stack01">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</h2>
+                <p>스택 https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html 1. 클래스 2. 특징 후입선출(last-in-first-out, LIFO) 3. 선언 import java.util.Stack; /*...*/ //Stack&lt;E&gt; st=new...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2019</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>
