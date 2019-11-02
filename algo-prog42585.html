@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</title>
+    <title>[JAVA/프로그래머스] 스택/큐_쇠막대기</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//java-exception01" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42585" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 스택/큐_쇠막대기" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//java-exception01" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42585" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 스택/큐_쇠막대기" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//java-exception01" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42585" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException",
-    "url": "http://localhost:4000/blog//java-exception01",
+    "name": "[JAVA/프로그래머스] 스택/큐_쇠막대기",
+    "url": "http://localhost:4000/blog//algo-prog42585",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
@@ -74,8 +74,8 @@
       <!-- home, boj, etc-->
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
-        <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
-        <li class="nav-java  nav-current" role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
         <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
         <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
@@ -108,10 +108,10 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-java">
+    <article class="post tag-algorithm">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</h1>
+            <h1 class="post-title">[JAVA/프로그래머스] 스택/큐_쇠막대기</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -130,21 +130,21 @@
             
                 
             
-            <time class="post-date" datetime="2019-11-01">01 Nov 2019</time>
+            <time class="post-date" datetime="2019-11-02">02 Nov 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/blog/tag/java'>Java</a>,
+                       <a href='/blog/tag/algorithm'>Algorithm</a>,
                     
                 
                     
-                       <a href='/blog/tag/exception'>Exception</a>,
+                       <a href='/blog/tag/programmers'>Programmers</a>,
                     
                 
                     
-                       <a href='/blog/tag/error'>Error</a>
+                       <a href='/blog/tag/stack'>Stack</a>
                     
                 
                 
@@ -153,35 +153,69 @@
 
         <section class="post-content">
 
-            <p><img src="./assets/images/191101_2.PNG" alt="결과화면" /></p>
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42585">https://programmers.co.kr/learn/courses/30/lessons/42585</a></p>
 
-<h3 id="예시">예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="n">Truck</span> <span class="nl">t:</span><span class="n">q</span><span class="o">){</span><span class="c1">//1초 추가</span>
-    <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
-    <span class="n">answer</span><span class="o">++;</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span><span class="c1">//경과시간이 다 채워지면 삭제</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>()을 사용하는 문제이므로 스택을 이용한다.</li>
+  <li>(은 스택에 넣는다.</li>
+  <li>)인 경우 앞이 (라면 레이저이다.</li>
+  <li>))이라면 닫는 괄호이다.</li>
+</ol>
+
+<p>i) ()인 경우.
+<img src="./assets/images/191102_2.png" alt="설명1" />
+이 경우는 레이저이다. 위와 같이 ()를 제외한 여는 괄호 갯수 만큼 막대기가 생긴다.</p>
+
+<p>ii) ))인 경우.
+<img src="./assets/images/191102_3.png" alt="설명1" />
+쇠막대기의 끝을 나타낸다. 이 경우는 항상 1이다. 끝난 쇠막대기는 하나밖에 없기 때문이다.</p>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">arrangement</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;();</span>
+        <span class="kt">char</span> <span class="n">ch</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">arrangement</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">ch</span><span class="o">=</span><span class="n">arrangement</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">ch</span><span class="o">==</span><span class="sc">'('</span><span class="o">){</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">ch</span><span class="o">==</span><span class="sc">')'</span><span class="o">){</span>
+                <span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">arrangement</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">)==</span><span class="sc">'('</span><span class="o">){</span>
+                    <span class="n">answer</span><span class="o">+=</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+                <span class="o">}</span>  
+                <span class="k">else</span><span class="o">{</span>
+                    <span class="n">answer</span><span class="o">++;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p>코드 설명: for문을 통해 Queue<Truck> q를 순회한다. if 조건에 맞다면 큐의 값을 삭제한다.</Truck></p>
+<ul>
+  <li>Stack<Character> st: arrangement를 char형태로 하나씩 넣는다. 경험상 괄호 문제는 스택으로 푸는 경우가 대부분이다.</Character></li>
+  <li>char ch: String형태의 arrangement를 문자 하나씩 받아와 코드를 진행한다.</li>
+</ul>
 
-<h3 id="원인">원인</h3>
-<p>for문과 같은 루프문을 통해 데이터를 접근하는 도중에, 데이터 변경이 일어날 때 발생한다.</p>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191102_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
 
-<h3 id="해결-방법">해결 방법</h3>
-<p>Iterator를 사용하여 큐의 원소에 접근, 삭제한다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
-<span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
-    <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-    <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
-        <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<p>iterator()메소드를 이용해 iter를 선언, hasNext()로 현재 iter의 다음 원소가 있는지 파악한 후 있다면 next()로 값을 가져온다. remove()로 원소를 삭제한다.</p>
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>처음 문제를 접했을 때는 그림이 복잡해보여서 어려울 것이라고 생각했는데, 이해만 하면 간단한 문제였다. 앞으로는 자신감을 갖고 문제를 풀어야겠다!</p>
 
 
         </section>
@@ -214,15 +248,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException&amp;url=http://localhost:4000java-exception01"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 스택/큐_쇠막대기&amp;url=http://localhost:4000algo-prog42585"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000java-exception01"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42585"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000java-exception01"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42585"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -253,20 +287,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42585">
-            <section class="post">
-                <h2>[JAVA/프로그래머스] 스택/큐_쇠막대기</h2>
-                <p>## 문제 ## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. ()을 사용하는...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/gitblog-sol-date">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/java-exception01">
             <section class="post">
-                <h2>[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제 해결하기</h2>
-                <p>여태까지 지킬을 이용하며 갓 작성한 포스트는 하루 정도 지나야 로컬에서 확인할 수 있었다. md로 작성한...</p>
+                <h2>[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</h2>
+                <p>예시 for(Truck t:q){//1초 추가 t.time++; answer++; if(t.time==bridge_length){//경과시간이 다 채워지면 삭제 q.poll(); } } 코드 설명:...</p>
             </section>
         </a>
     
