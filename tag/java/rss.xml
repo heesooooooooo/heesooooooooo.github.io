@@ -12,6 +12,97 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드</title>
+	  <link>/blog//java-priorityqueue01</link>
+	  <author></author>
+	  <pubDate>2019-11-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-priorityqueue01</guid>
+	  <description><![CDATA[
+	     <h2 id="스택"><span style="color:navy">스택</span></h2>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html</a></p>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/191104_2.PNG" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>Queue의 성질을 가지고 있지만, 선입선출(FIFO)이 아닌 가장 가중치가 낮은 순서로 원소를 리턴한다.</li>
+  <li>Min Heap으로 데이터를 정렬한다.</li>
+  <li>때에 따라서는 CompareTo()를 수정하여 Max Heap, 가중치가 높은 순서로 변경하여 사용한다.</li>
+  <li>key(데이터의 priority), value로 이루어진 pair를 저장하는 비선형 자료구조이다.
+<img src="./assets/images/191104_3.png" alt="우선순위큐" /></li>
+  <li>
+    <dl>
+      <dt>Min Heap(최소힙)</dt>
+      <dd>부모 키&lt;자식 키. 루트에 최소값이 들어간다.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>Max Heap(최대힙)</dt>
+      <dd>부모 키&gt;자식 키. 루트에 최대값이 들어간다.</dd>
+    </dl>
+  </li>
+  <li>Min Heap, Max Heap 모두 삭제 연산 시 루트노드를 한다. 이후 힙의 속성을 유지하기 위해 우측 맨 아래 리프노드를 루트 자리에 넣은 후 다시 자식 노드들과 비교하며 자리를 찾는다.</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="cm">/*...*/</span>
+<span class="c1">//PriorityQueue&lt;E&gt; pq=new PriorityQueue&lt;E&gt;();</span>
+<span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="cm">/*...*/</span>
+</code></pre></div></div>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">public boolean offer(E item);</code>
+    <ul>
+      <li>역할: 우선순위큐에 값을 넣는다.</li>
+      <li>파라미터: item(삽입할 값)</li>
+      <li>리턴: true(성공), false(실패)</li>
+      <li>특징: add(item)메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element poll();</code>
+    <ul>
+      <li>역할: 루트노드(가중치가 작은/큰)를 삭제한다.</li>
+      <li>리턴: 루트노드</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element peek();</code>
+    <ul>
+      <li>역할: 루트노드를 리턴하되 삭제하지는 않는다.</li>
+      <li>리턴: 루트노드</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="5-예외처리">5. 예외처리</h3>
+<ul>
+  <li>NullPointerException: 넣을 아이템이 null인 경우 발생한다.</li>
+  <li>ClassCastException: 캐스팅이 불가할 때 발생한다.</li>
+</ul>
+
+<h3 id="6-우선순위큐-응용분야">6. 우선순위큐 응용분야</h3>
+<ul>
+  <li>시뮬레이션 시스템(여기서의 우선순위는 대개 사건의 시각이다).</li>
+  <li>네트워크 트래픽 제어.</li>
+  <li>운영체제에서 작업 스케쥴링.</li>
+</ul>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li>우선순위큐, 최소 힙, 최대 힙_JAVA <a href="http://blog.naver.com/PostView.nhn?blogId=zxy826&amp;logNo=220804468536&amp;parentCategoryNo=32&amp;categoryNo=&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search">http://blog.naver.com/PostView.nhn?blogId=zxy826&amp;logNo=220804468536&amp;parentCategoryNo=32&amp;categoryNo=&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search</a></li>
+  <li>Java Queue, Priority Queue 예제 <a href="https://gamjatwigim.tistory.com/72">https://gamjatwigim.tistory.com/72</a></li>
+  <li>우선순위 큐(priority queue) <a href="https://medium.com/quantum-ant/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-priority-queue-80a161664e3b">https://medium.com/quantum-ant/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-priority-queue-80a161664e3b</a></li>
+  <li>우선순위 큐(Priority Queue) <a href="https://eremo2002.tistory.com/21">https://eremo2002.tistory.com/21</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</title>
 	  <link>/blog//java-exception01</link>
 	  <author></author>

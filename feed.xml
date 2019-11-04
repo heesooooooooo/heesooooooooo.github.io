@@ -8,6 +8,54 @@
     
       
       <item>
+        <title>[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드</title>
+        
+          <description>&lt;h2 id=&quot;스택&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;스택&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html&quot;&gt;https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/java-priorityqueue01</link>
+        <guid isPermaLink="true">http://localhost:4000/java-priorityqueue01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 힙(Heap)_더 맵게</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42584&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42584&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42626</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42626</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 스택/큐_주식가격</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42584&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42584&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 04 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42584</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42584</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/프로그래머스] 스택/큐_쇠막대기</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;

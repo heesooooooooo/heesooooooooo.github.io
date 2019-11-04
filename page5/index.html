@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Author</title>
+    <title>dev</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//author/java/" />
+        <link rel="canonical" href="http://localhost:4000/blog//page5/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Author" />
+    <meta property="og:title" content="dev" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//author/java/" />
-    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//page5/" />
+    <meta property="og:image" content="/blog/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Author" />
+    <meta name="twitter:title" content="dev" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//author/java/" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//page5/" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "Author",
-    "url": "http://localhost:4000/blog//author/java/",
-    "image": "/blog/assets/images/cover4.jpg",
+    "name": "dev",
+    "url": "http://localhost:4000/blog//page5/",
+    "image": "/blog/assets/images/cover1.jpg",
     "description": "(◍•ᴗ•◍)"
 }
     </script>
@@ -62,7 +62,7 @@
 
 
 </head>
-<body class="author-template nav-closed">
+<body class="paged archive-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -72,10 +72,10 @@
     </a>
     <ul>
       <!-- home, boj, etc-->
-        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-home  nav-current" role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
         <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
-        <li class="nav-java  nav-current" role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
         <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
         <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
@@ -89,52 +89,43 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default}} -->
+        <!-- < default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header -->
-
-<!-- Everything inside the #author tags pulls data from the author -->
-<!-- #author  -->
-    <header class="main-header author-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
-            
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            
-        </nav>
-    </header>
-
-    <section class="author-profile inner">
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/blog/assets/images/cover1.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
-            
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </section>
-<!-- /author -->
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">...Developing...</h1>
+            <h2 class="page-description">(◍•ᴗ•◍)</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs  -->
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/blog/page4/" title="Previous Page">&laquo; Newer Posts</a>
+      
     
+    <span class="page-number"> Page 5 of 5 </span>
+     
 </nav>
-
         
     </div>
 
@@ -142,10 +133,11 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-priorityqueue01">[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드</a></h2>
+            <h2 class="post-title"><a href="/blog/first-posting">첫 포스팅</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>스택 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html 1. 클래스 2. 특징 Queue의 성질을 가지고 있지만, 선입선출(FIFO)이 아닌 가장 가중치가 낮은 순서로 원소를 리턴한다. Min Heap으로 데이터를 정렬한다. 때에 따라서는 CompareTo()를 수정하여... <a class="read-more" href="/blog/java-priorityqueue01">&raquo;</a></p>
+            <p>6월 14일 첫 포스팅&amp;블로그 수정 중
+ <a class="read-more" href="/blog/first-posting">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -173,109 +165,11 @@
                 on
                 
                     
-                       <a href='/blog/tag/java'>Java</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/priorityqueue'>Priorityqueue</a>
+                       <a href='/blog/tag/etc'>Etc</a>
                     
                 
             
-            <time class="post-date" datetime="2019-11-04">04 Nov 2019</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-exception01">[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>예시 for(Truck t:q){//1초 추가 t.time++; answer++; if(t.time==bridge_length){//경과시간이 다 채워지면 삭제 q.poll(); } } 코드 설명: for문을 통해 Queue q를 순회한다. if 조건에 맞다면 큐의 값을 삭제한다.... <a class="read-more" href="/blog/java-exception01">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/java'>Java</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/exception'>Exception</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/error'>Error</a>
-                    
-                
-            
-            <time class="post-date" datetime="2019-11-01">01 Nov 2019</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-stack01">[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>스택 https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html 1. 클래스 2. 특징 후입선출(last-in-first-out, LIFO) 3. 선언 import java.util.Stack; /*...*/ //Stack&lt;E&gt; st=new Stack&lt;E&gt;(); Stack&lt;Integer&gt; st=new Stack&lt;Integer&gt;(); /*...*/ 4. 주요 메소드 public void push(E... <a class="read-more" href="/blog/java-stack01">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/java'>Java</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/stack'>Stack</a>
-                    
-                
-            
-            <time class="post-date" datetime="2019-10-30">30 Oct 2019</time>
+            <time class="post-date" datetime="2019-06-14">14 Jun 2019</time>
         </footer>
     </article>
     
@@ -284,10 +178,13 @@
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+        
+            <a class="newer-posts" href="/blog/page4/" title="Previous Page">&laquo; Newer Posts</a>
+      
     
+    <span class="page-number"> Page 5 of 5 </span>
+     
 </nav>
-
     
 
 
