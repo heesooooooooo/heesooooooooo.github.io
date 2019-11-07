@@ -1,8 +1,8 @@
 ---
 layout: post
-cover: 'assets/images/cover4.jpg'
+cover: 'assets/images/cover6.jpg'
 navigation: True
-title: "[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException"
+title: "[JAVA/예외처리] java.util.ConcurrentModificationException"
 date: 2019-11-01 00:00:00
 tags: java exception error
 subclass: 'post tag-java'

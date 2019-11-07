@@ -1,8 +1,8 @@
 ---
 layout: post
-cover: 'assets/images/cover4.jpg'
+cover: 'assets/images/cover6.jpg'
 navigation: True
-title: "[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드"
+title: "[JAVA/자료구조] 우선순위큐: 선언방법과 주요 메소드"
 date: 2019-11-04 00:00:00
 tags: java priorityqueue
 subclass: 'post tag-java'
@@ -10,7 +10,7 @@ logo: 'assets/images/ghost.png'
 author: heesoo
 categories: java
 ---
-## <span style="color:navy">스택</span>
+## <span style="color:navy">우선순위큐</span>
 <https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html>
 
 ### 1. 클래스
