@@ -142,10 +142,55 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-priorityqueue01">[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드</a></h2>
+            <h2 class="post-title"><a href="/blog/java-priorityqueue02">[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>스택 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html 1. 클래스 2. 특징 Queue의 성질을 가지고 있지만, 선입선출(FIFO)이 아닌 가장 가중치가 낮은 순서로 원소를 리턴한다. Min Heap으로 데이터를 정렬한다. 때에 따라서는 CompareTo()를 수정하여... <a class="read-more" href="/blog/java-priorityqueue01">&raquo;</a></p>
+            <p>우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다. 1. 기본 개념 리턴값이 음수일 경우 우선순위가 높아진다. 주로 -1, 0, 1을 이용하여 우선순위를... <a class="read-more" href="/blog/java-priorityqueue02">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+
+                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/blog/author/heesoo'>HEESOO</a>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/blog/tag/java'>Java</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/priorityqueue'>Priorityqueue</a>
+                    
+                
+            
+            <time class="post-date" datetime="2019-11-07">07 Nov 2019</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/java-priorityqueue01">[JAVA/자료구조] 우선순위큐: 선언방법과 주요 메소드</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>우선순위큐 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html 1. 클래스 2. 특징 Queue의 성질을 가지고 있지만, 선입선출(FIFO)이 아닌 가장 가중치가 낮은 순서로 원소를 리턴한다. Min Heap으로 데이터를 정렬한다. 때에 따라서는 CompareTo()를 수정하여... <a class="read-more" href="/blog/java-priorityqueue01">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -187,7 +232,7 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-exception01">[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</a></h2>
+            <h2 class="post-title"><a href="/blog/java-exception01">[JAVA/예외처리] java.util.ConcurrentModificationException</a></h2>
         </header>
         <section class="post-excerpt">
             <p>예시 for(Truck t:q){//1초 추가 t.time++; answer++; if(t.time==bridge_length){//경과시간이 다 채워지면 삭제 q.poll(); } } 코드 설명: for문을 통해 Queue q를 순회한다. if 조건에 맞다면 큐의 값을 삭제한다.... <a class="read-more" href="/blog/java-exception01">&raquo;</a></p>
@@ -236,7 +281,7 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/java-stack01">[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</a></h2>
+            <h2 class="post-title"><a href="/blog/java-stack01">[JAVA/자료구조] 스택: 선언방법과 주요 메소드</a></h2>
         </header>
         <section class="post-excerpt">
             <p>스택 https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html 1. 클래스 2. 특징 후입선출(last-in-first-out, LIFO) 3. 선언 import java.util.Stack; /*...*/ //Stack&lt;E&gt; st=new Stack&lt;E&gt;(); Stack&lt;Integer&gt; st=new Stack&lt;Integer&gt;(); /*...*/ 4. 주요 메소드 public void push(E... <a class="read-more" href="/blog/java-stack01">&raquo;</a></p>

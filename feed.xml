@@ -8,9 +8,57 @@
     
       
       <item>
-        <title>[JAVA/프로그래머스] 우선순위큐: 선언방법과 주요 메소드</title>
+        <title>[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</title>
         
-          <description>&lt;h2 id=&quot;스택&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;스택&lt;/span&gt;&lt;/h2&gt;
+          <description>&lt;h2&gt;&lt;span style=&quot;color:navy&quot;&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 07 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/java-priorityqueue02</link>
+        <guid isPermaLink="true">http://localhost:4000/java-priorityqueue02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42627&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42627&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 07 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42627</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42627</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 힙(Heap)_라면공장</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42629&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42629&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 06 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42629</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42629</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/자료구조] 우선순위큐: 선언방법과 주요 메소드</title>
+        
+          <description>&lt;h2 id=&quot;우선순위큐&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;우선순위큐&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html&quot;&gt;https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html&lt;/a&gt;&lt;/p&gt;
 
 </description>
@@ -27,7 +75,7 @@
         <title>[JAVA/프로그래머스] 힙(Heap)_더 맵게</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42584&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42584&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42626&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42626&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
@@ -72,7 +120,7 @@
     
       
       <item>
-        <title>[JAVA/프로그래머스] 예외처리: java.util.ConcurrentModificationException</title>
+        <title>[JAVA/예외처리] java.util.ConcurrentModificationException</title>
         
           <description>&lt;p&gt;&lt;img src=&quot;./assets/images/191101_2.PNG&quot; alt=&quot;결과화면&quot; /&gt;&lt;/p&gt;
 
@@ -118,7 +166,7 @@
     
       
       <item>
-        <title>[JAVA/프로그래머스] 스택: 선언방법과 주요 메소드</title>
+        <title>[JAVA/자료구조] 스택: 선언방법과 주요 메소드</title>
         
           <description>&lt;h2 id=&quot;스택&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;스택&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html&quot;&gt;https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html&lt;/a&gt;

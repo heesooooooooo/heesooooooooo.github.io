@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42627" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42627" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42627" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러",
+    "url": "http://localhost:4000/blog//algo-prog42627",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-algorithm">
+
+        <header class="post-header">
+            <h1 class="post-title">[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2019-11-07">07 Nov 2019</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/algorithm'>Algorithm</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/priorityqueue'>Priorityqueue</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42627">https://programmers.co.kr/learn/courses/30/lessons/42627</a></p>
+
+<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
+<ul>
+  <li>참고로 파라미터 jobs는 정렬이 되어있지않다. 이정도는 문제설명에 적어줘야 하는데. 떼잉쯧;</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">jobs(int[][])</th>
+      <th style="text-align: center">return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">[[24, 10], [18, 39], [34, 20], [37, 5], [47, 22], [20, 47], [15, 2], [15, 34], [35, 43], [26, 1]]</td>
+      <td style="text-align: center">74</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">[[24, 10], [18, 39], [34, 20], [37, 5], [47, 22], [20, 47], [15, 34], [15, 2], [35, 43], [26, 1]]</td>
+      <td style="text-align: center">74</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>소요시간(time)이 작은 순서, 같다면 요청시간(start)이 작은 순서가 우선순위가 높도록 우선순위큐를 생성한다.</li>
+  <li>현재 시간(now)보다 요청시간이 같거나 작은 작업을 선택해 요청~종료까지 걸린 시간을 계산한 후 now와 answer을 갱신한다.</li>
+  <li>없으면 현재 시간엔 수행할 작업이 없다는 뜻이므로 now++한다.</li>
+  <li>계산이 끝나면 작업 갯수만큼 answer을 나눠 평균을 구한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
+    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
+        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
+        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="c1">//소요시간이 같다면</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">jobs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">pq</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">Job</span> <span class="n">job</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+                <span class="n">job</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;=</span><span class="n">now</span><span class="o">){</span>
+                    <span class="n">answer</span><span class="o">+=</span><span class="n">now</span><span class="o">+</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">-</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
+                    <span class="n">now</span><span class="o">+=</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">;</span>
+                    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">){</span>
+                    <span class="n">now</span><span class="o">++;</span>
+                <span class="o">}</span>                
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191107_1.PNG" alt="실행결과" />
+실패.
+출력문을 찍은 결과 list에 모든 값들이 들어가지 않았다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>두 번째 for문에서 i의 범위가 pq.size()인데, pq는 팝하면서 제거되어 사이즈가 계속 변하므로 적합하지 않다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>pq.size()가 아닌 고정값 jobs.length로 for문 조건을 변경한다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
+    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
+        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
+        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="c1">//소요시간이 같다면</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">jobs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]));</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">Job</span> <span class="n">job</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+                <span class="n">job</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;=</span><span class="n">now</span><span class="o">){</span>
+                    <span class="n">answer</span><span class="o">+=</span><span class="n">now</span><span class="o">+</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">-</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
+                    <span class="n">now</span><span class="o">+=</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">;</span>
+                    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span><span class="c1">//작업이 완료되면 break로 다시 for문을 처음부터 방문하여 놓치는 작업이 없도록 한다</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">){</span>
+                    <span class="n">now</span><span class="o">++;</span>
+                <span class="o">}</span>                
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>PriorityQueue<Job> pq: 소요시간이 작은 순서, 같다면 요청시간이 작은 순서로 정렬한다.</Job></li>
+  <li>ArrayList<Job> list: pq를 arraylist에 저장하여 코드에 사용한다. 같은 데이터를 가지고 있는데 굳이 arraylist에 저장하여 사용하는 이유는, pq가 요청시간을 기준으로 정렬된 것이 아니기 때문이다. 현재 시간(now)에 따라 이전~현재까지의 작업들을 모두 확인해야하는데, 우선순위큐로는 정렬된 루트노드의 값만 가져올 수 있고 다음 노드를 방문하기 위해서는 무조건 poll해야한다. 하지만 미래의 작업이 루트로 갈 수 있는데, 이때는 삭제하면 안되므로 arrayList를 이용해 값을 삭제하지 않아도 다음 값을 찾을 수 있게 한다.</Job></li>
+</ul>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191107_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>Compare을 Override하는 법에 대해 배울 수 있었다. 처음에는 jobs 배열을 요청시간 오름차순으로 정렬해서 사용하고 싶었는데, Array.sort()나 Collections.sort()를 사용하려고 하니 Override한 compare를 쓰는 바람에 애먹었다. 결국에는 배열을 정리할 필요 없이 처음부터 우선순위큐를 사용했는데, 이건 다른 사람 코드를 보고 나도 따라한 것이다. 나도 이렇게 바로 떠오르면 좋으련만.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스][힙(heap)]디스크 컨트롤러 <a href="https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90">https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90</a></li>
+</ul>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
+
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러&amp;url=http://localhost:4000algo-prog42627"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42627"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42627"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover6.jpg)" href="/blog/java-priorityqueue02">
+            <section class="post">
+                <h2>[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</h2>
+                <p>## 우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다. ### 1....</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42629">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 힙(Heap)_라면공장</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42629 이 문제는 정말 골치 아픈 문제였다. 코드가 아예 잘못된게 아니라 특정 테스트케이스만 통과하지...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2019</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>
