@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</title>
+    <title>[SQL/프로그래머스] SELECT_아픈 동물 찾기</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//java-priorityqueue02" />
+        <link rel="canonical" href="http://localhost:4000/blog//sql-prog59036" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현" />
+    <meta property="og:title" content="[SQL/프로그래머스] SELECT_아픈 동물 찾기" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//java-priorityqueue02" />
-    <meta property="og:image" content="/blog/assets/images/cover6.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//sql-prog59036" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현" />
+    <meta name="twitter:title" content="[SQL/프로그래머스] SELECT_아픈 동물 찾기" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//java-priorityqueue02" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover6.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//sql-prog59036" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현",
-    "url": "http://localhost:4000/blog//java-priorityqueue02",
-    "image": "/blog/assets/images/cover6.jpg",
+    "name": "[SQL/프로그래머스] SELECT_아픈 동물 찾기",
+    "url": "http://localhost:4000/blog//sql-prog59036",
+    "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
     </script>
@@ -75,8 +75,8 @@
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/blog/about">About</a></li>
         <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
-        <li class="nav-java  nav-current" role="presentation"><a href="/blog/tag/java">Java</a></li>
-        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-sql  nav-current" role="presentation"><a href="/blog/tag/sql">SQL</a></li>
         <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
         <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
         <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
@@ -97,7 +97,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover6.jpg) ">
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -108,10 +108,10 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-java">
+    <article class="post tag-sql">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</h1>
+            <h1 class="post-title">[SQL/프로그래머스] SELECT_아픈 동물 찾기</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -130,17 +130,21 @@
             
                 
             
-            <time class="post-date" datetime="2019-11-07">07 Nov 2019</time>
+            <time class="post-date" datetime="2019-11-08">08 Nov 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/blog/tag/java'>Java</a>,
+                       <a href='/blog/tag/algorithm'>Algorithm</a>,
                     
                 
                     
-                       <a href='/blog/tag/priorityqueue'>Priorityqueue</a>
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/sql'>Sql</a>
                     
                 
                 
@@ -149,47 +153,26 @@
 
         <section class="post-content">
 
-            <h2><span style="color:navy"></span></h2>
-<p>우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다.</p>
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59036">https://programmers.co.kr/learn/courses/30/lessons/59036</a></p>
 
-<h3 id="1-기본-개념">1. 기본 개념</h3>
-<ul>
-  <li>리턴값이 음수일 경우 우선순위가 높아진다. 주로 -1, 0, 1을 이용하여 우선순위를 나눈다.</li>
-</ul>
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 
-<h3 id="2-예시">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
-    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
-        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
-        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="c1">//소요시간이 같다면</span>
-        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
-            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>  
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>아이디와 이름을 조회하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>아픈 동물을 조회한다는 조건이 붙었으므로 WHERE을 사용해야한다.</li>
+  <li>INTAKE_CONDITION=”Sick”.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span><span class="o">=</span><span class="nv">"Sick"</span><span class="p">;</span>
 </code></pre></div></div>
-<ul>
-  <li>클래스 뒤에 <code class="highlighter-rouge">implements Comparable</code>를 붙인다.</li>
-  <li>기존 메소드에 수정하는 것이므로 <code class="highlighter-rouge">@Override</code>를 붙인다.</li>
-  <li>위의 경우 time이 작을수록 우선순위가 크다.</li>
-  <li>만약 time이 같다면 start가 작을수록 우선순위가 커진다.</li>
-  <li>이후 sort메소드를 호출할 경우 Override된 compareTo에 따라 정렬된다.</li>
-</ul>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 
 
         </section>
@@ -222,15 +205,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현&amp;url=http://localhost:4000java-priorityqueue02"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[SQL/프로그래머스] SELECT_아픈 동물 찾기&amp;url=http://localhost:4000sql-prog59036"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000java-priorityqueue02"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000sql-prog59036"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000java-priorityqueue02"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000sql-prog59036"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -261,20 +244,20 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42628">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/sql-prog59037">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 힙(Heap)_이중우선순위큐</h2>
-                <p>## 문제 ## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. 하나는 오름차순,...</p>
+                <h2>[SQL/프로그래머스] SELECT_어린 동물 찾기</h2>
+                <p>## 문제 ## ( ᐛ )و 첫 번째 도전 ### 1. 설계 1. 아이디와 이름을...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42627">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/sql-prog59035">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</h2>
-                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42627 테스트케이스 추가 참고로 파라미터 jobs는 정렬이 되어있지않다. 이정도는 문제설명에 적어줘야 하는데. 떼잉쯧; jobs(int[][])...</p>
+                <h2>[SQL/프로그래머스] SELECT_역순 정렬하기</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/59035 ( ᐛ )و 첫 번째 도전 1. 설계 모든 동물의 이름과 보호 시작일을...</p>
             </section>
         </a>
     

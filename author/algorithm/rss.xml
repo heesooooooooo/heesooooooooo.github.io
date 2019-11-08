@@ -12,6 +12,241 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 힙(Heap)_이중우선순위큐</title>
+	  <link>/blog//algo-prog42628</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42628</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42628">https://programmers.co.kr/learn/courses/30/lessons/42628</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>하나는 오름차순, 하나는 내림차순으로 큐를 두 개 사용한다.</li>
+  <li>operations를 split()메소드를 이용해 띄어쓰기를 기준으로 나눈다.</li>
+  <li>I이면 두 개의 큐에 삽입한다.</li>
+  <li>“D 1”은 maxPQ에서 삭제하고, “D -1”은 minPQ에서 삭제한다.</li>
+  <li>[maxPQ의 루트, minPQ의 루트]를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">operations</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">minPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">word</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">str:</span><span class="n">operations</span><span class="o">){</span>
+            <span class="n">word</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"I"</span><span class="o">)){</span>
+                <span class="n">minPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+                <span class="n">maxPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"D"</span><span class="o">)){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"1"</span><span class="o">)&amp;&amp;!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                <span class="o">}</span>
+                <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"-1"</span><span class="o">)&amp;&amp;!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_2.PNG" alt="실행결과" />
+실패.
+테스트1에서 실패했다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>똑같은 값을 두 개의 큐에 중복 저장하기 때문에, 삭제할 때 두 큐 모두 삭제해줘야 한다. 위 코드에서는 “D 1”의 경우 maxPQ에서, “D -1”은 minPQ에서만 삭제가 일어나기 때문에 문제가 발생한다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>maxPQ 또는 minPQ에서 삭제할 때, 나머지 큐에서도 동일한 값을 삭제해준다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">operations</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">minPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">word</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">str:</span><span class="n">operations</span><span class="o">){</span>
+            <span class="n">word</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"I"</span><span class="o">)){</span>
+                <span class="n">minPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+                <span class="n">maxPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"D"</span><span class="o">)){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"1"</span><span class="o">)&amp;&amp;!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">num</span><span class="o">=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                    <span class="n">minPQ</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"-1"</span><span class="o">)&amp;&amp;!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+                    <span class="n">num</span><span class="o">=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+                    <span class="n">maxPQ</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+            <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>PriorityQueue<Integer> minPQ: 큐를 오름차순으로 정렬한다. 루트에 최솟값이 들어간다.</Integer></li>
+  <li>PriorityQueue<Integer> maxPQ: 큐를 내림차순으로 정렬한다. 루트에 최댓값이 들어간다.</Integer></li>
+  <li>String[] num: operations을 띄어쓰기를 기준으로 나눈다. num[0]에는 띄어쓰기 왼쪽 값 I 또는 D가 들어가고, num[1]은 띄어쓰기 오른쪽 값, 숫자 또는 1, -1이 저장된다.</li>
+  <li>num: 삭제할 때 어떤 숫자가 삭제되는지 리턴받아 나머지 큐에서도 삭제해준다.</li>
+</ul>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191108_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>나는 우선순위큐를 두 개 사용하여 문제를 풀었지만, 데크(Deque)를 사용해서도 문제를 풀 수 있을 것 같다. 데크는 앞뒤로 삽입 삭제가 가능하기 때문에 오름차순으로 정렬하면 문제를 쉽게 접근할 수 있지 않을까?</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>프로그래머스 알고리즘: 이중 우선순위 큐 (java) <a href="https://jar100.tistory.com/21">https://jar100.tistory.com/21</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 힙(Heap)_K번째수</title>
+	  <link>/blog//algo-prog42748</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42748</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42748">https://programmers.co.kr/learn/courses/30/lessons/42748</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>commands를 순회하면서 새로 만들 배열의 길이, 범위를 확인한다.</li>
+  <li>새로 만든 배열 cutArray에 값을 넣고 sort한다.</li>
+  <li>특정 인덱스를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">commands</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cutArray</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">start</span><span class="o">,</span><span class="n">end</span><span class="o">,</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+            <span class="n">end</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+            <span class="n">cutArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">start</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">end</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//새 배열 생성</span>
+                <span class="n">cutArray</span><span class="o">[</span><span class="n">idx</span><span class="o">]=</span><span class="n">j</span><span class="o">;</span>
+                <span class="n">idx</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cutArray</span><span class="o">[</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]];</span>
+            <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_4.PNG" alt="실행결과" />
+실패. 배열이 인덱스 범위를 초과했다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>문제에서 배열을 1부터 세기 때문에 start와 end에서 1씩 빼줘야한다. 두 번째 for문 범위도 이상하고, j가 아닌 array의 값을 넣어야한다. 배열 정렬도 하지 않았다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>새 배열을 생성한 후 sort한다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">commands</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">cutArray</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">start</span><span class="o">,</span><span class="n">end</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="n">end</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="n">cutArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">cutArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//새 배열 생성</span>
+                <span class="n">cutArray</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+                <span class="n">start</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">cutArray</span><span class="o">);</span>
+            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cutArray</span><span class="o">[</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]-</span><span class="mi">1</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>int[] cutArray: 조건에 맞게 자른 배열이다. 배열 크기는 변하기 때문에 크기 선언은 for문안에서 한다.</li>
+  <li>int start: array의 i번째 인덱스를 저장한다.</li>
+  <li>int end: j번째 인덱스를 저장한다. start와 end는 배열을 1부터 세기 때문에 1씩 빼서 0부터 시작하도록 한다.</li>
+</ul>
+
+<h3 id="3-결과-1">3. 결과</h3>
+<p><img src="./assets/images/191108_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉬운 문제였지만 잔실수가 많았다. 인덱스 번호를 틀린다거나, 정렬을 하지 않았다거나. 이런 실수를 줄일 수 있도록 코드를 바로 작성하기전에 어떻게 구상할지 머릿속으로 정리를 하는 단계를 습관화해야겠다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</title>
 	  <link>/blog//algo-prog42627</link>
 	  <author></author>
@@ -1247,243 +1482,6 @@ answer[2]의 값이 다르다.</p>
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 <p>예전에 코딩테스트에서 나왔을 때는 못 풀었는데, 이번엔 해결해서 다행이다. 문제 유형이 스택과 큐이지만 ArrayList를 활용하였다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 스택/큐_기능개발</title>
-	  <link>/blog//algo-prog42586</link>
-	  <author></author>
-	  <pubDate>2019-10-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42586</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42586">https://programmers.co.kr/learn/courses/30/lessons/42586</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>소요되는 날 계산해서 Queue에 저장한다.</li>
-  <li>temp에 큐의 맨 앞 값 넣는다.</li>
-  <li>temp보다 뒤에가 작으면 cnt++, 그 값을 삭제한다.</li>
-  <li>temp보다 큰거 발견하면 그자리에서 끝, cnt를 answer에 저장한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.lang.Math</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">progresses</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">speeds</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span> <span class="n">day</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">temp</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-
-        <span class="c1">//소요되는 날 계산 후 큐에 저장</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">progresses</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">day</span><span class="o">=(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">((</span><span class="mi">100</span><span class="o">-</span><span class="n">progresses</span><span class="o">[</span><span class="n">i</span><span class="o">])/(</span><span class="kt">double</span><span class="o">)</span><span class="n">speeds</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-            <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span><span class="c1">//큐를 처음부터 순회, 기준값 temp설정</span>
-            <span class="n">temp</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="c1">//temp뒤의 값을 비교하며 카운트</span>
-            <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">temp</span><span class="o">&lt;</span><span class="n">q</span><span class="o">.</span><span class="na">peek</span><span class="o">()){</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">else</span><span class="o">{</span>
-                    <span class="n">cnt</span><span class="o">++;</span>
-                    <span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="n">array</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
-            <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="c1">//ArrayList의 값 복사</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">array</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>int day: 기능별로 작업 시간을 계산한다. 이때 소수점까지 필요하므로 speeds를 실수형인 double로 형변환, Math 라이브러리의 ceil()메소드를 이용하여 값을 올림한 후 다시 int형으로 변환한다.</li>
-  <li>int temp: 큐의 첫 번째 값을 저장하여 뒤의 값들과 비교한다.</li>
-  <li>int cnt: 기준점인 temp와 함께 배포될 수 있는 갯수를 저장한다. 이때 기준점인 temp의 값을 가지고 있으므로 초기값은 1이다.</li>
-  <li>Queue<Integer> q: 기능별 day를 저장하는 자료구조이다.</Integer></li>
-  <li>ArrayList<Inger> array: 날마다 배포되는 기능 갯수인 cnt를 저장한다. cnt의 값은 유동적이기 때문에 선언시 크기를 지정하지 않아도 되는 ArrayList를 선택하였다.</Inger></li>
-</ul>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191028_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-참고">4. 참고</h3>
-<p><img src="./assets/images/191028_1.PNG" alt="결과화면" />
-마지막 ArrayList array를 배열 answer로 복사하는 과정에서 List 라이브러리의 toArray()메소드를 사용하려고 했는데, 이 경우 ArrayList와 배열 모두 Integer로 선언되어야 한다. 나의 경우 배열 answer이 int형으로 선언되었기 때문에 그냥 for문으로 값을 복사해주었다.</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-
-<p>오랜만에 나름 쉬운 문제를 풀어서 기분이 좋았다. 문제 유형이 스택과 큐라서 이를 이용해야겠다고 파악할 수 있었지만, 없었다면 배열을 썼을 것 같다. 문제를 보고 어떤 자료구조를 택할지 연습하는 법을 길러야겠다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 해시_베스트앨범</title>
-	  <link>/blog//algo-prog42579</link>
-	  <author></author>
-	  <pubDate>2019-10-16T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42579</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42579">https://programmers.co.kr/learn/courses/30/lessons/42579</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>해시에 장르별로 plays 계산한다.</li>
-  <li>해시 사이즈(장르 개수)만큼 ArrayList 생성, 장르별로 노래(고유번호, 재생)저장한다.</li>
-  <li>해시와 ArrayList를 내림차순으로 정렬한다.</li>
-  <li>해시 순서대로 장르의 0, 1번의 고유 번호를 리턴한다.</li>
-</ol>
-
-<p>=&gt;ArrayList를 동적 생성할 수 없어서 불가.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>장르별로 총 재생 횟수를 계산하는 해시를 생성한다.</li>
-  <li>재생 횟수를 내림차순으로 정렬하기 위해 배열을 사용한다.</li>
-  <li>해시맵(장르, 노래들)형태로 생성한다.</li>
-  <li>노래들의 1, 2위를 뽑기 위해 ArrayList에 저장, 내림차순으로 정렬한다.</li>
-  <li>장르별 두 개(또는 하나)를 뽑아 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Music</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Music</span><span class="o">&gt;{</span>
-    <span class="kt">int</span> <span class="n">play</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">idx</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Music</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">idx</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">play</span><span class="o">=</span><span class="n">p</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Music</span> <span class="n">m</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">play</span><span class="o">&gt;</span><span class="n">m</span><span class="o">.</span><span class="na">play</span><span class="o">){</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">play</span><span class="o">&lt;</span><span class="n">m</span><span class="o">.</span><span class="na">play</span><span class="o">){</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">else</span><span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">idx</span><span class="o">&gt;</span><span class="n">m</span><span class="o">.</span><span class="na">idx</span><span class="o">){</span>
-                <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">genres</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">plays</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="c1">//장르별 총 재생 횟수 계산</span>
-        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">genres</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">genres</span><span class="o">[</span><span class="n">i</span><span class="o">],</span><span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">genres</span><span class="o">[</span><span class="n">i</span><span class="o">],</span><span class="mi">0</span><span class="o">)+</span><span class="n">plays</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-        <span class="o">}</span>
-
-        <span class="c1">//재생횟수보고 장르를 찾기위해 바꿔서 해시에 저장</span>
-        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">reverseMap</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">key:</span><span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">()){</span>
-            <span class="n">reverseMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">),</span><span class="n">key</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">//재생횟수 내림차순 정렬</span>
-        <span class="n">Integer</span><span class="o">[]</span> <span class="n">rankGenres</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">map</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-        <span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">key:</span><span class="n">reverseMap</span><span class="o">.</span><span class="na">keySet</span><span class="o">()){</span>
-            <span class="n">rankGenres</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">key</span><span class="o">;</span>
-            <span class="n">j</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rankGenres</span><span class="o">);</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rankGenres</span><span class="o">,</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-
-        <span class="c1">//해시맵(장르, 노래들)으로 각 1,2위 뽑기</span>
-        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Music</span><span class="o">&gt;&gt;</span> <span class="n">rankMusic</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">plays</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">genres</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span>
-                <span class="n">rankMusic</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">genres</span><span class="o">[</span><span class="n">i</span><span class="o">],</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
-            <span class="o">}</span>
-            <span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">genres</span><span class="o">[</span><span class="n">i</span><span class="o">]).</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Music</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">plays</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
-        <span class="o">}</span>
-        <span class="c1">//장르별 value인 ArrayList 내림차순 정렬</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">answerArray</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">key:</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">keySet</span><span class="o">()){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">).</span><span class="na">size</span><span class="o">()==</span><span class="mi">1</span><span class="o">){</span>
-                <span class="n">answerArray</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">idx</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span><span class="c1">//값이 2개이상이라면</span>
-                <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">));</span>
-                <span class="c1">//Collections.reverse(rankMusic.get(key));</span>
-                <span class="n">answerArray</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">idx</span><span class="o">);</span>
-                <span class="n">answerArray</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rankMusic</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="na">idx</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">answerArray</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">answerArray</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>    
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>HashMap&lt;String, Integer&gt; map: 장르별로 총 재생횟수를 계산한다.</li>
-  <li>HashMap&lt;Integer, String&gt; reverseMap: 총 재생횟수를 내림차순으로 정렬한 후, 재생횟수를 통해 장르를 알 수 있도록 key, value를 바꾼다.</li>
-  <li>Integer[] rankGenres: 총 재생횟수를 내림차순으로 정렬한다. 내림차순을 만드는 메소드가 없으므로, 오름차순으로 정렬 후 reverse함수를 사용한다.</li>
-  <li>HashMap&lt;String, ArrayList<Music>&gt; rankMusic: key는 장르를, value는 해당 장르의 노래들을 ArrayList로 저장한다. 이때 재생횟수(play)와 고유번호(idx)를 가지는 Music이라는 클래스를 생성하여 ArrayList에 Music 형태로 저장한다.</Music></li>
-  <li>ArrayList<Integer> answerArray: rankMusic을 내림차순으로 정렬하여 0, 1번을 장르 순서대로 저장한다.</Integer></li>
-  <li>int[] answer: answerArray의 값을 카피하여 리턴한다.</li>
-</ul>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191016_2.PNG" alt="실행결과" />
-실패¯_( ͡° ͜ʖ ͡°)/¯
-어디서 틀렸는지 알고 싶은데 테스트케이스를 몰라서 알 수 없는게 함정</p>
-<h2 id="보류"><span style="color:navy">보류</span></h2>
-
-<p>위의 코드도 <a href="https://developerdk.tistory.com/13">https://developerdk.tistory.com/13</a>의 풀이법을 99%참고하여 작성하였다. 일단 다른 사람의 코드를 이해하고 다른 문제로 넘어가도록 하겠다…</p>
 
 	  ]]></description>
 	</item>

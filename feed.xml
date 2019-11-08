@@ -8,6 +8,102 @@
     
       
       <item>
+        <title>[SQL/프로그래머스] SELECT_어린 동물 찾기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59037&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59037&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59037</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59037</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_아픈 동물 찾기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59036&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59036&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59036</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59036</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_역순 정렬하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59035&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59035&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59035</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59035</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_모든 레코드 조회하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59034&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59034&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59034</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59034</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 힙(Heap)_K번째수</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42748&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42748&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42748</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42748</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 힙(Heap)_이중우선순위큐</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42628&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42628&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 08 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42628</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42628</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</title>
         
           <description>&lt;h2&gt;&lt;span style=&quot;color:navy&quot;&gt;&lt;/span&gt;&lt;/h2&gt;
