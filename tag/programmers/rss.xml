@@ -12,327 +12,324 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>[SQL/프로그래머스] SELECT_아픈 동물 찾기</title>
-	  <link>/blog//sql-prog59036</link>
+	  <title>[SQL/프로그래머스] GROUP BY_입양 시각 구하기(1): ORDER BY와 GROUP BY의 차이점</title>
+	  <link>/blog//sql-prog59412</link>
 	  <author></author>
-	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//sql-prog59036</guid>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59412</guid>
 	  <description><![CDATA[
 	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59036">https://programmers.co.kr/learn/courses/30/lessons/59036</a></p>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59412">https://programmers.co.kr/learn/courses/30/lessons/59412</a></p>
 
 <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>아이디와 이름을 조회하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
-  <li>아픈 동물을 조회한다는 조건이 붙었으므로 WHERE을 사용해야한다.</li>
-  <li>INTAKE_CONDITION=”Sick”.</li>
+  <li>DATETIME의 시를 출력하기위해 HOUR키워드를 사용한다.</li>
+  <li>시간대별로 갯수를 세므로 COUNT를 사용한다.</li>
+  <li>9시부터 19시까지이므로 조건절 WHERE에서 제한을 둔다.</li>
+  <li>ORDER BY를 이용해 시간대 순으로 정렬한다.</li>
+  <li>출력문 조건에 맞게 AS를 사용한다.</li>
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span><span class="o">=</span><span class="nv">"Sick"</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'HOUR'</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">))</span> <span class="k">AS</span> <span class="s1">'COUNT'</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_OUTS</span>
+<span class="k">WHERE</span> <span class="mi">9</span><span class="o">&lt;=</span><span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AND</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">19</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">);</span>
 </code></pre></div></div>
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[SQL/프로그래머스] SELECT_역순 정렬하기</title>
-	  <link>/blog//sql-prog59035</link>
-	  <author></author>
-	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//sql-prog59035</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59035">https://programmers.co.kr/learn/courses/30/lessons/59035</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>모든 동물의 이름과 보호 시작일을 조회해야하므로 <code class="highlighter-rouge">SELECT NAME, DATETIME</code>으로 시작한다.</li>
-  <li>ANIMAL_ID 역순으로 정렬이므로 <code class="highlighter-rouge">ORDER BY ANIMAL_ID DESC</code>이다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span> <span class="k">DESC</span><span class="p">;</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[SQL/프로그래머스] SELECT_모든 레코드 조회하기</title>
-	  <link>/blog//sql-prog59034</link>
-	  <author></author>
-	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//sql-prog59034</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59034">https://programmers.co.kr/learn/courses/30/lessons/59034</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>모든 정보를 출력해야하므로 <code class="highlighter-rouge">SELECT *</code>이다.</li>
-  <li>ANIMAL_ID순으로 정렬해야하므로 ORDER BY를 사용한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span><span class="p">;</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_K번째수</title>
-	  <link>/blog//algo-prog42748</link>
-	  <author></author>
-	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42748</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42748">https://programmers.co.kr/learn/courses/30/lessons/42748</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>commands를 순회하면서 새로 만들 배열의 길이, 범위를 확인한다.</li>
-  <li>새로 만든 배열 cutArray에 값을 넣고 sort한다.</li>
-  <li>특정 인덱스를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">commands</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">cutArray</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">start</span><span class="o">,</span><span class="n">end</span><span class="o">,</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">start</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-            <span class="n">end</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
-            <span class="n">cutArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">start</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">end</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//새 배열 생성</span>
-                <span class="n">cutArray</span><span class="o">[</span><span class="n">idx</span><span class="o">]=</span><span class="n">j</span><span class="o">;</span>
-                <span class="n">idx</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cutArray</span><span class="o">[</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]];</span>
-            <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191108_4.PNG" alt="실행결과" />
-실패. 배열이 인덱스 범위를 초과했다.</p>
+<p><img src="./assets/images/191110_1.PNG" alt="실행결과" />
+실패</p>
 
 <h3 id="4-문제점">4. 문제점</h3>
-<p>문제에서 배열을 1부터 세기 때문에 start와 end에서 1씩 빼줘야한다. 두 번째 for문 범위도 이상하고, j가 아닌 array의 값을 넣어야한다. 배열 정렬도 하지 않았다.</p>
+<p>ORDER BY가 아니라 GROUP BY를 사용해야한다.</p>
 
 <h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
 
 <h3 id="1-설계-1">1. 설계</h3>
 <ol>
-  <li>새 배열을 생성한 후 sort한다.</li>
+  <li>GROUP BY를 이용한다.</li>
 </ol>
 
 <h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">commands</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">cutArray</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">start</span><span class="o">,</span><span class="n">end</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">commands</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">start</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">;</span>
-            <span class="n">end</span><span class="o">=</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">;</span>
-            <span class="n">cutArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">cutArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//새 배열 생성</span>
-                <span class="n">cutArray</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
-                <span class="n">start</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">cutArray</span><span class="o">);</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cutArray</span><span class="o">[</span><span class="n">commands</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]-</span><span class="mi">1</span><span class="o">];</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'HOUR'</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">))</span> <span class="k">AS</span> <span class="s1">'COUNT'</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_OUTS</span>
+<span class="k">WHERE</span> <span class="mi">9</span><span class="o">&lt;=</span><span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AND</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">19</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">);</span>
 </code></pre></div></div>
-<ul>
-  <li>int[] cutArray: 조건에 맞게 자른 배열이다. 배열 크기는 변하기 때문에 크기 선언은 for문안에서 한다.</li>
-  <li>int start: array의 i번째 인덱스를 저장한다.</li>
-  <li>int end: j번째 인덱스를 저장한다. start와 end는 배열을 1부터 세기 때문에 1씩 빼서 0부터 시작하도록 한다.</li>
-</ul>
 
 <h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191108_3.PNG" alt="실행결과" />
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
 성공٩(˘◊˘)۶</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉬운 문제였지만 잔실수가 많았다. 인덱스 번호를 틀린다거나, 정렬을 하지 않았다거나. 이런 실수를 줄일 수 있도록 코드를 바로 작성하기전에 어떻게 구상할지 머릿속으로 정리를 하는 단계를 습관화해야겠다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_이중우선순위큐</title>
-	  <link>/blog//algo-prog42628</link>
-	  <author></author>
-	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42628</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42628">https://programmers.co.kr/learn/courses/30/lessons/42628</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>하나는 오름차순, 하나는 내림차순으로 큐를 두 개 사용한다.</li>
-  <li>operations를 split()메소드를 이용해 띄어쓰기를 기준으로 나눈다.</li>
-  <li>I이면 두 개의 큐에 삽입한다.</li>
-  <li>“D 1”은 maxPQ에서 삭제하고, “D -1”은 minPQ에서 삭제한다.</li>
-  <li>[maxPQ의 루트, minPQ의 루트]를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">operations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">minPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="n">String</span><span class="o">[]</span> <span class="n">word</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">str:</span><span class="n">operations</span><span class="o">){</span>
-            <span class="n">word</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"I"</span><span class="o">)){</span>
-                <span class="n">minPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-                <span class="n">maxPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-            <span class="o">}</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"D"</span><span class="o">)){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"1"</span><span class="o">)&amp;&amp;!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                    <span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="o">}</span>
-                <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"-1"</span><span class="o">)&amp;&amp;!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                    <span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-        <span class="k">if</span><span class="o">(!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">if</span><span class="o">(!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191108_2.PNG" alt="실행결과" />
-실패.
-테스트1에서 실패했다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>똑같은 값을 두 개의 큐에 중복 저장하기 때문에, 삭제할 때 두 큐 모두 삭제해줘야 한다. 위 코드에서는 “D 1”의 경우 maxPQ에서, “D -1”은 minPQ에서만 삭제가 일어나기 때문에 문제가 발생한다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>maxPQ 또는 minPQ에서 삭제할 때, 나머지 큐에서도 동일한 값을 삭제해준다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">operations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">minPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">maxPQ</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="n">String</span><span class="o">[]</span> <span class="n">word</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">str:</span><span class="n">operations</span><span class="o">){</span>
-            <span class="n">word</span><span class="o">=</span><span class="n">str</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"I"</span><span class="o">)){</span>
-                <span class="n">minPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-                <span class="n">maxPQ</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
-            <span class="o">}</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"D"</span><span class="o">)){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"1"</span><span class="o">)&amp;&amp;!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                    <span class="n">num</span><span class="o">=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                    <span class="n">minPQ</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-                <span class="o">}</span>
-                <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">word</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"-1"</span><span class="o">)&amp;&amp;!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-                    <span class="n">num</span><span class="o">=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                    <span class="n">maxPQ</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-        <span class="k">if</span><span class="o">(!</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">maxPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">if</span><span class="o">(!</span><span class="n">minPQ</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">minPQ</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<h3 id="4-order-by와-group-by">4. ORDER BY와 GROUP BY</h3>
 <ul>
-  <li>PriorityQueue<Integer> minPQ: 큐를 오름차순으로 정렬한다. 루트에 최솟값이 들어간다.</Integer></li>
-  <li>PriorityQueue<Integer> maxPQ: 큐를 내림차순으로 정렬한다. 루트에 최댓값이 들어간다.</Integer></li>
-  <li>String[] num: operations을 띄어쓰기를 기준으로 나눈다. num[0]에는 띄어쓰기 왼쪽 값 I 또는 D가 들어가고, num[1]은 띄어쓰기 오른쪽 값, 숫자 또는 1, -1이 저장된다.</li>
-  <li>num: 삭제할 때 어떤 숫자가 삭제되는지 리턴받아 나머지 큐에서도 삭제해준다.</li>
+  <li>ORDER BY: 조회된 결과의 레코드들을 원하는 기준으로 정렬해 출력한다.
+제일 마지막 줄에 위치하여 조회된 자료를 정리하는 느낌이다.
+ALIAS명도 사용 가능하다.</li>
+  <li>GROUP BY: 그룹별 통계정보를 제공한다.
+데이터베이스가 GROUP BY에 명시된 칼럼 순서대로 오름차순 정렬을 실시한다.
+ALIAS 명을 사용할 수 없고, WHERE절에 올 수 없다.
+HAVING절을 이용해 제한조건을 둔다.</li>
 </ul>
 
-<h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191108_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>나는 우선순위큐를 두 개 사용하여 문제를 풀었지만, 데크(Deque)를 사용해서도 문제를 풀 수 있을 것 같다. 데크는 앞뒤로 삽입 삭제가 가능하기 때문에 오름차순으로 정렬하면 문제를 쉽게 접근할 수 있지 않을까?</p>
 
 <h3 id="참고">참고</h3>
 <ul>
-  <li>프로그래머스 알고리즘: 이중 우선순위 큐 (java) <a href="https://jar100.tistory.com/21">https://jar100.tistory.com/21</a></li>
+  <li>group by와 order by 차이점 <a href="http://blog.naver.com/PostView.nhn?blogId=bluejhs1&amp;logNo=10021622900&amp;redirect=Dlog&amp;widgetTypeCall=true">http://blog.naver.com/PostView.nhn?blogId=bluejhs1&amp;logNo=10021622900&amp;redirect=Dlog&amp;widgetTypeCall=true</a></li>
 </ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SUM, MAX, MIN_중복 제거하기: DISTINCT와 GROUP BY의 차이점</title>
+	  <link>/blog//sql-prog59408</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59408</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59408">https://programmers.co.kr/learn/courses/30/lessons/59408</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>NAME에 중복, null이 존재하는데 이를 제외하고 갯수를 세야한다. 따라서 DISTINCT를 이용해 중복을 제거한다.</li>
+  <li>DISTINCT는 null도 포함하므로 조건절에서 NOT NULL을 사용한다.</li>
+  <li>제거한 값을 COUNT로 세서 출력한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">NAME</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">NAME</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-distinct와-group-by">4. DISTINCT와 GROUP BY</h3>
+<ul>
+  <li>DISTINCT: 중복되지 않는 레코드를 조회한다.</li>
+  <li>GROUP BY: 데이터를 그룹핑해서 그 결과를 가져온다.</li>
+  <li>차이점: DISTINCT는 정렬된 결과가 아니지만, GROUP BY는 정렬된 결과를 출력한다.</li>
+</ul>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>DISTINCT 와 GROUP BY의 차이 <a href="http://intomysql.blogspot.com/2011/01/distinct-group-by.html">http://intomysql.blogspot.com/2011/01/distinct-group-by.html</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SUM, MAX, MIN_동물 수 구하기</title>
+	  <link>/blog//sql-prog59406</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59406</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59406">https://programmers.co.kr/learn/courses/30/lessons/59406</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물 보호소에 있는 동물 수를 세야 하므로 COUNT를 사용하고, 인자는 중복되지않는 값을 사용하므로 <code class="highlighter-rouge">COUNT(ANIMAL_ID)</code>이다.</li>
+  <li>출력이 count이므로 AS를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">ANIMAL_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'count'</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_상위 n개 레코드: LIMIT 사용하기</title>
+	  <link>/blog//sql-prog59405</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59405</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59405">https://programmers.co.kr/learn/courses/30/lessons/59405</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 이름을 조회하므로 <code class="highlighter-rouge">SELECT NAME</code>이다.</li>
+  <li><code class="highlighter-rouge">ORDER BY DATETIME</code>으로 보호소에 들어온 순서대로 조회한다.</li>
+  <li>가장 먼저 들어온 동물 하나를 조회하므로 <code class="highlighter-rouge">LIMIT 1</code>을 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DATETIME</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-limit-사용">4. LIMIT 사용</h3>
+<ul>
+  <li>n개 가져오기
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*테이블A에서 5개 조회*/</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_A</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <dl>
+      <dt>n번째부터 m개 추출</dt>
+      <dd>0부터 시작.
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*5번째부터 10개 조회*/</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_B</span> <span class="k">LIMIT</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>        </div>
+        <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+      </dd>
+    </dl>
+  </li>
+</ul>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[MySQL] Limit 사용법 <a href="https://nolran.tistory.com/57">https://nolran.tistory.com/57</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_여러 기준으로 정렬하기</title>
+	  <link>/blog//sql-prog59404</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59404</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59404">https://programmers.co.kr/learn/courses/30/lessons/59404</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 아이디, 이름, 보호 시작일을 출력하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME, DATETIME</code>이다.</li>
+  <li>이름순으로 오름차순 정렬하고(ASC, 생략가능), 이름이 같은 경우에는 DATETIME이 큰 순서대로 출력하므로 DESC를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_동물의 아이디와 이름</title>
+	  <link>/blog//sql-prog59403</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59403</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59403">https://programmers.co.kr/learn/courses/30/lessons/59403</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 아이디와 이름을 출력하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>ANIMAL_ID 순으로 정렬하므로 ORDER BY를 사용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SUM, MAX, MIN_최솟값 구하기</title>
+	  <link>/blog//sql-prog59038</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59038</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59038">https://programmers.co.kr/learn/courses/30/lessons/59038</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>가장 먼저 들어온 동물을 조회하므로 DATETIME이 가장 큰 동물을 출력한다. <code class="highlighter-rouge">MIN(DATETIME)</code></li>
+  <li>결과가 ‘시간’으로 출력되어야하므로 AS를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="err">시간</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SUM, MAX, MIN_최댓값 구하기</title>
+	  <link>/blog//sql-prog59415</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59415</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59415">https://programmers.co.kr/learn/courses/30/lessons/59415</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>가장 최근에 들어온 동물을 조회하므로 DATETIME이 가장 큰 동물을 출력한다. <code class="highlighter-rouge">MAX(DATETIME)</code></li>
+  <li>결과가 ‘시간’으로 출력되어야하므로 AS를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'시간'</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -369,521 +366,32 @@
 	</item>
 
 	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_디스크 컨트롤러</title>
-	  <link>/blog//algo-prog42627</link>
+	  <title>[SQL/프로그래머스] SELECT_아픈 동물 찾기</title>
+	  <link>/blog//sql-prog59036</link>
 	  <author></author>
-	  <pubDate>2019-11-07T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42627</guid>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59036</guid>
 	  <description><![CDATA[
 	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42627">https://programmers.co.kr/learn/courses/30/lessons/42627</a></p>
-
-<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
-<ul>
-  <li>참고로 파라미터 jobs는 정렬이 되어있지않다. 이정도는 문제설명에 적어줘야 하는데. 떼잉쯧;</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">jobs(int[][])</th>
-      <th style="text-align: center">return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">[[24, 10], [18, 39], [34, 20], [37, 5], [47, 22], [20, 47], [15, 2], [15, 34], [35, 43], [26, 1]]</td>
-      <td style="text-align: center">74</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">[[24, 10], [18, 39], [34, 20], [37, 5], [47, 22], [20, 47], [15, 34], [15, 2], [35, 43], [26, 1]]</td>
-      <td style="text-align: center">74</td>
-    </tr>
-  </tbody>
-</table>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59036">https://programmers.co.kr/learn/courses/30/lessons/59036</a></p>
 
 <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>소요시간(time)이 작은 순서, 같다면 요청시간(start)이 작은 순서가 우선순위가 높도록 우선순위큐를 생성한다.</li>
-  <li>현재 시간(now)보다 요청시간이 같거나 작은 작업을 선택해 요청~종료까지 걸린 시간을 계산한 후 now와 answer을 갱신한다.</li>
-  <li>없으면 현재 시간엔 수행할 작업이 없다는 뜻이므로 now++한다.</li>
-  <li>계산이 끝나면 작업 갯수만큼 answer을 나눠 평균을 구한다.</li>
+  <li>아이디와 이름을 조회하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>아픈 동물을 조회한다는 조건이 붙었으므로 WHERE을 사용해야한다.</li>
+  <li>INTAKE_CONDITION=”Sick”.</li>
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
-    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
-        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
-        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="c1">//소요시간이 같다면</span>
-        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
-            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>  
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">jobs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]));</span>
-        <span class="o">}</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">pq</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
-        <span class="o">}</span>
-        <span class="n">Job</span> <span class="n">job</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(!</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
-                <span class="n">job</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;=</span><span class="n">now</span><span class="o">){</span>
-                    <span class="n">answer</span><span class="o">+=</span><span class="n">now</span><span class="o">+</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">-</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
-                    <span class="n">now</span><span class="o">+=</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">;</span>
-                    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">){</span>
-                    <span class="n">now</span><span class="o">++;</span>
-                <span class="o">}</span>                
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span><span class="o">=</span><span class="nv">"Sick"</span><span class="p">;</span>
 </code></pre></div></div>
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191107_1.PNG" alt="실행결과" />
-실패.
-출력문을 찍은 결과 list에 모든 값들이 들어가지 않았다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>두 번째 for문에서 i의 범위가 pq.size()인데, pq는 팝하면서 제거되어 사이즈가 계속 변하므로 적합하지 않다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>pq.size()가 아닌 고정값 jobs.length로 for문 조건을 변경한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
-    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
-        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
-        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="c1">//소요시간이 같다면</span>
-        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
-            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>  
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">jobs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span><span class="n">jobs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]));</span>
-        <span class="o">}</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span>
-        <span class="o">}</span>
-        <span class="n">Job</span> <span class="n">job</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(!</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
-                <span class="n">job</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;=</span><span class="n">now</span><span class="o">){</span>
-                    <span class="n">answer</span><span class="o">+=</span><span class="n">now</span><span class="o">+</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">-</span><span class="n">job</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
-                    <span class="n">now</span><span class="o">+=</span><span class="n">job</span><span class="o">.</span><span class="na">time</span><span class="o">;</span>
-                    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">job</span><span class="o">);</span>
-                    <span class="k">break</span><span class="o">;</span><span class="c1">//작업이 완료되면 break로 다시 for문을 처음부터 방문하여 놓치는 작업이 없도록 한다</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">){</span>
-                    <span class="n">now</span><span class="o">++;</span>
-                <span class="o">}</span>                
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>PriorityQueue<Job> pq: 소요시간이 작은 순서, 같다면 요청시간이 작은 순서로 정렬한다.</Job></li>
-  <li>ArrayList<Job> list: pq를 arraylist에 저장하여 코드에 사용한다. 같은 데이터를 가지고 있는데 굳이 arraylist에 저장하여 사용하는 이유는, pq가 요청시간을 기준으로 정렬된 것이 아니기 때문이다. 현재 시간(now)에 따라 이전~현재까지의 작업들을 모두 확인해야하는데, 우선순위큐로는 정렬된 루트노드의 값만 가져올 수 있고 다음 노드를 방문하기 위해서는 무조건 poll해야한다. 하지만 미래의 작업이 루트로 갈 수 있는데, 이때는 삭제하면 안되므로 arrayList를 이용해 값을 삭제하지 않아도 다음 값을 찾을 수 있게 한다.</Job></li>
-</ul>
-
-<h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191107_2.PNG" alt="실행결과" />
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
 성공٩(˘◊˘)۶</p>
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>Compare을 Override하는 법에 대해 배울 수 있었다. 처음에는 jobs 배열을 요청시간 오름차순으로 정렬해서 사용하고 싶었는데, Array.sort()나 Collections.sort()를 사용하려고 하니 Override한 compare를 쓰는 바람에 애먹었다. 결국에는 배열을 정리할 필요 없이 처음부터 우선순위큐를 사용했는데, 이건 다른 사람 코드를 보고 나도 따라한 것이다. 나도 이렇게 바로 떠오르면 좋으련만.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스][힙(heap)]디스크 컨트롤러 <a href="https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90">https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_라면공장</title>
-	  <link>/blog//algo-prog42629</link>
-	  <author></author>
-	  <pubDate>2019-11-06T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42629</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42629">https://programmers.co.kr/learn/courses/30/lessons/42629</a></p>
-
-<p>이 문제는 정말 골치 아픈 문제였다. 코드가 아예 잘못된게 아니라 특정 테스트케이스만 통과하지 못해서 더 포기할 수 없었다. 개인적으로 포인트를 차감하는 방법으로 테스트케이스를 볼 수 있었으면 좋겠다. 아직도 내 코드가 틀린 이유를 모르겠으며, 성공한 다른 사람들의 코드와 차이점이 무엇인지 알 수 없다. 문제 해결을 위해 도전한 코드들을 모두 리뷰하기엔 너무 많아서 제일 최근 것 하나만 작성해야겠다.<br />
-참고로 아래 테스트케이스를 추가하여 문제를 풀 것을 강력 추천한다. 테스트케이스를 생각하는 것도 골치 아파 죽는 줄 알았다.<br />
-마지막 케이스도 내가 생각할 때에는 4를 리턴해야 할 것 같은데 내 코드와 다른 사람들 코드는 5를 리턴한다. 그래서 일단은 5라고 적어놓는다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">stock</th>
-      <th style="text-align: center">dates</th>
-      <th style="text-align: center">supplies</th>
-      <th style="text-align: center">k</th>
-      <th style="text-align: center">result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td style="text-align: center">[1,2,3,4]</td>
-      <td style="text-align: center">[10,40,30,20]</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: center">4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">5</td>
-      <td style="text-align: center">[1,2,3,4,5]</td>
-      <td style="text-align: center">[1,1,1,1,25]</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">[1,2,3,4,5]</td>
-      <td style="text-align: center">[1,1,1,1,25]</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: center">5</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>오늘(이전 포함) 받을 수 있는 공급이 있다면 큐에 저장한다.</li>
-  <li>dates의 값이 미래거나 마지막 공급까지 다 받은 경우라면 day에 오늘 날짜를 저장한다.</li>
-  <li>큐에 값이 있고 재고가 더 필요하다면 큐에서 뽑아 stock에 추가하고 answer을 증가한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">stock</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dates</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">supplies</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">day</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">stock</span><span class="o">&gt;=</span><span class="n">dates</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span><span class="c1">//이전날들값은 큐에 추가</span>
-                    <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">supplies</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">stock</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">[</span><span class="n">i</span><span class="o">]||</span><span class="n">i</span><span class="o">==</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//미래 또는 다넣음</span>
-                    <span class="n">day</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">stock</span><span class="o">!=</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">stock</span><span class="o">&lt;</span><span class="n">k</span><span class="o">){</span>
-                <span class="n">stock</span><span class="o">+=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191106_1.PNG" alt="실행결과" />
-실패. 테스트3, 5에서 틀렸다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>알 수 없다. 이젠 지쳤다. 다른 사람 코드를 참고해야 할 때다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>원래 공장으로부터 공급받는 k 이전까지 체크한다.</li>
-  <li>배열 순회에 사용할 idx가 dates 인덱스 범위에 만족하고, 오늘 받을 수 있는 공급이 있다면 큐에 삽입한다. idx++한다.</li>
-  <li>만약 오늘이 stock을 다 쓰는 날이라면 큐에서 pop하여 stock에 추가하고 answer++한다.</li>
-  <li>하루가 지나갔음을 나타내기 위해 day++한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">stock</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dates</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">supplies</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">day</span><span class="o">&lt;</span><span class="n">k</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">idx</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="o">==</span><span class="n">dates</span><span class="o">[</span><span class="n">idx</span><span class="o">]){</span>
-                <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">supplies</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>
-                <span class="n">idx</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">day</span><span class="o">==</span><span class="n">stock</span><span class="o">){</span>
-                <span class="n">stock</span><span class="o">+=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">day</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191106_2.PNG" alt="실행결과" />
-행복하지 않은 성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>이해할 수 없다. 컴퓨터의 세계는 이해할 수 없어T_T</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_더 맵게</title>
-	  <link>/blog//algo-prog42626</link>
-	  <author></author>
-	  <pubDate>2019-11-04T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42626</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42626">https://programmers.co.kr/learn/courses/30/lessons/42626</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>가장 맵지 않은, scoville이 낮은 원소를 사용하므로 우선순위가 낮은 순서로 정렬, 리턴하는 우선순위큐를 사용한다.</li>
-  <li>하나라도 K보다 작다면, 주어진 공식을 이용해 새 조합을 만든다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">scoville</span><span class="o">,</span> <span class="kt">int</span> <span class="n">K</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">a</span><span class="o">,</span><span class="n">b</span><span class="o">;</span>
-         <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;();</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">i:</span><span class="n">scoville</span><span class="o">){</span>
-             <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-         <span class="o">}</span>
-         <span class="k">while</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">peek</span><span class="o">()&lt;</span><span class="n">K</span><span class="o">){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">pq</span><span class="o">.</span><span class="na">size</span><span class="o">()==</span><span class="mi">1</span><span class="o">){</span>
-                 <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-             <span class="o">}</span>
-             <span class="k">else</span><span class="o">{</span>
-                 <span class="n">a</span><span class="o">=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                 <span class="n">b</span><span class="o">=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                 <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">a</span><span class="o">+(</span><span class="n">b</span><span class="o">*</span><span class="mi">2</span><span class="o">));</span>
-                 <span class="n">answer</span><span class="o">++;</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>PriorityQueue<Integer> pq: 스코빌 지수가 낮은 순으로 뽑을 수 있게 우선순위큐를 사용한다.</Integer></li>
-</ul>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191104_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>우선순위큐를 사용할 기회가 별로 없었는데, 이번을 통해 사용하는 법을 배워야겠다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 스택/큐_주식가격</title>
-	  <link>/blog//algo-prog42584</link>
-	  <author></author>
-	  <pubDate>2019-11-04T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42584</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42584">https://programmers.co.kr/learn/courses/30/lessons/42584</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>이중 for문을 사용하여 i를 기준으로 두고, j로 뒷 원소들과 비교한다.</li>
-  <li>i보다 같거나 큰 원소들의 갯수를 세서 answer에 저장한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]&lt;=</span><span class="n">prices</span><span class="o">[</span><span class="n">j</span><span class="o">]){</span>
-                    <span class="n">cnt</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cnt</span><span class="o">;</span>   
-            <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191102_4.PNG" alt="실행결과" />
-실패. 테스트케이스만 통과하고 실제 검사에서는 모두 틀렸다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>테스트케이스만 생각하고 원소에 작은 값이 나올 경우를 생각하지 않았다. 아래의 케이스도 생각해준다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">prices</th>
-      <th style="text-align: center">return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">[4,2,3,2,3]</td>
-      <td style="text-align: center">[1,3,1,1,0]</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>이중for문을 돌다가 i보다 큰 j를 발견하면 그 뒤는 볼 필요도 없으므로 answer[i]=j-i를 넣고 break한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;</span><span class="n">prices</span><span class="o">[</span><span class="n">j</span><span class="o">]){</span>
-                    <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">==</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
-                    <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>라인12: i보다 큰 j를 발견했다면 유지한 초를 계산(j-i)후, break문으로 다음 i로 넘어간다.</li>
-  <li>라인16: 마지막 j까지 체크했지만 i보다 큰 j를 발견하지 못했다면 유지한 초를 계산한다. 해당 if문은 i가 마지막 j까지 순회를 비교를 끝냈을 경우에만 answer에 값을 넣을 수 있도록 하였다.</li>
-</ul>
-
-<h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191104_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>스택, 큐 문제지만 배열을 이용해서 쉽게 풀 수 있었다. 여담으로 코드에 System 출력문을 써놓고 돌렸더니 효율성에서 죄다 실패가 떴었다. 출력문을 지우니 모두 성공하긴 했는데, 하마터면 더 좋은 효율성을 찾아 머리를 쥐어짤 뻔했다. 휴;</p>
 
 	  ]]></description>
 	</item>

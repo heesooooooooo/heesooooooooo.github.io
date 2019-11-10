@@ -8,6 +8,134 @@
     
       
       <item>
+        <title>[SQL/프로그래머스] SUM, MAX, MIN_최댓값 구하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59415&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59415&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59415</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59415</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] GROUP BY_입양 시각 구하기(1): ORDER BY와 GROUP BY의 차이점</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59412&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59412&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59412</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59412</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SUM, MAX, MIN_중복 제거하기: DISTINCT와 GROUP BY의 차이점</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59408&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59408&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59408</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59408</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SUM, MAX, MIN_동물 수 구하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59406&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59406&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59406</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59406</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_상위 n개 레코드: LIMIT 사용하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59405&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59405&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59405</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59405</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_여러 기준으로 정렬하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59404&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59404&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59404</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59404</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SELECT_동물의 아이디와 이름</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59403&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59403&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59403</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59403</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[SQL/프로그래머스] SUM, MAX, MIN_최솟값 구하기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/59038&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/59038&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 10 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/sql-prog59038</link>
+        <guid isPermaLink="true">http://localhost:4000/sql-prog59038</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[SQL/프로그래머스] SELECT_어린 동물 찾기</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
