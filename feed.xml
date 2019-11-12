@@ -23,6 +23,37 @@
     
       
       <item>
+        <title>[Github블로그/Jekyll] Liquid Exception: Liquild syntax error 해결</title>
+        
+          <description>&lt;p&gt;&lt;img src=&quot;./assets/images/191112_6.PNG&quot; alt=&quot;결과화면&quot; /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 12 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/gitblog-sol-jekyll02</link>
+        <guid isPermaLink="true">http://localhost:4000/gitblog-sol-jekyll02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 완전탐색_모의고사</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42840&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42840&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 12 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42840</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42840</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/프로그래머스] 정렬_H-Index</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
@@ -580,7 +611,7 @@
     
       
       <item>
-        <title>[Github블로그] 카테고리 404에러 Jekyll로 해결하기</title>
+        <title>[Github블로그/Jekyll] 카테고리 404에러 Jekyll로 해결하기</title>
         
           <description>&lt;p&gt;내 블로그 테마는 &lt;a href=&quot;https://github.com/jekyller/jasper&quot;&gt;https://github.com/jekyller/jasper&lt;/a&gt;를 사용하였다.&lt;/p&gt;
 

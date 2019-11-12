@@ -12,6 +12,30 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[Github블로그/Jekyll] Liquid Exception: Liquild syntax error 해결</title>
+	  <link>/blog//gitblog-sol-jekyll02</link>
+	  <author></author>
+	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//gitblog-sol-jekyll02</guid>
+	  <description><![CDATA[
+	     <p><img src="./assets/images/191112_6.PNG" alt="결과화면" /></p>
+
+<h3 id="원인">원인</h3>
+<p>Jekyll에서 사용되는 liquid는 <code class="highlighter-rouge">{{</code>와 <code class="highlighter-rouge">}}</code>를 escape 문자로 사용하는데, md문서에 {{, }}가 있는 경우 에러 메시지를 출력한다.</p>
+
+<h3 id="해결-방법">해결 방법</h3>
+<p><img src="./assets/images/191112_5.PNG" alt="결과화면" /><br />
+위와 같이 여는 중괄호가 시작하기 전에 raw를, 뒤에는 endraw를 추가한다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>Jekyll에서 liquid warning 처리 <a href="http://jmjeong.com/escape-in-liquid-syntax/">http://jmjeong.com/escape-in-liquid-syntax/</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제 해결하기</title>
 	  <link>/blog//gitblog-sol-date</link>
 	  <author></author>
@@ -30,7 +54,7 @@
 	</item>
 
 	<item>
-	  <title>[Github블로그] 카테고리 404에러 Jekyll로 해결하기</title>
+	  <title>[Github블로그/Jekyll] 카테고리 404에러 Jekyll로 해결하기</title>
 	  <link>/blog//gitblog-sol-jekyll</link>
 	  <author></author>
 	  <pubDate>2019-09-09T09:00:00+09:00</pubDate>
