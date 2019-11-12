@@ -10,7 +10,7 @@ logo: 'assets/images/ghost.png'
 author: heesoo
 categories: java
 ---
-## <span style="color:navy"></span>
+
 우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다.
 
 ### 1. 기본 개념
