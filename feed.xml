@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>[JAVA/프로그래머스] 완전탐색_소수 찾기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42839&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42839&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 17 Nov 2019 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog42839</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog42839</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/자료구조] 배열: Arrays와 Collections을 이용한 오름차순 내림차순 정렬</title>
         
           <description>&lt;h2 id=&quot;오름차순&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;오름차순&lt;/span&gt;&lt;/h2&gt;
@@ -23,7 +39,7 @@
     
       
       <item>
-        <title>[Github블로그/Jekyll] Liquid Exception: Liquild syntax error 해결</title>
+        <title>[Github블로그/Jekyll] Liquid Exception: Liquid syntax error 해결</title>
         
           <description>&lt;p&gt;&lt;img src=&quot;./assets/images/191112_6.PNG&quot; alt=&quot;결과화면&quot; /&gt;&lt;/p&gt;
 

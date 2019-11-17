@@ -12,7 +12,7 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>[Github블로그/Jekyll] Liquid Exception: Liquild syntax error 해결</title>
+	  <title>[Github블로그/Jekyll] Liquid Exception: Liquid syntax error 해결</title>
 	  <link>/blog//gitblog-sol-jekyll02</link>
 	  <author></author>
 	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
