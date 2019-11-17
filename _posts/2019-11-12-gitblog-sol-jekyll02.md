@@ -2,7 +2,7 @@
 layout: post
 cover: 'assets/images/cover4.jpg'
 navigation: True
-title: "[Github블로그/Jekyll] Liquid Exception: Liquild syntax error 해결"
+title: "[Github블로그/Jekyll] Liquid Exception: Liquid syntax error 해결"
 date: 2019-11-12 00:00:00
 tags: git gitblog jekyll error
 subclass: 'post tag-git'
