@@ -12,6 +12,117 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 완전탐색_카펫</title>
+	  <link>/blog//algo-prog42842</link>
+	  <author></author>
+	  <pubDate>2019-11-19T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42842</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42842">https://programmers.co.kr/learn/courses/30/lessons/42842</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>red로 만들 수 있는 약수 조합(가로&gt;=세로)을 찾아서 Carpet형태로 스택에 저장한다.</li>
+  <li>스택을 하나씩 뽑아서 둘레 길이가 brown과 같으면 그 값을 answer로 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Carpet</span><span class="o">{</span>
+     <span class="kt">int</span> <span class="n">width</span><span class="o">;</span>
+     <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+     <span class="kd">public</span> <span class="nf">Carpet</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">width</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">divisor</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">,</span> <span class="n">Stack</span> <span class="n">st</span><span class="o">){</span>
+         <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+         <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">red</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">red</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="o">){</span>
+                 <span class="n">j</span><span class="o">=</span><span class="n">red</span><span class="o">/</span><span class="n">i</span><span class="o">;</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="o">){</span>
+                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">));</span>
+                 <span class="o">}</span>
+                 <span class="k">else</span><span class="o">{</span>
+                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">i</span><span class="o">));</span>
+                 <span class="o">}</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">check</span><span class="o">(</span><span class="n">Stack</span> <span class="n">st</span><span class="o">,</span> <span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span><span class="o">){</span>
+         <span class="n">Carpet</span> <span class="n">cp</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">round</span><span class="o">;</span>
+         <span class="k">while</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+             <span class="n">cp</span><span class="o">=(</span><span class="n">Carpet</span><span class="o">)</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+             <span class="n">round</span><span class="o">=</span><span class="mi">2</span><span class="o">*(</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">)+</span><span class="mi">4</span><span class="o">;</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">round</span><span class="o">==</span><span class="n">brown</span><span class="o">){</span>
+                 <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
+                 <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
+                 <span class="k">break</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+         <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Carpet</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+         <span class="n">divisor</span><span class="o">(</span><span class="n">brown</span><span class="o">,</span> <span class="n">red</span><span class="o">,</span> <span class="n">st</span><span class="o">);</span>
+         <span class="n">check</span><span class="o">(</span><span class="n">st</span><span class="o">,</span> <span class="n">brown</span><span class="o">,</span> <span class="n">answer</span><span class="o">);</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<ul>
+  <li><code class="highlighter-rouge">class Carpet</code>: red로 만들 수 있는 가로 세로 조합을 찾아서 스택에 함께 저장하기 위해 Carpet 클래스를 생성하였다.
+    <ul>
+      <li>int width: 가로</li>
+      <li>int height: 세로를 저장한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">pulib void divisor(int brown, int red, Stack st)</code>: red의 약수를 찾는 메소드이다. i는 2부터 시작해 약수인지 판별한다. i를 찾는 즉시 대응값 j도 찾으므로 굳이 red까지 반복할 이유는 없다. red가 제곱값일때 i가 최대가 되므로 i*i&lt;=red까지만 순회한다.<br />
+for문안의 처음 if를 통해 red가 i로 나눠지는지 확인한다. 나눠진다면 약수이므로 j를 찾고, 카펫은 가로가 세로보다 같거나 크므로 부등호를 통해 나눠서 Carpet 형태로 스택에 저장한다.
+    <ul>
+      <li>int i: i는 2부터 시작하여 red의 약수를 찾는다.</li>
+      <li>int j: i를 찾으면 거기에 대응하는 값을 j에 저장한다(예를 들어 24의 약수인 3에 대응하는 숫자는 8이다).</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public void check(Stack st, int brown, int[] answer)</code>: 스택안의 값을 뽑으면서 해당 값이 조건에 만족하는지 체크한다. brown은 red를 감싸야하므로 red의 둘레에 +4를 한 것과 같다. 계산한 round가 brown과 같다면 이것이 정답이므로 answer에 값을 넣고 종료한다.
+    <ul>
+      <li>Carpet cp: 스택에서 뽑은 값을 저장한다.</li>
+      <li>int round: cp로 둘레를 구한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int[] solution(int brown, int red)</code>: divisor()로 red의 약수를 모두 찾아 스택에 저장한 후, check()를 통해 조건에 맞는 지 확인 후 answer에 저장해 리턴한다.
+    <ul>
+      <li>Stack<Carpet> st: red로 잡을 수 있는 모양(약수)을 저장한다.</Carpet></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191119_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉬운 문제였다! 근데 다른 사람들은 더 간단하게 풀은 것 같다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 완전탐색_숫자 야구</title>
 	  <link>/blog//algo-prog42841</link>
 	  <author></author>
