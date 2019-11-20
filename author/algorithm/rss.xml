@@ -12,6 +12,84 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_체육복</title>
+	  <link>/blog//algo-prog42862</link>
+	  <author></author>
+	  <pubDate>2019-11-20T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42862</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42862">https://programmers.co.kr/learn/courses/30/lessons/42862</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>학생 n을 가지는 배열을 생성, 1로 초기화한다.</li>
+  <li>도난당한 학생은 0의 값을 가지고, 여벌이 있는 학생은 2를 가진다.</li>
+  <li>학생들을 순회하며 도난당한 학생이 있으면 앞 뒤 학생이 여벌이 있을 경우 하나 준다.</li>
+  <li>최종적으로 옷을 가지고 있는 학생 수를 세서 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">lost</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">reserve</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">student</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">l:</span><span class="n">lost</span><span class="o">){</span>
+             <span class="n">student</span><span class="o">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="o">]--;</span>
+         <span class="o">}</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">r:</span><span class="n">reserve</span><span class="o">){</span>
+             <span class="n">student</span><span class="o">[</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="o">]++;</span>
+         <span class="o">}</span>
+
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">0</span><span class="o">){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
+                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span>
+                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]--;</span>                    
+                 <span class="o">}</span>
+                 <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&amp;&amp;</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
+                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span>
+                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]--;</span>
+                 <span class="o">}</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">||</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
+                 <span class="n">answer</span><span class="o">++;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<ul>
+  <li>학생 수(n)만큼의 크기를 가지는 배열을 생성, 1로 초기화한다. 옷이 없으면 0, 여벌이 있으면 2로 저장한다.</li>
+  <li>배열을 순회하면서 현재 학생이 옷이 없을 경우, 앞뒤 학생이 여벌을 가지고 있는지 확인한다. 이때 인덱스가 배열의 범위를 벗어나지 않도록 체크한다. 옷이 있다면 준다.</li>
+  <li>순회가 끝나면 배열을 다시 순회하며 옷이 있는 학생(여벌 포함)의 수를 세서 리턴한다.</li>
+</ul>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191120_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉬운 문제였지만 효율적으로 푼 것 같지는 않다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 완전탐색_카펫</title>
 	  <link>/blog//algo-prog42842</link>
 	  <author></author>
@@ -377,160 +455,6 @@ for문으로 숫자가 하나로 연결되면 primeNumber()을 호출해 소수�
 	</item>
 
 	<item>
-	  <title>[JAVA/프로그래머스] 정렬_H-Index</title>
-	  <link>/blog//algo-prog42747</link>
-	  <author></author>
-	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42747</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42747">https://programmers.co.kr/learn/courses/30/lessons/42747</a></p>
-
-<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">citations(int[])</th>
-      <th style="text-align: center">return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">[22,42]</td>
-      <td style="text-align: center">2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">[20,19,18,1]</td>
-      <td style="text-align: center">3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">[2,2,2]</td>
-      <td style="text-align: center">2</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>배열을 내림차순으로 정렬한다.</li>
-  <li>h는 배열 원소 갯수부터 시작해서 하나씩 줄어든다.</li>
-  <li>배열을 처음부터 순회하면서 원소가 h보다 같거나 크면 cnt++.</li>
-  <li>작으면 멈추고 cnt==h인지 체크, 같으면 h를 리턴한다.</li>
-  <li>다르면 h–하고 다시 처음부터 순회한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="n">Integer</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;=</span><span class="n">h</span><span class="o">){</span><span class="c1">//원소가 h이상이면</span>
-                <span class="n">cnt</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">==</span><span class="n">h</span><span class="o">){</span>
-                    <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">else</span><span class="o">{</span><span class="c1">//h--하고 처음부터 다시 시작</span>
-                    <span class="n">h</span><span class="o">--;</span>
-                    <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-                    <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
-            <span class="o">}</span>   
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191112_1.PNG" alt="실행결과" />
-실패. 테스트11에서 틀렸다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>잘 모르겠다. 문제 이해도 잘 안되서 다른 풀이 코드를 참고하였다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>인용된 논문 수(h)가 배열 순회 인덱스(i+1)보다 작아지면 i를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">Integer</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&lt;</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">){</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>  
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//[22,42] 2 경우</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>Integer[] array: int형 배열은 Collections.reverseOrder()를 사용할 수 없으므로 Integer배열로 변환하여 저장한다.</li>
-</ul>
-
-<h3 id="3-코드-설명">3. 코드 설명</h3>
-<p>내림차순으로 정렬된 배열과 i를 비교한다.<br />
-h   i
-6 &gt; 0<br />
-5 &gt; 1<br />
-3 &gt; 2<strong>__</strong>_이때가 i의 최댓값이므로 횟수(i+1, 횟수는 1부터 시작)을 리턴한다.<br />
-1 &lt; 3<br />
-0 &lt; 4</p>
-
-<h3 id="4-결과">4. 결과</h3>
-<p><img src="./assets/images/191112_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>사실 아직도 내가 문제를 잘못 이해하고 있는 것 같다. 뭔가 알고리즘 문제를 푸는 것은 문제를 얼마나 잘 이해하느냐인 것 같다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스/코딩테스트 고득점 Kit/정렬#3] H-Index (Java) <a href="https://developerdk.tistory.com/27">https://developerdk.tistory.com/27</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>[JAVA/프로그래머스] 완전탐색_모의고사</title>
 	  <link>/blog//algo-prog42840</link>
 	  <author></author>
@@ -707,6 +631,160 @@ h   i
 <h3 id="참고">참고</h3>
 <ul>
   <li>[Programmers/프로그래머스] 모의고사 JAVA <a href="https://blog.naver.com/PostView.nhn?blogId=yongyos&amp;logNo=221486300664">https://blog.naver.com/PostView.nhn?blogId=yongyos&amp;logNo=221486300664</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 정렬_H-Index</title>
+	  <link>/blog//algo-prog42747</link>
+	  <author></author>
+	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42747</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42747">https://programmers.co.kr/learn/courses/30/lessons/42747</a></p>
+
+<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">citations(int[])</th>
+      <th style="text-align: center">return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">[22,42]</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">[20,19,18,1]</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">[2,2,2]</td>
+      <td style="text-align: center">2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>배열을 내림차순으로 정렬한다.</li>
+  <li>h는 배열 원소 갯수부터 시작해서 하나씩 줄어든다.</li>
+  <li>배열을 처음부터 순회하면서 원소가 h보다 같거나 크면 cnt++.</li>
+  <li>작으면 멈추고 cnt==h인지 체크, 같으면 h를 리턴한다.</li>
+  <li>다르면 h–하고 다시 처음부터 순회한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="n">Integer</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;=</span><span class="n">h</span><span class="o">){</span><span class="c1">//원소가 h이상이면</span>
+                <span class="n">cnt</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">==</span><span class="n">h</span><span class="o">){</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//h--하고 처음부터 다시 시작</span>
+                    <span class="n">h</span><span class="o">--;</span>
+                    <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+                    <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+            <span class="o">}</span>   
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191112_1.PNG" alt="실행결과" />
+실패. 테스트11에서 틀렸다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>잘 모르겠다. 문제 이해도 잘 안되서 다른 풀이 코드를 참고하였다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>인용된 논문 수(h)가 배열 순회 인덱스(i+1)보다 작아지면 i를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&lt;</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">){</span>
+                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>  
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//[22,42] 2 경우</span>
+                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Integer[] array: int형 배열은 Collections.reverseOrder()를 사용할 수 없으므로 Integer배열로 변환하여 저장한다.</li>
+</ul>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<p>내림차순으로 정렬된 배열과 i를 비교한다.<br />
+h   i
+6 &gt; 0<br />
+5 &gt; 1<br />
+3 &gt; 2<strong>__</strong>_이때가 i의 최댓값이므로 횟수(i+1, 횟수는 1부터 시작)을 리턴한다.<br />
+1 &lt; 3<br />
+0 &lt; 4</p>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191112_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>사실 아직도 내가 문제를 잘못 이해하고 있는 것 같다. 뭔가 알고리즘 문제를 푸는 것은 문제를 얼마나 잘 이해하느냐인 것 같다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스/코딩테스트 고득점 Kit/정렬#3] H-Index (Java) <a href="https://developerdk.tistory.com/27">https://developerdk.tistory.com/27</a></li>
 </ul>
 
 	  ]]></description>
@@ -1279,155 +1357,6 @@ s1+s2=98, s2+s1=89</li>
 <ul>
   <li>[프로그래머스][힙(heap)]디스크 컨트롤러 <a href="https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90">https://jee-goo.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%ED%95%B4%EC%8B%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EB%8F%84%EC%9B%80%EB%A7%90</a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 힙(Heap)_라면공장</title>
-	  <link>/blog//algo-prog42629</link>
-	  <author></author>
-	  <pubDate>2019-11-06T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42629</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42629">https://programmers.co.kr/learn/courses/30/lessons/42629</a></p>
-
-<p>이 문제는 정말 골치 아픈 문제였다. 코드가 아예 잘못된게 아니라 특정 테스트케이스만 통과하지 못해서 더 포기할 수 없었다. 개인적으로 포인트를 차감하는 방법으로 테스트케이스를 볼 수 있었으면 좋겠다. 아직도 내 코드가 틀린 이유를 모르겠으며, 성공한 다른 사람들의 코드와 차이점이 무엇인지 알 수 없다. 문제 해결을 위해 도전한 코드들을 모두 리뷰하기엔 너무 많아서 제일 최근 것 하나만 작성해야겠다.<br />
-참고로 아래 테스트케이스를 추가하여 문제를 풀 것을 강력 추천한다. 테스트케이스를 생각하는 것도 골치 아파 죽는 줄 알았다.<br />
-마지막 케이스도 내가 생각할 때에는 4를 리턴해야 할 것 같은데 내 코드와 다른 사람들 코드는 5를 리턴한다. 그래서 일단은 5라고 적어놓는다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">stock</th>
-      <th style="text-align: center">dates</th>
-      <th style="text-align: center">supplies</th>
-      <th style="text-align: center">k</th>
-      <th style="text-align: center">result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td style="text-align: center">[1,2,3,4]</td>
-      <td style="text-align: center">[10,40,30,20]</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: center">4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">5</td>
-      <td style="text-align: center">[1,2,3,4,5]</td>
-      <td style="text-align: center">[1,1,1,1,25]</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">[1,2,3,4,5]</td>
-      <td style="text-align: center">[1,1,1,1,25]</td>
-      <td style="text-align: center">30</td>
-      <td style="text-align: center">5</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>오늘(이전 포함) 받을 수 있는 공급이 있다면 큐에 저장한다.</li>
-  <li>dates의 값이 미래거나 마지막 공급까지 다 받은 경우라면 day에 오늘 날짜를 저장한다.</li>
-  <li>큐에 값이 있고 재고가 더 필요하다면 큐에서 뽑아 stock에 추가하고 answer을 증가한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">stock</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dates</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">supplies</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">day</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">stock</span><span class="o">&gt;=</span><span class="n">dates</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span><span class="c1">//이전날들값은 큐에 추가</span>
-                    <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">supplies</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">stock</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">[</span><span class="n">i</span><span class="o">]||</span><span class="n">i</span><span class="o">==</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//미래 또는 다넣음</span>
-                    <span class="n">day</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()&amp;&amp;</span><span class="n">stock</span><span class="o">!=</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">stock</span><span class="o">&lt;</span><span class="n">k</span><span class="o">){</span>
-                <span class="n">stock</span><span class="o">+=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191106_1.PNG" alt="실행결과" />
-실패. 테스트3, 5에서 틀렸다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>알 수 없다. 이젠 지쳤다. 다른 사람 코드를 참고해야 할 때다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>원래 공장으로부터 공급받는 k 이전까지 체크한다.</li>
-  <li>배열 순회에 사용할 idx가 dates 인덱스 범위에 만족하고, 오늘 받을 수 있는 공급이 있다면 큐에 삽입한다. idx++한다.</li>
-  <li>만약 오늘이 stock을 다 쓰는 날이라면 큐에서 pop하여 stock에 추가하고 answer++한다.</li>
-  <li>하루가 지나갔음을 나타내기 위해 day++한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">stock</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dates</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">supplies</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="kt">int</span> <span class="n">day</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">day</span><span class="o">&lt;</span><span class="n">k</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">idx</span><span class="o">&lt;</span><span class="n">dates</span><span class="o">.</span><span class="na">length</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="o">==</span><span class="n">dates</span><span class="o">[</span><span class="n">idx</span><span class="o">]){</span>
-                <span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">supplies</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>
-                <span class="n">idx</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">day</span><span class="o">==</span><span class="n">stock</span><span class="o">){</span>
-                <span class="n">stock</span><span class="o">+=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">day</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과-1">3. 결과</h3>
-<p><img src="./assets/images/191106_2.PNG" alt="실행결과" />
-행복하지 않은 성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>이해할 수 없다. 컴퓨터의 세계는 이해할 수 없어T_T</p>
 
 	  ]]></description>
 	</item>
