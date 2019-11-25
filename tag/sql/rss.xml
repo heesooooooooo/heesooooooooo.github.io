@@ -222,18 +222,14 @@ HAVING절을 이용해 제한조건을 둔다.</li>
 <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_A</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>    </div>
   </li>
-  <li>
-    <dl>
-      <dt>n번째부터 m개 추출</dt>
-      <dd>0부터 시작.
-        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*5번째부터 10개 조회*/</span>
+  <li>n번째부터 m개 추출: 0부터 시작.
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*5번째부터 10개 조회*/</span>
 <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_B</span> <span class="k">LIMIT</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">;</span>
-</code></pre></div>        </div>
-        <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-      </dd>
-    </dl>
+</code></pre></div>    </div>
   </li>
 </ul>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
