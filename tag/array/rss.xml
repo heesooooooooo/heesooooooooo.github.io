@@ -148,6 +148,91 @@
 	</item>
 
 	<item>
+	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_단속카메라</title>
+	  <link>/blog//algo-prog42884</link>
+	  <author></author>
+	  <pubDate>2019-11-26T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42884</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42884">https://programmers.co.kr/learn/courses/30/lessons/42884</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>빨리 나간 순서대로 정렬한다.</li>
+  <li>진입시점이 늦은 것을 발견했을 때, 해당 나가는 시점을 저장해 앞에까지는 카메라를 만났음을 확정한다. 따라서 카메라++한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">routes</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">routes</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;(){</span><span class="c1">//routes[i][1]기준 오름차순 정렬</span>
+             <span class="nd">@Override</span>
+             <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">b</span><span class="o">){</span>
+                 <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+             <span class="o">}</span>
+         <span class="o">});</span>
+
+         <span class="kt">int</span> <span class="n">latest</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span><span class="c1">//Integer의 최솟값으로 초기화       </span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">routes</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//모든 경로를 순회</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">latest</span><span class="o">&lt;</span><span class="n">routes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]){</span><span class="c1">//현재 기준 진입시점이 가장 늦은 차를 발견하면</span>
+                 <span class="n">latest</span><span class="o">=</span><span class="n">routes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span><span class="c1">//해당 차의 나가는 점을 저장</span>
+                 <span class="n">answer</span><span class="o">++;</span><span class="c1">//현재 차까지 경로에 카메라를 하나 추가하여 최소 한번쯤은 카메라를 만나는 것을 보장</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191127_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">routes를 빨리 나간 순서대로 정렬한다.</span></strong>
+    <ul>
+      <li>차량이 나가기 전에 최소 한 번 카메라를 만나면 된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">진입시점이 늦은 차량을 찾는다.</span></strong>
+    <ul>
+      <li><span style="color:red">차들의 경로가 겹친다면</span> 가장 늦게 들어온 차의 진입시점에 카메라를 놓으면 된다.</li>
+      <li>그러면 겹치는 차들은 카메라를 최소 한 번 만났으므로 선상에서 제외한다.</li>
+      <li>뒤의 값들은 현재까지의 가장 늦게 나가는 차량 뒤에 진입하므로(차들의 경로가 겹친다고 가정하고 있음!) latest에 가장 늦게 들어온 차의 나가는 시점을 저장한다.</li>
+      <li><span style="color:red">차들의 경로가 겹치지 않더라도 문제없다.</span></li>
+      <li>경로가 겹치지 않는다는 것은 앞에까지의 차들은 계산이 끝났다는 뜻이다. 내 진입시점이 현재로선 가장 늦으므로 위 if문을 만족하여 카메라를 추가하게 된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">latest는 가장 작은 값으로 초기화되야 한다.</span></strong>
+    <ul>
+      <li>routes에서 진입시점이 가장 작은 값이 무엇인지 알 수 없기 때문에, 그보다 더 작은 값을 저장하여 if문에서 비교가 가능하도록 해야한다. 문제에서는 차량 진입, 나가는 시점의 범위를 주었으므로 -30000으로 초기화해도 된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>접근 방식을 모르겠어서 구글링하다가 엄청 간단하게 해결한 코드가 있어서 그 코드를 이해하는데 시간을 다썼다. 주석이라도 한줄 달아줬다면 좋았을텐데…. 주석의 중요성 다시 한 번 느낀다. 어쨌든 이런 생각을 하는게 대단할 뿐</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>Greedy ‘단속카메라’ 알고리즘 문제풀이 <a href="https://geehye.github.io/programmers-greedy-06/#">https://geehye.github.io/programmers-greedy-06/#</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_구명보트</title>
 	  <link>/blog//algo-prog42885</link>
 	  <author></author>
