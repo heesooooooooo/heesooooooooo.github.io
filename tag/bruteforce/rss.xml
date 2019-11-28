@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>(◍•ᴗ•◍)</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/프로그래머스] 완전탐색_카펫</title>
+	  <link>/blog//algo-prog42842</link>
+	  <author></author>
+	  <pubDate>2019-11-19T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42842</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42842">https://programmers.co.kr/learn/courses/30/lessons/42842</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>red로 만들 수 있는 약수 조합(가로&gt;=세로)을 찾아서 Carpet형태로 스택에 저장한다.</li>
+  <li>스택을 하나씩 뽑아서 둘레 길이가 brown과 같으면 그 값을 answer로 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Carpet</span><span class="o">{</span>
+     <span class="kt">int</span> <span class="n">width</span><span class="o">;</span>
+     <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
+     <span class="kd">public</span> <span class="nf">Carpet</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">width</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">divisor</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">,</span> <span class="n">Stack</span> <span class="n">st</span><span class="o">){</span>
+         <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+         <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">red</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">red</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="o">){</span>
+                 <span class="n">j</span><span class="o">=</span><span class="n">red</span><span class="o">/</span><span class="n">i</span><span class="o">;</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="o">){</span>
+                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">));</span>
+                 <span class="o">}</span>
+                 <span class="k">else</span><span class="o">{</span>
+                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">i</span><span class="o">));</span>
+                 <span class="o">}</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">check</span><span class="o">(</span><span class="n">Stack</span> <span class="n">st</span><span class="o">,</span> <span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span><span class="o">){</span>
+         <span class="n">Carpet</span> <span class="n">cp</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">round</span><span class="o">;</span>
+         <span class="k">while</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+             <span class="n">cp</span><span class="o">=(</span><span class="n">Carpet</span><span class="o">)</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+             <span class="n">round</span><span class="o">=</span><span class="mi">2</span><span class="o">*(</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">)+</span><span class="mi">4</span><span class="o">;</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">round</span><span class="o">==</span><span class="n">brown</span><span class="o">){</span>
+                 <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
+                 <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
+                 <span class="k">break</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+         <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Carpet</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+         <span class="n">divisor</span><span class="o">(</span><span class="n">brown</span><span class="o">,</span> <span class="n">red</span><span class="o">,</span> <span class="n">st</span><span class="o">);</span>
+         <span class="n">check</span><span class="o">(</span><span class="n">st</span><span class="o">,</span> <span class="n">brown</span><span class="o">,</span> <span class="n">answer</span><span class="o">);</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<ul>
+  <li><code class="highlighter-rouge">class Carpet</code>: red로 만들 수 있는 가로 세로 조합을 찾아서 스택에 함께 저장하기 위해 Carpet 클래스를 생성하였다.
+    <ul>
+      <li>int width: 가로</li>
+      <li>int height: 세로를 저장한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">pulib void divisor(int brown, int red, Stack st)</code>: red의 약수를 찾는 메소드이다. i는 2부터 시작해 약수인지 판별한다. i를 찾는 즉시 대응값 j도 찾으므로 굳이 red까지 반복할 이유는 없다. red가 제곱값일때 i가 최대가 되므로 i*i&lt;=red까지만 순회한다.<br />
+for문안의 처음 if를 통해 red가 i로 나눠지는지 확인한다. 나눠진다면 약수이므로 j를 찾고, 카펫은 가로가 세로보다 같거나 크므로 부등호를 통해 나눠서 Carpet 형태로 스택에 저장한다.
+    <ul>
+      <li>int i: i는 2부터 시작하여 red의 약수를 찾는다.</li>
+      <li>int j: i를 찾으면 거기에 대응하는 값을 j에 저장한다(예를 들어 24의 약수인 3에 대응하는 숫자는 8이다).</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public void check(Stack st, int brown, int[] answer)</code>: 스택안의 값을 뽑으면서 해당 값이 조건에 만족하는지 체크한다. brown은 red를 감싸야하므로 red의 둘레에 +4를 한 것과 같다. 계산한 round가 brown과 같다면 이것이 정답이므로 answer에 값을 넣고 종료한다.
+    <ul>
+      <li>Carpet cp: 스택에서 뽑은 값을 저장한다.</li>
+      <li>int round: cp로 둘레를 구한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int[] solution(int brown, int red)</code>: divisor()로 red의 약수를 모두 찾아 스택에 저장한 후, check()를 통해 조건에 맞는 지 확인 후 answer에 저장해 리턴한다.
+    <ul>
+      <li>Stack<Carpet> st: red로 잡을 수 있는 모양(약수)을 저장한다.</Carpet></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191119_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉬운 문제였다! 근데 다른 사람들은 더 간단하게 풀은 것 같다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 완전탐색_숫자 야구</title>
+	  <link>/blog//algo-prog42841</link>
+	  <author></author>
+	  <pubDate>2019-11-18T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42841</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42841">https://programmers.co.kr/learn/courses/30/lessons/42841</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>3자리 숫자를 모두 생성해 스택에 저장한다.</li>
+  <li>스택에서 하나 뽑아서 baseball 숫자와 비교하여 카운트한 strike와 ball이 baseball배열값과 같은지 확인한다.</li>
+  <li>같다면 answer++후 다음 baseball숫자를 비교, 다르다면 다음 스택 값을 뽑는다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeNum</span><span class="o">(</span><span class="n">Stack</span> <span class="n">st</span><span class="o">){</span><span class="c1">//중복없는 3자리 숫자 생성</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">9</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">9</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                 <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;=</span><span class="mi">9</span><span class="o">;</span><span class="n">k</span><span class="o">++){</span>
+                     <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">!=</span><span class="n">j</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">!=</span><span class="n">k</span><span class="o">&amp;&amp;</span><span class="n">k</span><span class="o">!=</span><span class="n">i</span><span class="o">){</span>
+                         <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">100</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="o">));</span>
+                     <span class="o">}</span>
+                 <span class="o">}</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="o">(</span><span class="n">String</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">baseball</span><span class="o">){</span>
+         <span class="n">String</span> <span class="n">base</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">strike</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">ball</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">baseball</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">base</span><span class="o">=</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">baseball</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]);</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)==</span><span class="n">base</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span><span class="c1">//스트라이크 체크</span>
+                     <span class="n">strike</span><span class="o">++;</span>
+                 <span class="o">}</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">base</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)))){</span><span class="c1">//볼 체크</span>
+                     <span class="n">ball</span><span class="o">++;</span>
+                 <span class="o">}</span>
+             <span class="o">}</span>
+             <span class="n">ball</span><span class="o">=</span><span class="n">ball</span><span class="o">-</span><span class="n">strike</span><span class="o">;</span><span class="c1">//스트라이크와 볼은 겹치지 않으므로</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">strike</span><span class="o">!=</span><span class="n">baseball</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]||</span><span class="n">ball</span><span class="o">!=</span><span class="n">baseball</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]){</span>
+                 <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+             <span class="o">}</span>
+             <span class="n">strike</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+             <span class="n">ball</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">baseball</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+         <span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+         <span class="n">String</span> <span class="n">num</span><span class="o">;</span>
+         <span class="kt">boolean</span> <span class="n">chk</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+         <span class="n">makeNum</span><span class="o">(</span><span class="n">st</span><span class="o">);</span>
+         <span class="k">while</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
+             <span class="n">num</span><span class="o">=</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">check</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">baseball</span><span class="o">)){</span>
+                 <span class="n">answer</span><span class="o">++;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">public boolean check(string num, int[][] baseball)</code>
+    <ul>
+      <li>String base: baseball의 비교할 숫자를 저장한다.</li>
+      <li>int strike, ball: 스트라이크와 볼 수를 저장한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int solution(int[][] baseball)</code>
+    <ul>
+      <li>Stack<String> st: 1부터 9까지 중복없이 숫자를 조합해 스택에 저장한다. int형으로 저장하면 각 자리마다 비교하기 불편하므로 String으로 저장해 charAt()을 사용한다.</String></li>
+      <li>String num: 스택에서 pop()한 값을 저장하는 변수이다.</li>
+      <li>boolean chk: check()메소드의 리턴값을 저장하는 변수이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<ul>
+  <li><code class="highlighter-rouge">public void makeNum(Stack st)</code>: 1부터 9까지 각자 서로 다른 숫자를 조합해 3자리 숫자를 만든다. for문을 3개 돌려서 i, j, k가 서로 같지 않을때 3자리 숫자로 만들고, 이를 String형으로 변환해 스택에 저장한다.</li>
+  <li><code class="highlighter-rouge">public boolean check(String num, int[][] baseball)</code>: 처음 for문을 통해 baseball을 순회한다. base에는 현재 i행의 세자리 수를 저장한다.<br />
+두번째 for문에서는 num(스택에서 추출한 값)과 base(baseball에서 추출)의 스트라이크와 볼을 체크한다. 첫번째 if문은 스트라이크를 체크한다. 두 숫자의 현재 자릿수가 같다면 strike++한다. 두번째 if문은 볼을 체크한다. base에 num의 현재 자리의 숫자가 존재한다면 ball++한다.<br />
+스트라이크와 볼 계산이 끝났다면 ball에서 strike만큼 뺀다. 문제에서 스트라이크와 볼은 중복되어 계산하지 않았기 때문이다. num=”324”, base=”123”일 때, base가 num의 숫자를 포함하는 갯수는 2이지만(“3”,”2”) ball은 1로 저장한다. 왜냐하면 두번째 자릿수가 같은 것은 strike를 통해 1로 계산했기 때문이다.<br />
+이로써 최종 strike, ball이 확정되었으므로 baseball의 값과 같은지 비교, 하나라도 다르다면 다음 baseball을 확인할 가치도 없으므로 false를 리턴한다.<br />
+같다면 다음 비교를 위해 strike, ball을 초기화하고 다음으로 넘어간다.</li>
+  <li><code class="highlighter-rouge">public int solution(int[][] baseball)</code>: 숫자들을 저장할 스택을 생성하고 makeNum()을 통해 가능한 숫자들을 모두 생성해 저장한다.<br />
+while()문을 통해 스택안의 값을 하나씩 뽑아서, check()를 통해 스택에서 뽑은 값과 baseball을 인자로 넘겨 스트라이크와 볼을 계산한다. true를 리턴받아오면 해당 num은 정답이 가능한 수이므로 answer++한다.</li>
+</ul>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191117_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>처음 접근이 어려웠다. 다른 사람들은 어떻게 풀었는지 대충 읽어보고 이해한 후 거기에 맞춰서 코드를 작성했다. 코드 작성은 어렵지 않은데 코딩 방향을 생각해내는게 어렵다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스 알고리즘] 2단계 숫자야구 -완전탐색 <a href="https://lkhlkh23.tistory.com/71">https://lkhlkh23.tistory.com/71</a></li>
+  <li>BruteForceSearch programmers 프로그래머스 알고리즘 자바 ‘숫자야구’ 문제풀이 <a href="https://geehye.github.io/programmers-brute-force-search-04/#">https://geehye.github.io/programmers-brute-force-search-04/#</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 완전탐색_소수 찾기</title>
+	  <link>/blog//algo-prog42839</link>
+	  <author></author>
+	  <pubDate>2019-11-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42839</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42839">https://programmers.co.kr/learn/courses/30/lessons/42839</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>String형 numbers를 쪼개서 int형으로 배열에 저장한다.</li>
+  <li>만들 수 있는 숫자를 모두 생성한다=&gt;조합 이용.</li>
+  <li>소수 체크해서 갯수를 센다=&gt;에라토스테네스의 체 이용.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">strArr</span><span class="o">=</span><span class="n">numbers</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">numArr</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">strArr</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">numArr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">numArr</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">strArr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">set</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">//1부터 만들 수 있는 최대 길이까지 숫자 조합</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">numArr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">perm</span><span class="o">(</span><span class="n">strArr</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">set</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">set</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">perm</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="n">Set</span> <span class="n">set</span><span class="o">){</span><span class="c1">//숫자 조합</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">depth</span><span class="o">==</span><span class="n">k</span><span class="o">){</span><span class="c1">//원하는 k개의 숫자가 세팅됐으므로 더이상 순열생성X</span>
+            <span class="n">print</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">set</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">depth</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+                <span class="n">swap</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">depth</span><span class="o">);</span>
+                <span class="n">perm</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">k</span><span class="o">,</span> <span class="n">set</span><span class="o">);</span>
+                <span class="n">swap</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">depth</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">){</span>
+        <span class="n">String</span> <span class="n">temp</span><span class="o">=</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">temp</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">,</span> <span class="n">Set</span> <span class="n">set</span><span class="o">){</span><span class="c1">//숫자 연결</span>
+        <span class="n">StringBuilder</span> <span class="n">s</span><span class="o">=</span><span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="c1">//System.out.print(arr[i]);</span>
+            <span class="n">s</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span><span class="c1">//숫자연결하기</span>
+        <span class="o">}</span>
+        <span class="c1">//System.out.println();</span>
+        <span class="n">primeNumber</span><span class="o">(</span><span class="n">set</span><span class="o">,</span> <span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">primeNumber</span><span class="o">(</span><span class="n">Set</span> <span class="n">set</span><span class="o">,</span> <span class="n">StringBuilder</span> <span class="n">s</span><span class="o">){</span><span class="c1">//소수 체크</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">s</span><span class="o">));</span>
+        <span class="kt">boolean</span> <span class="n">prime</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="o">){</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">num</span><span class="o">);</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="o">){</span>
+                <span class="n">prime</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">prime</span><span class="o">){</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">public int solution(String numbers)</code>
+    <ul>
+      <li>String[] strArr: numbers를 하나씩 쪼개서 배열에 저장한다.</li>
+      <li>int[] numArr: 쪼갠 strArr를 int형을 변환한다.</li>
+      <li>Set<Integer> set: 생성한 숫자들은 중복될 수 있으므로 HashSet을 이용하여 중복을 제거한다.</Integer></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public void perm(String[] arr, int depth, int k, Set set)</code>
+    <ul>
+      <li>int depth: 현재 내 숫자 길이를 뜻한다.</li>
+      <li>int k: 만들 숫자 길이이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<ul>
+  <li><code class="highlighter-rouge">public int solution(String numbers)</code>: numbers를 int형으로 변환하고, for문을 통해 1부터 종이 조각을 가지고 만들 수 있는 최대 길이만큼 숫자 조합 함수 perm()을 호출한다. for문이 끝나면 set에는 소수인 숫자들이 저장되어있으므로 set의 size를 리턴한다.</li>
+  <li><code class="highlighter-rouge">public void perm(String[] arr, int depth, int k, Set set)</code>: if 조건인 depth==k의 의미는, 현재 내 길이가 k와 같아졌으므로 원하는 k개의 숫자가 세팅되었다는 뜻이므로 더 이상 순열을 생성하지 않고 print()함수를 호출해 숫자를 연결해준다.<br />
+else문은 아직 k만큼 길이 생성이 되지 않았을 경우이다. 이 경우에는 for문을 통해 현재 내 위치 depth부터 arr.length까지 돌면서 숫자 길이를 늘린다. 이때 숫자 조합을 위해 swap()을 호출하여 arr의 순서를 바꾼다(<a href="https://gorakgarak.tistory.com/522">https://gorakgarak.tistory.com/522</a> 참고). 배열이 변경되었다면 depth+1하여 다시 perm()함수를 호출한다(재귀). 이렇게 재귀를 계속 호출하다가 if문에 걸려서 return하면 그 다음 swap()으로 넘어간다. 다음 swap()을 진행할 수 있다는 것은 숫자 조합이 완성되었다는 뜻이다. 때문에 다시 swap()을 통해 배열을 다시 원상복구해준다. 다시 swap을 호출해주지 않는다면 이후 arr사용에 문제가 생긴다. 이후에 이상한 값이 나올 것이다.</li>
+  <li><code class="highlighter-rouge">public void swap(String[] arr, int i, int j)</code>: 배열 arr의 i와 j번째 값을 바꾼다.</li>
+  <li><code class="highlighter-rouge">public void print(String[] arr, int k, Set set)</code>: 숫자 조합이 완성되면 이 함수에 들어온다. 숫자들을 하나의 String으로 연결시켜주기 위함이다. 이를 위해 StringBuilder가 사용된다. StringBuilder의 append()메소드를 통해 String형을 연결(+)할 수 있다. 일반적으로 +=를 이용해 연결할 수도 있지만, 연결해야할 대상이 많은 경우에는 성능이 저하될 수 있다. 때문에 StringBuilder를 사용한다.<br />
+for문으로 숫자가 하나로 연결되면 primeNumber()을 호출해 소수인지 확인한다.</li>
+  <li><code class="highlighter-rouge">public void primeNumber(Set set, StringBuilder s)</code>: 연결된 숫자 s를 int형으로 형변환하여 num에 저장한다. 숫자 1은 소수도, 합성수도 아니므로 HashSet에 저장하지 않는다. 2부터 num의 루트값까지 순회하며 나누어지는 값이 있는지 확인한다. 참고로 특정 숫자가 소수인지 판별할 때에는 처음부터 그 값까지 확인하지 않고 루트값까지만 확인해도 된다(에라토스테네스의 체). 나눠지는 값이 있다면 소수가 아니라는 의미이므로 for문을 종료한다. 나눠지는 값이 없다면 소수이므로 HashSet에 저장한다. 이때 만들어지는 숫자 num은 중복이 생길 수 있는데, HashSet에 저장함으로써 중복을 거른다.</li>
+</ul>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191117_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>소수를 체크하는 것은 어렵지 않았는데 숫자 조합을 생각하는 것이 어려웠다. 그래서 다른 사람 코드를 많이 참고했다. 어려운 문제였다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>프로그래머스 알고리즘 : 소수 찾기 (java) <a href="https://jar100.tistory.com/16">https://jar100.tistory.com/16</a></li>
+  <li>순열(PERMUTATION) 알고리즘 <a href="https://gorakgarak.tistory.com/522">https://gorakgarak.tistory.com/522</a></li>
+  <li>자바 StringBuilder 사용법 및 사용하는 이유 <a href="https://hardlearner.tistory.com/288">https://hardlearner.tistory.com/288</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 완전탐색_모의고사</title>
+	  <link>/blog//algo-prog42840</link>
+	  <author></author>
+	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42840</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42840">https://programmers.co.kr/learn/courses/30/lessons/42840</a></p>
+
+<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>이차원 배열을 생성하여 3명의 정답 패턴을 저장한다.</li>
+  <li>이중 for문으로 학생 수 만큼, 패턴이 가장 큰 학생(3번 학생)기준으로 돌린다.</li>
+  <li>맞은 문제 갯수를 세어 cntArray에 저장한다.</li>
+  <li>3명의 정답수를 모두 계산했으면, 가장 많이 맞힌 학생을 찾아 max에 저장한다.</li>
+  <li>공동 1등이 있는지 for문으로 판별한다.</li>
+  <li>공동이 있을 경우 오름차순으로 정렬하여 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">answers</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+         <span class="kt">int</span><span class="o">[][]</span> <span class="n">person</span><span class="o">={{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
+                         <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
+                         <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">}</span>
+                       <span class="o">};</span><span class="c1">//제일 긴 3번이 10개임</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">cntArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+         <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">person</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="mi">0</span><span class="o">){</span><span class="c1">//1,2번은 5,8개가 끝나면 다시 처음부터 반복</span>
+                     <span class="n">j</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
+                     <span class="k">continue</span><span class="o">;</span>
+                 <span class="o">}</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">person</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">answers</span><span class="o">[</span><span class="n">q</span><span class="o">]){</span><span class="c1">//맞았으면</span>
+                     <span class="n">cnt</span><span class="o">++;</span>
+                 <span class="o">}</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">q</span><span class="o">==</span><span class="n">answers</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//마지막 문제이면</span>
+                     <span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cnt</span><span class="o">;</span>
+                     <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+                     <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+                 <span class="o">}</span>
+                 <span class="n">q</span><span class="o">++;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cntArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;</span><span class="n">cntArray</span><span class="o">[</span><span class="n">max</span><span class="o">]){</span>
+                 <span class="n">max</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cntArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">cntArray</span><span class="o">[</span><span class="n">max</span><span class="o">]){</span>
+                 <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)+</span><span class="mi">1</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191112_3.PNG" alt="실행결과" />
+실패. 테스트 2, 3, 4를 제외하고는 모두 틀렸다.</p>
+
+<h3 id="4-문제점">4. 문제점</h3>
+<p>1, 2번 학생은 자신의 패턴(j)순회가 끝나면 다시 처음으로 돌아가 반복하지만, 3번째 학생은 반복하는 코드가 없다.</p>
+
+<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+
+<h3 id="1-설계-1">1. 설계</h3>
+<ol>
+  <li>두번째 for문에서 패턴 최댓값인 10으로 제한하는 것이 아니라 person[i].length로 자신의 패턴 길이만큼 반복하게 한다.</li>
+  <li>마지막 문제가 아닌데 패턴 순회(j)가 마지막에 도달했을 경우 다시 처음부터 순회하게 한다.</li>
+</ol>
+
+<h3 id="2-구현-1">2. 구현</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">answers</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+         <span class="kt">int</span><span class="o">[][]</span> <span class="n">person</span><span class="o">={{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
+                         <span class="o">{</span><span class="mi">2</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">},</span>
+                         <span class="o">{</span><span class="mi">3</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">5</span><span class="o">}</span>
+                       <span class="o">};</span><span class="c1">//제일 긴 3번이 10개임</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">cntArray</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+         <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">person</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">person</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">person</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">answers</span><span class="o">[</span><span class="n">q</span><span class="o">]){</span><span class="c1">//맞았으면</span>
+                     <span class="n">cnt</span><span class="o">++;</span>
+                 <span class="o">}</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">q</span><span class="o">==</span><span class="n">answers</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//마지막 문제이면</span>
+                     <span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">cnt</span><span class="o">;</span>
+                     <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+                     <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+                     <span class="k">break</span><span class="o">;</span>
+                 <span class="o">}</span>
+                 <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">j</span><span class="o">==</span><span class="n">person</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//마지막 문제가 아닌데 j가 끝났을 경우 다시 처음부터</span>
+                    <span class="n">j</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
+                 <span class="o">}</span>
+                 <span class="n">q</span><span class="o">++;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cntArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;</span><span class="n">cntArray</span><span class="o">[</span><span class="n">max</span><span class="o">]){</span>
+                 <span class="n">max</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cntArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">cntArray</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">cntArray</span><span class="o">[</span><span class="n">max</span><span class="o">]){</span>
+                 <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)+</span><span class="mi">1</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>int[][] person: 3명의 정답 패턴을 저장한 이차원 배열이다. 처음에는 각 학생별로 일차원배열에 저장할까했는데, 각각 선언하면 for문에서 3명을 호출하기 애매하여 이차원 배열을 이용하였다.</li>
+  <li>int[] cntArray: 3명의 학생들의 정답수를 저장한다.</li>
+  <li>int q: answers배열을 순회하기 위한 인덱스이다.</li>
+  <li>int cnt: 각 학생별 정답수를 세는 변수이다.</li>
+  <li>int max: 가장 많이 맞힌 학생의 인덱스 번호를 저장한다.</li>
+  <li>ArrayList<Integer> list: 가장 많이 맞힌 학생이 여러명일 경우, 그것이 몇명이 될 지 알 수 없기 떄문에 초기 할당이 필요없는 ArrayList를 이용한다.</Integer></li>
+</ul>
+
+<h3 id="3-코드-설명">3. 코드 설명</h3>
+<p>첫번째 for문에서 학생별로 순회할 수 있게 하고, 두번째 for문에서는 그 학생의 패턴을 반복한다.<br />
+문제를 맞혔으면 cnt를 증가하고, 마지막 문제까지 풀면 cntArray에 정답수를 넣은 후 다음 학생을 위해 q와 cnt를 초기화한다.<br />
+아직 문제가 남았는데 패턴이 끝났다면 j=-1로 초기화하여 다시 반복한다.<br />
+3명의 정답수를 모두 세었으면 최댓값을 가진 학생이 누구인지 찾아 max에 학생의 인덱스 번호를 저장한다.<br />
+이때 1등이 여러명일 수 있으므로 ArrayList를 이용하여 최댓값을 가진 학생들의 인덱스를 모두 저장한다. 이후 오름차순으로 정렬하여 리턴한다.</p>
+
+<h3 id="4-결과">4. 결과</h3>
+<p><img src="./assets/images/191112_4.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>학생들의 정답수를 세는 것은 어렵지 않았지만, 의외로 중복되는 1등이 있을 경우 모두 찾아 오름차순으로 정렬하는 것이 고역이었다. 배열만 사용해서 문제를 해결할 수 있을 것 같았는데 마지막에 ArrayList를 쓰니까 어색하다. 무언가 ArrayList는 거하게 써야할 것 같은데^ㅠ^.<br />
+다른 사람들은 어떻게 풀었는지 코드를 읽어보았는데, 굳이 이중for문을 돌리지 않고 한번 answers를 읽을 때 3명을 모두 비교하여 푼 사람들이 훨씬 많았다. 나는 사람을 기준으로 코드를 작성했다면, 다른 사람들은 문제를 기준으로 푼 것 같다. 그게 더 훨씬 효율성에서 좋은 것 같다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[Programmers/프로그래머스] 모의고사 JAVA <a href="https://blog.naver.com/PostView.nhn?blogId=yongyos&amp;logNo=221486300664">https://blog.naver.com/PostView.nhn?blogId=yongyos&amp;logNo=221486300664</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
