@@ -12,6 +12,99 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_N으로 표현</title>
+	  <link>/blog//algo-prog42895</link>
+	  <author></author>
+	  <pubDate>2019-11-29T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42895</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42895">https://programmers.co.kr/learn/courses/30/lessons/42895</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<p>=&gt;DFS를 이용한다.</p>
+<ol>
+  <li>재귀함수를 통해 사칙연산을 수행한다.</li>
+  <li>cnt(숫자N을 사용한 횟수)가 8보다 크면 -1을 리턴한다.</li>
+  <li>숫자 만들기에 성공하면 answer에 최솟값을 저장한다(처음이라면 그냥 저장, 값이 있다면 비교 후 더 작은 값을 저장).</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//전역변수로 설정</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="kt">int</span> <span class="n">number</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">prev</span><span class="o">){</span>
+         <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">&gt;</span><span class="mi">8</span><span class="o">){</span><span class="c1">//8번안에 끝내야한다</span>
+             <span class="n">answer</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
+             <span class="k">return</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">if</span><span class="o">(</span><span class="n">prev</span><span class="o">==</span><span class="n">number</span><span class="o">){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">answer</span><span class="o">==-</span><span class="mi">1</span><span class="o">||</span><span class="n">cnt</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">){</span><span class="c1">//처음이거나 기존answer보다 더 최솟값을 발견했다면</span>
+                 <span class="n">answer</span><span class="o">=</span><span class="n">cnt</span><span class="o">;</span>
+                 <span class="k">return</span><span class="o">;</span>
+             <span class="o">}</span>            
+         <span class="o">}</span>
+         <span class="kt">int</span> <span class="n">NN</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">-</span><span class="n">cnt</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//8번안에 끝내야하므로</span>
+             <span class="n">NN</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">NN</span><span class="o">+</span><span class="n">N</span><span class="o">;</span><span class="c1">//숫자 N으로 만들 수 있는 수</span>
+             <span class="n">dfs</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">prev</span><span class="o">+</span><span class="n">NN</span><span class="o">);</span>
+             <span class="n">dfs</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">prev</span><span class="o">-</span><span class="n">NN</span><span class="o">);</span>
+             <span class="n">dfs</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">prev</span><span class="o">*</span><span class="n">NN</span><span class="o">);</span>
+             <span class="n">dfs</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">prev</span><span class="o">/</span><span class="n">NN</span><span class="o">);</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="kt">int</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">dfs</span><span class="o">(</span><span class="n">N</span><span class="o">,</span> <span class="n">number</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191129_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">answer은 전역변수여야하고, 0으로 초기화하면 안된다.</span></strong>
+    <ul>
+      <li>answer을 solution()과 dfs()함수에서 사용해야하므로 전역변수로 설정한다. 재귀호출이 이루어지므로 메소드의 파라미터에 넣어 사용하면 값이 재귀를 호출한 곳에 따라서 달라지므로 안된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">for문과 재귀함수를 통해 가능한 모든 사칙연산을 수행한다.</span></strong>
+    <ul>
+      <li>일의자리숫자 N을 가지고 할 수 있는 사칙연산을 모두 수행한다.</li>
+      <li>그 다음은 십의자리숫자를 가지고 사칙연산이 가능하다. 따라서 NN이라는 변수에 숫자 N으로 만들 수 있는 수를 저장하여 사용한다.</li>
+      <li>이때 for문의 범위는 8-cnt번으로 제한한다. 위 문제는 cnt가 8번 안에 만족시켜야한다(그 이상이면 맨 위에서 -1을 리턴한다). i&lt;8로 작성하면 i는 사용횟수를 나타내는 것이 아니므로 cnt가 재귀를 통해 8번이 넘게 반복하게 된다. 따라서 8-cnt로 N의 사요이 8번을 넘어가지 않게 해야한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">prev&gt;number일때 return하는 코드는 작성하면 안된다.</span></strong>
+    <ul>
+      <li>무심결에 prev가 number보다 커지면 number를 만족시킬 수 있는 방법은 없다고 생각하여 예외처리 코드를 작성했었는데, prev에서 뺄셈이나 나눗셈으로 다시 number에 가까워(같아)질 수 있는 방법이 있으므로 작성하면 안된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>코드를 봤을때는 되게 간단해보이는데 문제는 그렇지 않았다. 그냥 문제를 주고 풀어라 해도 노가다로 뛸 판에 코딩하라니까 더 어려웠다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스][JAVA] N으로 표현 <a href="https://jayrightthere.tistory.com/entry/DFSJAVA-N%EC%9C%BC%EB%A1%9C-%ED%91%9C%ED%98%84">https://jayrightthere.tistory.com/entry/DFSJAVA-N%EC%9C%BC%EB%A1%9C-%ED%91%9C%ED%98%84</a></li>
+  <li>[Lv3] N으로 표현 <a href="https://ydeer.tistory.com/42">https://ydeer.tistory.com/42</a></li>
+  <li>[그래프] DFS와 BFS 구현하기 :: 마이구미 <a href="https://mygumi.tistory.com/102">https://mygumi.tistory.com/102</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_저울</title>
 	  <link>/blog//algo-prog42886</link>
 	  <author></author>
@@ -1059,160 +1152,6 @@ for문으로 숫자가 하나로 연결되면 primeNumber()을 호출해 소수�
   <li>프로그래머스 알고리즘 : 소수 찾기 (java) <a href="https://jar100.tistory.com/16">https://jar100.tistory.com/16</a></li>
   <li>순열(PERMUTATION) 알고리즘 <a href="https://gorakgarak.tistory.com/522">https://gorakgarak.tistory.com/522</a></li>
   <li>자바 StringBuilder 사용법 및 사용하는 이유 <a href="https://hardlearner.tistory.com/288">https://hardlearner.tistory.com/288</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 정렬_H-Index</title>
-	  <link>/blog//algo-prog42747</link>
-	  <author></author>
-	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42747</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42747">https://programmers.co.kr/learn/courses/30/lessons/42747</a></p>
-
-<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">citations(int[])</th>
-      <th style="text-align: center">return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">[22,42]</td>
-      <td style="text-align: center">2</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">[20,19,18,1]</td>
-      <td style="text-align: center">3</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">[2,2,2]</td>
-      <td style="text-align: center">2</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>배열을 내림차순으로 정렬한다.</li>
-  <li>h는 배열 원소 갯수부터 시작해서 하나씩 줄어든다.</li>
-  <li>배열을 처음부터 순회하면서 원소가 h보다 같거나 크면 cnt++.</li>
-  <li>작으면 멈추고 cnt==h인지 체크, 같으면 h를 리턴한다.</li>
-  <li>다르면 h–하고 다시 처음부터 순회한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="n">Integer</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&gt;=</span><span class="n">h</span><span class="o">){</span><span class="c1">//원소가 h이상이면</span>
-                <span class="n">cnt</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">else</span><span class="o">{</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">==</span><span class="n">h</span><span class="o">){</span>
-                    <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
-                    <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">else</span><span class="o">{</span><span class="c1">//h--하고 처음부터 다시 시작</span>
-                    <span class="n">h</span><span class="o">--;</span>
-                    <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-                    <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
-            <span class="o">}</span>   
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191112_1.PNG" alt="실행결과" />
-실패. 테스트11에서 틀렸다.</p>
-
-<h3 id="4-문제점">4. 문제점</h3>
-<p>잘 모르겠다. 문제 이해도 잘 안되서 다른 풀이 코드를 참고하였다.</p>
-
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
-
-<h3 id="1-설계-1">1. 설계</h3>
-<ol>
-  <li>인용된 논문 수(h)가 배열 순회 인덱스(i+1)보다 작아지면 i를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">citations</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">Integer</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">citations</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="n">array</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">citations</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Integer</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]&lt;</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">){</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>  
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//[22,42] 2 경우</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-<ul>
-  <li>Integer[] array: int형 배열은 Collections.reverseOrder()를 사용할 수 없으므로 Integer배열로 변환하여 저장한다.</li>
-</ul>
-
-<h3 id="3-코드-설명">3. 코드 설명</h3>
-<p>내림차순으로 정렬된 배열과 i를 비교한다.<br />
-h   i
-6 &gt; 0<br />
-5 &gt; 1<br />
-3 &gt; 2<strong>__</strong>_이때가 i의 최댓값이므로 횟수(i+1, 횟수는 1부터 시작)을 리턴한다.<br />
-1 &lt; 3<br />
-0 &lt; 4</p>
-
-<h3 id="4-결과">4. 결과</h3>
-<p><img src="./assets/images/191112_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>사실 아직도 내가 문제를 잘못 이해하고 있는 것 같다. 뭔가 알고리즘 문제를 푸는 것은 문제를 얼마나 잘 이해하느냐인 것 같다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스/코딩테스트 고득점 Kit/정렬#3] H-Index (Java) <a href="https://developerdk.tistory.com/27">https://developerdk.tistory.com/27</a></li>
 </ul>
 
 	  ]]></description>
