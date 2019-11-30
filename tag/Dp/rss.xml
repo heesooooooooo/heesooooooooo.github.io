@@ -12,6 +12,77 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_타일 장식물</title>
+	  <link>/blog//algo-prog43104</link>
+	  <author></author>
+	  <pubDate>2019-11-30T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog43104</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43104">https://programmers.co.kr/learn/courses/30/lessons/43104</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>타일의 규칙은 피보나치 수열이므로 N까지의 피보나치 값을 계산한다.</li>
+  <li>N개의 타일로 구성한 직사각형의 둘레는 4x현재 타일+2x이전 타일이다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">long</span><span class="o">[]</span> <span class="n">fib</span><span class="o">=</span><span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+        <span class="n">fib</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+        <span class="n">fib</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//피보나치 계산</span>
+            <span class="n">fib</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">fib</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="n">fib</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">fib</span><span class="o">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="mi">2</span><span class="o">*</span><span class="n">fib</span><span class="o">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="o">];</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191130_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">타일의 길이는 피보나치 수열 규칙을 가진다.</span></strong>
+    <ul>
+      <li>타일은 1 1 2 3 5 8 …와 같이 진행되므로 피보나치수열이다.</li>
+      <li>N까지의 피보나치 수열을 계산해서 저장한다. 피보나치수열은 보통 재귀함수를 배울때 대표적인 예시인데, 나는 배열을 통해 계산했다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">직사각형 둘레 길이는 4x현재+2x이전타일이다.</span></strong><br />
+<img src="./assets/images/191130_2.png" alt="예시" width="300" height="300" />
+    <ul>
+      <li>위 그림을 통해 4x현재길이+2x이전길이를 만족함을 알 수 있다.</li>
+      <li>처음에는 2*(현재길이+(이전길이+이이전길이))를 생각했는데, 이 공식은 총 세개의 타일 길이 값을 사용해야해서 효율성이 떨어진다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제를 읽었을 때는 막막했는데, 막상 풀이법은 간단했다. 아직은 문제를 보면 어떻게 해결해야할지 감이 안온다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>프로그래머스 LEVEL 3 : 타일 장식물 <a href="https://web2eye.tistory.com/164">https://web2eye.tistory.com/164</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_N으로 표현</title>
 	  <link>/blog//algo-prog42895</link>
 	  <author></author>
