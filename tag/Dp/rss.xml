@@ -12,6 +12,86 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형</title>
+	  <link>/blog//algo-prog43105</link>
+	  <author></author>
+	  <pubDate>2019-12-02T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog43105</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43105">https://programmers.co.kr/learn/courses/30/lessons/43105</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>배열을 이용해 위아래 서로간 대각선 합을 저장한다.</li>
+  <li>맨 마지막 행에서 최댓값을 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">triangle</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">sum</span><span class="o">[][]=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">];</span><span class="c1">//합을 저장할 배열</span>
+         <span class="n">sum</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">triangle</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//가장 왼쪽과 오른쪽은 다음 위치가 지정되어있음</span>
+             <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+             <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">];</span>
+         <span class="o">}</span>
+
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//현재 위치로 올 수 있는 이전 줄 대각선 왼쪽 오른쪽 중 최댓값을 선택</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                 <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">],</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">])+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
+             <span class="o">}</span>
+         <span class="o">}</span>
+         <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">sum</span><span class="o">[</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//마지막 행에서 최댓값을 선택</span>
+             <span class="n">max</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">sum</span><span class="o">[</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]);</span>
+         <span class="o">}</span>
+         <span class="n">answer</span><span class="o">=</span><span class="n">max</span><span class="o">;</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191202_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">위에서부터 삼각형 원소간의 합을 누적 계산한다.</span></strong>
+    <ul>
+      <li>이때 가장 왼쪽, 오른쪽 원소는 다음 이동이 지정되어있으므로 미리 계산해둔다.</li>
+      <li>아래 칸으로 이동할 수 있는 방법이 두 개인 경우, 지금까지의 누적합에 두 방법을 더해서 더 큰 쪽을 선택한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">마지막 행에서 최댓값을 선택한다.</span></strong>
+    <ul>
+      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>대충 어떻게 풀지는 느낌이 오는데 어떤 자료구조를 선택해야할지 등 세세한 부분에서 계속 막힌다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스, 자바] 정수 삼각형 - 동적계획법 <a href="https://lkhlkh23.tistory.com/117">https://lkhlkh23.tistory.com/117</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_타일 장식물</title>
 	  <link>/blog//algo-prog43104</link>
 	  <author></author>
