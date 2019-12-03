@@ -12,6 +12,190 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_카드 게임</title>
+	  <link>/blog//algo-prog42896</link>
+	  <author></author>
+	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42896</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>최종 점수가 최댓값이 되기 위해 어떤 카드를 버리며 게임을 진행할 지 선택해야하므로 모든 경우의 수를 다 따져야 한다.</li>
+  <li>현재 위치에서 왼쪽카드만 버릴 경우, 둘다 버릴 경우, 오른쪽 카드 숫자가 더 작아서 오른쪽을 버릴 경우에 따라 다음 점수를 계산하고, 이 중 최댓값을 선택해야하므로 재귀함수를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span><span class="o">;</span><span class="c1">//l, r일때의 최댓값을 저장</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">left</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">right</span><span class="o">.</span><span class="na">length</span><span class="o">];</span><span class="c1">//배열 크기는 이곳에서 알 수 있으므로 여기서 초기화</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">dp</span><span class="o">){</span><span class="c1">//배열을 -1로 초기화</span>
+            <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">row</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">recur</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span><span class="c1">//함수 호출</span>
+        <span class="c1">//System.out.println(Arrays.deepToString(dp));</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">recur</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">left</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">right</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">l</span><span class="o">==</span><span class="n">left</span><span class="o">.</span><span class="na">length</span><span class="o">||</span><span class="n">r</span><span class="o">==</span><span class="n">right</span><span class="o">.</span><span class="na">length</span><span class="o">){</span><span class="c1">//둘중 하나라도 끝나면</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">]!=-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//값이 계산되었다면(중복계산 방지)</span>
+            <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">recur</span><span class="o">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">),</span> <span class="n">recur</span><span class="o">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">));</span><span class="c1">//왼쪽만 버릴지, 둘다 버릴지 결정</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">left</span><span class="o">[</span><span class="n">l</span><span class="o">]&gt;</span><span class="n">right</span><span class="o">[</span><span class="n">r</span><span class="o">]){</span><span class="c1">//오른쪽도 버릴 수 있을 경우</span>
+            <span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">],</span> <span class="n">recur</span><span class="o">(</span><span class="n">l</span><span class="o">,</span> <span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">)+</span><span class="n">right</span><span class="o">[</span><span class="n">r</span><span class="o">]);</span><span class="c1">//버리는게 이득인지 확인</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">l</span><span class="o">][</span><span class="n">r</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191203_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">배열 dp는 전역변수로 선언한다.</span></strong>
+    <ul>
+      <li>재귀함수에서 배열에 값을 저장해야하기 떄문이다.</li>
+      <li>recur에 파라미터로 넘길 경우 위치에 따라 배열에 값이 존재하지 않을 수도 있다.</li>
+      <li>dp[l][r]은 현재 l, r카드에서 얻을 수 있는 최댓값을 저장한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">배열 dp는 방문하지 않은 것을 알 수 있도록 표시해야한다.</span></strong>
+    <ul>
+      <li>나는 -1로 초기화해서 아직 값이 저장되어있지 않음을 나타내주었다.</li>
+      <li>0으로 초기화하면 애매하다. 왼쪽이나 둘다 버릴 경우 점수가 0이기 때문이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">재귀호출을 통해 왼쪽과 둘다 버리는 경우 중 어느게 더 큰 점수를 리턴하는지 확인한다.</span></strong></li>
+  <li><strong><span style="color:navy">왼쪽보다 오른쪽이 더 작다면 오른쪽을 버리는 경우도 확인한다.</span></strong>
+    <ul>
+      <li>위에서 왼쪽이나 두개 다 버린 것 중 최댓값이 저장되었으므로 이것과 오른쪽만 버리는 경우를 체크해서 더 큰 값을 저장한다.</li>
+      <li>이때 오른쪽만 버린다면 오른쪽 카드의 숫자만큼 점수를 얻을 수 있으므로 뒤에 +right[r]을 추가한다. 점수를 획득한 것을 나타내었다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">l 또는 r이 끝난 곳에서부터 0을 리턴해서 타고타고 올라가며 계산한다.</span></strong>
+<img src="./assets/images/191203_4.PNG" alt="실행결과" />
+    <ul>
+      <li>맨처음 recur(0,0,left,right)호출을 시작해서 모든 경우의 수에 따라 재귀호출 경로가 만들어진다.</li>
+      <li>맨 마지막에 l 또는 r이 끝난 곳에서 0을 리턴하고, 다시 타고타고 올라가며 +right[r]이 있는 곳에서는 점수를 획득하게 된다.</li>
+      <li>마지막에는 dp[0][0]까지 다시 되돌아 올 것이고, 여기에 최종값이 저장된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>뭔가 알 것 같으면서도 아닌 것 같기도 하고 어려운 재귀의 세계…</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>백준 10835번. 카드게임 (Java) <a href="https://bcp0109.tistory.com/54">https://bcp0109.tistory.com/54</a></li>
+  <li>[ 백준 11062 ] 카드게임 <a href="https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1">https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
+	  <link>/blog//algo-prog42898</link>
+	  <author></author>
+	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42898</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>최단거리 구하는 방법을 적용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
+            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
+                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
+<img src="./assets/images/191203_2.png" alt="실행결과" />
+    <ul>
+      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
+      <li>웅덩이는 -1로 표시한다.</li>
+      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
+    <ul>
+      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
+      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형</title>
 	  <link>/blog//algo-prog43105</link>
 	  <author></author>
@@ -861,195 +1045,6 @@ j–는 while문 안에 넣을 수 없다. j–가 while문 안에 있다면 i+j
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 <p>처음에는 number을 int형으로 배열에 저장한 후, 이전 문제에서 배웠던 perm()을 구현하여 k자리 조합을 모두 찾은 후 Math.max()을 이용해 문제를 풀까 했다. 그러지 않아서 다행이다. 아직까지도 문제를 보면 어떻게 효율적으로 풀 지 정리가 안된다T_T.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_체육복</title>
-	  <link>/blog//algo-prog42862</link>
-	  <author></author>
-	  <pubDate>2019-11-20T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42862</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42862">https://programmers.co.kr/learn/courses/30/lessons/42862</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>학생 n을 가지는 배열을 생성, 1로 초기화한다.</li>
-  <li>도난당한 학생은 0의 값을 가지고, 여벌이 있는 학생은 2를 가진다.</li>
-  <li>학생들을 순회하며 도난당한 학생이 있으면 앞 뒤 학생이 여벌이 있을 경우 하나 준다.</li>
-  <li>최종적으로 옷을 가지고 있는 학생 수를 세서 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">lost</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">reserve</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="kt">int</span><span class="o">[]</span> <span class="n">student</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
-         <span class="o">}</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">l:</span><span class="n">lost</span><span class="o">){</span>
-             <span class="n">student</span><span class="o">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="o">]--;</span>
-         <span class="o">}</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">r:</span><span class="n">reserve</span><span class="o">){</span>
-             <span class="n">student</span><span class="o">[</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="o">]++;</span>
-         <span class="o">}</span>
-
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">0</span><span class="o">){</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
-                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span>
-                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]--;</span>                    
-                 <span class="o">}</span>
-                 <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&amp;&amp;</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
-                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]++;</span>
-                     <span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]--;</span>
-                 <span class="o">}</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">||</span><span class="n">student</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">2</span><span class="o">){</span>
-                 <span class="n">answer</span><span class="o">++;</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-<h3 id="3-코드-설명">3. 코드 설명</h3>
-<ul>
-  <li>학생 수(n)만큼의 크기를 가지는 배열을 생성, 1로 초기화한다. 옷이 없으면 0, 여벌이 있으면 2로 저장한다.</li>
-  <li>배열을 순회하면서 현재 학생이 옷이 없을 경우, 앞뒤 학생이 여벌을 가지고 있는지 확인한다. 이때 인덱스가 배열의 범위를 벗어나지 않도록 체크한다. 옷이 있다면 준다.</li>
-  <li>순회가 끝나면 배열을 다시 순회하며 옷이 있는 학생(여벌 포함)의 수를 세서 리턴한다.</li>
-</ul>
-
-<h3 id="4-결과">4. 결과</h3>
-<p><img src="./assets/images/191120_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉬운 문제였지만 효율적으로 푼 것 같지는 않다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 완전탐색_카펫</title>
-	  <link>/blog//algo-prog42842</link>
-	  <author></author>
-	  <pubDate>2019-11-19T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42842</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42842">https://programmers.co.kr/learn/courses/30/lessons/42842</a></p>
-
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>red로 만들 수 있는 약수 조합(가로&gt;=세로)을 찾아서 Carpet형태로 스택에 저장한다.</li>
-  <li>스택을 하나씩 뽑아서 둘레 길이가 brown과 같으면 그 값을 answer로 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Carpet</span><span class="o">{</span>
-     <span class="kt">int</span> <span class="n">width</span><span class="o">;</span>
-     <span class="kt">int</span> <span class="n">height</span><span class="o">;</span>
-     <span class="kd">public</span> <span class="nf">Carpet</span><span class="o">(</span><span class="kt">int</span> <span class="n">w</span><span class="o">,</span> <span class="kt">int</span> <span class="n">h</span><span class="o">){</span>
-         <span class="k">this</span><span class="o">.</span><span class="na">width</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
-         <span class="k">this</span><span class="o">.</span><span class="na">height</span><span class="o">=</span><span class="n">h</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">divisor</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">,</span> <span class="n">Stack</span> <span class="n">st</span><span class="o">){</span>
-         <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">red</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
-         <span class="kt">int</span> <span class="n">j</span><span class="o">;</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">red</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">red</span><span class="o">%</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="o">){</span>
-                 <span class="n">j</span><span class="o">=</span><span class="n">red</span><span class="o">/</span><span class="n">i</span><span class="o">;</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">j</span><span class="o">){</span>
-                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">j</span><span class="o">));</span>
-                 <span class="o">}</span>
-                 <span class="k">else</span><span class="o">{</span>
-                     <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="k">new</span> <span class="n">Carpet</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">i</span><span class="o">));</span>
-                 <span class="o">}</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-     <span class="o">}</span>
-     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">check</span><span class="o">(</span><span class="n">Stack</span> <span class="n">st</span><span class="o">,</span> <span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span><span class="o">){</span>
-         <span class="n">Carpet</span> <span class="n">cp</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">round</span><span class="o">;</span>
-         <span class="k">while</span><span class="o">(!</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-             <span class="n">cp</span><span class="o">=(</span><span class="n">Carpet</span><span class="o">)</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
-             <span class="n">round</span><span class="o">=</span><span class="mi">2</span><span class="o">*(</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">)+</span><span class="mi">4</span><span class="o">;</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">round</span><span class="o">==</span><span class="n">brown</span><span class="o">){</span>
-                 <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">width</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
-                 <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">cp</span><span class="o">.</span><span class="na">height</span><span class="o">+</span><span class="mi">2</span><span class="o">;</span>
-                 <span class="k">break</span><span class="o">;</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-     <span class="o">}</span>
-     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">brown</span><span class="o">,</span> <span class="kt">int</span> <span class="n">red</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-         <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Carpet</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
-         <span class="n">divisor</span><span class="o">(</span><span class="n">brown</span><span class="o">,</span> <span class="n">red</span><span class="o">,</span> <span class="n">st</span><span class="o">);</span>
-         <span class="n">check</span><span class="o">(</span><span class="n">st</span><span class="o">,</span> <span class="n">brown</span><span class="o">,</span> <span class="n">answer</span><span class="o">);</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-코드-설명">3. 코드 설명</h3>
-<ul>
-  <li><code class="highlighter-rouge">class Carpet</code>: red로 만들 수 있는 가로 세로 조합을 찾아서 스택에 함께 저장하기 위해 Carpet 클래스를 생성하였다.
-    <ul>
-      <li>int width: 가로</li>
-      <li>int height: 세로를 저장한다.</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">pulib void divisor(int brown, int red, Stack st)</code>: red의 약수를 찾는 메소드이다. i는 2부터 시작해 약수인지 판별한다. i를 찾는 즉시 대응값 j도 찾으므로 굳이 red까지 반복할 이유는 없다. red가 제곱값일때 i가 최대가 되므로 i*i&lt;=red까지만 순회한다.<br />
-for문안의 처음 if를 통해 red가 i로 나눠지는지 확인한다. 나눠진다면 약수이므로 j를 찾고, 카펫은 가로가 세로보다 같거나 크므로 부등호를 통해 나눠서 Carpet 형태로 스택에 저장한다.
-    <ul>
-      <li>int i: i는 2부터 시작하여 red의 약수를 찾는다.</li>
-      <li>int j: i를 찾으면 거기에 대응하는 값을 j에 저장한다(예를 들어 24의 약수인 3에 대응하는 숫자는 8이다).</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">public void check(Stack st, int brown, int[] answer)</code>: 스택안의 값을 뽑으면서 해당 값이 조건에 만족하는지 체크한다. brown은 red를 감싸야하므로 red의 둘레에 +4를 한 것과 같다. 계산한 round가 brown과 같다면 이것이 정답이므로 answer에 값을 넣고 종료한다.
-    <ul>
-      <li>Carpet cp: 스택에서 뽑은 값을 저장한다.</li>
-      <li>int round: cp로 둘레를 구한다.</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">public int[] solution(int brown, int red)</code>: divisor()로 red의 약수를 모두 찾아 스택에 저장한 후, check()를 통해 조건에 맞는 지 확인 후 answer에 저장해 리턴한다.
-    <ul>
-      <li>Stack<Carpet> st: red로 잡을 수 있는 모양(약수)을 저장한다.</Carpet></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="4-결과">4. 결과</h3>
-<p><img src="./assets/images/191119_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉬운 문제였다! 근데 다른 사람들은 더 간단하게 풀은 것 같다.</p>
 
 	  ]]></description>
 	</item>

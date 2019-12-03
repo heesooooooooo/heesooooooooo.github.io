@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형</title>
+    <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//algo-prog43105" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog42898" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//algo-prog43105" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog42898" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog43105" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog42898" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형",
-    "url": "http://localhost:4000/blog//algo-prog43105",
+    "name": "[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길",
+    "url": "http://localhost:4000/blog//algo-prog42898",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
@@ -115,7 +115,7 @@
     <article class="post tag-programmers">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형</h1>
+            <h1 class="post-title">[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -134,7 +134,7 @@
             
                 
             
-            <time class="post-date" datetime="2019-12-02">02 Dec 2019</time>
+            <time class="post-date" datetime="2019-12-03">03 Dec 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -154,14 +154,13 @@
         <section class="post-content">
 
             <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43105">https://programmers.co.kr/learn/courses/30/lessons/43105</a></p>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
 
 <h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>배열을 이용해 위아래 서로간 대각선 합을 저장한다.</li>
-  <li>맨 마지막 행에서 최댓값을 리턴한다.</li>
+  <li>최단거리 구하는 방법을 적용한다.</li>
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
@@ -172,56 +171,60 @@
  *
  */</span>
  <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">triangle</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">sum</span><span class="o">[][]=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">];</span><span class="c1">//합을 저장할 배열</span>
-         <span class="n">sum</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">triangle</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//가장 왼쪽과 오른쪽은 다음 위치가 지정되어있음</span>
-             <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-             <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">];</span>
-         <span class="o">}</span>
-
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">triangle</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//현재 위치로 올 수 있는 이전 줄 대각선 왼쪽 오른쪽 중 최댓값을 선택</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                 <span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">],</span><span class="n">sum</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">])+</span><span class="n">triangle</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">sum</span><span class="o">[</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//마지막 행에서 최댓값을 선택</span>
-             <span class="n">max</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">sum</span><span class="o">[</span><span class="n">sum</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]);</span>
-         <span class="o">}</span>
-         <span class="n">answer</span><span class="o">=</span><span class="n">max</span><span class="o">;</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
+            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
+                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191202_1.PNG" alt="실행결과" />
+<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
 성공٩(˘◊˘)۶</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
-  <li><strong><span style="color:navy">위에서부터 삼각형 원소간의 합을 누적 계산한다.</span></strong>
+  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
+<img src="./assets/images/191203_2.png" alt="실행결과" />
     <ul>
-      <li>이때 가장 왼쪽, 오른쪽 원소는 다음 이동이 지정되어있으므로 미리 계산해둔다.</li>
-      <li>아래 칸으로 이동할 수 있는 방법이 두 개인 경우, 지금까지의 누적합에 두 방법을 더해서 더 큰 쪽을 선택한다.</li>
+      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
+      <li>웅덩이는 -1로 표시한다.</li>
+      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
     </ul>
   </li>
-  <li><strong><span style="color:navy">마지막 행에서 최댓값을 선택한다.</span></strong>
+  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
     <ul>
       <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
+      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
     </ul>
   </li>
 </ol>
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>대충 어떻게 풀지는 느낌이 오는데 어떤 자료구조를 선택해야할지 등 세세한 부분에서 계속 막힌다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스, 자바] 정수 삼각형 - 동적계획법 <a href="https://lkhlkh23.tistory.com/117">https://lkhlkh23.tistory.com/117</a></li>
-</ul>
+<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
 
 
         </section>
@@ -254,15 +257,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_정수 삼각형&amp;url=http://localhost:4000algo-prog43105"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길&amp;url=http://localhost:4000algo-prog42898"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog43105"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog42898"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog43105"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog42898"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -293,20 +296,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42896">
-            <section class="post">
-                <h2>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_카드 게임</h2>
-                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. 최종 점수가 최댓값이 되기...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog43104">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42896">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_타일 장식물</h2>
-                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/43104 ( ᐛ )و 도전 1. 설계 타일의 규칙은 피보나치 수열이므로 N까지의 피보나치 값을...</p>
+                <h2>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_카드 게임</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42898 ( ᐛ )و 도전 1. 설계 최종 점수가 최댓값이 되기 위해 어떤 카드를...</p>
             </section>
         </a>
     
