@@ -12,6 +12,162 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_네트워크</title>
+	  <link>/blog//algo-prog43162</link>
+	  <author></author>
+	  <pubDate>2019-12-05T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog43162</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43162">https://programmers.co.kr/learn/courses/30/lessons/43162</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>연결된 노드를 끝까지 찾아가야하므로 DFS이다. 따라서 재귀함수를 사용한다.</li>
+  <li>solution()에서 n개의 노드들을 확인한다. 아직 방문하지 않았다면 방문한다.</li>
+  <li>재귀로 현재 노드와 연결된 것들도 모두 방문한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">computers</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//n개의 노드 체크</span>
+            <span class="k">if</span><span class="o">(!</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]){</span><span class="c1">//아직 방문하지 않았다면</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">visit</span><span class="o">,</span> <span class="n">computers</span><span class="o">);</span><span class="c1">// 현재노드와 연결된 노드들도 찾아서 방문</span>
+                <span class="n">answer</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">me</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">visit</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">computers</span><span class="o">){</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//나와 연결된 노드들을 모두 확인</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">computers</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">&amp;&amp;!</span><span class="n">visit</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]){</span><span class="c1">//나와 연결되어있는데 방문하지 않았다면</span>
+                <span class="n">visit</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span><span class="c1">//방문</span>
+                <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">visit</span><span class="o">,</span> <span class="n">computers</span><span class="o">);</span><span class="c1">//방문한 곳을 기준으로 재귀호출</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191205_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">메인문에서 모든 노드들을 체크한다.</span></strong>
+    <ul>
+      <li>1부터 n까지 노드들을 확인한다.</li>
+      <li>아직 방문하지 않았다면 그 노드를 기준으로 연결된 노드들을 확인한다.</li>
+      <li>현재 노드와 연결된 노드들을 찾는 것은 네트워크 하나를 찾는 것과 같으므로 answer++한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">연결된 노드를 확인하기 위해 재귀함수를 사용한다.</span></strong>
+    <ul>
+      <li>특정 노드와 연결된 노드들을 모두 찾아야 하므로 DFS이다(나와 연결된 노드의 끝까지 방문해야하기때문).</li>
+      <li>solution()에서 i번째 노드와 연결된 것들을 찾기위해 dfs를 호출하면, computers[i]행의 원소들을 순회하며 연결된 노드들을 찾고 방문한다.</li>
+      <li>연결된 노드를 찾으면 그 노드를 기준으로 다시 dfs를 재귀호출하여 그 노드와 연결된 노드들을 또 찾는다.</li>
+      <li>이렇게 하면 마지막까지 도달하게 되고, 그 과정에서 방문한 노드들은 true가 되어 중복 방문을 피할 수 있게 된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제가 노드들의 방문이길래 당연히 BFS인줄 알았다. 분발하자T_T</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스][JAVA] 네트워크 <a href="https://jayrightthere.tistory.com/entry/DFSJAVA-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC">https://jayrightthere.tistory.com/entry/DFSJAVA-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버</title>
+	  <link>/blog//algo-prog43165</link>
+	  <author></author>
+	  <pubDate>2019-12-05T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog43165</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43165">https://programmers.co.kr/learn/courses/30/lessons/43165</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DFS문제이므로 재귀를 이용한다.</li>
+  <li>덧셈이나 뺄셈을 이용해 숫자를 계산하므로 이 두가지의 경우에 따라 재귀를 호출하면 된다.</li>
+  <li>배열 numbers의 값을 모두 사용하면 숫자가 target과 맞는지 확인한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">idx</span><span class="o">==</span><span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">){</span><span class="c1">//numbers숫자를 모두 사용했다면</span>
+            <span class="k">return</span> <span class="n">sum</span><span class="o">==</span><span class="n">target</span><span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//target과 같은지에 따라 값 리턴</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span><span class="c1">//덧셈 또는 뺄셈으로 재귀호출. 두 호출 끝의 리턴값을 더해서 answer세야하므로 +</span>
+            <span class="k">return</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">])+</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">-</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191205_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">모든 인덱스를 방문해야하므로 DFS를 사용한다.</span></strong>
+    <ul>
+      <li>배열 numbers의 원소을 더하거나 빼서 target이 되는 모든 수를 찾아야하므로 DFS를 이용한다.</li>
+      <li>DFS는 재귀나 스택을 사용하는데, 이 문제에서는 재귀를 썼다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">인덱스가 마지막 노드까지 방문했느냐에 따라서 다음 재귀를 호출할지 결정한다.</span></strong>
+    <ul>
+      <li>숫자를 모두 사용했다면 지금까지 계산한 sum이 target과 맞는지 확인한다. 맞다면 answer++하기위해 1을 리턴, 아니라면 0을 리턴한다.</li>
+      <li>아직 다음 노드가 존재할 경우 현재 원소의 값을 sum에 더하거나 뺀다(4번째 파라미터). 그리고 다음 방문을 위해 idx를 하나 증가(3번째 파라미터)시킨다.</li>
+      <li>이때 재귀호출한 두 함수 사이의 +는, 각 경우에 따른 재귀 리턴값을 모두 더해서 방법의 수를 계산하기 위함이다. 최종적으로 solution함수에서 호출한 dfs(numbers, target, 0, 0)에 총 방법의 수가 리턴된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>재귀로 풀어야겠다고 느낌은 왔는데, 안에 파라미터를 어떻게 사용할지, 점화식은 어떻게 작성해야할지 헷갈린다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스 알고리즘] 타켓넘버 - 깊이탐색 DFS <a href="https://lkhlkh23.tistory.com/74">https://lkhlkh23.tistory.com/74</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_도둑질</title>
 	  <link>/blog//algo-prog42897</link>
 	  <author></author>
@@ -198,6 +354,89 @@
 	</item>
 
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
+	  <link>/blog//algo-prog42898</link>
+	  <author></author>
+	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42898</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>최단거리 구하는 방법을 적용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
+            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
+                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
+<img src="./assets/images/191203_2.png" alt="실행결과" />
+    <ul>
+      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
+      <li>웅덩이는 -1로 표시한다.</li>
+      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
+    <ul>
+      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
+      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_카드 게임</title>
 	  <link>/blog//algo-prog42896</link>
 	  <author></author>
@@ -294,89 +533,6 @@
   <li>백준 10835번. 카드게임 (Java) <a href="https://bcp0109.tistory.com/54">https://bcp0109.tistory.com/54</a></li>
   <li>[ 백준 11062 ] 카드게임 <a href="https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1">https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1</a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
-	  <link>/blog//algo-prog42898</link>
-	  <author></author>
-	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42898</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>최단거리 구하는 방법을 적용한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
-            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
-                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
-                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
-                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                    <span class="o">}</span>
-                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
-                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
-                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
-<img src="./assets/images/191203_2.png" alt="실행결과" />
-    <ul>
-      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
-      <li>웅덩이는 -1로 표시한다.</li>
-      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
-    <ul>
-      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
-      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
 
 	  ]]></description>
 	</item>
@@ -723,227 +879,6 @@
   <li>Greedy ‘저울’ 알고리즘 문제풀이 <a href="https://geehye.github.io/programmers-greedy-07/#">https://geehye.github.io/programmers-greedy-07/#</a></li>
   <li>[백준 #2437번 JAVA] 저울 풀이 <a href="https://plplim.tistory.com/59">https://plplim.tistory.com/59</a></li>
   <li>백준 2437번 저울 <a href="https://jaimemin.tistory.com/756">https://jaimemin.tistory.com/756</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_단속카메라</title>
-	  <link>/blog//algo-prog42884</link>
-	  <author></author>
-	  <pubDate>2019-11-27T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42884</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42884">https://programmers.co.kr/learn/courses/30/lessons/42884</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>빨리 나간 순서대로 정렬한다.</li>
-  <li>진입시점이 늦은 것을 발견했을 때, 해당 나가는 시점을 저장해 앞에까지는 카메라를 만났음을 확정한다. 따라서 카메라++한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">routes</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">routes</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;(){</span><span class="c1">//routes[i][1]기준 오름차순 정렬</span>
-             <span class="nd">@Override</span>
-             <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">b</span><span class="o">){</span>
-                 <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-             <span class="o">}</span>
-         <span class="o">});</span>
-
-         <span class="kt">int</span> <span class="n">latest</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span><span class="c1">//Integer의 최솟값으로 초기화       </span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">routes</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//모든 경로를 순회</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">latest</span><span class="o">&lt;</span><span class="n">routes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]){</span><span class="c1">//현재 기준 진입시점이 가장 늦은 차를 발견하면</span>
-                 <span class="n">latest</span><span class="o">=</span><span class="n">routes</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span><span class="c1">//해당 차의 나가는 점을 저장</span>
-                 <span class="n">answer</span><span class="o">++;</span><span class="c1">//현재 차까지 경로에 카메라를 하나 추가하여 최소 한번쯤은 카메라를 만나는 것을 보장</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191127_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">routes를 빨리 나간 순서대로 정렬한다.</span></strong>
-    <ul>
-      <li>차량이 나가기 전에 최소 한 번 카메라를 만나면 된다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">진입시점이 늦은 차량을 찾는다.</span></strong>
-    <ul>
-      <li><span style="color:red">차들의 경로가 겹친다면</span> 가장 늦게 들어온 차의 진입시점에 카메라를 놓으면 된다.</li>
-      <li>그러면 겹치는 차들은 카메라를 최소 한 번 만났으므로 선상에서 제외한다.</li>
-      <li>뒤의 값들은 현재까지의 가장 늦게 나가는 차량 뒤에 진입하므로(차들의 경로가 겹친다고 가정하고 있음!) latest에 가장 늦게 들어온 차의 나가는 시점을 저장한다.</li>
-      <li><span style="color:red">차들의 경로가 겹치지 않더라도 문제없다.</span></li>
-      <li>경로가 겹치지 않는다는 것은 앞에까지의 차들은 계산이 끝났다는 뜻이다. 내 진입시점이 현재로선 가장 늦으므로 위 if문을 만족하여 카메라를 추가하게 된다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">latest는 가장 작은 값으로 초기화되야 한다.</span></strong>
-    <ul>
-      <li>routes에서 진입시점이 가장 작은 값이 무엇인지 알 수 없기 때문에, 그보다 더 작은 값을 저장하여 if문에서 비교가 가능하도록 해야한다. 문제에서는 차량 진입, 나가는 시점의 범위를 주었으므로 -30000으로 초기화해도 된다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>접근 방식을 모르겠어서 구글링하다가 엄청 간단하게 해결한 코드가 있어서 그 코드를 이해하는데 시간을 다썼다. 주석이라도 한줄 달아줬다면 좋았을텐데…. 주석의 중요성 다시 한 번 느낀다. 어쨌든 이런 생각을 하는게 대단할 뿐</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>Greedy ‘단속카메라’ 알고리즘 문제풀이 <a href="https://geehye.github.io/programmers-greedy-06/#">https://geehye.github.io/programmers-greedy-06/#</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_섬 연결하기</title>
-	  <link>/blog//algo-prog42861</link>
-	  <author></author>
-	  <pubDate>2019-11-26T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42861</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42861">https://programmers.co.kr/learn/courses/30/lessons/42861</a></p>
-
-<h3 id="테스트케이스-추가">테스트케이스 추가</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">n(int)</th>
-      <th style="text-align: center">costs(int[][])</th>
-      <th style="text-align: center">Return</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td style="text-align: center">[[0, 1, 1], [2, 3, 1], [0, 2, 2], [0, 3, 3]]</td>
-      <td style="text-align: center">4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">6</td>
-      <td style="text-align: center">[[0, 1, 1], [2, 3, 2], [4, 5, 2], [2, 4, 3], [1, 5, 4]]</td>
-      <td style="text-align: center">11</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<p>=&gt; 크루스칼(Kruskal) 알고리즘을 이용한다.</p>
-<ol>
-  <li>비용을 오름차순으로 정렬한다.</li>
-  <li>사이클이 생기지 않도록 처음부터 체크하며 연결한다.
-    <ul>
-      <li>섬 둘다 true면 연결되었으므로 넘어감</li>
-      <li>둘 다 false면 boolean 변수로 체크해두고 다음으로 넘어감</li>
-      <li>둘 중 하나가 false면 연결해주고, 앞에서 둘다 false라 넘어간 것이 있는지 체크. 있다면 앞에서부터 다시 체크.</li>
-    </ul>
-  </li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">costs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">];</span><span class="c1">//true면 섬이 연결된 것</span>
-
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">costs</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;(){</span><span class="c1">//비용 기준 오름차순 정렬</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">b</span><span class="o">){</span>
-                <span class="k">return</span> <span class="n">a</span><span class="o">[</span><span class="mi">2</span><span class="o">]-</span><span class="n">b</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-        <span class="kt">int</span> <span class="n">connect</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//섬들이 모두 연결되었는지 체크</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//섬들을 순회하는 인덱스</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="o">,</span><span class="n">b</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//두 섬을 가져오는 변수</span>
-
-        <span class="n">visit</span><span class="o">[</span><span class="n">costs</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]]=</span><span class="kc">true</span><span class="o">;</span><span class="c1">//시작점</span>
-        <span class="kt">boolean</span> <span class="n">passIdx</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span><span class="c1">//둘다 F라 뛰어넘은 경우 true로 저장</span>
-        <span class="k">while</span><span class="o">(</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&amp;&amp;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">costs</span><span class="o">.</span><span class="na">length</span><span class="o">){</span><span class="c1">//모든 섬이 연결될때까지&amp;&amp;i가 인덱스 범위를 넘어가지 않게</span>
-            <span class="n">a</span><span class="o">=</span><span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-            <span class="n">b</span><span class="o">=</span><span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">visit</span><span class="o">[</span><span class="n">a</span><span class="o">]&amp;&amp;!</span><span class="n">visit</span><span class="o">[</span><span class="n">b</span><span class="o">]){</span><span class="c1">//둘다 F면</span>
-                <span class="n">passIdx</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="o">(!(</span><span class="n">visit</span><span class="o">[</span><span class="n">a</span><span class="o">]&amp;&amp;</span><span class="n">visit</span><span class="o">[</span><span class="n">b</span><span class="o">])){</span><span class="c1">//둘중 하나가 F면</span>
-                <span class="n">visit</span><span class="o">[</span><span class="n">a</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                <span class="n">visit</span><span class="o">[</span><span class="n">b</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                <span class="n">connect</span><span class="o">++;</span>
-                <span class="n">answer</span><span class="o">+=</span><span class="n">costs</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span><span class="c1">//비용 계산</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">passIdx</span><span class="o">){</span><span class="c1">//둘다 F라 패스한 것이 있으므로 다시 돌아가 체크</span>
-                    <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//i=1부터 순회하기 위함(처음은 무조건 연결되었으므로 볼 필요도 없음). 밑에서 i++됨</span>
-                    <span class="n">passIdx</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="n">i</span><span class="o">++;</span><span class="c1">//다음 섬으로 인덱스 이동</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191126_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">비용을 기준으로 오름차순 정렬한다.</span></strong>
-    <ul>
-      <li>이를 통해 최소 비용으로 섬을 연결한다는 조건을 만족시킨다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">섬 간의 연결은 둘 중 하나가 false일 경우에만 가능하다.</span></strong>
-    <ul>
-      <li>섬 간의 연결 유무는 boolean[] visit를 이용한다. 연결되었으면 true, 아니면 false이다.</li>
-      <li>섬 a, b가 둘 다 true인 경우는 연결되었다는 뜻이므로 패스한다.</li>
-      <li>둘 다 false인 경우에는 연결하지 않는다. 현재 연결된 섬들에서는 a, b로 이동할 수 없기 때문이다. 일단은 passIdx를 통해 이런 상황이 있음을 표시하고, 다음으로 넘어간다. 나중에 a, b중 하나와 연결이 된다면 다시 되돌아와 연결해주면 된다.</li>
-      <li>둘 중 하나가 false일 때 연결해준다. 하나는 true이므로 섬들과 연결되어있다는 뜻이고, 하나는 false이므로 연결지어줄 수 있기 때문이다.</li>
-      <li>섬끼리 연결되었다면 boolean[] visit의 해당 인덱스를 true로 바꾼다. connect++하여 연결된 섬의 숫자를 카운트한다. 비용도 answer에 추가한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">연결에 성공한 경우에는 passIdx를 체크한다.</span></strong>
-    <ul>
-      <li>passIdx는 비용이 적어서 우선순위가 컸지만, 그때 상황으로는 연결할 수 없을 때 true를 저장한다. 하지만 새로운 연결이 생성된 지금에는 이전에는 할 수 없었던 섬 연결이 가능할지도 모른다. 따라서 i=1부터 다시 체크하여 연결할 수 있다면 해준다.</li>
-      <li>처음에는 passIdx를 int형으로 선언하여 연결 못하고 넘어간 인덱스 번호를 저장했었다. i=1부터 순회하지 않고 놓친 부분으로 바로 들어갈 수 있게 하여 효율성을 높이고자 했다. 하지만 이렇게 구현하면 안된다. 이 경우 위 추가된 테스트케이스2에서 실패한다. [0,1,1]에서 섬을 연결하고 [2,3,2]~[2,4,3]까지는 모두 연결할 수 없어 패스하게 되는데, passIdx를 int형으로 선언하여 인덱스 값을 저장한다면 값이 계속 덮여 제일 마지막 [2,4,3]의 인덱스 3을 저장하게 되어 앞에 두 값들은 무시하게 된다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>이런거 이론으로 알고리즘 시간에 배웠었는데 열심히 공부해둘걸T_T. 처음 코드는 테스트2~7까지 모조리 실패하고, 다음은 4, 6, 7을 실패해서 도대체 놓친 부분이 뭔지 고민하느라 힘들었다. 케이스 조건 생각해내는게 힘들다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[Lv3] 섬 연결하기 <a href="https://ydeer.tistory.com/52">https://ydeer.tistory.com/52</a></li>
-  <li>[알고리즘] 크루스칼 알고리즘(Kruskal Algorithm) <a href="https://brenden.tistory.com/36">https://brenden.tistory.com/36</a></li>
 </ul>
 
 	  ]]></description>

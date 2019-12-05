@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog43165" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog43165" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog43165" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버",
+    "url": "http://localhost:4000/blog//algo-prog43165",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL/프로그래머스</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About::HEESOO</a></li>
+        <!--
+          <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+          -->
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-programmers">
+
+        <header class="post-header">
+            <h1 class="post-title">[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2019-12-05">05 Dec 2019</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/dfs'>Dfs</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43165">https://programmers.co.kr/learn/courses/30/lessons/43165</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DFS문제이므로 재귀를 이용한다.</li>
+  <li>덧셈이나 뺄셈을 이용해 숫자를 계산하므로 이 두가지의 경우에 따라 재귀를 호출하면 된다.</li>
+  <li>배열 numbers의 값을 모두 사용하면 숫자가 target과 맞는지 확인한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">idx</span><span class="o">==</span><span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">){</span><span class="c1">//numbers숫자를 모두 사용했다면</span>
+            <span class="k">return</span> <span class="n">sum</span><span class="o">==</span><span class="n">target</span><span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//target과 같은지에 따라 값 리턴</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span><span class="c1">//덧셈 또는 뺄셈으로 재귀호출. 두 호출 끝의 리턴값을 더해서 answer세야하므로 +</span>
+            <span class="k">return</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">])+</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">-</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191205_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">모든 인덱스를 방문해야하므로 DFS를 사용한다.</span></strong>
+    <ul>
+      <li>배열 numbers의 원소을 더하거나 빼서 target이 되는 모든 수를 찾아야하므로 DFS를 이용한다.</li>
+      <li>DFS는 재귀나 스택을 사용하는데, 이 문제에서는 재귀를 썼다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">인덱스가 마지막 노드까지 방문했느냐에 따라서 다음 재귀를 호출할지 결정한다.</span></strong>
+    <ul>
+      <li>숫자를 모두 사용했다면 지금까지 계산한 sum이 target과 맞는지 확인한다. 맞다면 answer++하기위해 1을 리턴, 아니라면 0을 리턴한다.</li>
+      <li>아직 다음 노드가 존재할 경우 현재 원소의 값을 sum에 더하거나 뺀다(4번째 파라미터). 그리고 다음 방문을 위해 idx를 하나 증가(3번째 파라미터)시킨다.</li>
+      <li>이때 재귀호출한 두 함수 사이의 +는, 각 경우에 따른 재귀 리턴값을 모두 더해서 방법의 수를 계산하기 위함이다. 최종적으로 solution함수에서 호출한 dfs(numbers, target, 0, 0)에 총 방법의 수가 리턴된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>재귀로 풀어야겠다고 느낌은 왔는데, 안에 파라미터를 어떻게 사용할지, 점화식은 어떻게 작성해야할지 헷갈린다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스 알고리즘] 타켓넘버 - 깊이탐색 DFS <a href="https://lkhlkh23.tistory.com/74">https://lkhlkh23.tistory.com/74</a></li>
+</ul>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
+
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버&amp;url=http://localhost:4000algo-prog43165"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog43165"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog43165"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog43162">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_네트워크</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/43162 ( ᐛ )و 도전 1. 설계 연결된 노드를 끝까지 찾아가야하므로 DFS이다. 따라서 재귀함수를...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2019</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>
