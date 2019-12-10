@@ -12,6 +12,93 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 이분탐색_징검다리</title>
+	  <link>/blog//algo-prog43236</link>
+	  <author></author>
+	  <pubDate>2019-12-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog43236</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43236">https://programmers.co.kr/learn/courses/30/lessons/43236</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>바위 사이의 최소거리를 이분탐색으로 찾는다.</li>
+  <li>바위 간의 거리가 mid보다 작으면 제거(카운트), 크다면 마지막 바위값을 저장하여 다음 바위와 거리 비교가 가능하게 한다.</li>
+  <li>카운트&gt;n이면 mid가 큰 것이므로 줄이고, 반대면 늘린다.</li>
+  <li>answer에는 mid들 중 최댓값을 저장한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">distance</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">rocks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rocks</span><span class="o">);</span><span class="c1">//이분탐색할 때는 정렬을 해야함</span>
+         <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">distance</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">remove</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//제거한 바위갯수</span>
+         <span class="kt">int</span> <span class="n">mid</span><span class="o">;</span><span class="c1">//바위사이의 최소 거리</span>
+         <span class="kt">int</span> <span class="n">lastRock</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//마지막 바위</span>
+         <span class="k">while</span><span class="o">(</span><span class="n">left</span><span class="o">&lt;=</span><span class="n">right</span><span class="o">){</span>
+             <span class="n">mid</span><span class="o">=(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">rocks</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">mid</span><span class="o">&gt;</span><span class="n">rocks</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">lastRock</span><span class="o">)</span> <span class="n">remove</span><span class="o">++;</span>
+                 <span class="k">else</span> <span class="n">lastRock</span><span class="o">=</span><span class="n">rocks</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+             <span class="o">}</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">distance</span><span class="o">-</span><span class="n">lastRock</span><span class="o">&lt;</span><span class="n">mid</span><span class="o">)</span> <span class="n">remove</span><span class="o">++;</span><span class="c1">//마지막바위와 도착지간의 거리 체크</span>
+
+             <span class="k">if</span><span class="o">(</span><span class="n">remove</span><span class="o">&gt;</span><span class="n">n</span><span class="o">)</span> <span class="n">right</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+             <span class="k">else</span><span class="o">{</span>
+                 <span class="n">answer</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+                 <span class="n">left</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+             <span class="o">}</span>
+             <span class="n">remove</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+             <span class="n">lastRock</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191210_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">바위 사이의 최소 거리를 이분탐색으로 구한다.</span></strong>
+    <ul>
+      <li>이분탐색을 하기 위해서는 배열 정렬은 필수다.</li>
+      <li>바위 사이의 최소 거리를 mid로 정해놓고, 이보다 작다면 최소 거리라 가정한 mid에 반례이므로 제거한다.</li>
+      <li>바위를 제거할 경우 다음 바위에서 비교할 이전 바위의 값을 알고 있어야하므로 lastRock을 두어 제거하지 않았을 경우 현재까지 중에서 마지막인 바위값을 저장한다.</li>
+      <li>마지막 바위와 도착지까지의 거리도 mid와 비교해야하므로 for문 다음에 if문을 추가한다.</li>
+      <li>제거한 바위 갯수 remove가 n보다 크다면 거리 mid가 크다는 뜻이므로 줄이고, 반대라면 늘린다.</li>
+      <li>answer에는 remove&lt;=n일때 최댓값을 저장한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>remove==n일때만 저장해야하는거 아닌가, 근데 그러면 테스트에서 틀린다. 아직 이유를 모르겠다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>이분탐색 &gt; 징검다리 <a href="https://dokrsky.tistory.com/81">https://dokrsky.tistory.com/81</a></li>
+  <li>이분탐색(binary search) <a href="https://webfirewood.tistory.com/108">https://webfirewood.tistory.com/108</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 이분탐색_예산</title>
 	  <link>/blog//algo-prog43237</link>
 	  <author></author>
