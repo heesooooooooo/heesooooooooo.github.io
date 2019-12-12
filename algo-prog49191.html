@@ -1,24 +1,159 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-   
-      <title>iamheesoo.github.io/blog/</title>
-   
-   <link>http://localhost:4000</link>
-   <description>(◍•ᴗ•◍)</description>
-   <language>utf-8</language>
-   <managingEditor> </managingEditor>
-   <atom:link href="rss" rel="self" type="application/rss+xml" />
-   
-	<item>
-	  <title>[JAVA/프로그래머스] 그래프_순위</title>
-	  <link>/blog//algo-prog49191</link>
-	  <author></author>
-	  <pubDate>2019-12-12T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog49191</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[JAVA/프로그래머스] 그래프_순위</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog49191" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 그래프_순위" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog49191" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 그래프_순위" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog49191" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[JAVA/프로그래머스] 그래프_순위",
+    "url": "http://localhost:4000/blog//algo-prog49191",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL/프로그래머스</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About::HEESOO</a></li>
+        <!--
+          <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+          -->
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-programmers">
+
+        <header class="post-header">
+            <h1 class="post-title">[JAVA/프로그래머스] 그래프_순위</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2019-12-12">12 Dec 2019</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/programmers'>Programmers</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/graph'>Graph</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <h2 id="문제"><span style="color:navy">문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/49191">https://programmers.co.kr/learn/courses/30/lessons/49191</a></p>
 
 <h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
@@ -145,119 +280,122 @@
   <li>[BOJ] 키 순서 <a href="https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C">https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C</a></li>
 </ul>
 
-	  ]]></description>
-	</item>
 
-	<item>
-	  <title>[JAVA/프로그래머스] 그래프_가장 먼 노드</title>
-	  <link>/blog//algo-prog49189</link>
-	  <author></author>
-	  <pubDate>2019-12-11T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog49189</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/49189">https://programmers.co.kr/learn/courses/30/lessons/49189</a></p>
+        </section>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+        <footer class="post-footer">
 
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>ArrayList를 이용하여 그래프를 구현한다.</li>
-  <li>boolean[] visited로 노드 방문을 체크하고, int[] count로 1에서부터 해당 노드까지의 길이를 저장한다.</li>
-  <li>거리가 가장 먼 노드들만을 세서 리턴한다.</li>
-</ol>
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
 
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">edge</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">//그래프 구현</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;());</span>
-        <span class="o">}</span>
-        <span class="c1">//노드 연결</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">node:</span><span class="n">edge</span><span class="o">){</span>
-            <span class="n">a</span><span class="o">=</span><span class="n">node</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-            <span class="n">b</span><span class="o">=</span><span class="n">node</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
-        <span class="o">}</span>
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
 
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span><span class="c1">//1과의 거리 저장</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span><span class="c1">//방문여부</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span><span class="c1">//시작점</span>
-        <span class="n">visited</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">visited</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span><span class="c1">//1에서 시작(0은 사용안함)</span>
-        <span class="kt">int</span> <span class="n">now</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">now</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">v:</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">now</span><span class="o">)){</span><span class="c1">//나와 연결된 노드들</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]){</span><span class="c1">//방문하지 않은 곳이라면</span>
-                    <span class="n">count</span><span class="o">[</span><span class="n">v</span><span class="o">]=</span><span class="n">count</span><span class="o">[</span><span class="n">now</span><span class="o">]+</span><span class="mi">1</span><span class="o">;</span><span class="c1">//1과의 길이 저장</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                    <span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">v</span><span class="o">);</span><span class="c1">//이곳과 연결된 노드에 방문하기 위함</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">//System.out.println(Arrays.toString(count));</span>
-        <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//1과 가장 멀리 떨어진 노드와의 길이 저장</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">cnt:</span><span class="n">count</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">max</span><span class="o">&lt;</span><span class="n">cnt</span><span class="o">){</span><span class="c1">//더 큰 길이가 있다면 그게 max</span>
-                <span class="n">max</span><span class="o">=</span><span class="n">cnt</span><span class="o">;</span>
-                <span class="n">answer</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">max</span><span class="o">==</span><span class="n">cnt</span><span class="o">)</span> <span class="n">answer</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
 
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191211_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+                    <!-- /author  -->
 
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">ArrayList를 이용하여 그래프를 구현한다.</span></strong>
-<img src="./assets/images/191211_2.png" alt="실행결과" width="300" height="300" />
-    <ul>
-      <li>노드가 1부터 시작하므로 0은 사용하지 않는다.</li>
-      <li>ArrayList&lt;ArrayList<Integer>&gt;로 선언하여 리스트가 리스트를 원소로 가지게 한다.</Integer></li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">큐로 노드들을 방문한다.</span></strong>
-    <ul>
-      <li>1부터 시작해서 1과 연결된 노드들을 방문한다.</li>
-      <li>이때 처음 방문하는 노드라면 1과의 거리를 count[i]에 저장한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">count[]로 1과 제일 멀리 떨어진 노드들의 갯수를 센다.</span></strong>
-    <ul>
-      <li>max는 0으로 초기화하여 이보다 더 큰 거리가 나오면 max값을 바꾸고, answer=1로 초기화한다.</li>
-    </ul>
-  </li>
-</ol>
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 그래프_순위&amp;url=http://localhost:4000algo-prog49191"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog49191"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog49191"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>코드 구현 자체는 어렵지 않았지만 아직도 문제를 보고 직접 풀기까지는 나에게 무리인 것 같다.</p>
+            <!-- Add Disqus Comments -->
+            
 
-<h3 id="참고">참고</h3>
-<ul>
-  <li>프로그래머스_가장 먼 노드_그래프(java) <a href="https://heedipro.tistory.com/233">https://heedipro.tistory.com/233</a></li>
-</ul>
+        </footer>
 
-	  ]]></description>
-	</item>
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover7.jpg)" href="/blog/algo-floyd">
+            <section class="post">
+                <h2>[Algorithm] 플로이드 와샬 알고리즘(Floyd-Warshall Algorithm)</h2>
+                <p>플로이드 와샬 알고리즘 1. 기본 개념 그래프에서 모든 꼭짓점 사이의 최단경로의 거리를 구하는 알고리즘이다. 최단...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
 
 
-</channel>
-</rss>
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2019</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>
