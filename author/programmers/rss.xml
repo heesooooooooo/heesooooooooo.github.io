@@ -12,6 +12,634 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 문자열 압축</title>
+	  <link>/blog//algo-prog60057</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog60057</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/60057">https://programmers.co.kr/learn/courses/30/lessons/60057</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>문자열을 자를 단위를 정한다(1~s.length/2까지가 가능).</li>
+  <li>substring을 이용해 문자열을 잘라서 특정 문자가 반복되는지 확인한다.</li>
+  <li>answer에는 압축한 문자열 중 가장 짧은 것을 저장한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span><span class="c1">//s는 최대 1000이하임</span>
+        <span class="n">String</span> <span class="n">str1</span><span class="o">=</span><span class="s">""</span><span class="o">,</span> <span class="n">str2</span><span class="o">=</span><span class="s">""</span><span class="o">,</span> <span class="n">result</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//쪼갤 단위 갯수</span>
+            <span class="n">str1</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">i</span><span class="o">);</span>
+            <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+            <span class="n">result</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">j</span><span class="o">+=</span><span class="n">i</span><span class="o">){</span>
+                <span class="n">str2</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">str1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">str2</span><span class="o">))</span> <span class="n">cnt</span><span class="o">++;</span><span class="c1">//문자가 반복된다면</span>
+                <span class="k">else</span><span class="o">{</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span> <span class="n">result</span><span class="o">+=</span><span class="n">str1</span><span class="o">;</span><span class="c1">//str1이 반복된 적이 없다면</span>
+                    <span class="k">else</span> <span class="n">result</span><span class="o">+=</span><span class="n">cnt</span><span class="o">+</span><span class="n">str1</span><span class="o">;</span><span class="c1">//한번 이상 반복됏다면</span>
+                    <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//초기화</span>
+                    <span class="n">str1</span><span class="o">=</span><span class="n">str2</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">&gt;</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span><span class="c1">//다음 str2를 찾기엔 substring 범위가 벗어난다면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">!=</span><span class="mi">1</span><span class="o">){</span>
+                        <span class="n">result</span><span class="o">+=</span><span class="n">cnt</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="n">result</span><span class="o">+=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">쪼갤 수 있는 단위 갯수는 1부터 s.length()/2까지이다.</span></strong>
+    <ul>
+      <li>문자열이 반복되는지 확인하기 위해서 str1, str2를 두고 비교한다.</li>
+      <li>str1+str2=s.length()일 때가 최대이므로 1부터 s.length()/2까지가 문자열을 자를 수 있는 범위이다.</li>
+      <li>문자열 단위를 나타내는 변수는 첫 for문의 i이다. 첫 str1은 0부터 i개이므로 substring으로 문자를 추출한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">갯수 단위에 따라 str1, str2를 추출해서 비교한다.</span></strong>
+    <ul>
+      <li>str2는 str1이 끝난 지점 다음부터인 j부터 i 갯수만큼이다. 따라서 substring(j, j+i)가 된다.</li>
+      <li>str1과 str2가 같다면 cnt++로 반복 횟수를 증가한다.</li>
+      <li>같지 않다면 문자열이 반복되지 않는다는 뜻이다. cnt==1이라면 str1이 반복된 적이 없으므로 result에 숫자 없이 str1을 저장한다.</li>
+      <li>cnt!=1이라면 str1이 한 번 이상 반복되었단느 뜻이므로 반복된 횟수인 cnt와 str1을 result에 넣어 압축된 문자열을 저장한다.</li>
+      <li>result에 문자열을 넣었으므로 cnt=1, str1=str2로 초기화한다.</li>
+      <li>str1=str2의 의미는, str2가 str1와 같지 않기 때문에 이제 str2와 같은 문자열이 있는지 비교해야 하므로 str1에 넣어서 다음 진행을 할 수 있게 한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">다음 비교할 문자열 갯수가 충분한지 확인한다.</span></strong>
+    <ul>
+      <li>두 번째 for문의 j는 str2의 시작점을 나타내기 때문에 j++가 아닌 j+=i만큼 증가한다. 따라서 다음 비교를 위해 str2를 substring으로 추출할 때, 충분한 갯수가 있는지 확인해야한다.</li>
+      <li>마지막 if문은 substring이 인덱스 범위를 벗어나지 않도록 체크하는 코드이다. j+i는 다음 str2의 시작점, 뒤의 i는 끝나는 점을 나타내며, 따라서 j+i+i는 다음 str2 문자열의 끝 인덱스를 뜻한다. 인덱스가 s.length()를 넘어간다면 더 이상 i개만큼 문자열을 자를 수 없다는 뜻이므로 나머지 문자열들을 result에 붙여준다. 이때 지금까지 반복된 문자열이 있는지 cnt를 체크해야한다.</li>
+      <li>result 생성이 끝났다면 answer에는 기존 answer값과 현재 result의 값 중 최솟값을 저장한다. 참고로 s의 길이는 1~1000이하로 문제에 제시되었으므로 answer의 초기값은 1000으로 넣었다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>어려운 자료구조를 쓴다던가의 문제는 아니지만 substring의 범위를 잘 체크해야하는 문제였다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[자바/알고리즘] 프로그래머스 [2020카카오공채] 문자열 압축 <a href="https://lee1535.tistory.com/61">https://lee1535.tistory.com/61</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 문자열 내림차순으로 배치하기</title>
+	  <link>/blog//algo-prog12917</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12917</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12917">https://programmers.co.kr/learn/courses/30/lessons/12917</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>문자 하나씩 char형으로 비교해 내림차순으로 정렬한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+      <span class="kt">char</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+      <span class="n">Character</span><span class="o">[]</span> <span class="n">arr</span><span class="o">=</span><span class="k">new</span> <span class="n">Character</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+          <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]=(</span><span class="n">Character</span><span class="o">)</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="o">}</span>
+      <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;(){</span>
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Character</span> <span class="n">c1</span><span class="o">,</span> <span class="n">Character</span> <span class="n">c2</span><span class="o">){</span>
+              <span class="k">return</span> <span class="n">c2</span><span class="o">-</span><span class="n">c1</span><span class="o">;</span>
+          <span class="o">}</span>
+      <span class="o">});</span>
+      <span class="k">for</span><span class="o">(</span><span class="n">Character</span> <span class="nl">ch:</span><span class="n">arr</span><span class="o">){</span>
+          <span class="n">answer</span><span class="o">+=</span><span class="n">ch</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_9.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">내림차순으로 정렬한다.</span></strong>
+    <ul>
+      <li>Arrays.sort에서 char형은 primitive로 안되서 Character형으로 바꿔야했다. 여기서 좀 헤맸다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>다 하고보니 그냥 Collections.reverse()하면 간단한 거였는데.. 노가다를 해버렸다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>Sorting array of char using Arrays.sort <a href="https://stackoverflow.com/questions/56416452/sorting-array-of-char-using-arrays-sort">https://stackoverflow.com/questions/56416452/sorting-array-of-char-using-arrays-sort</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 문자열 내 p와 y의 개수</title>
+	  <link>/blog//algo-prog12916</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12916</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12916">https://programmers.co.kr/learn/courses/30/lessons/12916</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>s를 charAt으로 문자 하나씩 체크하며 대소문자 상관없이 p와 y의 갯수를 구한다.</li>
+  <li>p와 y의 수가 다르다면 answer에 false를 저장한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+         <span class="kt">char</span> <span class="n">ch</span><span class="o">;</span>
+         <span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">ch</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">ch</span><span class="o">==</span><span class="sc">'p'</span><span class="o">||</span><span class="n">ch</span><span class="o">==</span><span class="sc">'P'</span><span class="o">)</span> <span class="n">p</span><span class="o">++;</span>
+             <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">ch</span><span class="o">==</span><span class="sc">'y'</span><span class="o">||</span><span class="n">ch</span><span class="o">==</span><span class="sc">'Y'</span><span class="o">)</span> <span class="n">y</span><span class="o">++;</span>
+         <span class="o">}</span>
+         <span class="k">if</span><span class="o">(</span><span class="n">p</span><span class="o">!=</span><span class="n">y</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_8.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">s의 문자를 하나씩 확인하며 p와 y를 카운트한다.</span></strong>
+    <ul>
+      <li>s의 i번째 문자를 charAt으로 가져온다.</li>
+      <li>대소문자 상관없으므로 p와 y의 갯수를 체크한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">p와 y의 갯수가 다르면 fasle를 리턴한다.</span></strong>
+    <ul>
+      <li>answer을 true로 초기화한 상태이므로 false인 경우만 if문으로 두었다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>다른 사람들 풀이도 봤는데 upper또는 lower로 바꿔서 구한 사람도 있었다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 문자열 내 마음대로 정렬하기</title>
+	  <link>/blog//algo-prog12915</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12915</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12915">https://programmers.co.kr/learn/courses/30/lessons/12915</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>Arrays.sort로 일단 오름차순 정렬한다.</li>
+  <li>n번째 인덱스 값에 따른 정렬을 Comparator로 이용해 구현한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">strings</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+      <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">strings</span><span class="o">);</span>
+      <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(){</span>
+          <span class="nd">@Override</span>
+          <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">){</span>
+              <span class="k">return</span> <span class="n">s1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">n</span><span class="o">)-</span><span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+          <span class="o">}</span>
+      <span class="o">});</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">strings</span><span class="o">));</span>
+      <span class="k">return</span> <span class="n">strings</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_7.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">처음 오름차순 정렬을 한다.</span></strong>
+    <ul>
+      <li>입출력 예2에서 2번째 인덱스 값으로 정렬한다고 했을 때, abce와 abcd의 두번째 인덱스는 c로 같으므로, 이 경우 사전순으로 정렬해야한다. 따라서 이 경우를 대비해 n번째 인덱스에 따른 정렬을 하기 전 오름차순으로 정렬해둔다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">Comparator을 이용해 인덱스 값에 따른 정렬을 구현한다.</span></strong>
+    <ul>
+      <li>s1과 s2의 n번째 인덱스를 charAt으로 추출한 후, 오름차순 정렬이므로 s1-s2이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>어유 코테가 이런식의 난이도라면 얼마나 좋아</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 두 정수 사이의 합</title>
+	  <link>/blog//algo-prog12912</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12912</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12912">https://programmers.co.kr/learn/courses/30/lessons/12912</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>파라미터로 받은 a와 b의 크기를 비교해 a에는 작은 수가, b에는 큰 수가 들어가게 한다.</li>
+  <li>그 사이의 값들을 더해서 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">long</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="o">){</span>
+          <span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">a</span><span class="o">;</span>
+          <span class="n">a</span><span class="o">=</span><span class="n">b</span><span class="o">;</span>
+          <span class="n">b</span><span class="o">=</span><span class="n">temp</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">a</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">b</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+          <span class="n">answer</span><span class="o">+=</span><span class="n">i</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_6.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">a에는 작은 수, b에는 큰 수가 들어오게 한다.</span></strong>
+    <ul>
+      <li>파라미터로 받은 a와 b의 대소관계를 비교하여 a가 더 클 경우 b와 swap한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">for문을 이용해 a와 b사이의 합을 계산한다.</span></strong></li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉽다! answer을 long으로 주다니 프로그래머스 치곤 착했다;</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 나누어 떨어지는 숫자 배열</title>
+	  <link>/blog//algo-prog12910</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12910</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12910">https://programmers.co.kr/learn/courses/30/lessons/12910</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>배열 값이 divisor로 나눠지면 ArrayList에 추가한다.</li>
+  <li>list에 넣은 값이 없을 경우 answer에 -1을 넣는다.</li>
+  <li>존재할 경우 answer에 옮겨담아 오름차순 정렬한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+       <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span><span class="n">arr</span><span class="o">){</span>
+           <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">%</span><span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+       <span class="o">}</span>
+       <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()==</span><span class="mi">0</span><span class="o">){</span>
+           <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+           <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
+       <span class="o">}</span>
+       <span class="k">else</span><span class="o">{</span>
+           <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+           <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+               <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+           <span class="o">}</span>
+           <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">나눠 떨어지는 숫자는 list에 저장한다.</span></strong></li>
+  <li><strong><span style="color:navy">list를 배열 answer에 옮겨 담은 후 오름차순 정렬한다.</span></strong>
+    <ul>
+      <li>list에 저장된 값이 없을 경우 answer에 -1을 저장한다.</li>
+      <li>list에 값이 존재할 경우 answer에 옮겨 담은 후, sort함수로 오름차순 정렬한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉽다! 다른 사람들도 ArrayList을 이용해 풀었다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 같은 숫자는 싫어</title>
+	  <link>/blog//algo-prog12906</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12906</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12906">https://programmers.co.kr/learn/courses/30/lessons/12906</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>이전의 값을 따로 저장해두고 연속적인 값이 나오는지 체크한다.</li>
+  <li>연속적인 값이 나오지 않는다면 ArrayList에 저장한다.</li>
+  <li>ArrayList의 값을 배열 answer에 옮겨 저장한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="o">[]</span><span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">!=</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span><span class="c1">//이전 숫자와 다르다면</span>
+                <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span><span class="c1">//이전 숫자를 저장</span>
+                <span class="n">num</span><span class="o">=</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span><span class="c1">//현재 숫자가 반복되는지 체크하기 위함</span>
+            <span class="o">}</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span><span class="c1">//마지막 숫자 저장</span>
+        <span class="o">}</span>
+        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_4.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">이전 숫자를 num에 저장하여 연속되는지 체크한다.</span></strong>
+    <ul>
+      <li>더이상 연속되지 않는다면 이전 숫자를 list에 저장한다.</li>
+      <li>현재 숫자가 연속되는지 확인하기 위해 num에 저장한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">마지막 숫자를 list에 저장한다.</span></strong>
+    <ul>
+      <li>list에 넣는 것은 이전 숫자인 num이므로 마지막 숫자는 따로 list에 저장해줘야 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉽다222!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 가운데 글자 가져오기</title>
+	  <link>/blog//algo-prog12903</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12903</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12903">https://programmers.co.kr/learn/courses/30/lessons/12903</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>s의 길이가 짝수인지 홀수인지 확인 후 홀수라면 중간값 하나를, 짝수라면 가운데 두 글자를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()%</span><span class="mi">2</span><span class="o">;</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">r</span><span class="o">!=</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">q</span><span class="o">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+      <span class="k">else</span> <span class="n">answer</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">s의 길이가 짝수인지 홀수인지 확인한다.</span></strong>
+    <ul>
+      <li>s.length()%2가 0이라면 짝수, 아니라면 홀수이다.</li>
+      <li>substring을 이용하여 글자를 추출한다.</li>
+      <li>홀수라면 중간 지점하나를 추출한다.</li>
+      <li>짝수라면 가운데 두 글자를 추출한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉽다!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 2016년</title>
+	  <link>/blog//algo-prog12901</link>
+	  <author></author>
+	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12901</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12901">https://programmers.co.kr/learn/courses/30/lessons/12901</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>a월 b일까지의 총 일을 구한다.</li>
+  <li>총 일%7하여 해당 요일을 구한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">total</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+      <span class="n">String</span><span class="o">[]</span> <span class="n">day</span><span class="o">={</span><span class="s">"THU"</span><span class="o">,</span> <span class="s">"FRI"</span><span class="o">,</span> <span class="s">"SAT"</span><span class="o">,</span> <span class="s">"SUN"</span><span class="o">,</span> <span class="s">"MON"</span><span class="o">,</span> <span class="s">"TUE"</span><span class="o">,</span> <span class="s">"WED"</span><span class="o">};</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">3</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">5</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">7</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">8</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">10</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">12</span><span class="o">)</span> <span class="n">total</span><span class="o">+=</span><span class="mi">31</span><span class="o">;</span>
+          <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="mi">2</span><span class="o">)</span> <span class="n">total</span><span class="o">+=</span><span class="mi">29</span><span class="o">;</span>
+          <span class="k">else</span> <span class="n">total</span><span class="o">+=</span><span class="mi">30</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="n">total</span><span class="o">+=</span><span class="n">b</span><span class="o">;</span>
+
+      <span class="n">answer</span><span class="o">=</span><span class="n">day</span><span class="o">[</span><span class="n">total</span><span class="o">%</span><span class="mi">7</span><span class="o">];</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191216_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">전체 일 수를 계산한다.</span></strong>
+    <ul>
+      <li>1월부터 a-1월까지 일 수 를 더한 후, 나머지 b를 더하여 전체 일 수를 계산한다(total).</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">total%7을 보고 요일을 찾는다.</span></strong>
+    <ul>
+      <li>1월 1일이 금요일이므로 나머지가 0이면 목요일이다.</li>
+      <li>나머지와 배열 인덱스를 같게 하여 쉽게 요일을 찾을 수 있도록 한다. 따라서 배열 day에는 목요일(나머지가 0)부터 저장한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>어렵지 않은 문제였다!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 그래프_순위</title>
 	  <link>/blog//algo-prog49191</link>
 	  <author></author>
@@ -36,7 +664,6 @@
  * @author HEESOO
  *
  */</span>
- <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
  <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
      <span class="kt">int</span> <span class="n">INF</span><span class="o">=</span><span class="mi">987654321</span><span class="o">;</span><span class="c1">//방문불가를 뜻함</span>
      <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">results</span><span class="o">)</span> <span class="o">{</span>
@@ -143,834 +770,6 @@
 <ul>
   <li>[프로그래머스] 순위 <a href="https://jayrightthere.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%88%9C%EC%9C%84">https://jayrightthere.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%88%9C%EC%9C%84</a></li>
   <li>[BOJ] 키 순서 <a href="https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C">https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 그래프_가장 먼 노드</title>
-	  <link>/blog//algo-prog49189</link>
-	  <author></author>
-	  <pubDate>2019-12-11T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog49189</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/49189">https://programmers.co.kr/learn/courses/30/lessons/49189</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>ArrayList를 이용하여 그래프를 구현한다.</li>
-  <li>boolean[] visited로 노드 방문을 체크하고, int[] count로 1에서부터 해당 노드까지의 길이를 저장한다.</li>
-  <li>거리가 가장 먼 노드들만을 세서 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">edge</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="c1">//그래프 구현</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;());</span>
-        <span class="o">}</span>
-        <span class="c1">//노드 연결</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">node:</span><span class="n">edge</span><span class="o">){</span>
-            <span class="n">a</span><span class="o">=</span><span class="n">node</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-            <span class="n">b</span><span class="o">=</span><span class="n">node</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">count</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span><span class="c1">//1과의 거리 저장</span>
-        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visited</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span><span class="c1">//방문여부</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span><span class="c1">//시작점</span>
-        <span class="n">visited</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">visited</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span><span class="c1">//1에서 시작(0은 사용안함)</span>
-        <span class="kt">int</span> <span class="n">now</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">now</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">v:</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">now</span><span class="o">)){</span><span class="c1">//나와 연결된 노드들</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]){</span><span class="c1">//방문하지 않은 곳이라면</span>
-                    <span class="n">count</span><span class="o">[</span><span class="n">v</span><span class="o">]=</span><span class="n">count</span><span class="o">[</span><span class="n">now</span><span class="o">]+</span><span class="mi">1</span><span class="o">;</span><span class="c1">//1과의 길이 저장</span>
-                    <span class="n">visited</span><span class="o">[</span><span class="n">v</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                    <span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">v</span><span class="o">);</span><span class="c1">//이곳과 연결된 노드에 방문하기 위함</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">//System.out.println(Arrays.toString(count));</span>
-        <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//1과 가장 멀리 떨어진 노드와의 길이 저장</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">cnt:</span><span class="n">count</span><span class="o">){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">max</span><span class="o">&lt;</span><span class="n">cnt</span><span class="o">){</span><span class="c1">//더 큰 길이가 있다면 그게 max</span>
-                <span class="n">max</span><span class="o">=</span><span class="n">cnt</span><span class="o">;</span>
-                <span class="n">answer</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">max</span><span class="o">==</span><span class="n">cnt</span><span class="o">)</span> <span class="n">answer</span><span class="o">++;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191211_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">ArrayList를 이용하여 그래프를 구현한다.</span></strong>
-<img src="./assets/images/191211_2.png" alt="실행결과" width="300" height="300" />
-    <ul>
-      <li>노드가 1부터 시작하므로 0은 사용하지 않는다.</li>
-      <li>ArrayList&lt;ArrayList<Integer>&gt;로 선언하여 리스트가 리스트를 원소로 가지게 한다.</Integer></li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">큐로 노드들을 방문한다.</span></strong>
-    <ul>
-      <li>1부터 시작해서 1과 연결된 노드들을 방문한다.</li>
-      <li>이때 처음 방문하는 노드라면 1과의 거리를 count[i]에 저장한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">count[]로 1과 제일 멀리 떨어진 노드들의 갯수를 센다.</span></strong>
-    <ul>
-      <li>max는 0으로 초기화하여 이보다 더 큰 거리가 나오면 max값을 바꾸고, answer=1로 초기화한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>코드 구현 자체는 어렵지 않았지만 아직도 문제를 보고 직접 풀기까지는 나에게 무리인 것 같다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>프로그래머스_가장 먼 노드_그래프(java) <a href="https://heedipro.tistory.com/233">https://heedipro.tistory.com/233</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 이분탐색_징검다리</title>
-	  <link>/blog//algo-prog43236</link>
-	  <author></author>
-	  <pubDate>2019-12-10T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43236</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43236">https://programmers.co.kr/learn/courses/30/lessons/43236</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>바위 사이의 최소거리를 이분탐색으로 찾는다.</li>
-  <li>바위 간의 거리가 mid보다 작으면 제거(카운트), 크다면 마지막 바위값을 저장하여 다음 바위와 거리 비교가 가능하게 한다.</li>
-  <li>카운트&gt;n이면 mid가 큰 것이므로 줄이고, 반대면 늘린다.</li>
-  <li>answer에는 mid들 중 최댓값을 저장한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">distance</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">rocks</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">rocks</span><span class="o">);</span><span class="c1">//이분탐색할 때는 정렬을 해야함</span>
-         <span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">right</span><span class="o">=</span><span class="n">distance</span><span class="o">;</span>
-         <span class="kt">int</span> <span class="n">remove</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//제거한 바위갯수</span>
-         <span class="kt">int</span> <span class="n">mid</span><span class="o">;</span><span class="c1">//바위사이의 최소 거리</span>
-         <span class="kt">int</span> <span class="n">lastRock</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="c1">//마지막 바위</span>
-         <span class="k">while</span><span class="o">(</span><span class="n">left</span><span class="o">&lt;=</span><span class="n">right</span><span class="o">){</span>
-             <span class="n">mid</span><span class="o">=(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">rocks</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">mid</span><span class="o">&gt;</span><span class="n">rocks</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">lastRock</span><span class="o">)</span> <span class="n">remove</span><span class="o">++;</span>
-                 <span class="k">else</span> <span class="n">lastRock</span><span class="o">=</span><span class="n">rocks</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-             <span class="o">}</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">distance</span><span class="o">-</span><span class="n">lastRock</span><span class="o">&lt;</span><span class="n">mid</span><span class="o">)</span> <span class="n">remove</span><span class="o">++;</span><span class="c1">//마지막바위와 도착지간의 거리 체크</span>
-
-             <span class="k">if</span><span class="o">(</span><span class="n">remove</span><span class="o">&gt;</span><span class="n">n</span><span class="o">)</span> <span class="n">right</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-             <span class="k">else</span><span class="o">{</span>
-                 <span class="n">answer</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
-                 <span class="n">left</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
-             <span class="o">}</span>
-             <span class="n">remove</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-             <span class="n">lastRock</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191210_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">바위 사이의 최소 거리를 이분탐색으로 구한다.</span></strong>
-    <ul>
-      <li>이분탐색을 하기 위해서는 배열 정렬은 필수다.</li>
-      <li>바위 사이의 최소 거리를 mid로 정해놓고, 이보다 작다면 최소 거리라 가정한 mid에 반례이므로 제거한다.</li>
-      <li>바위를 제거할 경우 다음 바위에서 비교할 이전 바위의 값을 알고 있어야하므로 lastRock을 두어 제거하지 않았을 경우 현재까지 중에서 마지막인 바위값을 저장한다.</li>
-      <li>마지막 바위와 도착지까지의 거리도 mid와 비교해야하므로 for문 다음에 if문을 추가한다.</li>
-      <li>제거한 바위 갯수 remove가 n보다 크다면 거리 mid가 크다는 뜻이므로 줄이고, 반대라면 늘린다.</li>
-      <li>answer에는 remove&lt;=n일때 최댓값을 저장한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>remove==n일때만 저장해야하는거 아닌가, 근데 그러면 테스트에서 틀린다. 아직 이유를 모르겠다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>이분탐색 &gt; 징검다리 <a href="https://dokrsky.tistory.com/81">https://dokrsky.tistory.com/81</a></li>
-  <li>이분탐색(binary search) <a href="https://webfirewood.tistory.com/108">https://webfirewood.tistory.com/108</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 이분탐색_입국심사</title>
-	  <link>/blog//algo-prog43238</link>
-	  <author></author>
-	  <pubDate>2019-12-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43238</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43238">https://programmers.co.kr/learn/courses/30/lessons/43238</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>심사관들에게 주어지는 시간을 이분탐색으로 찾는다.</li>
-  <li>어떤 시간이 주어졌을 때, 심사관들이 몇 명을 심사할 수 있는지 계산하여 n보다 크면 시간을 줄이고, n보다 작으면 시간을 늘린다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">long</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">times</span><span class="o">)</span> <span class="o">{</span>
-         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">times</span><span class="o">);</span>
-         <span class="kt">long</span> <span class="n">min</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//최적의 경우 1초로 초기화</span>
-         <span class="kt">long</span> <span class="n">max</span><span class="o">=(</span><span class="kt">long</span><span class="o">)</span><span class="n">times</span><span class="o">[</span><span class="n">times</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">]*</span><span class="n">n</span><span class="o">;</span><span class="c1">//최악의 경우로 초기화</span>
-         <span class="kt">long</span> <span class="n">mid</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-         <span class="kt">long</span> <span class="n">sum</span><span class="o">;</span>
-         <span class="kt">long</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">max</span><span class="o">;</span>
-         <span class="k">while</span><span class="o">(</span><span class="n">min</span><span class="o">&lt;=</span><span class="n">max</span><span class="o">){</span>
-             <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-             <span class="n">mid</span><span class="o">=(</span><span class="n">min</span><span class="o">+</span><span class="n">max</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">time:</span><span class="n">times</span><span class="o">){</span>
-                 <span class="n">sum</span><span class="o">+=</span><span class="n">mid</span><span class="o">/</span><span class="n">time</span><span class="o">;</span><span class="c1">//심사관 당 맡을 수 있는 입국자 수</span>
-             <span class="o">}</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">sum</span><span class="o">&gt;=</span><span class="n">n</span><span class="o">){</span><span class="c1">//더 맡을 수 있으므로 시간 줄임</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">mid</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">){</span>
-                     <span class="n">answer</span><span class="o">=</span><span class="n">mid</span><span class="o">;</span>
-                 <span class="o">}</span>
-                 <span class="n">max</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span>                
-             <span class="o">}</span>
-             <span class="k">else</span><span class="o">{</span><span class="c1">//불가하므로 시간 늘림</span>
-                 <span class="n">min</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191208_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">long max의 초기화에서 (long)으로 형변환이 필요하다.</span></strong>
-    <ul>
-      <li>이것 때문에 테스트3,5,7,8에서 실패했다.</li>
-      <li>배열 times와 n은 모두 int형이고 두 곱이 int형을 초과할 수 있으므로 long 형변환이 필요하다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">mid가 주어졌을 때, 심사관 당 맡을 수 있는 입국자 수를 계산한다.</span></strong>
-    <ul>
-      <li>심사관 당 맡을 수 있는 입국자 수=추정시간 값/심사관 당 심사시간.</li>
-      <li>모든 사람이 심사를 받는데 걸리는 시간을 mid라 할 때, mid당 심사위원들의 심사인원 수가 n보다 크다면 시간을 줄이고, 작다면 시간을 늘린다.</li>
-      <li>이때 mid안에 n명 심사가 가능하다면 answer과 mid 중 최솟값을 저장한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>아직 이분탐색 문제의 유형을 잘 모르겠다. 언젠가는 감이 오겠지…?</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스] 입국심사 <a href="https://greenapple16.tistory.com/49">https://greenapple16.tistory.com/49</a></li>
-  <li>프로그래머스_입국심사 <a href="https://woongsin94.tistory.com/185">https://woongsin94.tistory.com/185</a></li>
-  <li>이분탐색(binary search) <a href="https://webfirewood.tistory.com/108">https://webfirewood.tistory.com/108</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 이분탐색_예산</title>
-	  <link>/blog//algo-prog43237</link>
-	  <author></author>
-	  <pubDate>2019-12-08T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43237</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43237">https://programmers.co.kr/learn/courses/30/lessons/43237</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>budgets를 오름차순 정렬한다.</li>
-  <li>배열의 요청금액 합&lt;=M이면 제일 큰 값(최대의 예산을 리턴해야하므로)을 리턴한다.</li>
-  <li>아니라면 이분탐색을 통해 중간값을 찾는다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">budgets</span><span class="o">,</span> <span class="kt">int</span> <span class="n">M</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">budgets</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">long</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">min</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">budgets</span><span class="o">[</span><span class="n">budgets</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">mid</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">preMid</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">bgt:</span><span class="n">budgets</span><span class="o">){</span>
-            <span class="n">sum</span><span class="o">+=</span><span class="n">bgt</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">sum</span><span class="o">&lt;=</span><span class="n">M</span><span class="o">)</span> <span class="k">return</span> <span class="n">budgets</span><span class="o">[</span><span class="n">budgets</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span><span class="c1">//요청금액 그대로 배정 가능하므로 제일 큰 예산 리턴</span>
-
-        <span class="c1">//모든 요청이 배정될 수 없는 경우</span>
-        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-            <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-            <span class="n">mid</span><span class="o">=(</span><span class="n">min</span><span class="o">+</span><span class="n">max</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">preMid</span><span class="o">==</span><span class="n">mid</span><span class="o">){</span><span class="c1">//중간값 변동이 없다면</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">mid</span><span class="o">;</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">bgt:</span><span class="n">budgets</span><span class="o">){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">bgt</span><span class="o">&gt;</span><span class="n">mid</span><span class="o">)</span> <span class="n">sum</span><span class="o">+=</span><span class="n">mid</span><span class="o">;</span><span class="c1">//상한값보다 요청금액이 크면 상한값을 배정</span>
-                <span class="k">else</span> <span class="n">sum</span><span class="o">+=</span><span class="n">bgt</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">sum</span><span class="o">&gt;</span><span class="n">M</span><span class="o">)</span> <span class="n">max</span><span class="o">=</span><span class="n">mid</span><span class="o">;</span>
-            <span class="k">else</span> <span class="n">min</span><span class="o">=</span><span class="n">mid</span><span class="o">;</span>
-            <span class="n">preMid</span><span class="o">=</span><span class="n">mid</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191208_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">모든 예산요청을 배정할 수 있다면 최댓값을 리턴한다.</span></strong>
-    <ul>
-      <li>요청한 금액을 그대로 배정하므로 제일 큰 예산인 budgets[마지막]을 리턴한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">이분탐색을 통해 상한액을 찾는다.</span></strong>
-    <ul>
-      <li>중간값을 계산하고, 배열을 순회하며 중간값보다 금액이 크다면 중간값을 부여한다.</li>
-      <li>총액이 M을 넘어간다면 max를 mid으로 조정, 반대라면 min을 mid로 조정한다.</li>
-      <li>mid의 값 변동이 없을 때까지 반복한다.</li>
-      <li><span style="color:red">이때 min의 초기값은 0 또는 배열총액/갯수로 해야한다.</span> 배열의 첫 번째 값(최솟값)으로 초기화했더니 테스트9에서 실패했다. 최저예산&gt;(총예산/도시수)일 경우라는데 무슨 말인지 잘 모르겠고 그냥 최솟값이니까 0으로 초기화하는게 제일 깔끔한 것 같다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>이분탐색 코드는 어렵지 않은데 문제를 보면 이게 이분탐색 문제라는게 감이 안온다. 문제 유형 없었으면 전혀 몰랐을 듯.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_여행경로 (보류)</title>
-	  <link>/blog//algo-prog43164</link>
-	  <author></author>
-	  <pubDate>2019-12-07T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43164</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43164">https://programmers.co.kr/learn/courses/30/lessons/43164</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>배열 tickets을 tickets[i][0]오름차순으로, 같다면 tickets[i][1]오름차순으로 정렬한다.</li>
-  <li>“ICN”에서 시작해서 갈 수 있는 도착지를 따라 모든 항공권을 이용한다.</li>
-  <li>중간에서 끝나면 -1을 리턴하고, 방문했던 곳을 다시 false로 초기화하면서 모든 곳을 방문하는 루트를 찾는다(재귀이용).</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">;</span><span class="c1">//방문 체크</span>
-    <span class="kt">int</span> <span class="n">answerIdx</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//answer순회 인덱스</span>
-    <span class="n">String</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-    <span class="kd">public</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[][]</span> <span class="n">tickets</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">tickets</span><span class="o">.</span><span class="na">length</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-        <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">tickets</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">tickets</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">[]&gt;(){</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">s2</span><span class="o">){</span><span class="c1">//[i][0]오름차순 정렬, 같다면 [i][1]오름차순 정렬</span>
-                <span class="kt">int</span> <span class="n">result</span><span class="o">=</span><span class="n">s1</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">compareTo</span><span class="o">(</span><span class="n">s2</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-                <span class="k">return</span> <span class="n">result</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="n">s1</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">compareTo</span><span class="o">(</span><span class="n">s2</span><span class="o">[</span><span class="mi">1</span><span class="o">])</span> <span class="o">:</span> <span class="n">result</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">tickets</span><span class="o">));</span>
-        <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="s">"ICN"</span><span class="o">;</span><span class="c1">//출발지</span>
-        <span class="n">dfs</span><span class="o">(</span><span class="s">"ICN"</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">tickets</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">answer</span><span class="o">));</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">String</span> <span class="n">depart</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="n">String</span><span class="o">[][]</span> <span class="n">tickets</span><span class="o">){</span>
-        <span class="kt">int</span> <span class="n">error</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">tickets</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//모든 티켓 체크</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-            <span class="c1">//방문하지 않았다면</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">tickets</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="n">depart</span><span class="o">)){</span><span class="c1">//현재 위치에서 갈 수 있는 곳이라면</span>
-                <span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                <span class="n">answer</span><span class="o">[</span><span class="n">answerIdx</span><span class="o">++]=</span><span class="n">tickets</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span><span class="c1">//도착지 저장</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">answer</span><span class="o">));</span>
-                <span class="n">error</span><span class="o">=</span><span class="n">dfs</span><span class="o">(</span><span class="n">tickets</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">tickets</span><span class="o">);</span><span class="c1">//재귀호출</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">error</span><span class="o">==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//재귀리턴값이 -1이라면 중간에 길이 끊긴것</span>
-                    <span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span><span class="c1">//사용 취소</span>
-                    <span class="n">answerIdx</span><span class="o">--;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">tickets</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//방문하지 않은 곳이 있는데 티켓순회가 끝났을 경우(중간에서 루트가 끊겼다는 의미)</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191207_1.PNG" alt="실행결과" />
-실패٩(T◊T)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-
-<h2 id="보류"><span style="color:navy">보류</span></h2>
-<p>테스트1에서 틀린다. 4개중에 하나만 패스 못하니까 이 코드를 쉽게 놓을 수가 없다. 일단 보류하고 넘어간다.나 이거 처음으로 DFS 스스로 생각해서 푼 거란 말이야 미련을 버릴 수가 없어…</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_단어 변환</title>
-	  <link>/blog//algo-prog43163</link>
-	  <author></author>
-	  <pubDate>2019-12-06T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43163</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43163">https://programmers.co.kr/learn/courses/30/lessons/43163</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>words에 target이 없다면 변환은 불가하다.</li>
-  <li>있을 경우 변환 과정을 DFS(재귀함수)로 찾는다.</li>
-  <li>words를 순회하며 방문하지 않은 words[i]라면, begin에서 words[i]로 갈 수 있는지 확인한다.</li>
-  <li>갈 수 있다면 words[i]로 재귀함수를 호출한다.</li>
-  <li>모든 변환 과정을 계산, 가장 최솟값을 answer에 저장한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">begin</span><span class="o">,</span> <span class="n">String</span> <span class="n">target</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="n">target</span><span class="o">)){</span><span class="c1">//words에 target이 있을때만 변환가능</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">begin</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
-                <span class="k">break</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">String</span> <span class="n">begin</span><span class="o">,</span> <span class="n">String</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">words</span><span class="o">){</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">words</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//words 순회</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span><span class="c1">//방문한 곳이라면 패스</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="o">}</span>
-            <span class="c1">//방문하지 않았다면</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">begin</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">target</span><span class="o">)){</span><span class="c1">//변환 완료했다면</span>
-                <span class="n">answer</span><span class="o">=</span><span class="n">answer</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="n">cnt</span> <span class="o">:</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span><span class="c1">//최솟값 저장</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">compareWords</span><span class="o">(</span><span class="n">begin</span><span class="o">,</span> <span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">])){</span><span class="c1">//begin-&gt;words[i]가능하다면</span>
-                <span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">target</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span><span class="c1">//words[i]로 변환, 재귀호출</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">compareWords</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">){</span><span class="c1">//변환가능한지 확인</span>
-        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="n">s2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)){</span>
-                <span class="n">cnt</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="c1">//변환할 수 있는 경우는 한 개의 알파벳만 다를 때임</span>
-        <span class="k">return</span> <span class="n">cnt</span><span class="o">==</span><span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191206_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">words에 target이 있어야 변환할 수 있다.</span></strong>
-    <ul>
-      <li>없다면 0을 리턴하고 끝낸다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">DFS이므로 재귀함수를 이용한다.</span></strong><br />
-<img src="./assets/images/191206_2.PNG" alt="실행결과" width="300" height="300" />
-    <ul>
-      <li>hit에서 cog까지 깊이탐색이므로 DFS를 사용한다.</li>
-      <li>cog로 갈 수 있는 모든 경우의 수를 cnt를 이용해 찾고, 이 중 최솟값을 전역변수 answer에 저장한다.</li>
-      <li>visit[i]는 words[i]가 방문한 곳인지를 저장한다.</li>
-      <li>방문한 곳이라면 다음 단어로 넘어간다.</li>
-      <li>방문하지 않은 곳이라면 현재 begin에서 words[i]로 변환할 수 있는지 compareWords()로 체크한다. true를 리턴받았다면 해당 visit[i]를 변경하고, 이제 begin은 words[i]가 되어 다시 재귀함수를 호출한다. 이때 변환이 일어났으므로 파라미터 cnt+1한다.</li>
-      <li>최종적으로 target에 도달하면 현재 answer의 값을 체크한 후 아직 값 저장이 안되었다면 cnt를, 기존 값이 있다면 더 작은 값을 저장한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">변환이 가능한 경우는 단 한개의 알파벳만 다를 경우이다.</span></strong>
-    <ul>
-      <li>이를 체크하기 위한 compareWords()함수를 두어 각 자리에 대해 같은 알파벳을 가지고 있는지 확인한다.</li>
-      <li>최종 cnt값이 s1.length-1(단 하나만 다르므로.)이라면 true, 아니라면 false를 리턴한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>많은 사람들의 코드를 참고했다. 대부분 풀이 방식은 비슷했다. 처음에는 dot에서 dog, lot중 어떤 것을 선택해야할 지에 대한 코딩이 필요하다고 생각했는데, 둘 중 선택하는 코드를 쓰지 않고 그냥 모든 방법을 택해서 그 중 작은 값을 리턴하게 한다는 게 뭔가 띵했다.<br />
-그리고 재귀함수에서 리턴은 아직도 어렵다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스] 단어 변환 (DFS) <a href="https://artineer.tistory.com/123">https://artineer.tistory.com/123</a></li>
-  <li>DFS programmers 프로그래머스 알고리즘 자바 ‘단어 변환’ 문제풀이 <a href="https://geehye.github.io/programmers-dfs-bfs-03/#">https://geehye.github.io/programmers-dfs-bfs-03/#</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_네트워크</title>
-	  <link>/blog//algo-prog43162</link>
-	  <author></author>
-	  <pubDate>2019-12-05T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43162</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43162">https://programmers.co.kr/learn/courses/30/lessons/43162</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>연결된 노드를 끝까지 찾아가야하므로 DFS이다. 따라서 재귀함수를 사용한다.</li>
-  <li>solution()에서 n개의 노드들을 확인한다. 아직 방문하지 않았다면 방문한다.</li>
-  <li>재귀로 현재 노드와 연결된 것들도 모두 방문한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">computers</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//n개의 노드 체크</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">i</span><span class="o">]){</span><span class="c1">//아직 방문하지 않았다면</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">visit</span><span class="o">,</span> <span class="n">computers</span><span class="o">);</span><span class="c1">// 현재노드와 연결된 노드들도 찾아서 방문</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">me</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">visit</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">computers</span><span class="o">){</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//나와 연결된 노드들을 모두 확인</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">computers</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">&amp;&amp;!</span><span class="n">visit</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]){</span><span class="c1">//나와 연결되어있는데 방문하지 않았다면</span>
-                <span class="n">visit</span><span class="o">[</span><span class="n">me</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span><span class="c1">//방문</span>
-                <span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">visit</span><span class="o">,</span> <span class="n">computers</span><span class="o">);</span><span class="c1">//방문한 곳을 기준으로 재귀호출</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191205_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">메인문에서 모든 노드들을 체크한다.</span></strong>
-    <ul>
-      <li>1부터 n까지 노드들을 확인한다.</li>
-      <li>아직 방문하지 않았다면 그 노드를 기준으로 연결된 노드들을 확인한다.</li>
-      <li>현재 노드와 연결된 노드들을 찾는 것은 네트워크 하나를 찾는 것과 같으므로 answer++한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">연결된 노드를 확인하기 위해 재귀함수를 사용한다.</span></strong>
-    <ul>
-      <li>특정 노드와 연결된 노드들을 모두 찾아야 하므로 DFS이다(나와 연결된 노드의 끝까지 방문해야하기때문).</li>
-      <li>solution()에서 i번째 노드와 연결된 것들을 찾기위해 dfs를 호출하면, computers[i]행의 원소들을 순회하며 연결된 노드들을 찾고 방문한다.</li>
-      <li>연결된 노드를 찾으면 그 노드를 기준으로 다시 dfs를 재귀호출하여 그 노드와 연결된 노드들을 또 찾는다.</li>
-      <li>이렇게 하면 마지막까지 도달하게 되고, 그 과정에서 방문한 노드들은 true가 되어 중복 방문을 피할 수 있게 된다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>문제가 노드들의 방문이길래 당연히 BFS인줄 알았다. 분발하자T_T</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스][JAVA] 네트워크 <a href="https://jayrightthere.tistory.com/entry/DFSJAVA-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC">https://jayrightthere.tistory.com/entry/DFSJAVA-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 깊이/너비 우선 탐색(DFS/BFS)_타겟 넘버</title>
-	  <link>/blog//algo-prog43165</link>
-	  <author></author>
-	  <pubDate>2019-12-05T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog43165</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/43165">https://programmers.co.kr/learn/courses/30/lessons/43165</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>DFS문제이므로 재귀를 이용한다.</li>
-  <li>덧셈이나 뺄셈을 이용해 숫자를 계산하므로 이 두가지의 경우에 따라 재귀를 호출하면 된다.</li>
-  <li>배열 numbers의 값을 모두 사용하면 숫자가 target과 맞는지 확인한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">answer</span><span class="o">=</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">idx</span><span class="o">==</span><span class="n">numbers</span><span class="o">.</span><span class="na">length</span><span class="o">){</span><span class="c1">//numbers숫자를 모두 사용했다면</span>
-            <span class="k">return</span> <span class="n">sum</span><span class="o">==</span><span class="n">target</span><span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//target과 같은지에 따라 값 리턴</span>
-        <span class="o">}</span>
-        <span class="k">else</span><span class="o">{</span><span class="c1">//덧셈 또는 뺄셈으로 재귀호출. 두 호출 끝의 리턴값을 더해서 answer세야하므로 +</span>
-            <span class="k">return</span> <span class="nf">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">])+</span><span class="n">dfs</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">-</span><span class="n">numbers</span><span class="o">[</span><span class="n">idx</span><span class="o">]);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191205_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">모든 인덱스를 방문해야하므로 DFS를 사용한다.</span></strong>
-    <ul>
-      <li>배열 numbers의 원소을 더하거나 빼서 target이 되는 모든 수를 찾아야하므로 DFS를 이용한다.</li>
-      <li>DFS는 재귀나 스택을 사용하는데, 이 문제에서는 재귀를 썼다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">인덱스가 마지막 노드까지 방문했느냐에 따라서 다음 재귀를 호출할지 결정한다.</span></strong>
-    <ul>
-      <li>숫자를 모두 사용했다면 지금까지 계산한 sum이 target과 맞는지 확인한다. 맞다면 answer++하기위해 1을 리턴, 아니라면 0을 리턴한다.</li>
-      <li>아직 다음 노드가 존재할 경우 현재 원소의 값을 sum에 더하거나 뺀다(4번째 파라미터). 그리고 다음 방문을 위해 idx를 하나 증가(3번째 파라미터)시킨다.</li>
-      <li>이때 재귀호출한 두 함수 사이의 +는, 각 경우에 따른 재귀 리턴값을 모두 더해서 방법의 수를 계산하기 위함이다. 최종적으로 solution함수에서 호출한 dfs(numbers, target, 0, 0)에 총 방법의 수가 리턴된다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>재귀로 풀어야겠다고 느낌은 왔는데, 안에 파라미터를 어떻게 사용할지, 점화식은 어떻게 작성해야할지 헷갈린다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스 알고리즘] 타켓넘버 - 깊이탐색 DFS <a href="https://lkhlkh23.tistory.com/74">https://lkhlkh23.tistory.com/74</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_서울에서 경산까지</title>
-	  <link>/blog//algo-prog42899</link>
-	  <author></author>
-	  <pubDate>2019-12-04T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42899</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42899">https://programmers.co.kr/learn/courses/30/lessons/42899</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>i번째 도시 j분까지의 최대 모금액을 저장할 배열을 생성한다.</li>
-  <li>현재 도시의 도보, 자전거 중 큰 모금액을 선택한다.</li>
-  <li>이전 도시까지의 모금액에 더한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">K</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">travel</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">travel</span><span class="o">.</span><span class="na">length</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-        <span class="kt">int</span> <span class="n">money</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">wT</span><span class="o">,</span> <span class="n">wM</span><span class="o">,</span> <span class="n">bT</span><span class="o">,</span> <span class="n">bM</span><span class="o">;</span><span class="c1">//walkTime,Money, bikeTime,Money</span>
-
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">travel</span><span class="o">.</span><span class="na">length</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//위치</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//시간</span>
-                <span class="n">money</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
-                <span class="n">wT</span><span class="o">=</span><span class="n">travel</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
-                <span class="n">wM</span><span class="o">=</span><span class="n">travel</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
-                <span class="n">bT</span><span class="o">=</span><span class="n">travel</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
-                <span class="n">bM</span><span class="o">=</span><span class="n">travel</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">3</span><span class="o">];</span>
-                <span class="c1">//둘 중 최대 모금액 체크</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="n">wT</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">wM</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="n">wT</span><span class="o">]&gt;</span><span class="n">money</span><span class="o">){</span><span class="c1">//도보</span>
-                    <span class="n">money</span><span class="o">=</span><span class="n">wM</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="n">wT</span><span class="o">];</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="n">bT</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">bM</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="n">bT</span><span class="o">]&gt;</span><span class="n">money</span><span class="o">){</span><span class="c1">//자전거</span>
-                    <span class="n">money</span><span class="o">=</span><span class="n">bM</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="n">bT</span><span class="o">];</span>
-                <span class="o">}</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">money</span><span class="o">==-</span><span class="mi">1</span><span class="o">?</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">:</span><span class="n">money</span><span class="o">;</span><span class="c1">//시간초과로 방문할수없다면 MAX저장, i번째도시 j분까지의 최대 모금액 저장</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">=</span><span class="n">dp</span><span class="o">[</span><span class="n">travel</span><span class="o">.</span><span class="na">length</span><span class="o">][</span><span class="n">K</span><span class="o">];</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191204_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">for문에서 j는 0분부터 K분까지 모두 순회한다.</span></strong>
-    <ul>
-      <li>0분부터 시작해서 K까지 증가하며 이전에 방문한 도시가 있는지 체크한다. 있다면 현재 dp[i][j]는 유효하다는 뜻이다. 없다면 현재 dp는 방문할 수 없는 조건이라는 뜻이다.</li>
-      <li>이전 도시가 있다면 거기까지의 최댓값에 현재에서 얻을 수 있는 최댓값을 더하는 식으로 알고리즘이 전개된다.</li>
-      <li>참고로 i는 dp를 통해 이전 도시까지의 최댓값을 알아야하므로 i-1을 사용해야하고, 따라서 1부터 시작한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">현재 위치에서 도보와 자전거 중 최대 모금액을 찾는다.</span></strong>
-    <ul>
-      <li>이때 money에 이전 위치까지의 모금액을 포함해 최댓값을 저장한다.</li>
-      <li>최대 금액은 이전 위치까지의 모금액에 따라 달라진다. 단순히 현재 위치에서 도보와 자전거 금액을 비교해선 안된다.</li>
-      <li>이전까지의 모금액을 알기 위해 dp[i-1][j-wT]를 방문한다. 이때 i-1은 이전 위치, j-wT는 현재 시간j에서 도보시간wT를 뺀 값이다. 그러면 이전 시간으로 돌아갈 수 있다.</li>
-      <li>j-wT가 인덱스 범위를 벗어나지 않도록 체크하는 것이 &amp;&amp;앞의 조건문이다.</li>
-      <li>인덱스 범위를 벗어난다면 money에는 값이 갱신되지 않는다. 이 경우는 dp[i][j]가 travel의 위치, 시간에 포함되지 않는 경우이다. 우리는 dp배열 크기를 모두 사용하지 않는다. dp배열을 [travel.length+1][K+1]로 선언한 이유는 마지막에 도착하는 [travel.length][K]를 사용하기 위해서이다. 테스트1을 예로 들었을때, 우리는 dp[1][3]은 사용하지 않는다. 도시1일때 3초인 경우는 없다. 이 경우 if문을 만족하지 않아 money가 갱신되지 않는다. 결국 방문할 수 없는 조건이라는 뜻이다.
-<img src="./assets/images/191204_3.png" alt="실행결과" width="300" height="300" /></li>
-      <li>결국 위 배열 사이에 Integer.MAX_VALUE의 뜻은 dp[i][j]가 방문할 수 없는 잘못된 조건이라는 뜻이고, 해당 위치에 방문했다는 뜻은 특정 j에서 이전에 방문한 도시가 존재하는지 확인하러 왔다는 것인데, MAX가 있으므로 지금 j 위치로 올 수 있는 경우는 없다고 알게 된다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">dp[i][j]에 최대 모금액을 저장한다.</span></strong>
-    <ul>
-      <li>위에서 if문을 실행했다면 money에는 -1 또는 도보, 자전거를 포함한 모금액이 들어갔을 것이다.</li>
-      <li>-1인 경우에는 Integer.MAX_VALUE로 int최댓값을 저장해야한다. 나중에 dp[i][j]를 방문했을때 가장 큰 값이 들어가야 money의 갱신이 일어나지 않기 떄문이다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">dp[travel.length][K]에 최댓값이 저장된다.</span></strong>
-    <ul>
-      <li>해당 값을 answer로 리턴하면 된다.</li>
-      <li>사실 이해가 안된다. i야 그렇다 치고 K분 이전에 도착하는게 최적일 수 있는데 그러면 항상 dp[travel.length][K]에 들어간다고 할 수 없지 않나?</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>어렵다 어려워…모든 경우의 수를 생각해야하므로 당연히 재귀를 호출할 것이라고 생각했는데, 다른 사람들의 풀이과정에서 재귀를 한 번도 못봤다. 그리고 이게 초등부 문제라니 도대체 2000년대에 무슨 일이 있었던거지</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>서울에서 경산까지 <a href="https://webfirewood.tistory.com/97">https://webfirewood.tistory.com/97</a></li>
 </ul>
 
 	  ]]></description>

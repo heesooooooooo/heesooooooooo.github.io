@@ -36,7 +36,6 @@
  * @author HEESOO
  *
  */</span>
- <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
  <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
      <span class="kt">int</span> <span class="n">INF</span><span class="o">=</span><span class="mi">987654321</span><span class="o">;</span><span class="c1">//방문불가를 뜻함</span>
      <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">results</span><span class="o">)</span> <span class="o">{</span>
