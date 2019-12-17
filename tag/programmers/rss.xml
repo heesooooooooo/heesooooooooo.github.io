@@ -12,6 +12,310 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 수박수박수박수박수박수?</title>
+	  <link>/blog//algo-prog12922</link>
+	  <author></author>
+	  <pubDate>2019-12-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12922</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12922">https://programmers.co.kr/learn/courses/30/lessons/12922</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>endsWith()메소드를 이용해 answer 끝에 “수”, “박” 중 선택해 저장한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+       <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="s">"수"</span><span class="o">;</span>
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+           <span class="k">if</span><span class="o">(</span><span class="n">answer</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"수"</span><span class="o">))</span> <span class="n">answer</span><span class="o">+=</span><span class="s">"박"</span><span class="o">;</span>
+           <span class="k">else</span> <span class="n">answer</span><span class="o">+=</span><span class="s">"수"</span><span class="o">;</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191217_4.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">endsWith()을 이용한다.</span></strong>
+    <ul>
+      <li>n이 0이상이면 “수”를 넣고 시작한다.</li>
+      <li>endsWith()을 이용해 “수”로 끝나면 “박”을, “박”으로 끝나면 “수”를 넣는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>다른 사람들의 코드도 보았는데, 나머지 연산으로 대부분 풀었더라.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 소수 찾기</title>
+	  <link>/blog//algo-prog12921</link>
+	  <author></author>
+	  <pubDate>2019-12-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12921</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12921">https://programmers.co.kr/learn/courses/30/lessons/12921</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>에라토스테네스의 체를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="kt">boolean</span><span class="o">[]</span> <span class="n">prime</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+      <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">prime</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+      <span class="n">prime</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">prime</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">rootN</span><span class="o">=(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">rootN</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+          <span class="k">if</span><span class="o">(!</span><span class="n">prime</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
+          <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">+=</span><span class="n">i</span><span class="o">){</span>
+              <span class="n">prime</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
+          <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">boolean</span> <span class="nl">num:</span><span class="n">prime</span><span class="o">){</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="n">answer</span><span class="o">++;</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191217_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">에라토스테네스의 체를 이용한다.</span></strong>
+    <ul>
+      <li>인덱스 번호가 n까지 있는 boolean형 배열을 선언한다. 이때 인덱스가 숫자를 뜻한다.</li>
+      <li>0은 사용하지 않기 때문에, 1은 소수도 합성수도 아니므로 false로, 나머지는 true로 초기화한다.</li>
+      <li>숫자가 소수일 경우 true를 저장한다.</li>
+      <li>2부터 루트n까지 중 소수는 true로, 소수의 배수는 false를 저장한다.</li>
+      <li>첫 번째 for문에서 2부터 루트n까지 중 소수를 찾는다. prime[i]가 false라면 i는 합성수라는 뜻이므로 continue한다.</li>
+      <li>prime[i]가 true일 경우 소수이므로 해당 i는 살려두고 두 번째 for문을 사용하여 n까지의 i의 배수를 모두 false처리한다.</li>
+      <li>이중 for문이 끝난 후, 다시 prime배열을 순회하며 true인 값의 갯수를 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>소수를 구하는 알고리즘에는 에라토스테네스의 체가 제일 효율성이 좋다는 것을 명심해두어야겠다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>에라토스테네스의 체를 통해 소수 문제 정복 :: 마이구미 <a href="https://mygumi.tistory.com/66">https://mygumi.tistory.com/66</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 서울에서 김서방 찾기</title>
+	  <link>/blog//algo-prog12919</link>
+	  <author></author>
+	  <pubDate>2019-12-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12919</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12919">https://programmers.co.kr/learn/courses/30/lessons/12919</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>배열 seoul을 탐색하며 “Kim”이 있는 인덱스 번호를 찾아 조건에 맞게 answer에 저장한 후 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">seoul</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">seoul</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">seoul</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="s">"Kim"</span><span class="o">)){</span>
+              <span class="k">return</span> <span class="n">answer</span><span class="o">=</span><span class="s">"김서방은 "</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s">"에 있다"</span><span class="o">;</span>
+          <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191217_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">배열을 순회하며 “Kim”이 있는 인덱스를 찾는다.</span></strong></li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>쉽다. 다만 다른 문제들에 비해 테스트 시간이 많이 걸렸다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 문자열 다루기 기본</title>
+	  <link>/blog//algo-prog12918</link>
+	  <author></author>
+	  <pubDate>2019-12-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12918</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12918">https://programmers.co.kr/learn/courses/30/lessons/12918</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>문자열 길이가 4 또는 6이 아니라면 false를 리턴한다.</li>
+  <li>길이 조건에 만족한다면 for문을 통해 숫자만으로 이루어진 문자열인지 체크한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kt">boolean</span> <span class="n">answer</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+       <span class="kt">char</span> <span class="n">ch</span><span class="o">;</span>
+       <span class="kt">int</span> <span class="n">sLength</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+       <span class="k">if</span><span class="o">(</span><span class="n">sLength</span><span class="o">!=</span><span class="mi">4</span><span class="o">&amp;&amp;</span><span class="n">sLength</span><span class="o">!=</span><span class="mi">6</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">sLength</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+           <span class="n">ch</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+           <span class="k">if</span><span class="o">(!(</span><span class="sc">'0'</span><span class="o">&lt;=</span><span class="n">ch</span><span class="o">&amp;&amp;</span><span class="n">ch</span><span class="o">&lt;=</span><span class="sc">'9'</span><span class="o">))</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191217_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">문자열 길이를 확인한다.</span></strong>
+    <ul>
+      <li>길이가 4도 아니고 6도 아니라면 false를 리턴한다.</li>
+      <li>첫 조건이 맞지 않으므로 다음 for문은 확인할 필요도 없다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">문자열이 숫자만으로 이루어져 있는지 확인한다.</span></strong>
+    <ul>
+      <li>charAt()으로 문자를 하나 추출하고, 아스키코드를 이용해 숫자 0부터 9사이의 범위에 들어오는지 체크한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>처음에 0을 생각못하고 1부터 9까지로 해서 테스트 9, 10에서 틀렸었다. 이런 실수는 하지 않도록 노력해야겠다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 연습문제: 문자열을 정수로 바꾸기</title>
+	  <link>/blog//algo-prog12925</link>
+	  <author></author>
+	  <pubDate>2019-12-17T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12925</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12925">https://programmers.co.kr/learn/courses/30/lessons/12925</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>startsWith()으로 앞에 부호가 있는지 체크, 있다면 substring()으로 앞을 제외하고 숫자로 바꾼다.</li>
+  <li>부호가 없다면 바로 parseInt()를 사용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"+"</span><span class="o">))</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()));</span>
+      <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"-"</span><span class="o">))</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()))*(-</span><span class="mi">1</span><span class="o">);</span>
+      <span class="k">else</span>
+        <span class="n">answer</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191217_5.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">startsWith()을 이용해 부호가 있는지 체크한다.</span></strong>
+    <ul>
+      <li>부호가 있다면 맨 앞을 제외한 나머지 문자열을 숫자로 변환한다.</li>
+      <li>부호가 없다면 바로 parseInt()한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>나는 parseInt가 음수인 경우에는 안될거라 생각하고 구현했는데, 직접 해보니 음수도 가능했다. 또 어떤 사람들은 parseInt()를 사용하지 않고 아스키코드를 이용해 푼 사람도 있었다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 문자열 압축</title>
 	  <link>/blog//algo-prog60057</link>
 	  <author></author>
@@ -369,408 +673,6 @@
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 <p>쉽다! answer을 long으로 주다니 프로그래머스 치곤 착했다;</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 연습문제: 나누어 떨어지는 숫자 배열</title>
-	  <link>/blog//algo-prog12910</link>
-	  <author></author>
-	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12910</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12910">https://programmers.co.kr/learn/courses/30/lessons/12910</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>배열 값이 divisor로 나눠지면 ArrayList에 추가한다.</li>
-  <li>list에 넣은 값이 없을 경우 answer에 -1을 넣는다.</li>
-  <li>존재할 경우 answer에 옮겨담아 오름차순 정렬한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-   <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="o">)</span> <span class="o">{</span>
-       <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-       <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span><span class="n">arr</span><span class="o">){</span>
-           <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">%</span><span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-       <span class="o">}</span>
-       <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()==</span><span class="mi">0</span><span class="o">){</span>
-           <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-           <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
-       <span class="o">}</span>
-       <span class="k">else</span><span class="o">{</span>
-           <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-           <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-               <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-           <span class="o">}</span>
-           <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
-       <span class="o">}</span>
-       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-   <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191216_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">나눠 떨어지는 숫자는 list에 저장한다.</span></strong></li>
-  <li><strong><span style="color:navy">list를 배열 answer에 옮겨 담은 후 오름차순 정렬한다.</span></strong>
-    <ul>
-      <li>list에 저장된 값이 없을 경우 answer에 -1을 저장한다.</li>
-      <li>list에 값이 존재할 경우 answer에 옮겨 담은 후, sort함수로 오름차순 정렬한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉽다! 다른 사람들도 ArrayList을 이용해 풀었다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 연습문제: 같은 숫자는 싫어</title>
-	  <link>/blog//algo-prog12906</link>
-	  <author></author>
-	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12906</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12906">https://programmers.co.kr/learn/courses/30/lessons/12906</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>이전의 값을 따로 저장해두고 연속적인 값이 나오는지 체크한다.</li>
-  <li>연속적인 값이 나오지 않는다면 ArrayList에 저장한다.</li>
-  <li>ArrayList의 값을 배열 answer에 옮겨 저장한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="o">[]</span><span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="kt">int</span> <span class="n">num</span><span class="o">=</span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">!=</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]){</span><span class="c1">//이전 숫자와 다르다면</span>
-                <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span><span class="c1">//이전 숫자를 저장</span>
-                <span class="n">num</span><span class="o">=</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span><span class="c1">//현재 숫자가 반복되는지 체크하기 위함</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span><span class="c1">//마지막 숫자 저장</span>
-        <span class="o">}</span>
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191216_4.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">이전 숫자를 num에 저장하여 연속되는지 체크한다.</span></strong>
-    <ul>
-      <li>더이상 연속되지 않는다면 이전 숫자를 list에 저장한다.</li>
-      <li>현재 숫자가 연속되는지 확인하기 위해 num에 저장한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">마지막 숫자를 list에 저장한다.</span></strong>
-    <ul>
-      <li>list에 넣는 것은 이전 숫자인 num이므로 마지막 숫자는 따로 list에 저장해줘야 한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉽다222!</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 연습문제: 가운데 글자 가져오기</title>
-	  <link>/blog//algo-prog12903</link>
-	  <author></author>
-	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12903</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12903">https://programmers.co.kr/learn/courses/30/lessons/12903</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>s의 길이가 짝수인지 홀수인지 확인 후 홀수라면 중간값 하나를, 짝수라면 가운데 두 글자를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-      <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">;</span>
-      <span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()%</span><span class="mi">2</span><span class="o">;</span>
-      <span class="k">if</span><span class="o">(</span><span class="n">r</span><span class="o">!=</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">q</span><span class="o">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
-      <span class="k">else</span> <span class="n">answer</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
-      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191216_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">s의 길이가 짝수인지 홀수인지 확인한다.</span></strong>
-    <ul>
-      <li>s.length()%2가 0이라면 짝수, 아니라면 홀수이다.</li>
-      <li>substring을 이용하여 글자를 추출한다.</li>
-      <li>홀수라면 중간 지점하나를 추출한다.</li>
-      <li>짝수라면 가운데 두 글자를 추출한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉽다!</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 연습문제: 2016년</title>
-	  <link>/blog//algo-prog12901</link>
-	  <author></author>
-	  <pubDate>2019-12-16T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12901</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12901">https://programmers.co.kr/learn/courses/30/lessons/12901</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>a월 b일까지의 총 일을 구한다.</li>
-  <li>총 일%7하여 해당 요일을 구한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-      <span class="kt">int</span> <span class="n">total</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-      <span class="n">String</span><span class="o">[]</span> <span class="n">day</span><span class="o">={</span><span class="s">"THU"</span><span class="o">,</span> <span class="s">"FRI"</span><span class="o">,</span> <span class="s">"SAT"</span><span class="o">,</span> <span class="s">"SUN"</span><span class="o">,</span> <span class="s">"MON"</span><span class="o">,</span> <span class="s">"TUE"</span><span class="o">,</span> <span class="s">"WED"</span><span class="o">};</span>
-      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">a</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-          <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">3</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">5</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">7</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">8</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">10</span><span class="o">||</span><span class="n">i</span><span class="o">==</span><span class="mi">12</span><span class="o">)</span> <span class="n">total</span><span class="o">+=</span><span class="mi">31</span><span class="o">;</span>
-          <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="mi">2</span><span class="o">)</span> <span class="n">total</span><span class="o">+=</span><span class="mi">29</span><span class="o">;</span>
-          <span class="k">else</span> <span class="n">total</span><span class="o">+=</span><span class="mi">30</span><span class="o">;</span>
-      <span class="o">}</span>
-      <span class="n">total</span><span class="o">+=</span><span class="n">b</span><span class="o">;</span>
-
-      <span class="n">answer</span><span class="o">=</span><span class="n">day</span><span class="o">[</span><span class="n">total</span><span class="o">%</span><span class="mi">7</span><span class="o">];</span>
-      <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191216_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">전체 일 수를 계산한다.</span></strong>
-    <ul>
-      <li>1월부터 a-1월까지 일 수 를 더한 후, 나머지 b를 더하여 전체 일 수를 계산한다(total).</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">total%7을 보고 요일을 찾는다.</span></strong>
-    <ul>
-      <li>1월 1일이 금요일이므로 나머지가 0이면 목요일이다.</li>
-      <li>나머지와 배열 인덱스를 같게 하여 쉽게 요일을 찾을 수 있도록 한다. 따라서 배열 day에는 목요일(나머지가 0)부터 저장한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>어렵지 않은 문제였다!</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 그래프_순위</title>
-	  <link>/blog//algo-prog49191</link>
-	  <author></author>
-	  <pubDate>2019-12-12T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog49191</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/49191">https://programmers.co.kr/learn/courses/30/lessons/49191</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>플로이드 와샬 알고리즘을 사용한다.</li>
-  <li>알고리즘으로 계산한 최단 경로가 있는 갯수를 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kt">int</span> <span class="n">INF</span><span class="o">=</span><span class="mi">987654321</span><span class="o">;</span><span class="c1">//방문불가를 뜻함</span>
-     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">results</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-         <span class="kt">int</span><span class="o">[][]</span> <span class="n">scores</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-         <span class="kt">int</span> <span class="n">win</span><span class="o">,</span> <span class="n">lose</span><span class="o">;</span>
-         <span class="c1">//배열 초기화</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">score:</span><span class="n">scores</span><span class="o">){</span>
-             <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">score</span><span class="o">,</span> <span class="n">INF</span><span class="o">);</span>
-         <span class="o">}</span>
-         <span class="c1">//대각선을 0</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">scores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">scores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="o">)</span> <span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="c1">//한방향 그래프 win-&gt;lose</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">result:</span><span class="n">results</span><span class="o">){</span>
-             <span class="n">win</span><span class="o">=</span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-             <span class="n">lose</span><span class="o">=</span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-             <span class="n">scores</span><span class="o">[</span><span class="n">win</span><span class="o">][</span><span class="n">lose</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
-         <span class="o">}</span>
-         <span class="c1">//scores[i][j]로 가는 최단경로 저장</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">k</span><span class="o">++){</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-                 <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                     <span class="k">if</span><span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]&gt;</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]+</span><span class="n">scores</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">j</span><span class="o">]){</span>
-                         <span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]+</span><span class="n">scores</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">j</span><span class="o">];</span>
-                     <span class="o">}</span>
-                 <span class="o">}</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="c1">// for(int[] score:scores){</span>
-         <span class="c1">//     System.out.println(Arrays.toString(score));</span>
-         <span class="c1">// }</span>
-         <span class="c1">//선수들이 게임을 한 적이 있는지 확인</span>
-         <span class="kt">boolean</span><span class="o">[]</span> <span class="n">flag</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-         <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">flag</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span><span class="c1">//사람 i 기준</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span><span class="c1">//나머지 j선수들과 게임한적 있는지 체크</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span><span class="c1">//나자신과 게임을 뜻하므로 패스</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">INF</span><span class="o">&amp;&amp;</span><span class="n">scores</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="n">INF</span><span class="o">){</span><span class="c1">//경로가 존재하지 않으면(i와 j가 게임하지 않았다면)</span>
-                     <span class="n">flag</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
-                     <span class="k">break</span><span class="o">;</span><span class="c1">//모두와 게임을 해야하므로</span>
-                 <span class="o">}</span>
-             <span class="o">}</span>
-         <span class="o">}</span>
-         <span class="c1">// System.out.println(Arrays.toString(flag));</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">flag</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">flag</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="n">answer</span><span class="o">++;</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191212_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">플로이드 와샬 알고리즘을 적용한다.</span></strong>
-<img src="./assets/images/191212_4.png" alt="실행결과" width="300" height="300" />
-    <ul>
-      <li>그래프에서 모든 꼭짓점 사이의 최단 경로의 거리를 구하는 알고리즘이다.</li>
-      <li>이 알고리즘을 이용하면 최단 경로를 알 수 있을 뿐만 아니라 연결되지 않은 경로(갈 수 없는 경로)도 알 수 있다.</li>
-      <li>연결되지 않았다는 뜻은 선수 i, j의 승패를 알 수 없다는 뜻이다.</li>
-      <li>직접 연결되지 않았지만 선수 k로 거쳐서 i, j가 연결된다면 선수의 승패를 알 수 있다(i, j가 게임하진 않았지만, i가 k한테 이겼고, k가 j한테 이겼다면 i는 j한테 이김을 알 수 있다).</li>
-      <li>따라서 i, j 사이에 k를 거쳐가는 방법을 모두 찾아 최단경로를 결정하는 플로이드 와샬 알고리즘을 이용하면 선수들의 승패를 확인할 수 있다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">2차원 배열에 플로이드 와샬 알고리즘을 결과값을 저장한다.</span></strong>
-    <ul>
-      <li>int[][] scores로 n+1길이만큼 선언한다.</li>
-      <li>선수는 1부터 시작하므로 배열을 n+1만큼 생성하여 0은 사용하지 않겠다.</li>
-      <li>내가 나와 게임하는 경우는 없으므로 대각선은 0으로 초기화한다.</li>
-      <li>나머지 값들은 INF에 적당히 큰 수를 넣어 이 값으로 저장한다.</li>
-      <li>이때 큰 수를 넣는다고 Integer.MAX_VALUE를 넣으면 안된다.
-<img src="./assets/images/191212_2.png" alt="실행결과" />
-최단경로를 계산하기 위해 값을 서로 더하는데, int의 최댓값을 둘 다 더할 경우 오버플로우로 음수가 발생한다.</li>
-      <li>win-&gt;lose 방향으로 한 방향 그래프를 만든다.</li>
-      <li>3개 for문을 이용해 최단 경로를 찾는다. 이때 k는 거쳐가는 꼭짓점, i는 출발하는 꼭짓점, j는 도착하는 꼭짓점이다.</li>
-      <li>즉, 선수 i, j의 승패를 알고자 할 때, i, j가 선수 k와 게임한 적이 있다면 해당 거리를 저장한다(INF에서 최단경로 거리값으로 저장되었으므로 선수 i, j간의 승패여부를 알 수 있다는 뜻).</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">승패를 알 수 없는 선수들을 찾는다.</span></strong>
-    <ul>
-      <li>boolean[] flag로 선수의 순위를 알 수 있는지에 대한 여부를 저장한다.</li>
-      <li>일단 모두가 알 수 있다고 가정한 후, scores를 확인하면서 알 수 없는 선수에게 false를 준다.
-<img src="./assets/images/191212_3.png" alt="실행결과" />
-(0은 사용하지 않고, 대각선은 나자신이므로 빗금처리 했다.)</li>
-      <li>선수 i를 기준으로, 선수 j와 승패를 알 수 있는지 확인한다. scores[i][j]와 scores[j][i]가 모두 INF면 선수 i, j간에 경로가 없다는 뜻이다. 즉, 게임을 한 적이 없고, 다른 선수를 통해서도 승패를 알 수 없으므로 flag[i]를 false로 바꾼다.</li>
-      <li>선수 i는 나를 제외한 n-1명과 방문할 수 있어야 승패를 알 수 있다. 따라서 하나라도 경로가 존재하지 않는다면 i의 선수 승패는 알 수 없으므로 break로 i에 대한 탐색을 종료한다.</li>
-      <li>마지막으로 flage의 true 갯수를 리턴하면 그것이 정답이다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>선수의 승패를 알기 위해 플로이드 와샬 알고리즘을 적용하겠다는 생각을 하는 사람들이 대단하다. 알고리즘을 이해하는 것은 어렵지 않았지만, 왜 이 문제를 플로이드 와샬 알고리즘으로 푸는지 이해하는 시간이 오래 걸렸다.</p>
-
-<h3 id="참고">참고</h3>
-<ul>
-  <li>[프로그래머스] 순위 <a href="https://jayrightthere.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%88%9C%EC%9C%84">https://jayrightthere.tistory.com/entry/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%88%9C%EC%9C%84</a></li>
-  <li>[BOJ] 키 순서 <a href="https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C">https://jayrightthere.tistory.com/entry/BOJ-%ED%82%A4%EC%88%9C%EC%84%9C</a></li>
-</ul>
 
 	  ]]></description>
 	</item>
