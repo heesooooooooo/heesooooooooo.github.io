@@ -12,6 +12,207 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도</title>
+	  <link>/blog//algo-prog17681</link>
+	  <author></author>
+	  <pubDate>2019-12-19T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog17681</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/17681">https://programmers.co.kr/learn/courses/30/lessons/17681</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>십진수를 이진수로 변환한다.</li>
+  <li>변환한 이진수 길이가 n이 되도록 앞에 0을 붙여준다.</li>
+  <li>둘다 0일때만 공백을, 아니라면 #을 붙인다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="n">String</span> <span class="nf">makeZero</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">){</span><span class="c1">//이진수 앞에 0을 채워주는 함수</span>
+         <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+         <span class="k">while</span><span class="o">(</span><span class="n">cnt</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">){</span>
+             <span class="n">str</span><span class="o">=</span><span class="s">"0"</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+             <span class="n">cnt</span><span class="o">--;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">String</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+       <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+       <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span><span class="s">""</span><span class="o">);</span>
+       <span class="n">String</span> <span class="n">str1</span><span class="o">=</span><span class="s">""</span><span class="o">,</span> <span class="n">str2</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+       <span class="kt">int</span> <span class="n">numSize</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+           <span class="n">str1</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span><span class="c1">//이진수 변환</span>
+           <span class="n">str2</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">arr2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>  
+           <span class="n">str1</span><span class="o">=</span><span class="n">makeZero</span><span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+           <span class="n">str2</span><span class="o">=</span><span class="n">makeZero</span><span class="o">(</span><span class="n">str2</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+           <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+               <span class="k">if</span><span class="o">(</span><span class="n">str1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)==</span><span class="sc">'0'</span><span class="o">&amp;&amp;</span><span class="n">str2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)==</span><span class="sc">'0'</span><span class="o">)</span>
+                   <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="s">" "</span><span class="o">;</span>
+               <span class="k">else</span>
+                   <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="s">"#"</span><span class="o">;</span>
+           <span class="o">}</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191219_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">십진수를 이진수로 변환한 값의 길이가 n보다 작다면 앞에 0을 붙여준다.</span></strong>
+    <ul>
+      <li>Integer.toBinaryString()함수로 십진수를 이진수로 변환한다.</li>
+      <li>바뀐 이진수는 길이 n을 만족해야하므로, 만약 부족하다면 makeZero()함수를 통해 0을 채운다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">완성된 이진수를 비교하며 조건에 맞게 문자열을 만든다.</span></strong>
+    <ul>
+      <li>charAt()함수로 문자를 하나씩 비교한다.</li>
+      <li>둘다 0일 때만 공백을, 나머지는 벽을 뜻하는 #을 만든다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제를 꼼꼼하게 안읽어서 살짝 삽질했다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT: 실패율</title>
+	  <link>/blog//algo-prog42889</link>
+	  <author></author>
+	  <pubDate>2019-12-19T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42889</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42889">https://programmers.co.kr/learn/courses/30/lessons/42889</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>스테이지별 클리어하지 못한 사람 수를 계산한다.</li>
+  <li>스테이지별 실패율을 계산한다.</li>
+  <li>스테이지 단계와 실패율을 가지는 클래스를 생성, 조건에 맞게 내림차순 정렬한다.</li>
+  <li>answer에 스테이지 번호를 옮겨 담아 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Stage</span><span class="o">{</span>
+     <span class="kt">int</span> <span class="n">stage</span><span class="o">;</span>
+     <span class="kt">double</span> <span class="n">lose</span><span class="o">;</span>
+     <span class="kd">public</span> <span class="nf">Stage</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">double</span> <span class="n">l</span><span class="o">){</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">stage</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
+         <span class="k">this</span><span class="o">.</span><span class="na">lose</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">stages</span><span class="o">)</span> <span class="o">{</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+         <span class="kt">int</span> <span class="n">player</span><span class="o">=</span><span class="n">stages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+         <span class="kt">int</span><span class="o">[]</span> <span class="n">notClear</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">stages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">notClear</span><span class="o">[</span><span class="n">stages</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
+         <span class="o">}</span>
+         <span class="kt">double</span><span class="o">[]</span> <span class="n">loseRate</span><span class="o">=</span><span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">notClear</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="k">if</span><span class="o">(</span><span class="n">player</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span>
+                 <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+             <span class="k">else</span>
+                 <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">]=(</span><span class="kt">double</span><span class="o">)</span><span class="n">notClear</span><span class="o">[</span><span class="n">i</span><span class="o">]/</span><span class="n">player</span><span class="o">;</span>
+             <span class="n">player</span><span class="o">-=</span><span class="n">notClear</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+         <span class="o">}</span>
+         <span class="n">Stage</span><span class="o">[]</span> <span class="n">stage</span><span class="o">=</span><span class="k">new</span> <span class="n">Stage</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">stage</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">stage</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="k">new</span> <span class="n">Stage</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]);</span>
+         <span class="o">}</span>
+         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">stage</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Stage</span><span class="o">&gt;(){</span>
+             <span class="nd">@Override</span>
+             <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Stage</span> <span class="n">s1</span><span class="o">,</span> <span class="n">Stage</span> <span class="n">s2</span><span class="o">){</span>
+                 <span class="k">if</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">lose</span><span class="o">==</span><span class="n">s2</span><span class="o">.</span><span class="na">lose</span><span class="o">)</span>
+                     <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+                 <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">lose</span><span class="o">&gt;</span><span class="n">s2</span><span class="o">.</span><span class="na">lose</span><span class="o">)</span>
+                     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                 <span class="k">else</span>
+                     <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+             <span class="o">}</span>
+         <span class="o">});</span>
+         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+             <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">stage</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">stage</span><span class="o">;</span>
+         <span class="o">}</span>
+         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191219_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">스테이지별 클리어하지 못한 수를 구한다.</span></strong>
+    <ul>
+      <li>notClear 배열을 생성하여 인덱스를 스테이지 번호로 생각하여 스테이지별 클리어하짐 못한 사람 수를 저장한다.</li>
+      <li>인덱스 0은 사용하지 않고, 스테이지를 모두 클리어하면 N+1의 값을 가지므로 N+2의 크기가 필요하다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">실패율을 계산한다.</span></strong>
+    <ul>
+      <li>loseRate 배열을 생성하고, 인덱스를 스테이지 번호로 생각하여 각 스테이지별 실패율을 계산해 저장한다.</li>
+      <li>이때 실패율은 소수점이 발생하므로 double형 배열에 넣어야한다.</li>
+      <li>player가 0인 경우 클리어 못한 사람 수/0이므로 NaN이 발생한다(분모가 0은 수학적 오류임). 따라서 이 경우는 나눗셈 연산을 하지 않고 if문으로 따로 빼주어 loseRate[i]에 0을 넣는다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">Stage 클래스를 생성하여 내림차순 정렬한다.</span></strong>
+    <ul>
+      <li>Stage 클래스는 스테이지 번호 stage와 실패율 lose를 가진다.</li>
+      <li>클래스를 생성하여 내림차순으로 정렬하는 까닭은, 실패율으로 우선순위를 부여하되 배열에 저장하는 값은 스테이지 번호여야 되기 때문이다.</li>
+      <li>이에 따른 정렬은 Comparator을 이용한다.</li>
+      <li>실패율이 같다면 스테이지 번호가 작은 순이 먼저 오도록 해야하므로 0을 리턴한다. 0을 리턴한다는 뜻은 자리 이동이 일어나지 않는다는 뜻인데, 이렇게 해도 문제가 없는 이유는 애초에 비교하는 s1과 s2의 스테이지 번호는 s1이 s2보다 항상 작기 때문이다. 애초에 배열 stage에 스테이지 번호 순으로 1번부터 N까지 차례대로 넣으므로 s1의 스테이지 번호 값이 s2보다 작다는 것이 보장된다.</li>
+      <li>s1의 실패율이 더 크다면 -1을 리턴하여 s1이 앞으로 가게 한다.</li>
+      <li>s2의 실패율이 더 크다면 1을 리턴해 s1이 뒤로 가게 한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">정렬된 stage의 스테이지 번호를 answer에 옮겨 담아 리턴한다.</span></strong>
+    <ul>
+      <li>answer에는 내림차순으로 정렬된 스테이지 번호를 리턴하면 되므로 배열 stage의 stage값을 answer에 옮겨 담는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제 자체는 어렵지 않았지만 for문을 생각보다 많이 사용하여 코드가 효율적이라는 생각은 들지 않는다. 또한 내림차순으로 정렬할 때 클래스를 생성하지 않고 할 수 있는 방법이 있을까 고민했었는데, 다른 사람들도 모두 클래스를 사용한 걸 보아 이게 최선인 것 같다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 문자열 압축</title>
 	  <link>/blog//algo-prog60057</link>
 	  <author></author>

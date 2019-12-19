@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/프로그래머스] 연습문제: 직사각형 별찍기</title>
+    <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//algo-prog12969" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-prog17681" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/프로그래머스] 연습문제: 직사각형 별찍기" />
+    <meta property="og:title" content="[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//algo-prog12969" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-prog17681" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/프로그래머스] 연습문제: 직사각형 별찍기" />
+    <meta name="twitter:title" content="[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog12969" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-prog17681" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/프로그래머스] 연습문제: 직사각형 별찍기",
-    "url": "http://localhost:4000/blog//algo-prog12969",
+    "name": "[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도",
+    "url": "http://localhost:4000/blog//algo-prog17681",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
@@ -115,7 +115,7 @@
     <article class="post tag-programmers">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/프로그래머스] 연습문제: 직사각형 별찍기</h1>
+            <h1 class="post-title">[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -134,7 +134,7 @@
             
                 
             
-            <time class="post-date" datetime="2019-12-18">18 Dec 2019</time>
+            <time class="post-date" datetime="2019-12-19">19 Dec 2019</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -144,7 +144,7 @@
                     
                 
                     
-                       <a href='/blog/tag/practice'>Practice</a>
+                       <a href='/blog/tag/kakao'>Kakao</a>
                     
                 
                 
@@ -154,49 +154,78 @@
         <section class="post-content">
 
             <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12969">https://programmers.co.kr/learn/courses/30/lessons/12969</a></p>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/17681">https://programmers.co.kr/learn/courses/30/lessons/17681</a></p>
 
 <h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>가로 길이, 세로 길이에 맞는 직사각형을 출력한다.</li>
+  <li>십진수를 이진수로 변환한다.</li>
+  <li>변환한 이진수 길이가 n이 되도록 앞에 0을 붙여준다.</li>
+  <li>둘다 0일때만 공백을, 아니라면 #을 붙인다.</li>
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
  *
  * @author HEESOO
  *
  */</span>
- <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
-
- <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-         <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-         <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-         <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-
-         <span class="c1">//System.out.println(a + b);</span>
-
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">b</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">a</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"*"</span><span class="o">);</span>
-             <span class="o">}</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="n">String</span> <span class="nf">makeZero</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">){</span><span class="c1">//이진수 앞에 0을 채워주는 함수</span>
+         <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="n">str</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+         <span class="k">while</span><span class="o">(</span><span class="n">cnt</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">){</span>
+             <span class="n">str</span><span class="o">=</span><span class="s">"0"</span><span class="o">+</span><span class="n">str</span><span class="o">;</span>
+             <span class="n">cnt</span><span class="o">--;</span>
          <span class="o">}</span>
+         <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+     <span class="o">}</span>
+     <span class="kd">public</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr2</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">String</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
+       <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+       <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span><span class="s">""</span><span class="o">);</span>
+       <span class="n">String</span> <span class="n">str1</span><span class="o">=</span><span class="s">""</span><span class="o">,</span> <span class="n">str2</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+       <span class="kt">int</span> <span class="n">numSize</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+           <span class="n">str1</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span><span class="c1">//이진수 변환</span>
+           <span class="n">str2</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">arr2</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>  
+           <span class="n">str1</span><span class="o">=</span><span class="n">makeZero</span><span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+           <span class="n">str2</span><span class="o">=</span><span class="n">makeZero</span><span class="o">(</span><span class="n">str2</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+           <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+               <span class="k">if</span><span class="o">(</span><span class="n">str1</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)==</span><span class="sc">'0'</span><span class="o">&amp;&amp;</span><span class="n">str2</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)==</span><span class="sc">'0'</span><span class="o">)</span>
+                   <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="s">" "</span><span class="o">;</span>
+               <span class="k">else</span>
+                   <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="s">"#"</span><span class="o">;</span>
+           <span class="o">}</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
      <span class="o">}</span>
  <span class="o">}</span>
 </code></pre></div></div>
 
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191218_17.PNG" alt="실행결과" />
+<p><img src="./assets/images/191219_2.PNG" alt="실행결과" />
 성공٩(˘◊˘)۶</p>
 
 <h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">십진수를 이진수로 변환한 값의 길이가 n보다 작다면 앞에 0을 붙여준다.</span></strong>
+    <ul>
+      <li>Integer.toBinaryString()함수로 십진수를 이진수로 변환한다.</li>
+      <li>바뀐 이진수는 길이 n을 만족해야하므로, 만약 부족하다면 makeZero()함수를 통해 0을 채운다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">완성된 이진수를 비교하며 조건에 맞게 문자열을 만든다.</span></strong>
+    <ul>
+      <li>charAt()함수로 문자를 하나씩 비교한다.</li>
+      <li>둘다 0일 때만 공백을, 나머지는 벽을 뜻하는 #을 만든다.</li>
+    </ul>
+  </li>
+</ol>
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>쉽다.</p>
+<p>문제를 꼼꼼하게 안읽어서 살짝 삽질했다.</p>
 
 
         </section>
@@ -229,15 +258,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 연습문제: 직사각형 별찍기&amp;url=http://localhost:4000algo-prog12969"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 비밀지도&amp;url=http://localhost:4000algo-prog17681"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog12969"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-prog17681"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog12969"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-prog17681"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -268,20 +297,20 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog12982">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42889">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 서머코딩/윈터코딩(~2018): 예산</h2>
-                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. 최대한 많은 부서에 지원해야하므로...</p>
+                <h2>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT: 실패율</h2>
+                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. 스테이지별 클리어하지 못한 사람...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog12954">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog12982">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 연습문제: x만큼 간격이 있는 n개의 숫자</h2>
-                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12954 ( ᐛ )و 도전 1. 설계 행렬 각 자리끼리 더한다. 2. 구현 (성공...</p>
+                <h2>[JAVA/프로그래머스] 서머코딩/윈터코딩(~2018): 예산</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12982 ( ᐛ )و 도전 1. 설계 최대한 많은 부서에 지원해야하므로 금액이 담긴 배열d를...</p>
             </section>
         </a>
     
