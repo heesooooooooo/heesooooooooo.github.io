@@ -3,7 +3,7 @@
 #highlighter: pygments
 markdown: kramdown
 highlighter: rouge
-paginate: 5
+paginate: 5 #페이지 당 보여지는 포스트 갯수
 language: 'utf-8'
 
 # Website info
