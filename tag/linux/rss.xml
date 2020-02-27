@@ -44,18 +44,6 @@
 	  ]]></description>
 	</item>
 
-	<item>
-	  <title>첫 포스팅</title>
-	  <link>/blog//first-posting</link>
-	  <author></author>
-	  <pubDate>2019-06-14T09:00:00+09:00</pubDate>
-	  <guid>/blog//first-posting</guid>
-	  <description><![CDATA[
-	     <p>6월 14일 첫 포스팅&amp;블로그 수정 중</p>
-
-	  ]]></description>
-	</item>
-
 
 </channel>
 </rss>

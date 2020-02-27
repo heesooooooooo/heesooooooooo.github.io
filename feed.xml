@@ -8,6 +8,41 @@
     
       
       <item>
+        <title>[LINUX] 유용했던 링크들</title>
+        
+          <description>&lt;h4 id=&quot;-1-how-to-receive-data-from-bluetooth-device-using-nodejs-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 1. how to receive data from bluetooth device using node.js &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js&quot;&gt;https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-2-node-bluetooth-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 2. node-bluetooth &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/node-bluetooth&quot;&gt;https://www.npmjs.com/package/node-bluetooth&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-3-noble-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 3. noble &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/noble&quot;&gt;https://www.npmjs.com/package/noble&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-4-node-xiaomi-scale-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 4. node-xiaomi-scale &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/node-xiaomi-scale&quot;&gt;https://www.npmjs.com/package/node-xiaomi-scale&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-5-xiaomi_mi_scale-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 5. xiaomi_mi_scale &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/lolouk44/xiaomi_mi_scale&quot;&gt;https://github.com/lolouk44/xiaomi_mi_scale&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-6-컴포넌트-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 6. 컴포넌트 &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://kr.vuejs.org/v2/guide/components.html&quot;&gt;https://kr.vuejs.org/v2/guide/components.html&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-7-electron--vuejs-애플리케이션-만들기-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 7. Electron + Vue.js 애플리케이션 만들기 &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/&quot;&gt;https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-8-electron-0-일렉트론뷰로-우아한-데스크탑-앱-만들기-기초-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 8. Electron 0 일렉트론뷰로 우아한 데스크탑 앱 만들기 기초 &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://fkkmemi.github.io/electron/electron-00-intro/&quot;&gt;https://fkkmemi.github.io/electron/electron-00-intro/&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-9-node-nodejs-버전-관리하기-설치-업데이트-다운그레이드-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 9. [Node] Node.js 버전 관리하기 (설치, 업데이트, 다운그레이드) &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://brownbears.tistory.com/423&quot;&gt;https://brownbears.tistory.com/423&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-10-linux-electron-error-while-loading-shared-libraries-libgconf-2so4-1518-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 10. Linux: ./electron: error while loading shared libraries: libgconf-2.so.4 #1518 &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/electron/electron/issues/1518&quot;&gt;https://github.com/electron/electron/issues/1518&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;-11-리눅스에서-압축하기-압축풀기-tar-&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt; 11. 리눅스에서 압축하기, 압축풀기 (tar) &lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://ngee.tistory.com/215&quot;&gt;https://ngee.tistory.com/215&lt;/a&gt;&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 27 Feb 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/etc-link</link>
+        <guid isPermaLink="true">http://localhost:4000/etc-link</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 다트게임</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;

@@ -12,6 +12,39 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[LINUX] 유용했던 링크들</title>
+	  <link>/blog//etc-link</link>
+	  <author></author>
+	  <pubDate>2020-02-27T09:00:00+09:00</pubDate>
+	  <guid>/blog//etc-link</guid>
+	  <description><![CDATA[
+	     <h4 id="-1-how-to-receive-data-from-bluetooth-device-using-nodejs-"><span style="color:navy"> 1. how to receive data from bluetooth device using node.js </span></h4>
+<p><a href="https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js">https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js</a></p>
+<h4 id="-2-node-bluetooth-"><span style="color:navy"> 2. node-bluetooth </span></h4>
+<p><a href="https://www.npmjs.com/package/node-bluetooth">https://www.npmjs.com/package/node-bluetooth</a></p>
+<h4 id="-3-noble-"><span style="color:navy"> 3. noble </span></h4>
+<p><a href="https://www.npmjs.com/package/noble">https://www.npmjs.com/package/noble</a></p>
+<h4 id="-4-node-xiaomi-scale-"><span style="color:navy"> 4. node-xiaomi-scale </span></h4>
+<p><a href="https://www.npmjs.com/package/node-xiaomi-scale">https://www.npmjs.com/package/node-xiaomi-scale</a></p>
+<h4 id="-5-xiaomi_mi_scale-"><span style="color:navy"> 5. xiaomi_mi_scale </span></h4>
+<p><a href="https://github.com/lolouk44/xiaomi_mi_scale">https://github.com/lolouk44/xiaomi_mi_scale</a></p>
+<h4 id="-6-컴포넌트-"><span style="color:navy"> 6. 컴포넌트 </span></h4>
+<p><a href="https://kr.vuejs.org/v2/guide/components.html">https://kr.vuejs.org/v2/guide/components.html</a></p>
+<h4 id="-7-electron--vuejs-애플리케이션-만들기-"><span style="color:navy"> 7. Electron + Vue.js 애플리케이션 만들기 </span></h4>
+<p><a href="https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/">https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/</a></p>
+<h4 id="-8-electron-0-일렉트론뷰로-우아한-데스크탑-앱-만들기-기초-"><span style="color:navy"> 8. Electron 0 일렉트론뷰로 우아한 데스크탑 앱 만들기 기초 </span></h4>
+<p><a href="https://fkkmemi.github.io/electron/electron-00-intro/">https://fkkmemi.github.io/electron/electron-00-intro/</a></p>
+<h4 id="-9-node-nodejs-버전-관리하기-설치-업데이트-다운그레이드-"><span style="color:navy"> 9. [Node] Node.js 버전 관리하기 (설치, 업데이트, 다운그레이드) </span></h4>
+<p><a href="https://brownbears.tistory.com/423">https://brownbears.tistory.com/423</a></p>
+<h4 id="-10-linux-electron-error-while-loading-shared-libraries-libgconf-2so4-1518-"><span style="color:navy"> 10. Linux: ./electron: error while loading shared libraries: libgconf-2.so.4 #1518 </span></h4>
+<p><a href="https://github.com/electron/electron/issues/1518">https://github.com/electron/electron/issues/1518</a></p>
+<h4 id="-11-리눅스에서-압축하기-압축풀기-tar-"><span style="color:navy"> 11. 리눅스에서 압축하기, 압축풀기 (tar) </span></h4>
+<p><a href="https://ngee.tistory.com/215">https://ngee.tistory.com/215</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>첫 포스팅</title>
 	  <link>/blog//first-posting</link>
 	  <author></author>
