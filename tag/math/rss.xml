@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>(◍•ᴗ•◍)</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/백준] 수학 1: 손익분기점</title>
+	  <link>/blog//algo-boj1712</link>
+	  <author></author>
+	  <pubDate>2020-03-01T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj1712</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1712">https://www.acmicpc.net/problem/1712</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>a, b, c는 21억 이하의 자연수로, 이 값을 사칙연산하는 과정에서 int형을 벗어날 수 있으므로 long형으로 선언한다.</li>
+  <li>c-b&lt;=0인 경우 손익분기점이 없으므로 -1을 리턴한다.</li>
+  <li>아닌 경우, 손익분기점을 구한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">long</span> <span class="n">a</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextLong</span><span class="o">();</span>
+		<span class="kt">long</span> <span class="n">b</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextLong</span><span class="o">();</span>
+		<span class="kt">long</span> <span class="n">c</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextLong</span><span class="o">();</span>
+		
+		<span class="k">if</span><span class="o">(</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">&lt;=</span><span class="mi">0</span><span class="o">)</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-1"</span><span class="o">);</span>
+		<span class="k">else</span><span class="o">{</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">/(</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="o">)+</span><span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200301_4.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">long형으로 선언한다.</span></strong>
+    <ul>
+      <li>a, b, c를 int형에도 담을 수 있지만, 해당 값을 가지고 사칙연산을 수행해야하므로 이 과정에서 int형을 벗어날 수 있다. 따라서 long형에 저장한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
