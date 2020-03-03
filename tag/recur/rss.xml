@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>(◍•ᴗ•◍)</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/백준] 재귀: 팩토리얼</title>
+	  <link>/blog//algo-boj10872</link>
+	  <author></author>
+	  <pubDate>2020-03-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj10872</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/10872">https://www.acmicpc.net/problem/10872</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>팩토리얼을 계산한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="n">n</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">--){</span>
+			<span class="n">answer</span><span class="o">*=</span><span class="n">i</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200303_8.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">반복문을 이용하여 팩토리얼을 계산한다.</span></strong>
+    <ul>
+      <li>이때 0!의 값은 0이 아닌 1이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>0!이 1이라는걸 몰라서 두 번이나 틀렸다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/백준] 재귀: 피보나치 수 5</title>
+	  <link>/blog//algo-boj10870</link>
+	  <author></author>
+	  <pubDate>2020-03-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj10870</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/10870">https://www.acmicpc.net/problem/10870</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>재귀를 이용하여 피보나치 수를 구한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">return</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)+</span><span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span>		
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">));</span>
+		
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200303_9.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">재귀를 이용하여 피보나치 수를 구한다.</span></strong></li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/백준] 재귀: 하노이 탑 이동 순서</title>
+	  <link>/blog//algo-boj11729</link>
+	  <author></author>
+	  <pubDate>2020-03-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj11729</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/11729">https://www.acmicpc.net/problem/11729</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>원반 n개를 이동하는 문제는 원반 n-1개로 이동하는 문제로 세분화되고, 결국 원반 1개를 이동하는 것과 같게 된다.</li>
+  <li>하노이 탑을 해결하기 위해서 1번 타워에서 3번 타워로 옮기는 순서는, 1-&gt;3-&gt;2로 옮긴 후, 2-&gt;1-&gt;3순으로 옮기면 된다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="n">StringBuilder</span> <span class="n">sb</span><span class="o">=</span><span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">hanoi</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">from</span><span class="o">,</span> <span class="kt">int</span> <span class="n">by</span><span class="o">,</span> <span class="kt">int</span> <span class="n">to</span><span class="o">){</span>
+		<span class="n">cnt</span><span class="o">++;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">from</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">to</span><span class="o">+</span><span class="s">"\n"</span><span class="o">);</span>
+		<span class="k">else</span><span class="o">{</span>
+			<span class="n">hanoi</span><span class="o">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">to</span><span class="o">,</span> <span class="n">by</span><span class="o">);</span>
+			<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">from</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">to</span><span class="o">+</span><span class="s">"\n"</span><span class="o">);</span>
+			<span class="n">hanoi</span><span class="o">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">by</span><span class="o">,</span> <span class="n">from</span><span class="o">,</span> <span class="n">to</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="n">hanoi</span><span class="o">(</span><span class="n">n</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200303_10.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">재귀를 이용하여 하노이 탑을 옮긴다.</span></strong>
+    <ul>
+      <li>원판이 하나일 때에는 해당 원판을 원하는 곳으로 옮긴다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">StringBuilder를 이용하여 출력한다.</span></strong>
+    <ul>
+      <li>최종 옮긴 횟수를 출력한 후, 순서를 출력해야하는데 최종 횟수는 하노이 재귀가 모두 끝난 후에 값이 완성되므로 StringBuilder를 이용하지 않으면 출력 순서를 맞출 수 없다.</li>
+      <li>따라서 StringBuilder를 이용하여 이동 순서를 따로 저장해둔 후 cnt를 출력한 후 StringBuilder값을 출력한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>하노이 개념은 알고 있었지만 코드화하는 것이 어려웠다. 아직도 완벽히 이해하지는 못했다.</p>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[백준 11729] 하노이 탑 이동 순서 <a href="https://brenden.tistory.com/31">https://brenden.tistory.com/31</a></li>
+  <li>[백준,BOJ 11729] 하노이 탑 이동 순서(JAVA 구현) <a href="https://fbtmdwhd33.tistory.com/61">https://fbtmdwhd33.tistory.com/61</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

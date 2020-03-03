@@ -8,6 +8,150 @@
     
       
       <item>
+        <title>[JAVA/백준] 수학 2: 직각삼각형</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/4153&quot;&gt;https://www.acmicpc.net/problem/4153&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj4153</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj4153</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 수학 2: 택시 기하학</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/3053&quot;&gt;https://www.acmicpc.net/problem/3053&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj3053</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj3053</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 수학 2: 네 번째 점</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/3009&quot;&gt;https://www.acmicpc.net/problem/3009&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj3009</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj3009</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 수학 1: 달팽이는 올라가고 싶다</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2869&quot;&gt;https://www.acmicpc.net/problem/2869&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj2869</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj2869</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 수학 1: 분수찾기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1193&quot;&gt;https://www.acmicpc.net/problem/1193&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1193</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1193</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 재귀: 하노이 탑 이동 순서</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11729&quot;&gt;https://www.acmicpc.net/problem/11729&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj11729</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj11729</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 재귀: 팩토리얼</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10872&quot;&gt;https://www.acmicpc.net/problem/10872&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj10872</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj10872</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 재귀: 피보나치 수 5</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10870&quot;&gt;https://www.acmicpc.net/problem/10870&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj10870</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj10870</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 수학 2: 직사각형에서 탈출</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1085&quot;&gt;https://www.acmicpc.net/problem/1085&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1085</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1085</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/백준] 1차원 배열: 나머지</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
