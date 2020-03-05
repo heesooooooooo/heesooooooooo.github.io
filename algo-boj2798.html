@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/백준] 수학 2: 직각삼각형</title>
+    <title>[JAVA/백준] 브루트 포스: 블랙잭</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//algo-boj4153" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-boj2798" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/백준] 수학 2: 직각삼각형" />
+    <meta property="og:title" content="[JAVA/백준] 브루트 포스: 블랙잭" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//algo-boj4153" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-boj2798" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/백준] 수학 2: 직각삼각형" />
+    <meta name="twitter:title" content="[JAVA/백준] 브루트 포스: 블랙잭" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//algo-boj4153" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-boj2798" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/백준] 수학 2: 직각삼각형",
-    "url": "http://localhost:4000/blog//algo-boj4153",
+    "name": "[JAVA/백준] 브루트 포스: 블랙잭",
+    "url": "http://localhost:4000/blog//algo-boj2798",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
@@ -118,7 +118,7 @@
     <article class="post tag-boj">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/백준] 수학 2: 직각삼각형</h1>
+            <h1 class="post-title">[JAVA/백준] 브루트 포스: 블랙잭</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -137,7 +137,7 @@
             
                 
             
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
+            <time class="post-date" datetime="2020-03-05">05 Mar 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -147,7 +147,7 @@
                     
                 
                     
-                       <a href='/blog/tag/math'>Math</a>
+                       <a href='/blog/tag/bruteforce'>Bruteforce</a>
                     
                 
                 
@@ -157,18 +157,18 @@
         <section class="post-content">
 
             <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://www.acmicpc.net/problem/4153">https://www.acmicpc.net/problem/4153</a></p>
+<p><a href="https://www.acmicpc.net/problem/2798">https://www.acmicpc.net/problem/2798</a></p>
 
 <h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>입력받은 수 중 빗변을 찾고, 피타고라스의 정리를 이용한다.</li>
+  <li>n장의 카드를 배열에 저장한다.</li>
+  <li>하나씩 체크하며 m을 넘지않는 최댓값을 찾는다.</li>
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
 <span class="cm">/**
  * 
@@ -178,41 +178,51 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-		<span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">r</span><span class="o">;</span>
-		<span class="kt">int</span><span class="o">[]</span> <span class="n">sort</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
-		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
-			<span class="n">sort</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">sort</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">sort</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">sort</span><span class="o">);</span>
-			<span class="n">x</span><span class="o">=</span><span class="n">sort</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-			<span class="n">y</span><span class="o">=</span><span class="n">sort</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
-			<span class="n">r</span><span class="o">=</span><span class="n">sort</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-			<span class="k">if</span><span class="o">(</span><span class="n">x</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
-			
-			<span class="k">if</span><span class="o">(</span><span class="n">r</span><span class="o">==</span><span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="o">))</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"right"</span><span class="o">);</span>
-			<span class="k">else</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"wrong"</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">card</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="n">card</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
 		<span class="o">}</span>
+		
+		<span class="kt">int</span> <span class="n">sum</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">sub</span><span class="o">=</span><span class="n">m</span><span class="o">,</span> <span class="n">tempSum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">k</span><span class="o">++){</span>
+					<span class="n">sum</span><span class="o">=</span><span class="n">card</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="n">card</span><span class="o">[</span><span class="n">j</span><span class="o">]+</span><span class="n">card</span><span class="o">[</span><span class="n">k</span><span class="o">];</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">m</span><span class="o">==</span><span class="n">sum</span><span class="o">){</span>
+						<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+						<span class="k">return</span><span class="o">;</span>
+					<span class="o">}</span>
+					<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">m</span><span class="o">&gt;</span><span class="n">sum</span><span class="o">){</span>
+						<span class="k">if</span><span class="o">(</span><span class="n">sub</span><span class="o">&gt;</span><span class="n">m</span><span class="o">-</span><span class="n">sum</span><span class="o">){</span>
+							<span class="n">sub</span><span class="o">=</span><span class="n">m</span><span class="o">-</span><span class="n">sum</span><span class="o">;</span>
+							<span class="n">tempSum</span><span class="o">=</span><span class="n">sum</span><span class="o">;</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tempSum</span><span class="o">);</span>
+		
 	<span class="o">}</span>
+	
 <span class="o">}</span>
 
 </code></pre></div></div>
 
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200303_6.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+<p><img src="./assets/images/200305_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶
+처음에는 Arrays.sort()를 이용하여 정렬 후 뒤에서부터 큰 값 먼저 체크하며 값을 구하려고 했는데, 정렬 후 삼중for문으로 비교하면 한 개만 최댓값이 되어 별 쓸모가 없으므로 굳이 정렬을 하지 않아도 될 것이라고 판단하여 정렬을 지웠다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
-  <li><strong><span style="color:navy">입력받은 숫자 중 빗변을 찾는다.</span></strong>
+  <li><strong><span style="color:navy">3개의 for문으로 카드의 3조합을 모두 찾아본다.</span></strong>
     <ul>
-      <li>빗변은 셋 중 가장 큰 값이다.</li>
-      <li>Arrays.sort()로 오름차순 정렬한 마지막 값이 빗변이다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">피타고라스의 정리를 이용한다.</span></strong>
-    <ul>
-      <li>r^2=x^2+y^2이므로 Math.sqrt()함수를 이용하여 루트값을 계산한 후 이것이 r과 같은지 확인한다.</li>
+      <li>이때 더한 값이 sum과 같다면 바로 출력하고 return으로 종료한다. return 대신 break를 사용할 경우 한 개의 for문만 빠져나오므로 모든 for문을 탈출할 수 없다.</li>
+      <li>sum이 m과 같지않다면 m과의 오차를 계산하여 오차가 더 작은 값을 tempSum에 저장한다. 모든 경우의 수 탐색이 완료되었다면 tempSum을 출력하고 종료한다.</li>
     </ul>
   </li>
 </ol>
@@ -250,15 +260,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/백준] 수학 2: 직각삼각형&amp;url=http://localhost:4000algo-boj4153"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/백준] 브루트 포스: 블랙잭&amp;url=http://localhost:4000algo-boj2798"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-boj4153"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-boj2798"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-boj4153"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-boj2798"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -289,20 +299,20 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj2231">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj7568">
             <section class="post">
-                <h2>[JAVA/백준] 브루트 포스: 분해합</h2>
-                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. 분해합은 n+각 자릿수 값이므로...</p>
+                <h2>[JAVA/백준] 브루트 포스: 덩치</h2>
+                <p>## 문제 ## ( ᐛ )و 도전 ## 풀이 방법 1 ### 1. 설계 1....</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj3053">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj2231">
             <section class="post">
-                <h2>[JAVA/백준] 수학 2: 택시 기하학</h2>
-                <p>문제 https://www.acmicpc.net/problem/3053 ( ᐛ )و 도전 1. 설계 유클리드 기하학에 따른 원의 넓이를 출력한다. 택시...</p>
+                <h2>[JAVA/백준] 브루트 포스: 분해합</h2>
+                <p>문제 https://www.acmicpc.net/problem/2231 ( ᐛ )و 도전 1. 설계 분해합은 n+각 자릿수 값이므로 최솟값은 n-9*n의 길이이다....</p>
             </section>
         </a>
     

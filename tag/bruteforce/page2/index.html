@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>dev</title>
+    <title>...Developing...</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//page8/" />
+        <link rel="canonical" href="http://localhost:4000/blog//tag/bruteforce/page2/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="dev" />
+    <meta property="og:title" content="...Developing..." />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//page8/" />
-    <meta property="og:image" content="/blog/assets/images/cover1.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//tag/bruteforce/page2/" />
+    <meta property="og:image" content="/blog/assets/images/cover5.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="dev" />
+    <meta name="twitter:title" content="...Developing..." />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//page8/" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover1.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//tag/bruteforce/page2/" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover5.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "dev",
-    "url": "http://localhost:4000/blog//page8/",
-    "image": "/blog/assets/images/cover1.jpg",
+    "name": "...Developing...",
+    "url": "http://localhost:4000/blog//tag/bruteforce/page2/",
+    "image": "/blog/assets/images/cover5.jpg",
     "description": "(◍•ᴗ•◍)"
 }
     </script>
@@ -72,7 +72,7 @@
     </a>
     <ul>
       <!-- home, boj, etc-->
-        <li class="nav-home  nav-current" role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
         <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-etc " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
@@ -96,12 +96,14 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default -->
+        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header  -->
-<header class="main-header "
-        style="background-image: url(/blog/assets/images/cover1.jpg) ">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/blog/assets/images/cover5.jpg) ">
     <nav class="main-nav overlay clearfix">
         <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -110,11 +112,14 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">...Developing...</h1>
-            <h2 class="page-description">(◍•ᴗ•◍)</h2>
+            <h1 class="page-title">Bruteforce</h1>
+            <h2 class="page-description">
+            
+			    A 7-post collection
+            
+            </h2>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -127,12 +132,10 @@
             <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/blog/page7/" title="Previous Page">&laquo; Newer Posts</a>
-      
+            <a class="newer-posts" href="/blog/tag/bruteforce" title="Previous Page">&laquo; Newer Posts</a>
+        
     
-    <span class="page-number"> Page 8 of 25 </span>
-     
-        <a class="older-posts" href="/blog/page9/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 2 of 2 </span>
      
 </nav>
         
@@ -142,10 +145,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-prog12930">[JAVA/프로그래머스] 연습문제: 이상한 문자 만들기</a></h2>
+            <h2 class="post-title"><a href="/blog/algo-prog42839">[JAVA/프로그래머스] 완전탐색_소수 찾기</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12930 ( ᐛ )و 도전 1. 설계 문자열 s를 문자로 쪼개어 배열에 저장한다. 공백이 나타나면 blank=0으로 초기화하여 단어별로 짝/홀수 인덱스를 판단하게 한다. 0과 짝수 인덱스에는... <a class="read-more" href="/blog/algo-prog12930">&raquo;</a></p>
+            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42839 ( ᐛ )و 첫 번째 도전 1. 설계 String형 numbers를 쪼개서 int형으로 배열에 저장한다. 만들 수 있는 숫자를 모두 생성한다=&gt;조합 이용. 소수 체크해서 갯수를... <a class="read-more" href="/blog/algo-prog42839">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -177,20 +180,20 @@
                     
                 
                     
-                       <a href='/blog/tag/practice'>Practice</a>
+                       <a href='/blog/tag/bruteforce'>Bruteforce</a>
                     
                 
             
-            <time class="post-date" datetime="2019-12-18">18 Dec 2019</time>
+            <time class="post-date" datetime="2019-11-17">17 Nov 2019</time>
         </footer>
     </article>
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-prog12928">[JAVA/프로그래머스] 연습문제: 약수의 합</a></h2>
+            <h2 class="post-title"><a href="/blog/algo-prog42840">[JAVA/프로그래머스] 완전탐색_모의고사</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12928 ( ᐛ )و 도전 1. 설계 1부터 n까지 숫자 중 n%i==0인 i를 answer에 더한다. 2. 구현 (성공 코드) /** * * @author HEESOO *... <a class="read-more" href="/blog/algo-prog12928">&raquo;</a></p>
+            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42840 ( ᐛ )و 첫 번째 도전 1. 설계 이차원 배열을 생성하여 3명의 정답 패턴을 저장한다. 이중 for문으로 학생 수 만큼, 패턴이 가장 큰 학생(3번... <a class="read-more" href="/blog/algo-prog42840">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -222,146 +225,15 @@
                     
                 
                     
-                       <a href='/blog/tag/practice'>Practice</a>
-                    
-                
-            
-            <time class="post-date" datetime="2019-12-18">18 Dec 2019</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-prog12926">[JAVA/프로그래머스] 연습문제: 시저 암호</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12926 ( ᐛ )و 도전 1. 설계 charAt()으로 문자를 하나씩 추출한 후, n만큼 밀었을때 알파벳 범위를 넘어가면 아스키코드를 이용해 알파벳이 순회할 수 있게 한다. 2.... <a class="read-more" href="/blog/algo-prog12926">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/programmers'>Programmers</a>,
+                       <a href='/blog/tag/bruteforce'>Bruteforce</a>,
                     
                 
                     
-                       <a href='/blog/tag/practice'>Practice</a>
+                       <a href='/blog/tag/array'>Array</a>
                     
                 
             
-            <time class="post-date" datetime="2019-12-18">18 Dec 2019</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-prog12925">[JAVA/프로그래머스] 연습문제: 문자열을 정수로 바꾸기</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12925 ( ᐛ )و 도전 1. 설계 startsWith()으로 앞에 부호가 있는지 체크, 있다면 substring()으로 앞을 제외하고 숫자로 바꾼다. 부호가 없다면 바로 parseInt()를 사용한다. 2. 구현... <a class="read-more" href="/blog/algo-prog12925">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/programmers'>Programmers</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/practice'>Practice</a>
-                    
-                
-            
-            <time class="post-date" datetime="2019-12-17">17 Dec 2019</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-prog12922">[JAVA/프로그래머스] 연습문제: 수박수박수박수박수박수?</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://programmers.co.kr/learn/courses/30/lessons/12922 ( ᐛ )و 도전 1. 설계 endsWith()메소드를 이용해 answer 끝에 “수”, “박” 중 선택해 저장한다. 2. 구현 (성공 코드) /** * * @author HEESOO... <a class="read-more" href="/blog/algo-prog12922">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/programmers'>Programmers</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/practice'>Practice</a>
-                    
-                
-            
-            <time class="post-date" datetime="2019-12-17">17 Dec 2019</time>
+            <time class="post-date" datetime="2019-11-12">12 Nov 2019</time>
         </footer>
     </article>
     
@@ -371,12 +243,10 @@
         <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/blog/page7/" title="Previous Page">&laquo; Newer Posts</a>
-      
+            <a class="newer-posts" href="/blog/tag/bruteforce" title="Previous Page">&laquo; Newer Posts</a>
+        
     
-    <span class="page-number"> Page 8 of 25 </span>
-     
-        <a class="older-posts" href="/blog/page9/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 2 of 2 </span>
      
 </nav>
     
