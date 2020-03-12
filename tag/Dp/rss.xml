@@ -12,6 +12,241 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/백준] 동적 계획법 1: 01타일</title>
+	  <link>/blog//algo-boj1904</link>
+	  <author></author>
+	  <pubDate>2020-03-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj1904</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1904">https://www.acmicpc.net/problem/1904</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP의 Bottom-Up 방식으로 이용한다.</li>
+  <li>Memorization 기법 사용을 위해 배열을 둔 뒤, 작은 문제부터 해결해내가며 값을 저장하고, 중복호출 시 메모리 값을 재활용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+		<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">array</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="mi">2</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]=(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">])%</span><span class="mi">15746</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">n</span><span class="o">]);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200312_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP의 Bottom-Up방식을  이용한다.</span></strong>
+    <ul>
+      <li>배열을 이용하여 n일때 필요한 타일 수를 저장한다.</li>
+      <li>n=1이면 1만 만들 수 있고, n=2이면 2개 가능하다.</li>
+      <li>n=3이면 100, 001, 111 가능하므로 3개이다.</li>
+      <li>n=4이면 0000, 0011, 1100, 1111, 1000 5개이다.</li>
+      <li>이를 통해 array[n]=array[n-2]+array[n-1]이라는 것을 알 수 있다(피보나치 공식과 같다).</li>
+      <li>피보나치는 n=46일때 int형을 초과하지만, 값을 15746으로 나눈 나머지를 사용하므로 답이 int형을 벗어나지 않게 된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[백준 - 1904번] 01타일 - Java //Wello Horld// <a href="https://wellohorld.tistory.com/17">https://wellohorld.tistory.com/17</a></li>
+  <li>[백준] 1904 - 01타일 <a href="http://blog.naver.com/PostView.nhn?blogId=occidere&amp;logNo=220787441430">http://blog.naver.com/PostView.nhn?blogId=occidere&amp;logNo=220787441430</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/백준] 동적 계획법 1: 피보나치 함수</title>
+	  <link>/blog//algo-boj1003</link>
+	  <author></author>
+	  <pubDate>2020-03-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj1003</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1003">https://www.acmicpc.net/problem/1003</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP의 Bottom-Up 방식으로 이용한다.</li>
+  <li>Memorization 기법 사용을 위해 배열을 둔 뒤, 작은 문제부터 해결해내가며 값을 저장하고, 중복호출 시 메모리 값을 재활용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">array</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="o">){</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1 0"</span><span class="o">);</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="o">){</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"0 1"</span><span class="o">);</span>
+				<span class="k">continue</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">else</span><span class="o">{</span>
+				<span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+				<span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+					<span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+					<span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]+</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="o">}</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="s">" "</span><span class="o">+</span><span class="n">array</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		
+		
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200312_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶<br />
+평소 이클립스 실행 후 맞으면 백준에 채점하는데, 이클립스 패키지 이름을 지우지 않아서 런타임 에러가 발생했다.</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP의 Bottom-Up방식을  이용한다.</span></strong>
+    <ul>
+      <li>n이 0, 1이라면 이 이상의 계산은 무의미하므로 출력 후 다음 문제로 넘어간다.</li>
+      <li>배열 array는 Memorization기법을 위해 사용되는 메모리이다. array[n+1][2]로 선언하여, 0부터 n까지의 숫자를 피보나치로 계산할 때 0과 1이 호출되는 횟수를 [i][0], [i][1]에 저장한다.</li>
+      <li>n이 0이면 array[0][0]=1을 넣어 n이 0인 경우에는 fib(0)호출이 한 번 일어난다는 것을 알려준다. 이때 fib(1)은 호출되지 않았으므로 array[0][1]=0이다.</li>
+      <li>1도 위와 마찬가지로 하면 array[1][1]=1을 저장하고, n이 2부터 n까지 차례대로 진행하며 array[i][0], array[i][1]에 값을 넣는다.</li>
+      <li>이때 피보나치 공식 fib(n)=fib(n-1)+fib(n-2)에 맞게 array[i][0]=array[i-1][0]+array[i-2][0]으로 구할 수 있다. array[i][1]도 마찬가지이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[BOJ] 백준 1003 - 피보나치 함수 (자바) <a href="https://zoonvivor.tistory.com/157">https://zoonvivor.tistory.com/157</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/백준] 동적 계획법 1: 파도반 수열</title>
+	  <link>/blog//algo-boj9461</link>
+	  <author></author>
+	  <pubDate>2020-03-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj9461</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/9461">https://www.acmicpc.net/problem/9461</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP의 Bottom-Up 방식으로 이용한다.</li>
+  <li>Memorization 기법 사용을 위해 배열을 둔 뒤, 작은 문제부터 해결해내가며 값을 저장하고, 중복호출 시 메모리 값을 재활용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * 
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+		<span class="n">Scanner</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
+		
+		<span class="kt">long</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="mi">101</span><span class="o">];</span>
+		<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">array</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">array</span><span class="o">[</span><span class="mi">3</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">4</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">100</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="o">]+</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="o">];</span>
+		<span class="o">}</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+			<span class="n">n</span><span class="o">=</span><span class="n">input</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">n</span><span class="o">]);</span>
+		<span class="o">}</span>
+		
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200312_4.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶<br />
+처음에는 n을 입력받을 때 마다 새로 array[n+1]를 할당하여 1부터 n까지 구한 후 리턴하였는데, 런타임 에러가 발생하였다. 그래서 array를 100까지 먼저 구한 후, n에 따른 정답을 출력하는 형식으로 바꿨다. 근데 시간초과도 아니고 왜 런타임 에러인지 잘 모르겠다. 그래서 이상한 곳에서 헤맸다^_^..</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">점화식을 도출한다.</span></strong>
+    <ul>
+      <li>1 1 1 2 2 3 4 5 7 9를 보면, f(n)=f(n-2)+f(n-3) 점화식을 유추할 수 잇다.</li>
+      <li>따라서 f(4)부터 값을 계산할 수 있으므로, array[1]=array[2]=array[3]=1로 값을 저장한 후, 4부터 for문으로 Bottom-Up 방식으로 계산한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">100까지 array 값을 먼저 계산한 후, 입력받은 n에 따른 array[n]을 리턴한다.</span></strong></li>
+  <li><strong><span style="color:navy">array는 long타입이어야한다.</span></strong>
+    <ul>
+      <li>int형 배열을 선언하면 100을 넣었을때 음수값이 나오는 것을 통해 오버헤드가 발생했음을 알 수 있다.</li>
+      <li>따라서, long형으로 선언하여 오버헤드를 방지한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>다른사람은 f(n)=f(n-1)+f(n-5) 점화식을 이용했던데, 그것보단 n-2, n-3이 더 알기 쉬운 듯 하다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_도둑질</title>
 	  <link>/blog//algo-prog42897</link>
 	  <author></author>
@@ -198,6 +433,89 @@
 	</item>
 
 	<item>
+	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
+	  <link>/blog//algo-prog42898</link>
+	  <author></author>
+	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42898</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>최단거리 구하는 방법을 적용한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
+            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
+                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
+                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
+                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
+<img src="./assets/images/191203_2.png" alt="실행결과" />
+    <ul>
+      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
+      <li>웅덩이는 -1로 표시한다.</li>
+      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
+    <ul>
+      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
+      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_카드 게임</title>
 	  <link>/blog//algo-prog42896</link>
 	  <author></author>
@@ -294,89 +612,6 @@
   <li>백준 10835번. 카드게임 (Java) <a href="https://bcp0109.tistory.com/54">https://bcp0109.tistory.com/54</a></li>
   <li>[ 백준 11062 ] 카드게임 <a href="https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1">https://wan088.github.io/algorithm/2018/07/15/algo-cardgame/#fn:1</a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 동적계획법(Dynamic Programming)_등굣길</title>
-	  <link>/blog//algo-prog42898</link>
-	  <author></author>
-	  <pubDate>2019-12-03T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42898</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42898">https://programmers.co.kr/learn/courses/30/lessons/42898</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>최단거리 구하는 방법을 적용한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">puddles</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="kt">int</span><span class="o">[][]</span> <span class="n">route</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">m</span><span class="o">];</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">row:</span><span class="n">puddles</span><span class="o">){</span><span class="c1">//웅덩이 설정</span>
-            <span class="n">route</span><span class="o">[</span><span class="n">row</span><span class="o">[</span><span class="mi">1</span><span class="o">]-</span><span class="mi">1</span><span class="o">][</span><span class="n">row</span><span class="o">[</span><span class="mi">0</span><span class="o">]-</span><span class="mi">1</span><span class="o">]=-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="n">route</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span><span class="c1">//시작값 초기화</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//웅덩이는 0으로 변경</span>
-                    <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
-                <span class="o">}</span>
-                <span class="k">else</span><span class="o">{</span><span class="c1">//웅덩이가 아니라면</span>
-                    <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//왼쪽 값을 가져올 수 있다면</span>
-                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                    <span class="o">}</span>
-                    <span class="k">if</span><span class="o">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">){</span><span class="c1">//위 값을 가져올 수 있다면</span>
-                        <span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]+=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                    <span class="o">}</span>
-                <span class="o">}</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">&amp;&amp;</span><span class="n">j</span><span class="o">==</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span><span class="c1">//목적지에 도착했다면</span>
-                    <span class="n">answer</span><span class="o">=</span><span class="n">route</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]%</span><span class="mi">1000000007</span><span class="o">;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191203_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">최단거리 구하는 방법을 적용한다.</span></strong><br />
-<img src="./assets/images/191203_2.png" alt="실행결과" />
-    <ul>
-      <li>시작점을 포함한 행 열은 1로 초기화한다.</li>
-      <li>웅덩이는 -1로 표시한다.</li>
-      <li>현재 위치의 값은 왼쪽값+윗쪽값이다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">마지막에서만 1,000,000,007로 나누면 효율성 테스트에서 시간 초과가 난다.</span></strong>
-    <ul>
-      <li>마지막 행에서 여러 경로에 대한 결과값이 저장되므로 이들 중 최댓값이 answer이다.</li>
-      <li>정확한 이유는 잘 모르겠지만, 큰 값을 더하는 계속 더하는 것보다 그때그때 특정 값으로 나눈 나머지를 사용하여 값을 간단히 하는게 효율적이어서 그런게 아닐까 싶다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>문제 풀이법을 알면 코딩하는 것은 그렇게 어렵지는 않지만 그 풀이법을 생각해내는 것이 어렵다. 초등학교때 배운 이 방법을 기억하고 있지 않았더라면 이 문제를 해결하기 위해 얼마나 많은 시간을 투자했어야 할지..</p>
 
 	  ]]></description>
 	</item>

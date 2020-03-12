@@ -8,6 +8,101 @@
     
       
       <item>
+        <title>[JAVA/백준] 동적 계획법 1: 파도반 수열</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/9461&quot;&gt;https://www.acmicpc.net/problem/9461&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj9461</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj9461</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 동적 계획법 1: 01타일</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1904&quot;&gt;https://www.acmicpc.net/problem/1904&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1904</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1904</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 백트래킹: 스타트와 링크</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14889&quot;&gt;https://www.acmicpc.net/problem/14889&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj14889</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj14889</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 동적 계획법 1: 피보나치 함수</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1003&quot;&gt;https://www.acmicpc.net/problem/1003&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1003</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1003</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Algorithm] 백트래킹(BackTracking)</title>
+        
+          <description>&lt;h2 id=&quot;백트래킹&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;백트래킹&lt;/span&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-backtracking</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-backtracking</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 백트래킹: 연산자 끼워넣기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14888&quot;&gt;https://www.acmicpc.net/problem/14888&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 11 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj14888</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj14888</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/백준] 백트래킹: N-Queen</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
