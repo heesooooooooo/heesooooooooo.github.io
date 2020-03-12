@@ -2,8 +2,8 @@
 layout: post
 cover: 'assets/images/cover7.jpg'
 navigation: True
-title: "[Algorithm] 플로이드 와샬 알고리즘(Floyd-Warshall Algorithm)"
-date: 2019-12-12 00:00:00
+title: "[Algorithm] 백트래킹(BackTracking)"
+date: 2020-03-12 00:00:00
 tags: algorithm
 subclass: 'post tag-algo'
 logo: 'assets/images/ghost.png'
