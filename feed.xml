@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>왜안되는거</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42899&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/42899&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 13 Mar 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/temp</link>
+        <guid isPermaLink="true">http://localhost:4000/temp</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/백준] 동적 계획법 1: 파도반 수열</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
