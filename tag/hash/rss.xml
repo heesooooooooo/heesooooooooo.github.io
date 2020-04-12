@@ -12,6 +12,86 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/백준] 이분 탐색: 숫자 카드 2</title>
+	  <link>/blog//algo-boj10816</link>
+	  <author></author>
+	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj10816</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1920">https://www.acmicpc.net/problem/1920</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>카드 별 갯수도 세어야하므로 해쉬맵을 사용한다.</li>
+  <li>key는 숫자, value는 카드 갯수로 하여 n개의 숫자 카드를 저장한다.</li>
+  <li>m개의 카드를 배열에 저장한 후, 해쉬맵에 있으면 해당 value를 리턴하고, 없으면 0을 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub</span>
+		<span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">temp</span><span class="o">))</span>
+				<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">temp</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">temp</span><span class="o">)+</span><span class="mi">1</span><span class="o">);</span>
+			<span class="k">else</span>
+				<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">temp</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span>
+			<span class="n">input</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">input</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">input</span><span class="o">[</span><span class="n">i</span><span class="o">])+</span><span class="s">" "</span><span class="o">);</span>
+			<span class="k">else</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"0 "</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200410_3.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">해쉬맵을 사용한다</span></strong>
+    <ul>
+      <li>n개의 카드와 그 갯수를 모두 저장해야하므로 처음에는 클래스를 하나 만들거나, 인덱스를 카드 번호로 하고 원소값을 카드 숫자로 하여 계산할까 하다가, 그러면 n개의 카드를 저장하는 과정에서 해당 숫자가 이전에 저장되었는지 또 확인하는 것이 번거로워 해쉬맵을 사용하기로 했다.</li>
+      <li>해쉬맵은 key가 중복되지 않게 저장하고 value에 해당 갯수를 저장할 수 있다.</li>
+      <li>m개의 숫자 카드를 array에 저장한 후, 해쉬맵에 해당 key가 존재하면 그 value를 출력하고, 없으면 0을 출력한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<ul>
+  <li>문제 분류는 이분 탐색이었기 때문에 다른 사람들이 짠 코드를 확인해보았는데, 인덱스를 카드 번호로 하여 구현한 경우가 많았다.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 해시_베스트앨범</title>
 	  <link>/blog//algo-prog42579</link>
 	  <author></author>

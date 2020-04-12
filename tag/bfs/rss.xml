@@ -12,6 +12,116 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/백준] DFS와 BFS: DFS와 BFS</title>
+	  <link>/blog//algo-boj1260</link>
+	  <author></author>
+	  <pubDate>2020-04-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj1260</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1260">https://www.acmicpc.net/problem/1260</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>dfs, bfs를 구현한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">graph</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">s</span><span class="o">])</span> <span class="k">return</span><span class="o">;</span>
+		
+		<span class="n">visit</span><span class="o">[</span><span class="n">s</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">s</span><span class="o">+</span><span class="s">" "</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">visit</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span>
+			<span class="k">if</span><span class="o">(!</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]&amp;&amp;</span><span class="n">graph</span><span class="o">[</span><span class="n">s</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">)</span>
+				<span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+		<span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+		<span class="n">visit</span><span class="o">[</span><span class="n">s</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">now</span><span class="o">+</span><span class="s">" "</span><span class="o">);</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">visit</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">graph</span><span class="o">[</span><span class="n">now</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">&amp;&amp;!</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+					<span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+					<span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub</span>
+		<span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">v</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="n">graph</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+		<span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">graph</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+			<span class="n">graph</span><span class="o">[</span><span class="n">y</span><span class="o">][</span><span class="n">x</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span>
+		
+		<span class="n">dfs</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">visit</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+		<span class="n">bfs</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200412_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">그래프 탐색을 위해 필요한 변수들을 만든다</span></strong>
+    <ul>
+      <li>graph는 노드 간의 연결을 저장한다.</li>
+      <li>visit는 노드의 방문여부를 저장한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">DFS를 구현한다</span></strong>
+    <ul>
+      <li>DFS는 깊이 우선 탐색으로 현재 노드에 연결된 노드들의 탐색을 끝낸 후 다음 노드로 이동한다.</li>
+      <li>재귀로 현재 노드에서 연결된 노드들 중에 방문하지 않은 곳을 탐색한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">BFS를 구현한다</span></strong>
+    <ul>
+      <li>BFS는 너비 우선 탐색으로 현재 레벨에 있는 노드들을 모두 탐색한 후 다음 레벨로 넘어간다.</li>
+      <li>큐를 사용하여 현재 노드에 연결된 노드들 중 방문하지 않은 노드들을 저장하고, 넣은 순서대로 탐색한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 그래프_가장 먼 노드</title>
 	  <link>/blog//algo-prog49189</link>
 	  <author></author>
