@@ -1016,7 +1016,7 @@ body.nav-opened .nav {
 .post {
     position: relative;
     width: 80%;
-    max-width: 750px;/*포스트 내용 폭*/
+    max-width: 816px;/*포스트 내용 폭*/
     margin: 4rem auto;
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;

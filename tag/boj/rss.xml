@@ -565,7 +565,7 @@
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -597,38 +597,38 @@
 30
 31
 32
-</pre></td><td class="code"><pre><span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="nf">util</span><span class="o">.</span><span class="no">Scanner</span><span class="p">;</span>
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
-<span class="sr">/**
+<span class="cm">/**
  * @author HEESOO
  *
  */</span>
-<span class="kp">public</span> <span class="k">class</span> <span class="nc">Main</span> <span class="p">{</span>
-	<span class="kp">public</span> <span class="n">static</span> <span class="n">int</span> <span class="n">gcd</span><span class="p">(</span><span class="n">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">b</span><span class="p">;</span>
-		<span class="k">else</span> <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="kp">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="no">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-		<span class="sr">//</span> <span class="no">TODO</span> <span class="no">Auto</span><span class="o">-</span><span class="n">generated</span> <span class="nb">method</span> <span class="n">stub</span>
-		<span class="no">Scanner</span> <span class="nb">scan</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Scanner</span><span class="p">(</span><span class="no">System</span><span class="p">.</span><span class="nf">in</span><span class="p">);</span>
-		<span class="n">int</span> <span class="n">t</span><span class="o">=</span><span class="nb">scan</span><span class="p">.</span><span class="nf">nextInt</span><span class="p">();</span>
-		<span class="k">for</span><span class="p">(</span><span class="n">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">int</span> <span class="n">n</span><span class="o">=</span><span class="nb">scan</span><span class="p">.</span><span class="nf">nextInt</span><span class="p">();</span>
-			<span class="n">int</span><span class="p">[]</span> <span class="n">array</span><span class="o">=</span><span class="n">new</span> <span class="n">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-			<span class="k">for</span><span class="p">(</span><span class="n">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="nb">scan</span><span class="p">.</span><span class="nf">nextInt</span><span class="p">();</span>
-			<span class="p">}</span>
-			<span class="n">long</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-			<span class="k">for</span><span class="p">(</span><span class="n">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">for</span><span class="p">(</span><span class="n">int</span> <span class="n">k</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-					<span class="n">sum</span><span class="o">+=</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">array</span><span class="p">[</span><span class="n">k</span><span class="p">]?</span> <span class="n">gcd</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">k</span><span class="p">]):</span><span class="n">gcd</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">gcd</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">b</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">return</span> <span class="nf">gcd</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub</span>
+		<span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="o">}</span>
+			<span class="kt">long</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+					<span class="n">sum</span><span class="o">+=</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]&gt;</span><span class="n">array</span><span class="o">[</span><span class="n">k</span><span class="o">]?</span> <span class="n">gcd</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">],</span> <span class="n">array</span><span class="o">[</span><span class="n">k</span><span class="o">]):</span><span class="n">gcd</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">k</span><span class="o">],</span> <span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
 			
-			<span class="no">System</span><span class="p">.</span><span class="nf">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200424_3.PNG" alt="실행결과" />
