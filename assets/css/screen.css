@@ -135,6 +135,20 @@ td, th{ border: 1px solid #000;padding: 0; }
    font-weight: normal;
    font-style: normal;
 }
+@font-face {
+    font-family: 'D2Coding';
+    src: url('../fonts/D2Coding-Ver1.3.2-20180524.ttf?v=4');
+    src: url('../fonts/D2Coding-Ver1.3.2-20180524.ttf?v=4') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+ }
+ @font-face {
+    font-family: 'D2CodingBold';
+    src: url('../fonts/D2CodingBold-Ver1.3.2-20180524?v=5');
+    src: url('../fonts/D2CodingBold-Ver1.3.2-20180524?v=5') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+ }
 
 /* Apply these base styles to all icons */
 [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -363,7 +377,7 @@ mark {
 
 code, tt {/*^^*/
     padding: 1px 3px;
-    font-family:  Consolas, Inconsolata, monospace, sans-serif;
+    font-family: D2Coding, Consolas, Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
     border: #E3EDF3 1px solid;
@@ -376,16 +390,16 @@ code, tt {/*^^*/
 
 pre {
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     margin: 0 0 1.75em 0;
-    border: #E3EDF3 1px solid;
+    border: #E3EDF3/* 1px solid*/;
     width: 100%;
     padding: 10px;
-    font-family:  Inconsolata, monospace, sans-serif;
+    font-family: D2Coding, monospace, sans-serif;
     font-size: 0.9em;
     white-space: pre;
     overflow: auto;
-    background: #F7FAFB;
+    background: #000/*#F7FAFB*/;
     border-radius: 3px;
 }
 

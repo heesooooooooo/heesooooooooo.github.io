@@ -1,4 +1,7 @@
-.highlight table td { padding: 5px; }
+.highlight table td {
+  padding: 1px;
+  border: #EFEFEF;
+}
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
   color: #d0d0d0;
@@ -9,7 +12,7 @@
   background-color: #ac4142;
 }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #d0d0d0;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -20,8 +23,8 @@
 .highlight .o, .highlight .ow {
   color: #d0d0d0;
 }
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
+.highlight .p, .highlight .pi, .highlight .n, .highlight .nl {
+  color: #efdcc2;
 }
 .highlight .gi {
   color: #90a959;
@@ -41,10 +44,10 @@
   color: #d28445;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #45d291;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #9699f6;
 }
 .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #90a959;
@@ -74,5 +77,15 @@
   color: #90a959;
 }
 .highlight .ss {
+  color: #90a959;
+}
+/* add */
+.highlight .hljs-title{
+  color: #f696db;
+}
+.highlight .hljs-number{
+  color: #dbe9f0;
+}
+.highlight .hljs-type, .highlight .hljs-string, .highlight .hljs-selector-id, .highlight .hljs-selector-class, .highlight .hljs-quote, .highlight .hljs-template-tag, .highlight .hljs-deletion {
   color: #90a959;
 }
