@@ -12,6 +12,189 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 이분 그래프</title>
+	  <link>/blog//algo-boj1707</link>
+	  <author></author>
+	  <pubDate>2020-05-02T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj1707</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/1707">https://www.acmicpc.net/problem/1707</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>이분 그래프란 인접한 정점을 나와 다른 색으로 칠하는 방식으로 모든 그래프를 두 가지 색으로만 칠할 수 있는 그래프를 뜻한다.</li>
+  <li>따라서 visit[]배열을 방문하는 개념과 동시에 색깔을 부여하여, 두 가지 색으로 모두 방문할 수 있다면 YES를, 아니라면 NO를 출력한다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">v</span><span class="o">,</span> <span class="n">e</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">color</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">RED</span><span class="o">=</span><span class="mi">1</span><span class="o">,</span> <span class="n">BLUE</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="n">String</span> <span class="n">answer</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">idx</span><span class="o">);</span>
+		<span class="n">color</span><span class="o">[</span><span class="n">idx</span><span class="o">]=</span><span class="n">RED</span><span class="o">;</span>
+		
+		<span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">node</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">i:</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">node</span><span class="o">))</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">nodeColor</span><span class="o">=</span><span class="n">color</span><span class="o">[</span><span class="n">node</span><span class="o">];</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">color</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">color</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">nodeColor</span><span class="o">*-</span><span class="mi">1</span><span class="o">;</span>
+					<span class="n">q</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+				<span class="o">}</span>
+				<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">color</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="n">nodeColor</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">answer</span><span class="o">=</span><span class="s">"NO"</span><span class="o">;</span>
+					<span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="n">answer</span><span class="o">=</span><span class="s">"YES"</span><span class="o">;</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub</span>
+		<span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">answer</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+			<span class="n">v</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">e</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">v</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;());</span>
+			<span class="o">}</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">e</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span>
+				<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+				<span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="n">color</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">v</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">v</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">color</span><span class="o">[</span><span class="n">j</span><span class="o">]==</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="kt">boolean</span> <span class="n">chk</span><span class="o">=</span><span class="n">bfs</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+					<span class="k">if</span><span class="o">(!</span><span class="n">chk</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200502_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">BFS를 이용한다</span></strong>
+    <ul>
+      <li>나와 연결된 노드들의 색깔이 나와 다른지 확인해야하므로 DFS보다는 BFS가 편할 것 같다.</li>
+      <li>2차원 배열을 이용하여 문제를 풀면 메모리 초과가 발생하므로 ArrayList를 이용한다.</li>
+      <li>ArrayList안에 인덱스 별로 자신과 연결된 노드들을 ArrayList로 저장한다.</li>
+      <li>입력받는 노드들은 하나의 그래프라는 조건이 없으므로 for문을 통해 모든 노드들을 탐색하며 방문하지 않은 곳에서는 다시 bfs를 확인하도록 한다.</li>
+      <li>color[]는 노드의 색깔을 저장하며, 0은 아직 방문하지 않은 곳, 1은 RED, -1은 BLUE이다.</li>
+      <li>bfs()에서 파라미터 idx를 받아 노드 idx에 RED를 부여한다. 이후 idx와 연결된 노드들이 저장되어있는 list.get(idx)의 값들을 확인하며 나와 다른 색을 가지고 있는지 확인한다. color[i]==0은 방문하지 않은 곳이므로 나와 다른 색을 주고 큐에 넣어 이후 다시 체크하게 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>이분 그래프 [백준 1707][골드4][Java] <a href="https://toastfactory.tistory.com/115">https://toastfactory.tistory.com/115</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/백준] DFS와 BFS: 벽 부수고 이동하기</title>
 	  <link>/blog//algo-boj2206</link>
 	  <author></author>
