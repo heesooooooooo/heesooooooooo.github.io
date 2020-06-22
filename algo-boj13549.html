@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수</title>
+    <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3</title>
     <meta name="description" content="(◍•ᴗ•◍)" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//algo0-boj11724" />
+        <link rel="canonical" href="http://localhost:4000/blog//algo-boj13549" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수" />
+    <meta property="og:title" content="[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3" />
     <meta property="og:description" content="(◍•ᴗ•◍)" />
-    <meta property="og:url" content="http://localhost:4000/blog//algo0-boj11724" />
+    <meta property="og:url" content="http://localhost:4000/blog//algo-boj13549" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수" />
+    <meta name="twitter:title" content="[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3" />
     <meta name="twitter:description" content="(◍•ᴗ•◍)" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//algo0-boj11724" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//algo-boj13549" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수",
-    "url": "http://localhost:4000/blog//algo0-boj11724",
+    "name": "[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3",
+    "url": "http://localhost:4000/blog//algo-boj13549",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "(◍•ᴗ•◍)"
 }
@@ -118,7 +118,7 @@
     <article class="post tag-boj">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수</h1>
+            <h1 class="post-title">[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -137,7 +137,7 @@
             
                 
             
-            <time class="post-date" datetime="2020-05-02">02 May 2020</time>
+            <time class="post-date" datetime="2020-06-21">21 Jun 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -157,13 +157,13 @@
         <section class="post-content">
 
             <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://www.acmicpc.net/problem/11724">https://www.acmicpc.net/problem/11724</a></p>
+<p><a href="https://www.acmicpc.net/problem/13549">https://www.acmicpc.net/problem/13549</a></p>
 
 <h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
-  <li>연결 요소는 그래프의 개수와 같다. 따라서 DFS로 그래프 탐색 후 개별 그래프의 갯수를 구하면 된다.</li>
+  <li>BFS를 이용하여 수빈이가 방문할 수 있는 곳들을 큐에 넣고 동생과 만날 때 까지의 최단거리를 탐색한다.</li>
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
@@ -211,62 +211,81 @@
 41
 42
 43
-</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+44
+45
+46
+47
+48
+49
+50
+51
+52
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
 <span class="cm">/**
  * @author HEESOO
  *
  */</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-	<span class="kd">static</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="n">m</span><span class="o">;</span>
-	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">array</span><span class="o">;</span>
-	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">;</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">)</span> <span class="o">{</span>
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-			<span class="k">if</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">idx</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-				<span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
-				<span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">bfs</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100001</span><span class="o">];</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">visit</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+		<span class="n">visit</span><span class="o">[</span><span class="n">n</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+		
+		<span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">now</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span> <span class="c1">//내 위치</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">now</span><span class="o">==</span><span class="n">k</span><span class="o">)</span> <span class="k">return</span> <span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">];</span> <span class="c1">// 동생 찾음</span>
+			
+			<span class="c1">// 순간이동할 수 있는 곳 다 찾기</span>
+			<span class="kt">int</span> <span class="n">temp</span><span class="o">=</span><span class="n">now</span><span class="o">*</span><span class="mi">2</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">temp</span><span class="o">&lt;=</span><span class="mi">100000</span> <span class="o">&amp;&amp;</span> <span class="n">visit</span><span class="o">[</span><span class="n">temp</span><span class="o">]==-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">visit</span><span class="o">[</span><span class="n">temp</span><span class="o">]=</span><span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">];</span>
+				<span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">temp</span><span class="o">);</span>
+				<span class="n">temp</span><span class="o">*=</span><span class="mi">2</span><span class="o">;</span>
 			<span class="o">}</span>
+			
+			<span class="c1">// 1초 후</span>
+			<span class="k">if</span><span class="o">(</span><span class="mi">0</span><span class="o">&lt;=</span><span class="n">now</span><span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">-</span><span class="mi">1</span><span class="o">]==-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">-</span><span class="mi">1</span><span class="o">]=</span><span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">]+</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">now</span><span class="o">-</span><span class="mi">1</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;=</span><span class="mi">100000</span> <span class="o">&amp;&amp;</span> <span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="o">]==-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="o">]=</span><span class="n">visit</span><span class="o">[</span><span class="n">now</span><span class="o">]+</span><span class="mi">1</span><span class="o">;</span>
+				<span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+			<span class="o">}</span>
+			
 		<span class="o">}</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
 	<span class="o">}</span>
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 		<span class="c1">// TODO Auto-generated method stub</span>
-		<span class="n">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-		<span class="n">n</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-		<span class="n">m</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-		<span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-		<span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
-			<span class="n">array</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
-			<span class="n">array</span><span class="o">[</span><span class="n">b</span><span class="o">][</span><span class="n">a</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
-		<span class="o">}</span>
+		<span class="n">Scanner</span> <span class="n">scan</span><span class="o">=</span><span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">scan</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
 		
-		<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-			<span class="n">cnt</span><span class="o">++;</span>
-			<span class="n">dfs</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bfs</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">k</span><span class="o">));</span>
 		
-		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200502_1.PNG" alt="실행결과" />
+<p><img src="./assets/images/200621_1.PNG" alt="실행결과" />
 성공٩(˘◊˘)۶</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
-  <li><strong><span style="color:navy">DFS를 이용한다</span></strong>
+  <li><strong><span style="color:navy">BFS를 이용한다</span></strong>
     <ul>
-      <li>노드는 1부터 시작하므로 array, visit는 n+1의 길이를 가져야 한다.</li>
-      <li>DFS를 이용하여 노드를 탐색한다. main에서 모든 노드들을 체크하며 방문하지 않은 곳에서 탐색을 시작한다. 탐색을 시작할 때에는 cnt를 늘려 시작 노드의 개수를 체크해야한다.</li>
-      <li>DFS에서는 최단 거리를 구하는 것이 목적이 아니므로 visit[i]=true한 값을 false로 바꿀 필요는 없다.</li>
-      <li>시작 노드들의 개수 cnt를 출력한다.</li>
+      <li>최소 시간을 리턴해야하므로 BFS를 이용하여 n에서 k에 도착하는 최단 경로를 찾는다.</li>
+      <li>visit[]는 방문한 노드를 체크하는 배열로, 인덱스는 수빈이의 위치, 해당 값은 그 노드에 방문했을 때의 시간을 뜻한다.</li>
+      <li>큐에는 내가 방문한 곳을 넣고, 그 위치가 k와 같다면 동생을 찾은 것이므로 해당 값을 리턴한다.</li>
+      <li>x초 일 때, 순간 이동은 0초만에 2now로 방문할 수 있기 때문에 while문을 돌려 순간 이동 할 수 있는 곳들을 모두 찾은 후 큐에 넣는다. 순간 이동을 할 경우 최단 거리를 찾을 수 있을 가능성이 커지므로 now-1, now+1보다 먼저 넣어 빨리 탐색할 수 있는 우선순위를 준다.</li>
+      <li>이후 1초 후에 방문할 수 있는 now-1, now+1의 범위를 체크한 후 방문하지 않은 곳이르면 큐에 넣어 차후에 다시 확인할 수 있게 한다.</li>
     </ul>
   </li>
 </ol>
@@ -304,15 +323,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수&amp;url=http://localhost:4000algo0-boj11724"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3&amp;url=http://localhost:4000algo-boj13549"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo0-boj11724"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-boj13549"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo0-boj11724"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-boj13549"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -343,13 +362,20 @@
 
     <!-- [[! next_post ]] -->
     
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj3055">
+            <section class="post">
+                <h2>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 탈출</h2>
+                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. S에서 D까지의 최단 거리를...</p>
+            </section>
+        </a>
+    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj4963">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj1261">
             <section class="post">
-                <h2>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 섬의 개수</h2>
-                <p>문제 https://www.acmicpc.net/problem/4963 ( ᐛ )و 도전 1. 설계 DFS를 이용하여 상하좌우 대각선으로 이동한다. 연결되지 않은...</p>
+                <h2>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 알고스팟</h2>
+                <p>문제 https://www.acmicpc.net/problem/1261 ( ᐛ )و 도전 1. 설계 BFS를 이용하는 대신, 일반 큐가 아닌 우선순위큐를...</p>
             </section>
         </a>
     

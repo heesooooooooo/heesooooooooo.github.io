@@ -8,17 +8,49 @@
     
       
       <item>
-        <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수</title>
+        <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 탈출</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11724&quot;&gt;https://www.acmicpc.net/problem/11724&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/3055&quot;&gt;https://www.acmicpc.net/problem/3055&lt;/a&gt;&lt;/p&gt;
 
 </description>
         
-        <pubDate>Sat, 02 May 2020 09:00:00 +0900</pubDate>
+        <pubDate>Mon, 22 Jun 2020 09:00:00 +0900</pubDate>
         <link>
-        http://localhost:4000/algo0-boj11724</link>
-        <guid isPermaLink="true">http://localhost:4000/algo0-boj11724</guid>
+        http://localhost:4000/algo-boj3055</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj3055</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 숨바꼭질 3</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/13549&quot;&gt;https://www.acmicpc.net/problem/13549&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 21 Jun 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj13549</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj13549</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 알고스팟</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1261&quot;&gt;https://www.acmicpc.net/problem/1261&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 21 Jun 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1261</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1261</guid>
       </item>
       
     
@@ -51,6 +83,22 @@
         <link>
         http://localhost:4000/algo-boj1707</link>
         <guid isPermaLink="true">http://localhost:4000/algo-boj1707</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] SW 역량 테스트 준비-기초 | 그래프와 BFS: 연결 요소의 개수</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11724&quot;&gt;https://www.acmicpc.net/problem/11724&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 02 May 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj11724</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj11724</guid>
       </item>
       
     
