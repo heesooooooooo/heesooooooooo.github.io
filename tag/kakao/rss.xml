@@ -12,6 +12,165 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 괄호 변환</title>
+	  <link>/blog//algo-prog60058</link>
+	  <author></author>
+	  <pubDate>2020-08-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog60058</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/60058">https://programmers.co.kr/learn/courses/30/lessons/60058</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>문제에 주어진 알고리즘대로 진행한다.</li>
+  <li>이때 u는 문자열 w의 처음부터 확인하여 처음으로 올바른 문자열인 곳에서 자른다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">()==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="s">""</span><span class="o">;</span>
+		
+		<span class="kt">int</span> <span class="n">idx</span><span class="o">=</span><span class="n">splitIdx</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+		<span class="n">String</span> <span class="n">u</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">idx</span><span class="o">);</span>
+		<span class="n">String</span> <span class="n">v</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">idx</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+		
+		<span class="k">if</span><span class="o">(</span><span class="n">isCorrect</span><span class="o">(</span><span class="n">u</span><span class="o">))</span> <span class="k">return</span> <span class="n">u</span><span class="o">+</span><span class="n">solution</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+		
+		<span class="n">String</span> <span class="n">result</span><span class="o">=</span><span class="s">"("</span><span class="o">+</span><span class="n">solution</span><span class="o">(</span><span class="n">v</span><span class="o">)+</span><span class="s">")"</span><span class="o">;</span>
+		<span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">u</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">result</span><span class="o">+</span><span class="n">reverse</span><span class="o">(</span><span class="n">u</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">splitIdx</span><span class="o">(</span><span class="n">String</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">open</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">close</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="sc">'('</span><span class="o">)</span> <span class="n">open</span><span class="o">++;</span>
+			<span class="k">else</span> <span class="n">close</span><span class="o">++;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">open</span><span class="o">==</span><span class="n">close</span><span class="o">)</span> <span class="k">return</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isCorrect</span><span class="o">(</span><span class="n">String</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Stack</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="sc">'('</span><span class="o">)</span> <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="sc">'('</span><span class="o">);</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">reverse</span><span class="o">(</span><span class="n">String</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">result</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">p</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)==</span><span class="sc">'('</span><span class="o">)</span> <span class="n">result</span><span class="o">+=</span><span class="s">")"</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">result</span><span class="o">+=</span><span class="s">"("</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200814_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">splitIdx()로 u와 v를 나눈다</span></strong>
+    <ul>
+      <li>splitIdx()는 문자열 w에서 u와 v를 나누는 인덱스를 리턴한다.</li>
+      <li>’(‘와 ‘)’가 같은 개수가 될 때 그 인덱스를 리턴하여 그 다음 인덱스를 리턴하여 u를 substring으로 자를 수 있게 한다.</li>
+      <li>’(‘와 ‘)’의 개수가 같지 않다면 균형잡힌 괄호가 아니므로 p.length()를 리턴하고, 더 이상 분리할 수 없으므로 u는 w가 된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">isCorrect()로 올바른 문자열인지 확인한다</span></strong>
+    <ul>
+      <li>스택을 이용하여 ‘(‘와 ‘)’가 올바른 문자열인지 확인한다.</li>
+      <li>’(‘인 경우 스택에 집어놓고 ‘)’일 때 하나씩 뺀다.</li>
+      <li>’)’인데 스택안에 값이 없을 경우 올바른 문자열이 아니므로 false를 리턴한다.</li>
+      <li>for문을 빠져나온 후 스택이 비었다면 true를 리턴한다.</li>
+      <li>isCorrect()에서 true를 리턴받았다면 올바른 문자열이므로 u에 v에 대한 알고리즘을 수행한 값을 붙여 리턴한다.</li>
+      <li>아닐 경우, 알고리즘 4번에 따라 진행한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">reverse()로 문자열 괄호 방향을 뒤집는다</span></strong>
+    <ul>
+      <li>’(‘이면 ‘)’로 바꾸고, ‘)’면 ‘(‘로 바꿔 문자열을 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[ 프로그래머스- 2020 카카오 공채] 괄호 변환 (java) <a href="https://keepgoing0328.tistory.com/entry/2020%EC%B9%B4%EC%B9%B4%EC%98%A4-%EA%B3%B5%EC%B1%84-%EA%B4%84%ED%98%B8-%EB%B3%80%ED%99%98-%EC%9E%90%EB%B0%94">https://keepgoing0328.tistory.com/entry/2020%EC%B9%B4%EC%B9%B4%EC%98%A4-%EA%B3%B5%EC%B1%84-%EA%B4%84%ED%98%B8-%EB%B3%80%ED%99%98-%EC%9E%90%EB%B0%94</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 다트게임</title>
 	  <link>/blog//algo-prog17682</link>
 	  <author></author>
