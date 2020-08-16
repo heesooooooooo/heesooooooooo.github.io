@@ -12,6 +12,134 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/자료구조] 트라이 (Trie)</title>
+	  <link>/blog//java-trie</link>
+	  <author></author>
+	  <pubDate>2020-08-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-trie</guid>
+	  <description><![CDATA[
+	     <h2 id="트라이"><span style="color:navy">트라이</span></h2>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/200816_3.png" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>정렬된 트리 구조이다.</li>
+  <li>자식노드를 맵&lt;key, value&gt; 형태로 가지고 있다.</li>
+  <li>루트를 제외한 노드의 자손들은 해당 노드와 공통 접두어를 가진다.</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Trie</span><span class="o">{</span>
+	<span class="n">Node</span> <span class="n">root</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">Trie</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span> <span class="n">root</span><span class="o">=</span><span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Node</span> <span class="n">node</span> <span class="n">root</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">node</span><span class="o">.</span><span class="na">count</span><span class="o">++;</span>
+			<span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">c</span><span class="o">-&gt;</span><span class="k">new</span> <span class="n">Node</span><span class="o">());</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Node</span> <span class="n">node</span><span class="o">=</span><span class="n">root</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">query</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(!</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">count</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+	<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">,</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">children</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">Node</span><span class="o">(){</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">Node</code>
+    <ul>
+      <li>자식노드는 HashMap에 저장된다.</li>
+      <li>현재 노드까지의 같은 접두사를 가지는 노드의 개수를 count에 저장한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public void insert(String word)</code>
+    <ul>
+      <li>역할: word를 트라이에 저장한다.</li>
+      <li>computeIfAbsent()를 통해 word.charAt(i)가 node.children에 없다면 해시맵에 넣은 후, 해당 노드로 이동한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int getCount(String query)</code>
+    <ul>
+      <li>역할: query가 존재한다면, 그 개수를 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li>[자료구조] Trie(트라이)-1 : 기초 개념 <a href="https://the-dev.tistory.com/2">https://the-dev.tistory.com/2</a></li>
+  <li>[자료구조] Trie(트라이)-2 : 자바로 구현하기 <a href="https://the-dev.tistory.com/3">https://the-dev.tistory.com/3</a></li>
+  <li>코딩테스트 연습 2020 KAKAO BLIND RECRUITMENT 가사 검색 <a href="https://programmers.co.kr/learn/courses/30/lessons/60060">https://programmers.co.kr/learn/courses/30/lessons/60060</a></li>
+  <li>(코테에 쓴 코드를 복붙한 거라 해당 코드는 정석이 아니다.)</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/자료구조] 배열: Arrays와 Collections을 이용한 오름차순 내림차순 정렬</title>
 	  <link>/blog//java-array01</link>
 	  <author></author>

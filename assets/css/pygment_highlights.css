@@ -89,3 +89,6 @@
 .highlight .hljs-type, .highlight .hljs-string, .highlight .hljs-selector-id, .highlight .hljs-selector-class, .highlight .hljs-quote, .highlight .hljs-template-tag, .highlight .hljs-deletion {
   color: #90a959;
 }
+.highlight .nf{
+  color: #96A5ff;
+}
