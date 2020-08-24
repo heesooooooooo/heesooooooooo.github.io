@@ -1,24 +1,162 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html>
+<head https://www.w3.org/2005/10/howto-favicon>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-   
-      <title>iamheesoo.github.io/blog/</title>
-   
-   <link>http://localhost:4000</link>
-   <description>(◍•ᴗ•◍)</description>
-   <language>utf-8</language>
-   <managingEditor> </managingEditor>
-   <atom:link href="rss" rel="self" type="application/rss+xml" />
-   
-	<item>
-	  <title>[Android] 안드로이드 앱 프로그래밍</title>
-	  <link>/blog//android01</link>
-	  <author></author>
-	  <pubDate>2020-08-23T09:00:00+09:00</pubDate>
-	  <guid>/blog//android01</guid>
-	  <description><![CDATA[
-	     <hr />
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Page Meta -->
+    <title>[Android] 안드로이드 앱 프로그래밍</title>
+    <meta name="description" content="(◍•ᴗ•◍)" />
+
+    <!-- Mobile Meta -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Brand icon -->
+    <link rel="shortcut icon" href="/blog/assets/images/favicon.ico" >
+
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/syntax.css" />
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!-- Ghost outputs important style and meta data with this tag -->
+        <link rel="canonical" href="http://localhost:4000/blog//android01" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/blog/page2/" />
+
+    <meta property="og:site_name" content="...Developing..." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Android] 안드로이드 앱 프로그래밍" />
+    <meta property="og:description" content="(◍•ᴗ•◍)" />
+    <meta property="og:url" content="http://localhost:4000/blog//android01" />
+    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Android] 안드로이드 앱 프로그래밍" />
+    <meta name="twitter:description" content="(◍•ᴗ•◍)" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//android01" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "...Developing...",
+    "name": "[Android] 안드로이드 앱 프로그래밍",
+    "url": "http://localhost:4000/blog//android01",
+    "image": "/blog/assets/images/cover4.jpg",
+    "description": "(◍•ᴗ•◍)"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="...Developing..." href="/blog/feed.xml" />
+
+
+</head>
+<body class="home-template nav-closed">
+
+    <!-- The blog navigation links -->
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+      <!-- home, boj, etc-->
+        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
+        <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL/프로그래머스</a></li>
+        <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li>
+
+        <li class="nav-git " role="presentation"><a href="/blog/tags">Tags</a></li>
+
+        <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li>
+        <li class="nav-about " role="presentation"><a href="/blog/about">About::HEESOO</a></li>
+        <!--
+          <li class="nav-heesoo " role="presentation"><a href="/blog/author/heesoo">HEESOO</a></li>
+          -->
+    </ul>
+    <a class="subscribe-button icon-feed" href="/blog/feed.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-etc">
+
+        <header class="post-header">
+            <h1 class="post-title">[Android] 안드로이드 앱 프로그래밍</h1>
+            <section class="post-meta">
+            <!-- <a href='/blog/'></a> -->
+
+            
+                
+                    <a href='/blog/author/heesoo'>HEESOO</a>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            <time class="post-date" datetime="2020-08-23">23 Aug 2020</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/blog/tag/etc'>Etc</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/android'>Android</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <hr />
 
 <h1 id="1-레이아웃">1. 레이아웃</h1>
 <ul>
@@ -945,54 +1083,122 @@
   <li>안드로이드 앱 프로그래밍 6판 (정재곤, 이지스퍼블리싱)</li>
 </ul>
 
-	  ]]></description>
-	</item>
 
-	<item>
-	  <title>[LINUX] 유용했던 링크들</title>
-	  <link>/blog//etc-link</link>
-	  <author></author>
-	  <pubDate>2020-02-27T09:00:00+09:00</pubDate>
-	  <guid>/blog//etc-link</guid>
-	  <description><![CDATA[
-	     <h4 id="-1-how-to-receive-data-from-bluetooth-device-using-nodejs-"><span style="color:navy"> 1. how to receive data from bluetooth device using node.js </span></h4>
-<p><a href="https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js">https://stackoverflow.com/questions/47764906/how-to-receive-data-from-bluetooth-device-using-node-js</a></p>
-<h4 id="-2-node-bluetooth-"><span style="color:navy"> 2. node-bluetooth </span></h4>
-<p><a href="https://www.npmjs.com/package/node-bluetooth">https://www.npmjs.com/package/node-bluetooth</a></p>
-<h4 id="-3-noble-"><span style="color:navy"> 3. noble </span></h4>
-<p><a href="https://www.npmjs.com/package/noble">https://www.npmjs.com/package/noble</a></p>
-<h4 id="-4-node-xiaomi-scale-"><span style="color:navy"> 4. node-xiaomi-scale </span></h4>
-<p><a href="https://www.npmjs.com/package/node-xiaomi-scale">https://www.npmjs.com/package/node-xiaomi-scale</a></p>
-<h4 id="-5-xiaomi_mi_scale-"><span style="color:navy"> 5. xiaomi_mi_scale </span></h4>
-<p><a href="https://github.com/lolouk44/xiaomi_mi_scale">https://github.com/lolouk44/xiaomi_mi_scale</a></p>
-<h4 id="-6-컴포넌트-"><span style="color:navy"> 6. 컴포넌트 </span></h4>
-<p><a href="https://kr.vuejs.org/v2/guide/components.html">https://kr.vuejs.org/v2/guide/components.html</a></p>
-<h4 id="-7-electron--vuejs-애플리케이션-만들기-"><span style="color:navy"> 7. Electron + Vue.js 애플리케이션 만들기 </span></h4>
-<p><a href="https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/">https://hsoh1990.github.io/2019/01/19/electron-vue-tutorial/</a></p>
-<h4 id="-8-electron-0-일렉트론뷰로-우아한-데스크탑-앱-만들기-기초-"><span style="color:navy"> 8. Electron 0 일렉트론뷰로 우아한 데스크탑 앱 만들기 기초 </span></h4>
-<p><a href="https://fkkmemi.github.io/electron/electron-00-intro/">https://fkkmemi.github.io/electron/electron-00-intro/</a></p>
-<h4 id="-9-node-nodejs-버전-관리하기-설치-업데이트-다운그레이드-"><span style="color:navy"> 9. [Node] Node.js 버전 관리하기 (설치, 업데이트, 다운그레이드) </span></h4>
-<p><a href="https://brownbears.tistory.com/423">https://brownbears.tistory.com/423</a></p>
-<h4 id="-10-linux-electron-error-while-loading-shared-libraries-libgconf-2so4-1518-"><span style="color:navy"> 10. Linux: ./electron: error while loading shared libraries: libgconf-2.so.4 #1518 </span></h4>
-<p><a href="https://github.com/electron/electron/issues/1518">https://github.com/electron/electron/issues/1518</a></p>
-<h4 id="-11-리눅스에서-압축하기-압축풀기-tar-"><span style="color:navy"> 11. 리눅스에서 압축하기, 압축풀기 (tar) </span></h4>
-<p><a href="https://ngee.tistory.com/215">https://ngee.tistory.com/215</a></p>
+        </section>
 
-	  ]]></description>
-	</item>
+        <footer class="post-footer">
 
-	<item>
-	  <title>첫 포스팅</title>
-	  <link>/blog//first-posting</link>
-	  <author></author>
-	  <pubDate>2019-06-14T09:00:00+09:00</pubDate>
-	  <guid>/blog//first-posting</guid>
-	  <description><![CDATA[
-	     <p>6월 14일 첫 포스팅&amp;블로그 수정 중</p>
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/blog/author/heesoo" style="background-image: url(/blog/assets/images/casper.png)"><span class="hidden">heesoo's Picture</span></a>
+                        </figure>
+                    
 
-	  ]]></description>
-	</item>
+                    <section class="author">
+                        <h4><a href="/blog/author/heesoo">HEESOO</a></h4>
+
+                        
+                            <p> Hello</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> South Korea</span>
+                            <span class="author-link icon-link"><a href="http://iamheesoo.github.io/blog/"> iamheesoo.github.io/blog</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[Android] 안드로이드 앱 프로그래밍&amp;url=http://localhost:4000android01"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000android01"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000android01"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42888">
+            <section class="post">
+                <h2>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT: 오픈채팅방</h2>
+                <p>문제 https://programmers.co.kr/learn/courses/30/lessons/42888 ( ᐛ )و 도전 1. 설계 record를 한 번 읽으면서 HashMap에 유저 아이디와...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
 
 
-</channel>
-</rss>
+        <!-- The tiny footer at the very bottom -->
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/blog/">...Developing...</a> &copy; 2020</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
+        </footer>
+    </div>
+    <!-- highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- jQuery needs to come before `` so that jQuery can be used in code injection -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Ghost outputs important scripts and data with this tag -->
+    <!--  -->
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'UA-69281367-1', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+    <!-- Fitvids makes video embeds responsive and awesome -->
+    <script type="text/javascript" src="/blog/assets/js/jquery.fitvids.js"></script>
+    <!-- The main JavaScript file for Casper -->
+    <script type="text/javascript" src="/blog/assets/js/index.js"></script>
+
+</body>
+</html>
