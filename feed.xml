@@ -8,6 +8,117 @@
     
       
       <item>
+        <title>[JAVA/자료구조] Comparable과 Comparator 차이</title>
+        
+          <description>&lt;h2 id=&quot;comparable과-comparator-차이&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;Comparable과 Comparator 차이&lt;/span&gt;&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/java-comparable</link>
+        <guid isPermaLink="true">http://localhost:4000/java-comparable</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 9088: 다이아몬드</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea9088</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea9088</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 8659: GCD</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea8659</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea8659</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 8501: 은비의 동전 뒤집기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea8501</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea8501</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 10507: 영어 공부</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea10507</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea10507</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 10202: 문자열 동화</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea10202</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea10202</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/SWEA] 10033: 카드 뒤집기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3&quot;&gt;https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 03 Sep 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-swea10033</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-swea10033</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[Android] 안드로이드 앱 프로그래밍</title>
         
           <description>&lt;hr /&gt;
