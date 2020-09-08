@@ -6,8 +6,7 @@ logo: 'assets/images/ghost.png'
 current: about
 ---
 
-This is a demo blog for Ghost, it contains dummy content which allows you to click around and see what a Ghost blog running the default theme looks like.
+<br/>
+## <span style="color:navy">PORTFOLIO</span>
+<https://www.notion.so/JEON-HEESOO-9320c2a5a84f4f74a3705b0aefd62682>
 
-We use this for testing and for reference!
-
-If you'd like to set up your own blog, head on over to [https://ghost.org](https://ghost.org) and sign up.
