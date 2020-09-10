@@ -12,6 +12,269 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/SWEA] 9092: 마라톤</title>
+	  <link>/blog//algo-swea9092</link>
+	  <author></author>
+	  <pubDate>2020-09-09T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea9092</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>dp[현재위치][남은 k], 현재 위치에서 0~k까지 뛰어본다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="n">k</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">dot</span><span class="o">,</span> <span class="n">dp</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>	
+			<span class="n">n</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">k</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">dot</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">dot</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+				<span class="n">dot</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="o">}</span>
+			
+			<span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">i:</span><span class="n">dp</span><span class="o">)</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span>
+			<span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="n">solve</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">k</span><span class="o">);</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">cur</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">cur</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 도착</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">]!=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">];</span> <span class="c1">// 중복 계산 방지</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">next</span><span class="o">=</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// i칸 뛰기</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">&gt;=</span><span class="n">n</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">//next 범위 체크</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> 
+			
+			<span class="kt">int</span> <span class="n">dist</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">dot</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]-</span><span class="n">dot</span><span class="o">[</span><span class="n">next</span><span class="o">][</span><span class="mi">0</span><span class="o">])+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">dot</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">1</span><span class="o">]-</span><span class="n">dot</span><span class="o">[</span><span class="n">next</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">],</span> <span class="n">solve</span><span class="o">(</span><span class="n">next</span><span class="o">,</span> <span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="o">)+</span><span class="n">dist</span><span class="o">);</span> 
+		<span class="o">}</span>
+		
+		<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">];</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200909_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP를 이용한다</span></strong>
+    <ul>
+      <li>dp[현재 위치][남은 k]이다.</li>
+      <li>현재 위치에서 0~k개 뛴 경우를 모두 확인해야 한다.</li>
+      <li>현재 위치에서 k개 뛰는 것과, 0~k개 뛰는 것(재귀로 계산)을 확인하여 이 중 작은 값을 dp[cur][k]에 저장한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[SWEA] 9092 마라톤 <a href="https://octorbirth.tistory.com/404">https://octorbirth.tistory.com/404</a></li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 6959: 이상한 나라의 덧셈게임</title>
+	  <link>/blog//algo-swea6959</link>
+	  <author></author>
+	  <pubDate>2020-09-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea6959</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>어떤 자리를 선택하던 실행 횟수는 같으므로 각 자리수를 스택에 넣은 후 계산한다.</li>
+  <li>실행 횟수가 홀수라면 A가, 짝수라면 B가 이긴다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">maxRoom</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+			<span class="n">String</span><span class="o">[]</span> <span class="n">num</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+			<span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+			<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">n:</span><span class="n">num</span><span class="o">)</span> <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+			
+			<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">())+</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+				<span class="n">String</span><span class="o">[]</span> <span class="n">str</span><span class="o">=</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">sum</span><span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+				<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">s:</span><span class="n">str</span><span class="o">)</span> <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+				<span class="n">cnt</span><span class="o">++;</span>
+			<span class="o">}</span>
+			
+			<span class="n">String</span> <span class="n">answer</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="s">"B"</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">answer</span><span class="o">=</span><span class="s">"A"</span><span class="o">;</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200908_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">숫자의 덧셈 규칙 실행 횟수를 구한다</span></strong>
+    <ul>
+      <li>어느 자리를 선택하여 더하던 실행 횟수는 같다.</li>
+      <li>따라서 스택에 각 자리수를 넣은 후 두 개씩 뽑아서 계산하고 cnt로 카운트한다.</li>
+      <li>더한 sum이 10 이상이면 각 자리수의 숫자를 스택에 넣어야 하는 것을 염두한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">승리자를 찾는다</span></strong>
+    <ul>
+      <li>cnt가 짝수라면 B가 이긴 것이고, 홀수라면 A가 이긴 것과 같다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/SWEA] 8659: GCD</title>
 	  <link>/blog//algo-swea8659</link>
 	  <author></author>

@@ -12,6 +12,156 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT : 후보키</title>
+	  <link>/blog//algo-prog42890</link>
+	  <author></author>
+	  <pubDate>2020-09-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42890</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42890">https://programmers.co.kr/learn/courses/30/lessons/42890</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>비트마스킹을 이용하여 애트리뷰트를 선택하는 조합을 모두 구한다.</li>
+  <li>AND 연산을 이용하여 최소성을 검사한다.</li>
+  <li>유일성을 검사하기 위해 레코드별로 선택한 애트리뷰트의 값을 str에 연결하고, 해시맵을 통해 중복을 확인한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span><span class="o">[][]</span> <span class="n">relation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">col</span><span class="o">=</span><span class="n">relation</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">;</span>
+		<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">col</span><span class="o">);</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(!</span><span class="n">isMinimal</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">result</span><span class="o">))</span> <span class="k">continue</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">isUnique</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">relation</span><span class="o">))</span> <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isUnique</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">String</span><span class="o">[][]</span> <span class="n">relation</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+		<span class="k">for</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="nl">record:</span><span class="n">relation</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">String</span> <span class="n">str</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">record</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span> <span class="c1">// record에서 애트리뷰트 선택 조합</span>
+				<span class="k">if</span><span class="o">((</span><span class="n">key</span> <span class="o">&amp;</span> <span class="o">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">))</span> <span class="o">!=</span><span class="mi">0</span> <span class="o">)</span> <span class="n">str</span><span class="o">+=</span><span class="n">record</span><span class="o">[</span><span class="n">i</span><span class="o">]+</span><span class="s">" "</span><span class="o">;</span>
+			<span class="o">}</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">str</span><span class="o">))</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">str</span><span class="o">,</span> <span class="n">str</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isMinimal</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">item:</span><span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">((</span><span class="n">item</span><span class="o">&amp;</span><span class="n">key</span><span class="o">)==</span><span class="n">item</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span> 
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200910_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">비트마스킹을 이용하여 애트리뷰트를 선택할 수 있는 조합을 구한다</span></strong>
+    <ul>
+      <li>각 애트리뷰트는 선택하거나 하지 않을 두 가지 경우가 있으므로 가능한 경우의 수는 2^n-1이다(아무것도 선택하지 않는 것은 제외).</li>
+      <li>왼쪽 시프트 연산을 이용하여 조합을 만들고 체크한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">최소성을 검사한다</span></strong>
+    <ul>
+      <li>isMinimal()에서 진행한다.</li>
+      <li>파라미터 list는 후보키들이 들어있다.</li>
+      <li>만약 애트리뷰트 A,B가 후보키라면 A,B,C는 불가능하다. 즉, key에 후보키로 이루어진 값이 있는지 확인해야 한다.</li>
+      <li>이것은 각 자리수별로 AND연산을 하여 후보키와 같은 값이 나오는지 확인하면 된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">유효성을 검사한다</span></strong>
+    <ul>
+      <li>record마다 애트리뷰트 값 들을 찾아 str에 저장하고, 해시맵을 이용하여 중복되는 것이 하나라도 있으면 false를 리턴한다.</li>
+      <li>i는 애트리뷰트 0번째 인덱스부터 끝까지 순회한다.</li>
+      <li><code class="highlighter-rouge">1&lt;&lt;i</code>를 이용하여 애트리뷰트를 선택한다. 1, 10, 100, …와 같은 값을 가지므로 1인 곳이 현재 선택된 애트리뷰트다.</li>
+      <li>현재 체크하고 있는 애트리뷰트 i가 key에 포함되어 있는 것이라면 str에 추가한다.</li>
+      <li>str 생성이 끝나면 map을 확인하여 중복을 체크한다. 중복되는 것이 있다면 뒤의 경우는 볼 필요도 없으므로 false를 리턴한다.</li>
+      <li>없다면 다음 중복 체크를 위해 put한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">result에 후보키를 저장한다</span></strong>
+    <ul>
+      <li>두 메소드를 모두 통과하였다면 result에 저장한다.</li>
+      <li>이후 isMinimal()에서 다시 사용하며, result 사이즈가 총 후보키의 개수와 같다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스] 후보키 (Java) <a href="https://velog.io/@hyeon930/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%ED%9B%84%EB%B3%B4%ED%82%A4-Java">https://velog.io/@hyeon930/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%ED%9B%84%EB%B3%B4%ED%82%A4-Java</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 연습문제: 2xn 타일링</title>
 	  <link>/blog//algo-prog12900</link>
 	  <author></author>
@@ -1260,123 +1410,6 @@
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 <p>문제가 요구하는 것을 파악하니 코드 작성은 어렵지 않았다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT: 실패율</title>
-	  <link>/blog//algo-prog42889</link>
-	  <author></author>
-	  <pubDate>2019-12-19T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog42889</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42889">https://programmers.co.kr/learn/courses/30/lessons/42889</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>스테이지별 클리어하지 못한 사람 수를 계산한다.</li>
-  <li>스테이지별 실패율을 계산한다.</li>
-  <li>스테이지 단계와 실패율을 가지는 클래스를 생성, 조건에 맞게 내림차순 정렬한다.</li>
-  <li>answer에 스테이지 번호를 옮겨 담아 리턴한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Stage</span><span class="o">{</span>
-     <span class="kt">int</span> <span class="n">stage</span><span class="o">;</span>
-     <span class="kt">double</span> <span class="n">lose</span><span class="o">;</span>
-     <span class="kd">public</span> <span class="nf">Stage</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">double</span> <span class="n">l</span><span class="o">){</span>
-         <span class="k">this</span><span class="o">.</span><span class="na">stage</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
-         <span class="k">this</span><span class="o">.</span><span class="na">lose</span><span class="o">=</span><span class="n">l</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-     <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">stages</span><span class="o">)</span> <span class="o">{</span>
-         <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-         <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
-         <span class="kt">int</span> <span class="n">player</span><span class="o">=</span><span class="n">stages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-         <span class="kt">int</span><span class="o">[]</span> <span class="n">notClear</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">stages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="n">notClear</span><span class="o">[</span><span class="n">stages</span><span class="o">[</span><span class="n">i</span><span class="o">]]++;</span>
-         <span class="o">}</span>
-         <span class="kt">double</span><span class="o">[]</span> <span class="n">loseRate</span><span class="o">=</span><span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">notClear</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="k">if</span><span class="o">(</span><span class="n">player</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span>
-                 <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
-             <span class="k">else</span>
-                 <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">]=(</span><span class="kt">double</span><span class="o">)</span><span class="n">notClear</span><span class="o">[</span><span class="n">i</span><span class="o">]/</span><span class="n">player</span><span class="o">;</span>
-             <span class="n">player</span><span class="o">-=</span><span class="n">notClear</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-         <span class="o">}</span>
-         <span class="n">Stage</span><span class="o">[]</span> <span class="n">stage</span><span class="o">=</span><span class="k">new</span> <span class="n">Stage</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">stage</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="n">stage</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="k">new</span> <span class="n">Stage</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">loseRate</span><span class="o">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">]);</span>
-         <span class="o">}</span>
-         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">stage</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Stage</span><span class="o">&gt;(){</span>
-             <span class="nd">@Override</span>
-             <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Stage</span> <span class="n">s1</span><span class="o">,</span> <span class="n">Stage</span> <span class="n">s2</span><span class="o">){</span>
-                 <span class="k">if</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">lose</span><span class="o">==</span><span class="n">s2</span><span class="o">.</span><span class="na">lose</span><span class="o">)</span>
-                     <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-                 <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">lose</span><span class="o">&gt;</span><span class="n">s2</span><span class="o">.</span><span class="na">lose</span><span class="o">)</span>
-                     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-                 <span class="k">else</span>
-                     <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-             <span class="o">}</span>
-         <span class="o">});</span>
-         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">answer</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-             <span class="n">answer</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">stage</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">stage</span><span class="o">;</span>
-         <span class="o">}</span>
-         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-     <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191219_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">스테이지별 클리어하지 못한 수를 구한다.</span></strong>
-    <ul>
-      <li>notClear 배열을 생성하여 인덱스를 스테이지 번호로 생각하여 스테이지별 클리어하짐 못한 사람 수를 저장한다.</li>
-      <li>인덱스 0은 사용하지 않고, 스테이지를 모두 클리어하면 N+1의 값을 가지므로 N+2의 크기가 필요하다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">실패율을 계산한다.</span></strong>
-    <ul>
-      <li>loseRate 배열을 생성하고, 인덱스를 스테이지 번호로 생각하여 각 스테이지별 실패율을 계산해 저장한다.</li>
-      <li>이때 실패율은 소수점이 발생하므로 double형 배열에 넣어야한다.</li>
-      <li>player가 0인 경우 클리어 못한 사람 수/0이므로 NaN이 발생한다(분모가 0은 수학적 오류임). 따라서 이 경우는 나눗셈 연산을 하지 않고 if문으로 따로 빼주어 loseRate[i]에 0을 넣는다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">Stage 클래스를 생성하여 내림차순 정렬한다.</span></strong>
-    <ul>
-      <li>Stage 클래스는 스테이지 번호 stage와 실패율 lose를 가진다.</li>
-      <li>클래스를 생성하여 내림차순으로 정렬하는 까닭은, 실패율으로 우선순위를 부여하되 배열에 저장하는 값은 스테이지 번호여야 되기 때문이다.</li>
-      <li>이에 따른 정렬은 Comparator을 이용한다.</li>
-      <li>실패율이 같다면 스테이지 번호가 작은 순이 먼저 오도록 해야하므로 0을 리턴한다. 0을 리턴한다는 뜻은 자리 이동이 일어나지 않는다는 뜻인데, 이렇게 해도 문제가 없는 이유는 애초에 비교하는 s1과 s2의 스테이지 번호는 s1이 s2보다 항상 작기 때문이다. 애초에 배열 stage에 스테이지 번호 순으로 1번부터 N까지 차례대로 넣으므로 s1의 스테이지 번호 값이 s2보다 작다는 것이 보장된다.</li>
-      <li>s1의 실패율이 더 크다면 -1을 리턴하여 s1이 앞으로 가게 한다.</li>
-      <li>s2의 실패율이 더 크다면 1을 리턴해 s1이 뒤로 가게 한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">정렬된 stage의 스테이지 번호를 answer에 옮겨 담아 리턴한다.</span></strong>
-    <ul>
-      <li>answer에는 내림차순으로 정렬된 스테이지 번호를 리턴하면 되므로 배열 stage의 stage값을 answer에 옮겨 담는다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>문제 자체는 어렵지 않았지만 for문을 생각보다 많이 사용하여 코드가 효율적이라는 생각은 들지 않는다. 또한 내림차순으로 정렬할 때 클래스를 생성하지 않고 할 수 있는 방법이 있을까 고민했었는데, 다른 사람들도 모두 클래스를 사용한 걸 보아 이게 최선인 것 같다.</p>
 
 	  ]]></description>
 	</item>
