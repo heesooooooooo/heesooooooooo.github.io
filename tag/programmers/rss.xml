@@ -12,6 +12,224 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT : 길 찾기 게임</title>
+	  <link>/blog//algo-prog42892</link>
+	  <author></author>
+	  <pubDate>2020-09-13T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42892</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42892">https://programmers.co.kr/learn/courses/30/lessons/42892</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>x, y, value를 가지는 Node로 바꾸어 배열에 저장한 후, y 기준으로 내림차순 정렬한다. y가 같다면 x가 더 작은 것이 앞으로 온다.</li>
+  <li>Node의 left, right를 이용하여 트리를 만든다.</li>
+  <li>전위 순회와 후위 순회를 진행한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">nodeinfo</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Node</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="k">new</span> <span class="n">Node</span><span class="o">[</span><span class="n">nodeinfo</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">nodeinfo</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">nodeinfo</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span> <span class="n">nodeinfo</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;(){</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Node</span> <span class="n">o1</span><span class="o">,</span> <span class="n">Node</span> <span class="n">o2</span><span class="o">){</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">y</span><span class="o">&lt;</span><span class="n">o2</span><span class="o">.</span><span class="na">y</span><span class="o">)</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">y</span><span class="o">==</span><span class="n">o2</span><span class="o">.</span><span class="na">y</span><span class="o">){</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">x</span><span class="o">&lt;</span><span class="n">o2</span><span class="o">.</span><span class="na">x</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                    <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">else</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+		<span class="n">Node</span> <span class="n">root</span><span class="o">=</span><span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">insert</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+		<span class="o">}</span>
+		<span class="kt">int</span><span class="o">[][]</span> <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+		<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+		<span class="n">preorder</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="n">result</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+		<span class="n">postorder</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">i</span><span class="o">]=</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="n">Node</span> <span class="n">root</span><span class="o">,</span> <span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">x</span><span class="o">&gt;</span><span class="n">node</span><span class="o">.</span><span class="na">x</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">insert</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">node</span><span class="o">);</span>
+			<span class="k">else</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">else</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">insert</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">node</span><span class="o">);</span>
+			<span class="k">else</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">=</span><span class="n">node</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">preorder</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">preorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">postorder</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="n">postorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+		<span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+    <span class="n">Node</span> <span class="n">left</span><span class="o">;</span>
+    <span class="n">Node</span> <span class="n">right</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">,</span> <span class="kt">int</span> <span class="n">v</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">=</span><span class="n">x</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">=</span><span class="n">y</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">=</span><span class="n">v</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200913_1.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">Node 클래스를 만든 후 배열에 넣어 정렬한다</span></strong>
+    <ul>
+      <li>x, y는 각 좌표, value는 노드 값이다.</li>
+      <li>left, right를 통해 자식 노드와 연결한다.</li>
+      <li>Comparator을 이용하여 정렬한다.</li>
+      <li>중위 순회한 값 순서대로 저장되도록, y의 값이 클 수록 앞으로 온다. y가 같다면 x가 작은 것이 앞으로 온다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">트리를 만든다</span></strong>
+    <ul>
+      <li>insert()를 통해 트리를 만든다. root는 현재 내 위치이고, node는 새로 삽입할 값이다.</li>
+      <li>현재 root보다 node의 x가 작다면 재귀를 통해 root의 left로 간다. 반대라면 right로 간다.</li>
+      <li>가야할 곳이 null이라면 그 곳에 node를 넣는다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">전위순회와 후위순회를 하여 결과를 저장한다</span></strong>
+    <ul>
+      <li>전위 순회는 preorder에서, 후위 순회는 postorder에서 한다.</li>
+      <li>결과를 result에 저장하기 위해 ArrayList를 파라미터로 계속 넘겨준다.</li>
+      <li>result에 값이 들어오면 answer에 넣는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>2019 카카오 블라인드 코딩테스트 (프로그래멋, Java, 길 찾기 게임) <a href="https://eoghks0521.tistory.com/entry/2019-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Java-%EA%B8%B8-%EC%B0%BE%EA%B8%B0-%EA%B2%8C%EC%9E%84">https://eoghks0521.tistory.com/entry/2019-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%B8%94%EB%9D%BC%EC%9D%B8%EB%93%9C-%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Java-%EA%B8%B8-%EC%B0%BE%EA%B8%B0-%EA%B2%8C%EC%9E%84</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2019 KAKAO BLIND RECRUITMENT : 후보키</title>
 	  <link>/blog//algo-prog42890</link>
 	  <author></author>
@@ -1348,68 +1566,6 @@
 
 <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 <p>문제를 꼼꼼하게 안읽어서 살짝 삽질했다.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 서머코딩/윈터코딩(~2018): 예산</title>
-	  <link>/blog//algo-prog12982</link>
-	  <author></author>
-	  <pubDate>2019-12-19T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12982</guid>
-	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12982">https://programmers.co.kr/learn/courses/30/lessons/12982</a></p>
-
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>최대한 많은 부서에 지원해야하므로 금액이 담긴 배열d를 오름차순 정렬한다.</li>
-  <li>예산이 넘지 않는 한에서 앞에서부터 지원한다.</li>
-</ol>
-
-<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
- <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">d</span><span class="o">,</span> <span class="kt">int</span> <span class="n">budget</span><span class="o">)</span> <span class="o">{</span>
-       <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-       <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
-       <span class="kt">int</span> <span class="n">money</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-       <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">dd:</span><span class="n">d</span><span class="o">){</span>
-           <span class="k">if</span><span class="o">(</span><span class="n">money</span><span class="o">+</span><span class="n">dd</span><span class="o">&lt;=</span><span class="n">budget</span><span class="o">){</span>
-               <span class="n">money</span><span class="o">+=</span><span class="n">dd</span><span class="o">;</span>
-               <span class="n">answer</span><span class="o">++;</span>
-           <span class="o">}</span>              
-       <span class="o">}</span>
-       <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-   <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/191219_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">금액이 적은 곳부터 지원한다.</span></strong>
-    <ul>
-      <li>최대한 많은 부서에 지원해야하므로 금액이 적은 곳부터 지원해야한다.</li>
-      <li>따라서 배열을 오름차순으로 정렬한 후, 앞에서부터 지원한다.</li>
-      <li>예산이 넘어가면 지원을 중단한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
-<p>문제가 요구하는 것을 파악하니 코드 작성은 어렵지 않았다.</p>
 
 	  ]]></description>
 	</item>

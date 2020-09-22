@@ -12,6 +12,176 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/SWEA] 3135: 홍준이의 사전놀이</title>
+	  <link>/blog//algo-swea3135</link>
+	  <author></author>
+	  <pubDate>2020-09-15T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea3135</guid>
+	  <description><![CDATA[
+	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE</a></p>
+
+<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>트라이를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserSolution</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="n">Trie</span><span class="o">[]</span> <span class="n">tries</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">tries</span><span class="o">=</span><span class="k">new</span> <span class="n">Trie</span><span class="o">[</span><span class="mi">26</span><span class="o">];</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">buffer_size</span><span class="o">,</span> <span class="n">String</span> <span class="n">buf</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">root</span><span class="o">=</span><span class="n">buf</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)-</span><span class="sc">'a'</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">tries</span><span class="o">[</span><span class="n">root</span><span class="o">]==</span><span class="kc">null</span><span class="o">)</span> <span class="n">tries</span><span class="o">[</span><span class="n">root</span><span class="o">]=</span><span class="k">new</span> <span class="n">Trie</span><span class="o">();</span>
+        <span class="n">tries</span><span class="o">[</span><span class="n">root</span><span class="o">].</span><span class="na">insert</span><span class="o">(</span><span class="n">buf</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">query</span><span class="o">(</span><span class="kt">int</span> <span class="n">buffer_size</span><span class="o">,</span> <span class="n">String</span> <span class="n">buf</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">root</span><span class="o">=</span><span class="n">buf</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)-</span><span class="sc">'a'</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">tries</span><span class="o">[</span><span class="n">root</span><span class="o">]==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">tries</span><span class="o">[</span><span class="n">root</span><span class="o">].</span><span class="na">getCnt</span><span class="o">(</span><span class="n">buf</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Trie</span><span class="o">{</span>
+    <span class="n">Node</span> <span class="n">root</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Trie</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">=</span><span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">node</span><span class="o">=</span><span class="n">root</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">c</span><span class="o">-&gt;</span><span class="k">new</span> <span class="n">Node</span><span class="o">());</span>
+            <span class="n">node</span><span class="o">.</span><span class="na">cnt</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCnt</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">node</span><span class="o">=</span><span class="n">root</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">query</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(!</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span> 
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">cnt</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+    <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">,</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">children</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">cnt</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200915_2.PNG" alt="실행결과" />
+성공٩(˘◊˘)۶</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">Usersolution</span></strong>
+    <ul>
+      <li>init(): Trie[] 배열을 초기화한다. 인덱스 0번부터 a로 쓸 것이므로 배열 사이즈를 26으로 초기화했다.</li>
+      <li>insert(): 문자열 buf의 시작 알파벳 아스키코드를 root에 저장한다. 배열 trie에 해당 알파벳으로 시작한 단어가 없다면, 트라이 객체를 하나 선언한 후, Trie클래스의 insert()를 호출한다.</li>
+      <li>query(): buf의 시작 알파벳을 찾아 root에 저장한다. 해당 배열이 null이라면 root로 시작하는 단어가 없어서 객체 선언이 안된것이므로 0을 리턴한다. 아닐 경우, getCnt()로 개수를 받아 리턴한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">Trie</span></strong>
+    <ul>
+      <li>Trie(): 생성자이다. 시작 노드(root)를 만든다.</li>
+      <li>insert(): node는 트라이 내에서 현재 내 위치이다. word의 문자를 하나씩 체크해 트라이에 저장한다. 현재 node의 자식들(해시맵)에 word.charAt(i)가 있는지 확인한다. 없다면 하나 생성 후, 거기로 내려간다. 현재 삽입한(또는 기존에 존재하는) node까지 단어가 일치하는 것이므로 node.cnt++한다.</li>
+      <li>getCnt(): node로 트리를 이동한다. query의 문자를 하나씩 체크하며, 현재 위치 node의 자식 노드들 중 i값이 없다면 query 단어가 없는 것이므로 0을 리턴한다. for문을 종료해야 그곳 node.cnt를 리턴한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">Node</span></strong>
+    <ul>
+      <li>children은 node의 자식 노드들을 해시맵으로 저장한다. 중복을 거르고 빠르게 찾을 수 있도록 해시맵을 사용한다.</li>
+      <li>cnt는 현재 node까지 일치하는 단어의 개수이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 가사 검색 <a href="https://iamheesoo.github.io/blog//algo-prog60060">https://iamheesoo.github.io/blog//algo-prog60060</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 가사 검색</title>
 	  <link>/blog//algo-prog60060</link>
 	  <author></author>
