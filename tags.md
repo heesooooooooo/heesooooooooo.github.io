@@ -13,18 +13,18 @@ title: Tags
 <div class="tags">
   <ul class="label">
     {% for tag in site.tags %}
-    <li>
+    <span>
       <a href="#{{ tag[0] }}">
         <span>{{ tag[0] }}</span>
-        <span class="count">{{ tag[1] | size }}</span>
+        <span class="count">({{ tag[1] | size }})</span>
       </a>
-    </li>
+    </span>
     {% endfor %}
   </ul>
 
   {% for tag in site.tags %}
     <h2 id="{{ tag[0] }}">
-      {{ tag[0] }}
+      🎃 {{ tag[0] }}
     </h2>
     <ul class="tag">
       {% for post in tag[1] %}
