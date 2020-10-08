@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List</title>
+    <title>[JAVA] String, StringBuilder, StringBuffer 비교</title>
     <meta name="description" content="PS & 개발 기록" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//algo-leet114" />
+        <link rel="canonical" href="http://localhost:4000/blog//java-string01" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List" />
+    <meta property="og:title" content="[JAVA] String, StringBuilder, StringBuffer 비교" />
     <meta property="og:description" content="PS & 개발 기록" />
-    <meta property="og:url" content="http://localhost:4000/blog//algo-leet114" />
-    <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//java-string01" />
+    <meta property="og:image" content="/blog/assets/images/cover6.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List" />
+    <meta name="twitter:title" content="[JAVA] String, StringBuilder, StringBuffer 비교" />
     <meta name="twitter:description" content="PS & 개발 기록" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//algo-leet114" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//java-string01" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover6.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List",
-    "url": "http://localhost:4000/blog//algo-leet114",
-    "image": "/blog/assets/images/cover4.jpg",
+    "name": "[JAVA] String, StringBuilder, StringBuffer 비교",
+    "url": "http://localhost:4000/blog//java-string01",
+    "image": "/blog/assets/images/cover6.jpg",
     "description": "PS & 개발 기록"
 }
     </script>
@@ -73,8 +73,8 @@
     <ul>
       <!-- home, boj, etc-->
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
-        <li class="nav-algo  nav-current" role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
-        <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
+        <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
+        <li class="nav-java  nav-current" role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-boj " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
         <li class="nav-programmers " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
         <li class="nav-swea " role="presentation"><a href="/blog/tag/swea">Java/SWEA</a></li>
@@ -106,7 +106,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover4.jpg) ">
+<header class="main-header post-head " style="background-image: url(/blog/assets/images/cover6.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -117,10 +117,10 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-leetcode">
+    <article class="post tag-java">
 
         <header class="post-header">
-            <h1 class="post-title">[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List</h1>
+            <h1 class="post-title">[JAVA] String, StringBuilder, StringBuffer 비교</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -139,13 +139,13 @@
             
                 
             
-            <time class="post-date" datetime="2020-10-05">05 Oct 2020</time>
+            <time class="post-date" datetime="2020-10-08">08 Oct 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/blog/tag/leetcode'>Leetcode</a>
+                       <a href='/blog/tag/java'>Java</a>
                     
                 
                 
@@ -154,100 +154,46 @@
 
         <section class="post-content">
 
-            <h2 id="문제"><span style="color:navy">문제</span></h2>
-<p><a href="https://leetcode.com/problems/flatten-binary-tree-to-linked-list/submissions/">https://leetcode.com/problems/flatten-binary-tree-to-linked-list/submissions/</a></p>
+            <h3 id="1-string">1. String</h3>
+<ul>
+  <li>immutable(불변)-&gt; 간단하게 사용 가능, 동기화에 신경쓰지 않아도 되므로(Thread-safe) 내부 데이터를 자유롭게 공유 가능</li>
+  <li>대표적인 문자열 관리 클래스</li>
+  <li>+연산자를 통해 문자열을 합칠 수 있음</li>
+  <li>String 객체는 한 번 생성되면 할당된 메모리 공간이 변하지 않음. 따라서 +연산자를 통해 문자열을 합치는 경우, 기존 문자열에 합치는 것이 아니라 새 문자를 포함하는 새로운 문자열 객체를 만들고, 이를 참조</li>
+  <li>처음 문자열의 메모리 영역은 Garbage로 남아있다가 GC(Garbage Collection)에 의해 사라짐</li>
+  <li>짧은 문자열을 더할 경우 사용</li>
+  <li>변하지 않는 문자열을 자주 읽어들이는 경우 좋은 성능을 기대할 수 있음</li>
+  <li>문자열 추가, 수정, 삭제 등의 연산이 빈번하게 일어나는 경우에는 적합하지 않음 (힙 메모리에 많은 임시 가비지가 생성되어 힙메모리 부족 발생 가능)</li>
+  <li>불변성을 가지기 때문에 멀티쓰레드 환경에서의 안정성(thread-safe)을 가짐</li>
+</ul>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h3 id="2-stringbuilder">2. StringBuilder</h3>
+<ul>
+  <li>문자열 연산으로 기존 객체의 공간이 부족하게 되는 경우, 기존의 버퍼 크기를 늘리며 유연하게 동작(StringBuffer도 동일)</li>
+  <li>동기화를 보장하지 않으므로 단일 쓰레드 환경에서 사용</li>
+  <li>쓰레드에 안전하지 여부가 관계 없는 프로그램을 개발할 때 사용하면 좋음</li>
+</ul>
 
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>postorder을 이용하여 트리를 재구성한다.</li>
-</ol>
+<h3 id="3-stringbuffer">3. StringBuffer</h3>
+<ul>
+  <li>mutable(가변)</li>
+  <li>각 메서드별로 Synchronized Keyword가 존재하여 멀티쓰레드 환경에서도 동기화를 지원</li>
+</ul>
 
-<h3 id="2-구현">2. 구현</h3>
+<h3 id="4-결론">4. 결론</h3>
+<ul>
+  <li>성능(연산이 많은 경우): StringBuilder»StringBuffer»»String</li>
+  <li>String: 문자열 연산이 적고 멀티쓰레드 환경일 경우</li>
+  <li>StringBuilder: 문자열 연산이 많고 단일쓰레드 환경이거나 동기화를 고려하지 않아도 되는 경우</li>
+  <li>StringBuffer: 문자열 연산이 많고 멀티쓰레드 환경일 경우</li>
+</ul>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="n">TreeNode</span> <span class="n">prev</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">flatten</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
-        <span class="n">flatten</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-        <span class="n">flatten</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">=</span><span class="n">prev</span><span class="o">;</span>
-        <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
-        <span class="n">prev</span><span class="o">=</span><span class="n">root</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<h3 id="5-참고">5. 참고</h3>
+<ul>
+  <li>[자바] String, StringBuilder, StringBuffer의 차이 <a href="https://the-dev.tistory.com/2">https://the-dev.tistory.com/2</a></li>
+  <li>[Java] String, StringBuffer, StringBuilder 차이 및 장단점 <a href="https://ifuwanna.tistory.com/221">https://ifuwanna.tistory.com/221</a></li>
+</ul>
 
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/201005_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">postorder을 이용한다</span></strong>
-    <ul>
-      <li>후위순회는 RLV로 방문한다.</li>
-      <li>문제의 예제에서 후위순회로 방문하면 [6,5,4,3,2,1]이므로 트리의 밑에서 위로 올라가며 오른쪽으로 flatten된 트리를 만들면 된다.</li>
-      <li>재귀를 통해 오른쪽 끝까지 이동한 후, 마지막 노드 root의 right는 이전 prev, left는 null로 바꾼다.</li>
-      <li>이제 root의 위로 올라가므로 prev를 root로 갱신한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
 
 
         </section>
@@ -280,15 +226,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List&amp;url=http://localhost:4000algo-leet114"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[JAVA] String, StringBuilder, StringBuffer 비교&amp;url=http://localhost:4000java-string01"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000algo-leet114"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000java-string01"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000algo-leet114"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000java-string01"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -319,20 +265,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj11437">
-            <section class="post">
-                <h2>[JAVA/백준] 11437번: LCA</h2>
-                <p>## 문제 ## ( ᐛ )و 도전 ### 1. 설계 1. ArrayList를 이용하여 트리를 만든다....</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-leet105">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj1992">
             <section class="post">
-                <h2>[JAVA/LeetCode] Top 100 Liked Question: 105. Construct Binary Tree from Preorder and Inorder Traversal</h2>
-                <p>문제 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/ ( ᐛ )و 도전 1. 설계 inorder에서 preorder[i] 위치를 찾는다. 그 왼쪽은 모두...</p>
+                <h2>[JAVA/백준] 1992번: 쿼드트리</h2>
+                <p>문제 https://www.acmicpc.net/problem/1992 ( ᐛ )و 도전 1. 설계 분할정복 문제이다. 정사각형 범위를 줄여나가며 범위안에 같은...</p>
             </section>
         </a>
     

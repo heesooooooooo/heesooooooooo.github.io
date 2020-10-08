@@ -12,6 +12,57 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA] String, StringBuilder, StringBuffer 비교</title>
+	  <link>/blog//java-string01</link>
+	  <author></author>
+	  <pubDate>2020-10-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-string01</guid>
+	  <description><![CDATA[
+	     <h3 id="1-string">1. String</h3>
+<ul>
+  <li>immutable(불변)-&gt; 간단하게 사용 가능, 동기화에 신경쓰지 않아도 되므로(Thread-safe) 내부 데이터를 자유롭게 공유 가능</li>
+  <li>대표적인 문자열 관리 클래스</li>
+  <li>+연산자를 통해 문자열을 합칠 수 있음</li>
+  <li>String 객체는 한 번 생성되면 할당된 메모리 공간이 변하지 않음. 따라서 +연산자를 통해 문자열을 합치는 경우, 기존 문자열에 합치는 것이 아니라 새 문자를 포함하는 새로운 문자열 객체를 만들고, 이를 참조</li>
+  <li>처음 문자열의 메모리 영역은 Garbage로 남아있다가 GC(Garbage Collection)에 의해 사라짐</li>
+  <li>짧은 문자열을 더할 경우 사용</li>
+  <li>변하지 않는 문자열을 자주 읽어들이는 경우 좋은 성능을 기대할 수 있음</li>
+  <li>문자열 추가, 수정, 삭제 등의 연산이 빈번하게 일어나는 경우에는 적합하지 않음 (힙 메모리에 많은 임시 가비지가 생성되어 힙메모리 부족 발생 가능)</li>
+  <li>불변성을 가지기 때문에 멀티쓰레드 환경에서의 안정성(thread-safe)을 가짐</li>
+</ul>
+
+<h3 id="2-stringbuilder">2. StringBuilder</h3>
+<ul>
+  <li>문자열 연산으로 기존 객체의 공간이 부족하게 되는 경우, 기존의 버퍼 크기를 늘리며 유연하게 동작(StringBuffer도 동일)</li>
+  <li>동기화를 보장하지 않으므로 단일 쓰레드 환경에서 사용</li>
+  <li>쓰레드에 안전하지 여부가 관계 없는 프로그램을 개발할 때 사용하면 좋음</li>
+</ul>
+
+<h3 id="3-stringbuffer">3. StringBuffer</h3>
+<ul>
+  <li>mutable(가변)</li>
+  <li>각 메서드별로 Synchronized Keyword가 존재하여 멀티쓰레드 환경에서도 동기화를 지원</li>
+</ul>
+
+<h3 id="4-결론">4. 결론</h3>
+<ul>
+  <li>성능(연산이 많은 경우): StringBuilder»StringBuffer»»String</li>
+  <li>String: 문자열 연산이 적고 멀티쓰레드 환경일 경우</li>
+  <li>StringBuilder: 문자열 연산이 많고 단일쓰레드 환경이거나 동기화를 고려하지 않아도 되는 경우</li>
+  <li>StringBuffer: 문자열 연산이 많고 멀티쓰레드 환경일 경우</li>
+</ul>
+
+<h3 id="5-참고">5. 참고</h3>
+<ul>
+  <li>[자바] String, StringBuilder, StringBuffer의 차이 <a href="https://the-dev.tistory.com/2">https://the-dev.tistory.com/2</a></li>
+  <li>[Java] String, StringBuffer, StringBuilder 차이 및 장단점 <a href="https://ifuwanna.tistory.com/221">https://ifuwanna.tistory.com/221</a></li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/자료구조] Comparable과 Comparator 차이</title>
 	  <link>/blog//java-comparable</link>
 	  <author></author>

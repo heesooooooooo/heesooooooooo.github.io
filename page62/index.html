@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>...Developing...</title>
+    <title>dev</title>
     <meta name="description" content="PS & 개발 기록" />
 
     <!-- Mobile Meta -->
@@ -28,31 +28,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//tag/boj/page27/" />
+        <link rel="canonical" href="http://localhost:4000/blog//page62/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="...Developing..." />
+    <meta property="og:title" content="dev" />
     <meta property="og:description" content="PS & 개발 기록" />
-    <meta property="og:url" content="http://localhost:4000/blog//tag/boj/page27/" />
-    <meta property="og:image" content="/blog/assets/images/cover5.jpg" />
+    <meta property="og:url" content="http://localhost:4000/blog//page62/" />
+    <meta property="og:image" content="/blog/assets/images/cover10.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="...Developing..." />
+    <meta name="twitter:title" content="dev" />
     <meta name="twitter:description" content="PS & 개발 기록" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//tag/boj/page27/" />
-    <meta name="twitter:image:src" content="/blog/assets/images/cover5.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//page62/" />
+    <meta name="twitter:image:src" content="/blog/assets/images/cover10.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "...Developing...",
-    "url": "http://localhost:4000/blog//tag/boj/page27/",
-    "image": "/blog/assets/images/cover5.jpg",
+    "name": "dev",
+    "url": "http://localhost:4000/blog//page62/",
+    "image": "/blog/assets/images/cover10.jpg",
     "description": "PS & 개발 기록"
 }
     </script>
@@ -72,10 +72,10 @@
     </a>
     <ul>
       <!-- home, boj, etc-->
-        <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
+        <li class="nav-home  nav-current" role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
         <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
-        <li class="nav-boj  nav-current" role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
+        <li class="nav-boj " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
         <li class="nav-programmers " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
         <li class="nav-swea " role="presentation"><a href="/blog/tag/swea">Java/SWEA</a></li>
         <li class="nav-leetcode " role="presentation"><a href="/blog/tag/leetcode">Java/LeetCode</a></li>
@@ -98,14 +98,12 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
-
-
-<!-- default -->
+        <!-- < default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- If we have a tag cover, display that - else blog cover - else nothing -->
-<header class="main-header tag-head " style="background-image: url(/blog/assets/images/cover5.jpg) ">
+<!-- The big featured header  -->
+<header class="main-header "
+        style="background-image: url(/blog/assets/images/cover10.jpg) ">
     <nav class="main-nav overlay clearfix">
         <a class="blog-logo" href="/blog/"><img src="/blog/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -114,14 +112,11 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Boj</h1>
-            <h2 class="page-description">
-            
-			    A 140-post collection
-            
-            </h2>
+            <h1 class="page-title">...Developing...</h1>
+            <h2 class="page-description">PS & 개발 기록</h2>
         </div>
     </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -134,12 +129,10 @@
             <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/blog/tag/boj/page26/" title="Previous Page">&laquo; Newer Posts</a>
+            <a class="newer-posts" href="/blog/page61/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 27 of 28 </span>
-     
-        <a class="older-posts" href="/blog/tag/boj/page28/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 62 of 62 </span>
      
 </nav>
         
@@ -149,10 +142,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-boj1193">[JAVA/백준] 수학 1: 분수찾기</a></h2>
+            <h2 class="post-title"><a href="/blog/boj10951">[JAVA/백준] 10951번: while 조건문 사용, 입력이 끝날 때까지?</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>문제 https://www.acmicpc.net/problem/1193 ( ᐛ )و 도전 1. 설계 X가 몇 번째 라인인지 구한다. 해당 라인에서 몇 번째인지 구한다. 2. 구현 (성공 코드) import java.util.Scanner; /** *... <a class="read-more" href="/blog/algo-boj1193">&raquo;</a></p>
+            <p>입력이 끝날 때까지 while문을 사용하고 싶다면 어떻게 해야할까? Scanner의 hasNext()함수를 사용한다! Scanner이 다음 토큰이 존재하는지 확인한 후 있다면 true를, 없다면 false를 리턴한다. package think; import java.util.Scanner;... <a class="read-more" href="/blog/boj10951">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -180,24 +173,21 @@
                 on
                 
                     
-                       <a href='/blog/tag/boj'>Boj</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/math'>Math</a>
+                       <a href='/blog/tag/boj'>Boj</a>
                     
                 
             
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
+            <time class="post-date" datetime="2019-08-07">07 Aug 2019</time>
         </footer>
     </article>
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-boj11729">[JAVA/백준] 재귀: 하노이 탑 이동 순서</a></h2>
+            <h2 class="post-title"><a href="/blog/first-posting">첫 포스팅</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>문제 https://www.acmicpc.net/problem/11729 ( ᐛ )و 도전 1. 설계 원반 n개를 이동하는 문제는 원반 n-1개로 이동하는 문제로 세분화되고, 결국 원반 1개를 이동하는 것과 같게 된다. 하노이 탑을... <a class="read-more" href="/blog/algo-boj11729">&raquo;</a></p>
+            <p>6월 14일 첫 포스팅&amp;블로그 수정 중
+ <a class="read-more" href="/blog/first-posting">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -225,150 +215,11 @@
                 on
                 
                     
-                       <a href='/blog/tag/boj'>Boj</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/recur'>Recur</a>
+                       <a href='/blog/tag/etc'>Etc</a>
                     
                 
             
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-boj10872">[JAVA/백준] 재귀: 팩토리얼</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://www.acmicpc.net/problem/10872 ( ᐛ )و 도전 1. 설계 팩토리얼을 계산한다. 2. 구현 (성공 코드) import java.util.Scanner; /** * * @author HEESOO * */ public class Main... <a class="read-more" href="/blog/algo-boj10872">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/boj'>Boj</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/recur'>Recur</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-boj10870">[JAVA/백준] 재귀: 피보나치 수 5</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://www.acmicpc.net/problem/10870 ( ᐛ )و 도전 1. 설계 재귀를 이용하여 피보나치 수를 구한다. 2. 구현 (성공 코드) import java.util.Scanner; /** * * @author HEESOO * */... <a class="read-more" href="/blog/algo-boj10870">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/boj'>Boj</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/recur'>Recur</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/algo-boj1085">[JAVA/백준] 수학 2: 직사각형에서 탈출</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>문제 https://www.acmicpc.net/problem/1085 ( ᐛ )و 도전 1. 설계 현재 내 위치(x,y)에서 상하좌우 값을 구하여 최솟값을 리턴한다. 2. 구현 (성공 코드) import java.util.Scanner; /** * * @author... <a class="read-more" href="/blog/algo-boj1085">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/boj'>Boj</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/math'>Math</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-03-03">03 Mar 2020</time>
+            <time class="post-date" datetime="2019-06-14">14 Jun 2019</time>
         </footer>
     </article>
     
@@ -378,12 +229,10 @@
         <nav class="pagination" role="pagination">
     
         
-            <a class="newer-posts" href="/blog/tag/boj/page26/" title="Previous Page">&laquo; Newer Posts</a>
+            <a class="newer-posts" href="/blog/page61/" title="Previous Page">&laquo; Newer Posts</a>
       
     
-    <span class="page-number"> Page 27 of 28 </span>
-     
-        <a class="older-posts" href="/blog/tag/boj/page28/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 62 of 62 </span>
      
 </nav>
     

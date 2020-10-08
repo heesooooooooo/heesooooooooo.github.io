@@ -8,6 +8,64 @@
     
       
       <item>
+        <title>[JAVA] String, StringBuilder, StringBuffer 비교</title>
+        
+          <description>&lt;h3 id=&quot;1-string&quot;&gt;1. String&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;immutable(불변)-&amp;gt; 간단하게 사용 가능, 동기화에 신경쓰지 않아도 되므로(Thread-safe) 내부 데이터를 자유롭게 공유 가능&lt;/li&gt;
+  &lt;li&gt;대표적인 문자열 관리 클래스&lt;/li&gt;
+  &lt;li&gt;+연산자를 통해 문자열을 합칠 수 있음&lt;/li&gt;
+  &lt;li&gt;String 객체는 한 번 생성되면 할당된 메모리 공간이 변하지 않음. 따라서 +연산자를 통해 문자열을 합치는 경우, 기존 문자열에 합치는 것이 아니라 새 문자를 포함하는 새로운 문자열 객체를 만들고, 이를 참조&lt;/li&gt;
+  &lt;li&gt;처음 문자열의 메모리 영역은 Garbage로 남아있다가 GC(Garbage Collection)에 의해 사라짐&lt;/li&gt;
+  &lt;li&gt;짧은 문자열을 더할 경우 사용&lt;/li&gt;
+  &lt;li&gt;변하지 않는 문자열을 자주 읽어들이는 경우 좋은 성능을 기대할 수 있음&lt;/li&gt;
+  &lt;li&gt;문자열 추가, 수정, 삭제 등의 연산이 빈번하게 일어나는 경우에는 적합하지 않음 (힙 메모리에 많은 임시 가비지가 생성되어 힙메모리 부족 발생 가능)&lt;/li&gt;
+  &lt;li&gt;불변성을 가지기 때문에 멀티쓰레드 환경에서의 안정성(thread-safe)을 가짐&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 08 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/java-string01</link>
+        <guid isPermaLink="true">http://localhost:4000/java-string01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 1992번: 쿼드트리</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1992&quot;&gt;https://www.acmicpc.net/problem/1992&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 08 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1992</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1992</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 1780번: 종이의 개수</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1780&quot;&gt;https://www.acmicpc.net/problem/1780&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 08 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj1780</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj1780</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/백준] 2011번: 암호코드</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
