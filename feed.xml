@@ -8,6 +8,86 @@
     
       
       <item>
+        <title>[JAVA/백준] 2011번: 암호코드</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2011&quot;&gt;https://www.acmicpc.net/problem/2011&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 07 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj2011</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj2011</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 11728번: 배열 합치기</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11728&quot;&gt;https://www.acmicpc.net/problem/11728&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 07 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj11728</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj11728</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/백준] 11437번: LCA</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/11437&quot;&gt;https://www.acmicpc.net/problem/11437&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 07 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-boj11437</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-boj11437</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/LeetCode] Top 100 Liked Question: 114. Flatten Binary Tree to Linked List</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/flatten-binary-tree-to-linked-list/submissions/&quot;&gt;https://leetcode.com/problems/flatten-binary-tree-to-linked-list/submissions/&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 05 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-leet114</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-leet114</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/LeetCode] Top 100 Liked Question: 105. Construct Binary Tree from Preorder and Inorder Traversal</title>
+        
+          <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&quot;&gt;https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 05 Oct 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-leet105</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-leet105</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/LeetCode] Top 100 Liked Question: 98. Validate Binary Search Tree</title>
         
           <description>&lt;h2 id=&quot;문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;문제&lt;/span&gt;&lt;/h2&gt;
