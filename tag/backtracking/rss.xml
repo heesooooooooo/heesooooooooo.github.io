@@ -18,10 +18,10 @@
 	  <pubDate>2020-03-12T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj14889</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/14889">https://www.acmicpc.net/problem/14889</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -97,7 +97,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200312_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶<br />
+🤟 성공 🤟<br />
 처음에 시간초과가 발생하여 sum()에서의 2중for문 범위가 커서 그런가 했는데, combination()을 재귀호출하는 부분의 파라미터를 combination(idx, r+1)로 했기 때문이다. 그래서 체크했던 사람을 또 확인하는 경우가 생겨 시간초과가 발생했었다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -112,7 +112,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -131,10 +131,10 @@
 	  <pubDate>2020-03-11T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj14888</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/14888">https://www.acmicpc.net/problem/14888</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -208,7 +208,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200311_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -222,7 +222,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -239,10 +239,10 @@
 	  <pubDate>2020-03-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj15652</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/15652">https://www.acmicpc.net/problem/15652</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -304,7 +304,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200310_4.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -330,7 +330,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -347,10 +347,10 @@
 	  <pubDate>2020-03-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj15651</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/15651">https://www.acmicpc.net/problem/15651</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -410,7 +410,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200310_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -431,7 +431,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -450,10 +450,10 @@
 	  <pubDate>2020-03-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj15650</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/15650">https://www.acmicpc.net/problem/15650</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -506,7 +506,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200310_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -529,7 +529,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -547,10 +547,10 @@
 	  <pubDate>2020-03-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj15649</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/15649">https://www.acmicpc.net/problem/15649</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -600,7 +600,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200310_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -617,7 +617,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -635,10 +635,10 @@
 	  <pubDate>2020-03-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj9663</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/9663">https://www.acmicpc.net/problem/9663</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h2 id="풀이-방법-1">풀이 방법 1</h2>
 
@@ -702,7 +702,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200310_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -721,7 +721,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>

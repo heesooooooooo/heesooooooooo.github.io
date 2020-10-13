@@ -18,10 +18,10 @@
 	  <pubDate>2020-09-15T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea3135</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -145,7 +145,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200915_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -171,7 +171,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -188,10 +188,10 @@
 	  <pubDate>2020-09-15T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea9780</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXE0gpIa3dADFAVX">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXE0gpIa3dADFAVX</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -293,7 +293,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200915_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶<br />
+🤟 성공 🤟<br />
 초기에는 DP를 배열로 풀어서 시간 초과가 발생하였다. 이후 런타임 에러는 마지막에 main 마지막에 return을 추가하고, long으로 입력받아야 하는 곳을 수정하고, main에 throws IOException을 추가해서 해결했다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -318,7 +318,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -335,10 +335,10 @@
 	  <pubDate>2020-09-09T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea9092</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -446,7 +446,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200909_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -459,7 +459,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -477,10 +477,10 @@
 	  <pubDate>2020-09-08T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea6959</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -567,7 +567,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200908_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -585,7 +585,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -598,10 +598,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea9088</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -706,7 +706,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -725,7 +725,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -738,10 +738,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea8659</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -811,7 +811,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -822,7 +822,7 @@
       <li>따라서 이차원 배열 dp를 선언하여 dp[i][0]은 %연산자를 i+1번 쓰는 a, dp[i][1]는 b라고 생각한다.</li>
       <li>따라서, dp[i][0]=dp[i-1][0]+dp[i-1][1], dp[i][1]=dp[i-1][0].</li>
       <li>
-        <h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+        <h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
       </li>
     </ul>
   </li>
@@ -839,10 +839,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea8501</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -928,7 +928,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_4.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -940,7 +940,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -953,10 +953,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea10507</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1082,7 +1082,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶<br />
+🤟 성공 🤟<br />
 처음에는 DFS로 구현했는데 30일을 넘어가니까 시간이 오래 걸리고 무한루프에 빠져서 다른 방법을 생각했다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -1101,7 +1101,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -1114,10 +1114,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea10202</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1195,7 +1195,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1211,7 +1211,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -1224,10 +1224,10 @@
 	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea10033</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1299,7 +1299,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200903_6.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶
+🤟 성공 🤟
 문제 설명대로 B, W의 뒤집기를 진짜 하도록 코드를 짰더니 제한시간 초과가 발생했다.<br />
 오답은 answer을 long형으로 선언하지 않아서였다.</p>
 
@@ -1320,7 +1320,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>

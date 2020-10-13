@@ -18,10 +18,10 @@
 	  <pubDate>2020-10-07T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj2011</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/2011">https://www.acmicpc.net/problem/2011</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -121,7 +121,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/201007_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -166,7 +166,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -178,10 +178,10 @@
 	  <pubDate>2020-09-27T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet96</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/unique-binary-search-trees/submissions/">https://leetcode.com/problems/unique-binary-search-trees/submissions/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -239,7 +239,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200927_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -257,7 +257,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>멀고도 험난한 DP의 세계🤯</p>
 
 	  ]]></description>
@@ -270,10 +270,10 @@
 	  <pubDate>2020-09-26T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet70</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/climbing-stairs/">https://leetcode.com/problems/climbing-stairs/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -319,7 +319,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200926_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -335,7 +335,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -347,10 +347,10 @@
 	  <pubDate>2020-09-26T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet64</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/minimum-path-sum/">https://leetcode.com/problems/minimum-path-sum/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -421,7 +421,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200926_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶ <br />
+🤟 성공 🤟 <br />
 DFS로 하고 싶었지만 참았다</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -439,7 +439,7 @@ DFS로 하고 싶었지만 참았다</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -451,10 +451,10 @@ DFS로 하고 싶었지만 참았다</p>
 	  <pubDate>2020-09-26T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet72</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/edit-distance/">https://leetcode.com/problems/edit-distance/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -524,7 +524,7 @@ DFS로 하고 싶었지만 참았다</p>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200926_4.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -545,7 +545,7 @@ DFS로 하고 싶었지만 참았다</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -557,10 +557,10 @@ DFS로 하고 싶었지만 참았다</p>
 	  <pubDate>2020-09-25T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet53</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/maximum-subarray/">https://leetcode.com/problems/maximum-subarray/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -617,7 +617,7 @@ DFS로 하고 싶었지만 참았다</p>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200925_6.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶ <br />
+🤟 성공 🤟 <br />
 answer을 dp[0]이 아닌 Integer.MIN으로 초기화해서 실패했다. [-1,-2]인 경우 answer에 -1이 들어가지 않기 때문이다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -634,7 +634,7 @@ answer을 dp[0]이 아닌 Integer.MIN으로 초기화해서 실패했다. [-1,-2
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -646,10 +646,10 @@ answer을 dp[0]이 아닌 Integer.MIN으로 초기화해서 실패했다. [-1,-2
 	  <pubDate>2020-09-25T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet55</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/maximum-subarray/">https://leetcode.com/problems/maximum-subarray/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -702,7 +702,7 @@ answer을 dp[0]이 아닌 Integer.MIN으로 초기화해서 실패했다. [-1,-2
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200925_7.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶ <br />
+🤟 성공 🤟 <br />
 BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -718,7 +718,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -730,10 +730,10 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 	  <pubDate>2020-09-25T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet46</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/permutations/">https://leetcode.com/problems/permutations/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -818,7 +818,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200925_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -834,7 +834,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -846,10 +846,10 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 	  <pubDate>2020-09-25T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet45</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/jump-game-ii/">https://leetcode.com/problems/jump-game-ii/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -904,7 +904,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200925_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶ <br />
+🤟 성공 🤟 <br />
 처음에는 BFS로 문제를 코드를 작성했는데, 특정 테케에서 시간 초과로 다른 사람의 코드를 참고했다. 뭔가 DP 느낌은 들었는데 점화식이 떠오르지 않았다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -922,7 +922,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -934,10 +934,10 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 	  <pubDate>2020-09-25T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-leet42</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://leetcode.com/problems/trapping-rain-water/">https://leetcode.com/problems/trapping-rain-water/</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1014,7 +1014,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200925_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1035,7 +1035,7 @@ BFS로 시도했으나 또 시간초과나서 DP로 수정해서 풀었다.</p>
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>

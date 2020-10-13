@@ -18,10 +18,10 @@
 	  <pubDate>2020-04-24T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj11403</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/11403">https://www.acmicpc.net/problem/11403</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -79,7 +79,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200424_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶<br />
+🤟 성공 🤟<br />
 처음에 visit[]로 방문여부를 체크하지 않아 메모리 초과가 발생하였다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -94,7 +94,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -111,10 +111,10 @@
 	  <pubDate>2020-04-20T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj14502</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/14502">https://www.acmicpc.net/problem/14502</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -219,7 +219,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200420_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -246,7 +246,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>

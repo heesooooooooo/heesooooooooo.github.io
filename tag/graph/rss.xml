@@ -18,10 +18,10 @@
 	  <pubDate>2019-12-12T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog49191</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/49191">https://programmers.co.kr/learn/courses/30/lessons/49191</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -94,7 +94,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191212_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -135,7 +135,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>선수의 승패를 알기 위해 플로이드 와샬 알고리즘을 적용하겠다는 생각을 하는 사람들이 대단하다. 알고리즘을 이해하는 것은 어렵지 않았지만, 왜 이 문제를 플로이드 와샬 알고리즘으로 푸는지 이해하는 시간이 오래 걸렸다.</p>
 
 <h3 id="참고">참고</h3>
@@ -154,10 +154,10 @@
 	  <pubDate>2019-12-11T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog49189</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/49189">https://programmers.co.kr/learn/courses/30/lessons/49189</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -222,7 +222,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191211_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -246,7 +246,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>코드 구현 자체는 어렵지 않았지만 아직도 문제를 보고 직접 풀기까지는 나에게 무리인 것 같다.</p>
 
 <h3 id="참고">참고</h3>

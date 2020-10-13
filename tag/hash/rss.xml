@@ -18,10 +18,10 @@
 	  <pubDate>2020-09-04T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42579</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42579">https://programmers.co.kr/learn/courses/30/lessons/42579</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -217,7 +217,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200904_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -245,7 +245,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -258,10 +258,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj10816</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/1920">https://www.acmicpc.net/problem/1920</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -310,7 +310,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -323,7 +323,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <ul>
   <li>문제 분류는 이분 탐색이었기 때문에 다른 사람들이 짠 코드를 확인해보았는데, 인덱스를 카드 번호로 하여 구현한 경우가 많았다.</li>
 </ul>
@@ -338,10 +338,10 @@
 	  <pubDate>2019-10-16T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42579</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42579">https://programmers.co.kr/learn/courses/30/lessons/42579</a></p>
 
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -353,7 +353,7 @@
 
 <p>=&gt;ArrayList를 동적 생성할 수 없어서 불가.</p>
 
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+<h2 id="-두-번째-도전"><span style="color:navy">👊 두 번째 도전</span></h2>
 
 <h3 id="1-설계-1">1. 설계</h3>
 <ol>
@@ -481,10 +481,10 @@
 	  <pubDate>2019-09-30T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42578</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42578">https://programmers.co.kr/learn/courses/30/lessons/42578</a></p>
 
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -525,9 +525,9 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/190930_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <p>map의 값을 변경할 때 replace를 사용하였는데, put 역시 replace와 같은 기능을 한다는 것을 기억해두자!</p>
 
@@ -541,7 +541,7 @@
 	  <pubDate>2019-09-27T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42577</guid>
 	  <description><![CDATA[
-	     <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+	     <h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -578,7 +578,7 @@
 <p>phone_book=[“98765”,…,”98”]일 때, 위 코드를 실행했을 경우 마지막 원소 “98”이 0번째 원소인 “98765”의 접두사임을 찾지 못한다.
 따라서 배열을 길이에 따라 오름차순으로 정렬한 후 if문을 체크해야한다.</p>
 
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+<h2 id="-두-번째-도전"><span style="color:navy">👊 두 번째 도전</span></h2>
 
 <h3 id="1-설계-1">1. 설계</h3>
 <ol>
@@ -611,9 +611,9 @@
 
 <h3 id="3-결과-1">3. 결과</h3>
 <p><img src="./assets/images/190927_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <p>문제가 해시 카테고리에 있는데도 구글링한 결과 해시로 푼 사람은 한명밖에 찾지 못했다.</p>
 
@@ -627,7 +627,7 @@
 	  <pubDate>2019-09-24T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42576</guid>
 	  <description><![CDATA[
-	     <h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+	     <h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -717,9 +717,9 @@
 
 <h3 id="3-결과-1">3. 결과</h3>
 <p><img src="./assets/images/190924_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <p>문제를 보자마자 익숙한 링크드리스트가 먼저 떠올랐는데, 앞으로는 해쉬도 염두해두도록 하자.</p>
 

@@ -18,10 +18,10 @@
 	  <pubDate>2019-11-01T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42583</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42583">https://programmers.co.kr/learn/courses/30/lessons/42583</a></p>
 
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -88,7 +88,7 @@
 따라서 Iterator를 이용하여 루프 도중 아이템을 오류없이 삭제해야 한다.
 또한, 라인36에서 if 조건이 truck_idx==truck_weight.length-1로 바뀌어야 하고, 바뀐다 해도 truck_idx가 마지막이지만 아직 마지막 아이템을 사용하지 않았으며 큐가 비어있을 경우에 break에 걸려 종료될 수 있다(테스트1).</p>
 
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+<h2 id="-두-번째-도전"><span style="color:navy">👊 두 번째 도전</span></h2>
 
 <h3 id="1-설계-1">1. 설계</h3>
 <ol>
@@ -154,7 +154,7 @@
 while(!q_bridge.isEmpty())가 잘못되었다.
 테스트1에서 7이 다리를 홀로 건너는데, 다 건너고 나면 q_bridge는 0이 되고, 뒤에 트럭이 더 남아있지만 while문을 종료하기 때문이다.</p>
 
-<h2 id="-ᐛ-و-세-번째-도전"><span style="color:navy">( ᐛ )و 세 번째 도전</span></h2>
+<h2 id="-세-번째-도전"><span style="color:navy">👊 세 번째 도전</span></h2>
 
 <h3 id="1-설계-2">1. 설계</h3>
 <ol>
@@ -222,7 +222,7 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 <h3 id="4-문제점-2">4. 문제점</h3>
 <p>1초일 때 while문 밖에서 q_bridge에 처음 트럭을 넣으므로 첫 while문 방문 시에는 아무 것도 넣으면 안된다.</p>
 
-<h2 id="-ᐛ-و-네-번째-도전"><span style="color:navy">( ᐛ )و 네 번째 도전</span></h2>
+<h2 id="-네-번째-도전"><span style="color:navy">👊 네 번째 도전</span></h2>
 
 <h3 id="1-설계-3">1. 설계</h3>
 <ol>
@@ -288,9 +288,9 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 
 <h3 id="3-결과-3">3. 결과</h3>
 <p><img src="./assets/images/191101_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>데이터를 루프로 순회하고 있을 때 안전하게 삭제하는 Iterator를 배웠다. 테스트3이 안되는 이유를 몰라서 고민을 했었는데, 역시 컴퓨터는 거짓말을 하지 않는다….^ㅠ^</p>
 
 <h2 id="참고"><span style="color:navy">참고</span></h2>
@@ -309,10 +309,10 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 	  <pubDate>2019-10-29T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42587</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42587">https://programmers.co.kr/learn/courses/30/lessons/42587</a></p>
 
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -399,7 +399,7 @@ while(!q_bridge.isEmpty())가 잘못되었다.
   </tbody>
 </table>
 
-<h2 id="-ᐛ-و-두-번째-도전"><span style="color:navy">( ᐛ )و 두 번째 도전</span></h2>
+<h2 id="-두-번째-도전"><span style="color:navy">👊 두 번째 도전</span></h2>
 
 <h3 id="1-설계-1">1. 설계</h3>
 <ol>
@@ -464,9 +464,9 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 
 <h3 id="3-결과-1">3. 결과</h3>
 <p><img src="./assets/images/191029_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>예전에 코딩테스트에서 나왔을 때는 못 풀었는데, 이번엔 해결해서 다행이다. 문제 유형이 스택과 큐이지만 ArrayList를 활용하였다.</p>
 
 	  ]]></description>
@@ -479,10 +479,10 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 	  <pubDate>2019-10-28T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42586</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42586">https://programmers.co.kr/learn/courses/30/lessons/42586</a></p>
 
-<h2 id="-ᐛ-و-첫-번째-도전"><span style="color:navy">( ᐛ )و 첫 번째 도전</span></h2>
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -553,13 +553,13 @@ while(!q_bridge.isEmpty())가 잘못되었다.
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191028_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-참고">4. 참고</h3>
 <p><img src="./assets/images/191028_1.PNG" alt="결과화면" />
 마지막 ArrayList array를 배열 answer로 복사하는 과정에서 List 라이브러리의 toArray()메소드를 사용하려고 했는데, 이 경우 ArrayList와 배열 모두 Integer로 선언되어야 한다. 나의 경우 배열 answer이 int형으로 선언되었기 때문에 그냥 for문으로 값을 복사해주었다.</p>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <p>오랜만에 나름 쉬운 문제를 풀어서 기분이 좋았다. 문제 유형이 스택과 큐라서 이를 이용해야겠다고 파악할 수 있었지만, 없었다면 배열을 썼을 것 같다. 문제를 보고 어떤 자료구조를 택할지 연습하는 법을 길러야겠다.</p>
 

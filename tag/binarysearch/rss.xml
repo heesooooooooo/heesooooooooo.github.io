@@ -18,10 +18,10 @@
 	  <pubDate>2020-04-11T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj1300</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/1300">https://www.acmicpc.net/problem/1300</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -70,7 +70,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200411_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -83,7 +83,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>어렵다T_T</p>
 
 <h3 id="참고">참고</h3>
@@ -102,10 +102,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj2805</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/2805">https://www.acmicpc.net/problem/2805</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -161,7 +161,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_5.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -174,7 +174,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -187,10 +187,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj2110</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/2110">https://www.acmicpc.net/problem/2110</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -248,7 +248,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_6.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -260,7 +260,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>문제 이해하는 것이 어려웠다. 예시에서 1 4 9 설치하면 최댓값은 5라고 생각했는데, 그게 아니라 mid=3일때 1 4에 설치하면 8 9에 설치할 수 있으므로 mid는 3개가 되는 것이었다.</p>
 
 <h3 id="참고">참고</h3>
@@ -279,10 +279,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj1920</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/1920">https://www.acmicpc.net/problem/1920</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -340,7 +340,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -355,7 +355,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -368,10 +368,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj1654</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/1920">https://www.acmicpc.net/problem/1920</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -427,7 +427,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_4.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -446,7 +446,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -458,10 +458,10 @@
 	  <pubDate>2020-04-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-boj10816</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://www.acmicpc.net/problem/1920">https://www.acmicpc.net/problem/1920</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -510,7 +510,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200410_3.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -523,7 +523,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <ul>
   <li>문제 분류는 이분 탐색이었기 때문에 다른 사람들이 짠 코드를 확인해보았는데, 인덱스를 카드 번호로 하여 구현한 경우가 많았다.</li>
 </ul>
@@ -538,10 +538,10 @@
 	  <pubDate>2019-12-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog43236</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/43236">https://programmers.co.kr/learn/courses/30/lessons/43236</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -590,7 +590,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191210_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -606,7 +606,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>remove==n일때만 저장해야하는거 아닌가, 근데 그러면 테스트에서 틀린다. 아직 이유를 모르겠다.</p>
 
 <h3 id="참고">참고</h3>
@@ -625,10 +625,10 @@
 	  <pubDate>2019-12-08T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog43237</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/43237">https://programmers.co.kr/learn/courses/30/lessons/43237</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -681,7 +681,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191208_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -700,7 +700,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>이분탐색 코드는 어렵지 않은데 문제를 보면 이게 이분탐색 문제라는게 감이 안온다. 문제 유형 없었으면 전혀 몰랐을 듯.</p>
 
 	  ]]></description>
@@ -713,10 +713,10 @@
 	  <pubDate>2019-12-08T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog43238</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/43238">https://programmers.co.kr/learn/courses/30/lessons/43238</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -762,7 +762,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191208_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -781,7 +781,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>아직 이분탐색 문제의 유형을 잘 모르겠다. 언젠가는 감이 오겠지…?</p>
 
 <h3 id="참고">참고</h3>

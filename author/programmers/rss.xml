@@ -18,10 +18,10 @@
 	  <pubDate>2020-09-15T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea3135</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV_6pTXqsXUDFAWS&amp;categoryId=AV_6pTXqsXUDFAWS&amp;categoryType=CODE</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -145,7 +145,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200915_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -171,7 +171,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -188,10 +188,10 @@
 	  <pubDate>2020-09-15T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-swea9780</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXE0gpIa3dADFAVX">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXE0gpIa3dADFAVX</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -293,7 +293,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200915_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶<br />
+🤟 성공 🤟<br />
 초기에는 DP를 배열로 풀어서 시간 초과가 발생하였다. 이후 런타임 에러는 마지막에 main 마지막에 return을 추가하고, long으로 입력받아야 하는 곳을 수정하고, main에 throws IOException을 추가해서 해결했다.</p>
 
 <h3 id="4-설명">4. 설명</h3>
@@ -318,7 +318,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -335,10 +335,10 @@
 	  <pubDate>2020-09-13T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42892</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42892">https://programmers.co.kr/learn/courses/30/lessons/42892</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -508,7 +508,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200913_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -536,7 +536,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -553,10 +553,10 @@
 	  <pubDate>2020-09-10T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42890</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42890">https://programmers.co.kr/learn/courses/30/lessons/42890</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -650,7 +650,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200910_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -686,7 +686,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -703,10 +703,10 @@
 	  <pubDate>2020-09-04T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12900</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12900">https://programmers.co.kr/learn/courses/30/lessons/12900</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -761,7 +761,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200904_2.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -773,7 +773,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -786,10 +786,10 @@
 	  <pubDate>2020-09-04T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42579</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42579">https://programmers.co.kr/learn/courses/30/lessons/42579</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -985,7 +985,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200904_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1013,7 +1013,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -1026,10 +1026,10 @@
 	  <pubDate>2020-08-19T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog42888</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42888">https://programmers.co.kr/learn/courses/30/lessons/42888</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1118,7 +1118,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200819_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1137,7 +1137,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 
 	  ]]></description>
@@ -1150,10 +1150,10 @@
 	  <pubDate>2020-08-16T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog60060</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/60060">https://programmers.co.kr/learn/courses/30/lessons/60060</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1329,7 +1329,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200816_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1354,7 +1354,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -1371,10 +1371,10 @@
 	  <pubDate>2020-08-15T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog60059</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/60059">https://programmers.co.kr/learn/courses/30/lessons/60059</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1487,7 +1487,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200815_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1518,7 +1518,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -1535,10 +1535,10 @@
 	  <pubDate>2020-08-14T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog60058</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/60058">https://programmers.co.kr/learn/courses/30/lessons/60058</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -1649,7 +1649,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200814_1.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -1677,7 +1677,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 <h3 id="참고">참고</h3>
 <ul>

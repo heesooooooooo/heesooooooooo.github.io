@@ -18,10 +18,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12969</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12969">https://programmers.co.kr/learn/courses/30/lessons/12969</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -56,11 +56,11 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_17.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>쉽다.</p>
 
 	  ]]></description>
@@ -73,10 +73,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12954</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12954">https://programmers.co.kr/learn/courses/30/lessons/12954</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -103,14 +103,14 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_16.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
   <li><strong><span style="color:navy">x의 곱이 오버플로우가 발생할 수 있으므로 long으로 형변환 후 저장한다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>처음에는 x i+1을 곱한 결과에 long 형변환을 해주었는데 그러면 실패한다. 아마 int*int형 곱으로 이미 오버플로우가 발생하여 잘못 된 값을 long으로 변환해서 그런 것 같다. 처음부터 x를 long으로 큰 곳에 할당해놓고 i+1을 곱하니 성공하였다.</p>
 
 	  ]]></description>
@@ -123,10 +123,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12950</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12950">https://programmers.co.kr/learn/courses/30/lessons/12950</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -155,14 +155,14 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_15.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
   <li><strong><span style="color:navy">행렬의 각 자릿수끼리 더한다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>어려운 문제는 아니었다.</p>
 
 	  ]]></description>
@@ -175,10 +175,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12948</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12948">https://programmers.co.kr/learn/courses/30/lessons/12948</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -211,7 +211,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_14.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -219,7 +219,7 @@
   <li><strong><span style="color:navy">나머지 갯수는 전부 *을 넣는다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>어떤 코드는 String을 split한 후, 배열을 length-4전까지만 순회해 <code class="highlighter-rouge">*</code>로 바꾼 것을 보았다. 그게 더 깔끔한 것 같다.</p>
 
 	  ]]></description>
@@ -232,10 +232,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12947</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12947">https://programmers.co.kr/learn/courses/30/lessons/12947</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -266,7 +266,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_13.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -283,7 +283,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>int x를 String형변환후 split()로 쪼개어 자릿수 합을 구한 코드도 있었다. 그것보다는 이게 더 간단한 것 같다.</p>
 
 	  ]]></description>
@@ -296,10 +296,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12944</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12944">https://programmers.co.kr/learn/courses/30/lessons/12944</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -326,14 +326,14 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_12.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
   <li><strong><span style="color:navy">for-each로 배열의 합을 구한 뒤, 갯수만큼 나눈다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>간단한 문제였다. 다른 사람은 Arrays.stream()을 사용해서 한 줄로 끝냈던데, 그러면 효율성이 떨어진다고 한다. 그래도 한 줄로 코드를 완성시키니 새로워 보인다.</p>
 
 	  ]]></description>
@@ -346,10 +346,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12943</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12943">https://programmers.co.kr/learn/courses/30/lessons/12943</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -380,7 +380,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_11.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -392,7 +392,7 @@
   <li><strong><span style="color:navy">결과값이 1이 될 때까지 반복하되 500번을 넘어가면 -1을 리턴한다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>long타입으로 형변환이 필요하다는게 포인트인 것 같다. 근데 int와 long타입 모두 정수 범위는 같은데 왜 long이 더 큰 데이터를 받을 수 있는지 모르겠다. 대충 OS, 컴파일러에 따라 int의 비트 크기가 다르기 때문이라는데 무슨 말인지 일도 모르겠다T.T</p>
 
 	  ]]></description>
@@ -405,10 +405,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12940</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12940">https://programmers.co.kr/learn/courses/30/lessons/12940</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -453,7 +453,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_10.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -472,7 +472,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>간단한 문제였지만 수학적 지식이 필요했다. 유클리드 호제법을 알게 되었다.</p>
 
 	  ]]></description>
@@ -485,10 +485,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12937</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12937">https://programmers.co.kr/learn/courses/30/lessons/12937</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -511,14 +511,14 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_9.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
   <li><strong><span style="color:navy">나머지 연산으로 짝수 홀수를 판별한다.</span></strong></li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>간단한 문제였다.</p>
 
 	  ]]></description>
@@ -531,10 +531,10 @@
 	  <pubDate>2019-12-18T09:00:00+09:00</pubDate>
 	  <guid>/blog//algo-prog12935</guid>
 	  <description><![CDATA[
-	     <h2 id="문제"><span style="color:navy">문제</span></h2>
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
 <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12935">https://programmers.co.kr/learn/courses/30/lessons/12935</a></p>
 
-<h2 id="-ᐛ-و-도전"><span style="color:navy">( ᐛ )و 도전</span></h2>
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
 
 <h3 id="1-설계">1. 설계</h3>
 <ol>
@@ -576,7 +576,7 @@
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_8.PNG" alt="실행결과" />
-성공٩(˘◊˘)۶</p>
+🤟 성공 🤟</p>
 
 <h3 id="4-설명">4. 설명</h3>
 <ol>
@@ -589,7 +589,7 @@
   </li>
 </ol>
 
-<h2 id="해결-완료"><span style="color:navy">해결 완료!</span></h2>
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>배열에 -1을 채워 리턴할때 return new int[] {-1}로 쓸 수 있음을 알게 되었다.</p>
 
 	  ]]></description>
