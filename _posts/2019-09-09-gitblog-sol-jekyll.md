@@ -25,7 +25,7 @@ categories: git
 다른 테마는 어떤지 모르겠지만 내 것은 보안상의 이유로 Github가 plugins 폴더를 읽지 않아서 이런 오류가 발생하였다.
 그리고 이 설명은 테마 개발자의 README.md에 자세히 적혀 있었다.
 
-### <span style="color:blue">해결 방법</span>
+### <span style="color:blue">👏 해결 방법</span>
 
 1. ruby를 다운받는다.
 <https://rubyinstaller.org/downloads/>
