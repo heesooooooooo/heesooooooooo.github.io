@@ -12,6 +12,129 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 138. Copy List with Random Pointer</title>
+	  <link>/blog//algo-leet138</link>
+	  <author></author>
+	  <pubDate>2020-10-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet138</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/copy-list-with-random-pointer/">https://leetcode.com/problems/copy-list-with-random-pointer/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>주어진 리스트 head를 깊은 복사하여 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">copyRandomList</span><span class="o">(</span><span class="n">Node</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+        
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">,</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">Node</span> <span class="n">p</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">p</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span> <span class="c1">// 새 노드 생성</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">val</span><span class="o">));</span>
+            <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="n">p</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">p</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span> <span class="c1">// 새 노드들에 next, random 연결</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">).</span><span class="na">next</span><span class="o">=</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">next</span><span class="o">);</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">).</span><span class="na">random</span><span class="o">=</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">random</span><span class="o">);</span>
+            <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201014_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">해시맵을 이용한다</span></strong>
+    <ul>
+      <li>Key는 기존 리스트의 노드, Value는 기존 노드를 복사한 새 노드가 된다.</li>
+      <li>처음 while문을 통해 기존 노드와 val이 같은 새 노드를 만들어서 맵에 넣는다.</li>
+      <li>두 번째 while문에서 새 노드(p를 key로 가지는 값의 value)의 next와 random을 연결한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+<p>처음에는 맵의 형태를 &lt;Integer, Node&gt;로 하여 코드를 짰는데, 노드의 val은 중복 값이 존재하기 떄문에 해당 방법은 불가능하는 것을 알고 다른 풀이를 참고하였다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/LeetCode] Top 100 Liked Question: 105. Construct Binary Tree from Preorder and Inorder Traversal</title>
 	  <link>/blog//algo-leet105</link>
 	  <author></author>
@@ -242,6 +365,134 @@
       <li>문제의 예제에서 후위순회로 방문하면 [6,5,4,3,2,1]이므로 트리의 밑에서 위로 올라가며 오른쪽으로 flatten된 트리를 만들면 된다.</li>
       <li>재귀를 통해 오른쪽 끝까지 이동한 후, 마지막 노드 root의 right는 이전 prev, left는 null로 바꾼다.</li>
       <li>이제 root의 위로 올라가므로 prev를 root로 갱신한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 98. Validate Binary Search Tree</title>
+	  <link>/blog//algo-leet98</link>
+	  <author></author>
+	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet98</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/validate-binary-search-tree/">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>중위순회로 탐색하며 뒤에 나보다 작은 값이 나오면 false이다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValidBST</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        
+        <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">inorder</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+        
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="c1">// 뒤에 나보다 같거나 더 큰 값이 있으면</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)&gt;=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">))</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inorder</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="o">){</span> <span class="c1">// 중위순회</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
+            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200928_1.PNG" alt="실행결과" />
+🤟 성공 🤟 <br />
+중위순회로 트리를 한 번 훑고 또 훑어서 시간이 조금 소요되는 것 같다. 그냥 중위순회하면서 조건에 만족하지 않으면 바로 return할 수도 있을 듯</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">중위순회 이용한다</span></strong>
+    <ul>
+      <li>중위순회는 LVR로, 오름차순으로 숫자를 방문함을 알 수 있다.</li>
+      <li>따라서, 유효한 BST가 아니라면 오름차순을 만족하지 못하므로 false를 리턴하면 된다.</li>
     </ul>
   </li>
 </ol>
@@ -796,134 +1047,6 @@
 	</item>
 
 	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 98. Validate Binary Search Tree</title>
-	  <link>/blog//algo-leet98</link>
-	  <author></author>
-	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet98</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/validate-binary-search-tree/">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>중위순회로 탐색하며 뒤에 나보다 작은 값이 나오면 false이다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValidBST</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        
-        <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">inorder</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="c1">// 뒤에 나보다 같거나 더 큰 값이 있으면</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)&gt;=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">))</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inorder</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="o">){</span> <span class="c1">// 중위순회</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200928_1.PNG" alt="실행결과" />
-🤟 성공 🤟 <br />
-중위순회로 트리를 한 번 훑고 또 훑어서 시간이 조금 소요되는 것 같다. 그냥 중위순회하면서 조건에 만족하지 않으면 바로 return할 수도 있을 듯</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">중위순회 이용한다</span></strong>
-    <ul>
-      <li>중위순회는 LVR로, 오름차순으로 숫자를 방문함을 알 수 있다.</li>
-      <li>따라서, 유효한 BST가 아니라면 오름차순을 만족하지 못하므로 false를 리턴하면 된다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>[JAVA/LeetCode] Top 100 Liked Question: 96. Unique Binary Search Trees</title>
 	  <link>/blog//algo-leet96</link>
 	  <author></author>
@@ -1011,119 +1134,6 @@
 
 <h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>멀고도 험난한 DP의 세계🤯</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 94. Binary Tree Inorder Traversal</title>
-	  <link>/blog//algo-leet94</link>
-	  <author></author>
-	  <pubDate>2020-09-27T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet94</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/">https://leetcode.com/problems/binary-tree-inorder-traversal/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>중위순회를 구현한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">inorderTraversal</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">inorder</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        
-        <span class="k">return</span> <span class="n">list</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inorder</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">node</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-            <span class="n">inorder</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200927_1.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">중위순회를 구현한다</span></strong>
-    <ul>
-      <li>중위순회는 LVR(Left Visit Right)이다. 왼쪽 먼저 체크하고 노드를 체크한 후 오른쪽으로 넘어간다.</li>
-      <li>참고로 전위순회는 VLR, 후위순회는 LRV이다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
