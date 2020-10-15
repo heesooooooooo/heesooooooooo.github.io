@@ -12,6 +12,467 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 142. Linked List Cycle II</title>
+	  <link>/blog//algo-leet142</link>
+	  <author></author>
+	  <pubDate>2020-10-15T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet142</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/linked-list-cycle-ii/submissions/">https://leetcode.com/problems/linked-list-cycle-ii/submissions/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>ListNode의 사이클 시작점부터를 반환한다.</li>
+  <li>이때 공간 복잡도 O(1)을 만족하는 코드를 짠다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">detectCycle</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ListNode</span> <span class="n">fast</span><span class="o">=</span><span class="n">head</span><span class="o">,</span> <span class="n">slow</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">fast</span><span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">fast</span><span class="o">=</span><span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="n">slow</span><span class="o">=</span><span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">fast</span><span class="o">==</span><span class="n">slow</span><span class="o">){</span> <span class="c1">// 사이클이 있다면</span>
+                <span class="n">ListNode</span> <span class="n">slow2</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">(</span><span class="n">slow</span><span class="o">!=</span><span class="n">slow2</span><span class="o">){</span>
+                    <span class="n">slow</span><span class="o">=</span><span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+                    <span class="n">slow2</span><span class="o">=</span><span class="n">slow2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">return</span> <span class="n">slow</span><span class="o">;</span>
+            <span class="o">}</span>
+            
+        <span class="o">}</span>        
+        
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201015_1.PNG" alt="실행결과" />
+🤟 성공 🤟 <br />
+문제 제한조건을 못보고 HashSet을 이용하여 문제를 풀었었다.</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">리스트에 사이클이 있는지 확인한다</span></strong>
+    <ul>
+      <li>fast는 리스트를 두 칸씩 뛰는 포인터, slow는 한 칸씩 뛰는 포인터이다.</li>
+      <li>fast가 리스트의 마지막까지 간다면 사이클이 없다는 뜻이다.</li>
+      <li>fast==slow가 만나는 지점이 사이클 구간 중 한 군데이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">사이클의 시작점을 찾는다</span></strong>
+    <ul>
+      <li>리스트 시작부터 사이클 시작점까지의 구간을 a, 사이클 내 fast와 slow가 만난 곳을 b(사이클 시작점~만난 곳), b를 제외한 사이클 나머지 구간을 c라고 하자.</li>
+      <li>fast와 slow가 만나기 위해 fast는 a+b+c+b=a+2b+c를 이동한다.</li>
+      <li>slow는 a+b</li>
+      <li>fast==slow이므로 a+2b+c=a+b (1)</li>
+      <li>fast는 slow보다 2배 빠르므로 a+b=2(a+b) (2)</li>
+      <li>식 (1), (2)를 통해 a=c라는 결론을 얻을 수 있다.</li>
+      <li>따라서 리스트 시작점(head)에서부터 움직이는 포인터 slow2와 fast와 slow가 만난 점에서부터 사이클 시작점으로 가는 slow가 만나는 점이 정답이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 206. Reverse Linked List</title>
+	  <link>/blog//algo-leet206</link>
+	  <author></author>
+	  <pubDate>2020-10-15T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet206</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/reverse-linked-list/">https://leetcode.com/problems/reverse-linked-list/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>리스트를 역순으로 만들어 리턴한다.</li>
+  <li>반복문과 재귀를 이용한 두 경우를 구현한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="n">ListNode</span> <span class="n">result</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">reverseList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">iter</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+        <span class="c1">// return recur(head);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">iter</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">){</span> <span class="c1">// 반복문</span>
+        <span class="n">ListNode</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">null</span><span class="o">,</span> <span class="n">cur</span><span class="o">=</span><span class="n">head</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">cur</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">ListNode</span> <span class="n">rest</span><span class="o">=</span><span class="n">cur</span><span class="o">.</span><span class="na">next</span><span class="o">;</span> <span class="c1">// 임시 저장</span>
+            <span class="n">cur</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">reverse</span><span class="o">;</span> <span class="c1">// 현재 cur은 만들어진 reverse를 가리킨다</span>
+            <span class="n">reverse</span><span class="o">=</span><span class="n">cur</span><span class="o">;</span> <span class="c1">// reverse는 항상 맨 앞을 가리키도록</span>
+            <span class="n">cur</span><span class="o">=</span><span class="n">rest</span><span class="o">;</span> <span class="c1">// 다음 노드 탐색</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">reverse</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">recur</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">){</span> <span class="c1">// 재귀</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span><span class="o">==</span><span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="n">head</span><span class="o">;</span> <span class="c1">// 빈 리스트이거나 마지막 노드라면</span>
+        
+        <span class="n">ListNode</span> <span class="n">reverse</span><span class="o">=</span><span class="n">recur</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">);</span> <span class="c1">// 현재까지 생성한 리스트</span>
+        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="n">head</span><span class="o">;</span> <span class="c1">// head의 다음노드는 나를 가리킨다</span>
+        <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span> <span class="c1">// 원본 리스트에서 나 이후로는 연결 끊기(재귀로 연결되어있으므로 상관X)</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201015_2.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">Iterative</span></strong>
+    <ul>
+      <li>포인터 cur로 리스트를 순회하며, reverse에는 앞에 붙는 새 노드(cur)의 next가 지금까지 생성한 reverse를 가리키는 방식으로 구현한다.</li>
+      <li>reverse는 항상 리스트의 앞을 가리켜야 하므로 reverse의 앞에 노드를 추가한 후 reverse=cur이 된다.</li>
+      <li>cur의 다음 노드들이 있는 rest가 다시 cur이 된다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">Recursive</span></strong>
+    <ul>
+      <li>head는 현재 리스트에서의 위치이다.</li>
+      <li>재귀 탈출 조건은 head가 마지막 노드(head.next==null)이다.</li>
+      <li>원본 리스트 자체가 빈 값일 수 있으므로 head==null 조건을 추가하였다.</li>
+      <li>역순이 되기 위해 내 뒤의 노드는 나를 가리켜야 한다(head.next.next=head)</li>
+      <li>나는 역순 리스트에 포함되었으므로 원본 리스트에서 연결을 끊는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 160. Intersection of Two Linked Lists</title>
+	  <link>/blog//algo-leet160</link>
+	  <author></author>
+	  <pubDate>2020-10-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet160</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/">https://leetcode.com/problems/intersection-of-two-linked-lists/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>headA와 headB가 가리키는 같은 노드를 리턴(value가 같은 값이 아님)한다.</li>
+  <li>headA의 노드들을 HashSet에 저장하고, headB를 순회하며 겹치는 노드부터의 리스트를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">getIntersectionNode</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">headA</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">headB</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;</span> <span class="n">set</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+        <span class="n">ListNode</span> <span class="n">p</span><span class="o">=</span><span class="n">headA</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">p</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span> <span class="c1">// headA의 노드들을 HashSet에 저장</span>
+            <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+            <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="n">p</span><span class="o">=</span><span class="n">headB</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">p</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span> <span class="c1">// headB 순회</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">set</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">p</span><span class="o">))</span> <span class="k">break</span><span class="o">;</span> <span class="c1">// headA와 같은 노드(교차점)를 발견했다면</span>
+            <span class="k">else</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">p</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201014_4.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">HashSet을 이용한다</span></strong>
+    <ul>
+      <li>headA의 노드들을 HashSet에 다 넣는다.</li>
+      <li>headB를 순회하며 현재 가리키는 노드 p가 set에도 있다면 p가 교차점이 된다.</li>
+      <li>참고로, 교차점은 val이 같은 노드가 아니라 주소까지 모조리 같은 것을 의미한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+<p>문제 이해하는데 시간이 더 걸리는 듯</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 139. Word Break</title>
+	  <link>/blog//algo-leet139</link>
+	  <author></author>
+	  <pubDate>2020-10-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet139</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/word-break/">https://leetcode.com/problems/word-break/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP를 이용한다.</li>
+  <li>dp[i]는 0부터 i-1번째 문자열까지가 wordDict 단어들로 만들 수 있는지 여부를 저장한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="o">/*</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">wordBreak</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">wordDict</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+        
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span> 
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span> 
+                <span class="k">if</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">wordDict</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">j</span><span class="o">,</span><span class="n">i</span><span class="o">)))</span> <span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+           
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201014_3.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP를 이용한다</span></strong>
+    <ul>
+      <li>dp는 1부터 시작한다. dp[1]은 s의 첫 번째 문자가 wordDict에 있는지 여부를 저장한다.</li>
+      <li>s.substring(j,i)가 wordDict에 있는지 확인한다. 이를 만족한다면 0~j까지의 값인 dp[j]도 true여야 dp[i]까지가 wordDict의 조건을 만족하는 것이므로 true를 넣는다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/LeetCode] Top 100 Liked Question: 138. Copy List with Random Pointer</title>
 	  <link>/blog//algo-leet138</link>
 	  <author></author>
@@ -130,6 +591,122 @@ class Node {
 
 <h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 <p>처음에는 맵의 형태를 &lt;Integer, Node&gt;로 하여 코드를 짰는데, 노드의 val은 중복 값이 존재하기 떄문에 해당 방법은 불가능하는 것을 알고 다른 풀이를 참고하였다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/LeetCode] Top 100 Liked Question: 169. Majority Element</title>
+	  <link>/blog//algo-leet169</link>
+	  <author></author>
+	  <pubDate>2020-10-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-leet169</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://leetcode.com/problems/majority-element/">https://leetcode.com/problems/majority-element/</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>HashMap으로 num의 개수를 센다.</li>
+  <li>map을 순회하며 majority(n/2)보다 큰 value의 key를 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">majorityElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">num:</span><span class="n">nums</span><span class="o">){</span> <span class="c1">// num의 개수 카운트</span>
+            <span class="kt">int</span> <span class="n">value</span><span class="o">=</span><span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">value</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">majority</span><span class="o">=</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="nl">entry:</span><span class="n">map</span><span class="o">.</span><span class="na">entrySet</span><span class="o">()){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">()&gt;</span><span class="n">majority</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// majority 넘는 value의 key 리턴</span>
+                <span class="n">answer</span><span class="o">=</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>            
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201014_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">HashMap을 이용한다</span></strong>
+    <ul>
+      <li>HashMap을 이용하여 nums의 num별 개수를 세서 저장한다.</li>
+      <li>map.entrySet()을 순회하며 majority(n/2)보다 큰 value를 찾고, 해당 key를 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
@@ -577,563 +1154,6 @@ class Node {
 </ol>
 
 <h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question:121. Best Time to Buy and Sell Stock</title>
-	  <link>/blog//algo-leet121</link>
-	  <author></author>
-	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet121</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>0번째 인덱스를 buy한다고 가정한다.</li>
-  <li>buy보다 더 작은 값이 나오면 갱신한다.</li>
-  <li>아닐 경우, i로 판다고 가정하고 이윤을 계산한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">maxProfit</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 0 또는 1은 0리턴</span>
-        
-        <span class="kt">int</span> <span class="n">buy</span><span class="o">=</span><span class="n">prices</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span> <span class="c1">// 첫 번째는 buy</span>
-        <span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="c1">// 더 싸게 살 수 있으면 buy</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">buy</span><span class="o">&gt;</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="n">buy</span><span class="o">=</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> 
-            <span class="c1">// i로 판다고 가정했을 때 이윤 계산 및 max 체크</span>
-            <span class="k">else</span> <span class="n">answer</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">buy</span><span class="o">);</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200928_6.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">배열을 체크하며 buy보다 더 작은 값이 있다면 갱신, 아니라면 이익을 계산한다</span></strong>
-    <ul>
-      <li>buy=prices[0]으로 초기화한다. 처음 값으로 샀다고 가정한다.</li>
-      <li>인덱스 1부터 체크하며 buy&gt;prices[i]면 더 작은 값으로 산다.</li>
-      <li>아니라면, 이익을 계산하고 기존 값과 비교하여 answer에 더 큰 값을 저장한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 104. Maximum Depth of Binary Tree</title>
-	  <link>/blog//algo-leet104</link>
-	  <author></author>
-	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet104</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>큐를 이용해 트리를 순회한다.</li>
-  <li>현재 큐에 남아있는 값들이 같은 레벨인 것이므로 현재 큐의 개수만큼 뽑아서 리스트에 저장한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">maxDepth</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="o">;</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="kt">int</span> <span class="n">size</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-            <span class="n">depth</span><span class="o">++;</span> <span class="c1">// 현재 레벨 계산</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span> <span class="c1">// 레벨에 있는 노드 체크</span>
-                <span class="n">TreeNode</span> <span class="n">node</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-                <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-                <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="n">depth</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200928_4.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">큐를 이용한다</span></strong>
-    <ul>
-      <li>레벨순회를 통해 레벨 개수를 셌다.</li>
-      <li>큐의 사이즈를 체크해서 size에 저장한다. 현재 레벨에 size만큼 노드가 있다는 뜻이다. 이 개수만큼 for문을 돌며 자식 노드들을 큐에 다시 넣는다. for문에서 size대신 q.size()를 쓰면, 밑에서 큐에 값을 삽입하며 큐 size가 계속 갱신되기 때문에 안된다.</li>
-      <li>depth는 -1로 초기화한다. root가 들어오면 depth++하여 0이 되도록 하기 위함이다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 102. Binary Tree Level Order Traversal</title>
-	  <link>/blog//algo-leet102</link>
-	  <author></author>
-	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet102</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/symmetric-tree/">https://leetcode.com/problems/symmetric-tree/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>큐를 이용해 트리를 순회한다.</li>
-  <li>현재 큐에 남아있는 값들이 같은 레벨인 것이므로 현재 큐의 개수만큼 뽑아서 리스트에 저장한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">levelOrder</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="kt">int</span> <span class="n">size</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="c1">// 현재 노드 개수==현재 레벨의 노드 개수</span>
-            <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span> 
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-                <span class="n">TreeNode</span> <span class="n">node</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-                <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
-                <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-                <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()!=</span><span class="mi">0</span><span class="o">)</span> <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200928_3.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">큐를 이용한다</span></strong>
-    <ul>
-      <li>큐를 이용해 트리를 방문한다.</li>
-      <li>현재 큐에 있는 노드들은 같은 레벨인 것과 같다.</li>
-      <li>하지만 while문 처음에 poll한 node의 left와 right를 또다시 큐에 넣으면 큐의 사이즈가 바뀌기 때문에, 큐의 사이즈를 size에 저장해놓고, 그 개수만큼 for문을 돌려 노드를 뽑는다.</li>
-      <li>뽑은 노드가 null이 아니라면, list에 넣는다.</li>
-      <li>size만큼 뽑아서 list에 저장한 것이 하나 이상 존재하면 result에 넣는다. 해당 코드가 없으면 빈 리스트가 result에 들어간다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 101. Symmetric Tree</title>
-	  <link>/blog//algo-leet101</link>
-	  <author></author>
-	  <pubDate>2020-09-28T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet101</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/symmetric-tree/">https://leetcode.com/problems/symmetric-tree/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>큐에서 두 개를 뽑고, 두 값이 같다면 a의 왼쪽, b의 오른쪽, a의 오른쪽, b의 왼쪽을 순서대로 넣는다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="cm">/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSymmetric</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">q</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        
-        <span class="k">while</span><span class="o">(!</span><span class="n">q</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()){</span>
-            <span class="n">TreeNode</span> <span class="n">a</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="n">TreeNode</span> <span class="n">b</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
-            <span class="c1">// 두 개 비교</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="kc">null</span> <span class="o">||</span> <span class="n">b</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">val</span><span class="o">!=</span><span class="n">b</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="c1">// 두 값이 대칭이라면 순서대로 넣기</span>
-            <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-            <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">right</span><span class="o">);</span>
-            <span class="n">q</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">left</span><span class="o">);</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200928_2.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">큐를 이용한다</span></strong>
-    <ul>
-      <li>큐에서 두 개씩 뽑아 값을 비교한다. 루트는 하나기 때문에 같은 값을 두 번 넣어준다.</li>
-      <li>큐에서 두 개를 뽑는다. a와 b가 둘 다 null이라면 자식 노드도 없으므로 바로 continue한다.</li>
-      <li>둘 중 하나가 null이면 대칭이 아니므로 false를 리턴한다.</li>
-      <li>값이 달라도 false이다.</li>
-      <li>값이 같다면 자식 노드들을 넣어준다. 비교하는 대상이 정해져있기 때문에 순서를 맞춰서 넣는다.</li>
-      <li>a의 왼쪽은 b의 오른쪽과, a의 오른쪽은 b의 왼쪽과 비교해야 하므로 차례대로 넣는다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/LeetCode] Top 100 Liked Question: 96. Unique Binary Search Trees</title>
-	  <link>/blog//algo-leet96</link>
-	  <author></author>
-	  <pubDate>2020-09-27T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-leet96</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://leetcode.com/problems/unique-binary-search-trees/submissions/">https://leetcode.com/problems/unique-binary-search-trees/submissions/</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>DP를 이용한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="code"><pre><span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">numTrees</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">)</span> <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
-        
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
-        <span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
-        <span class="n">dp</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="mi">2</span><span class="o">;</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
-                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]+=</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]*</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">j</span><span class="o">];</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-    <span class="o">}</span>
-    
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/200927_2.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">DP를 이용한다</span></strong>
-    <ul>
-      <li>n=1이면 1 (dp[1]=1)</li>
-      <li>n=2이면 1(root)- 2(right) 또는 1(left)-2(root) 이므로 dp[2]=2</li>
-      <li>n=3인 경우, root가 1이면 left에는 아무것도 오지 않고, right는 {2,3}이 온다. {2,3}이나 {1,2}나 BST를 만드는 경우의 수는 같으므로 경우의 수는 1(left 경우의 수, dp[0])*dp<a href="right 경우의 수">2</a>=2</li>
-      <li>root=2이면, left에는 {1}, right는 {3}이 온다. 따라서 경우의 수는 dp[1]*dp[1]=1</li>
-      <li>root=3이면 left에 {1,2}, right={null}이므로 dp[2]*dp[0]=2</li>
-      <li>이를 모두 더하면 <code class="highlighter-rouge">dp[3]=(dp[0]*dp[2])+(dp[1]*dp[1])+(dp[2]*dp[0])</code></li>
-      <li>따라서 이를 점화식으로 나타내면 dp[x]=dp[0]*dp[x-1]+…+dp[x-1][0]이다.</li>
-      <li>이를 for문을 통해 나타냈다. i가 x, j는 0부터 x-1까지 경우의 수를 모두 더하는데 사용한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-<p>멀고도 험난한 DP의 세계🤯</p>
 
 	  ]]></description>
 	</item>
