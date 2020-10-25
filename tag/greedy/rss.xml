@@ -12,6 +12,112 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 탐욕법(Greedy): 조이스틱</title>
+	  <link>/blog//algo-prog42860</link>
+	  <author></author>
+	  <pubDate>2020-10-25T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog42860</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42860">https://programmers.co.kr/learn/courses/30/lessons/42860</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>문자열의 문자(i) 하나씩 체크하며 A가 아니면 상, 하 중 최솟값을 구한다.</li>
+  <li>i 다음 문자가 A로 시작한다면 A가 끝나는 점 인덱스를 구한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">minWay</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// 오른쪽으로 계속 이동하는 경우</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="kt">char</span> <span class="n">ch</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">ch</span><span class="o">!=</span><span class="sc">'A'</span><span class="o">)</span> <span class="n">answer</span><span class="o">+=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">ch</span><span class="o">-</span><span class="sc">'A'</span><span class="o">,</span> <span class="sc">'Z'</span><span class="o">-</span><span class="n">ch</span><span class="o">+</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// 상, 하</span>
+            
+            <span class="kt">int</span> <span class="n">next</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+            <span class="c1">// i 다음 문자가 A로 시작한다면 A가 끝나는 위치 찾기</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">next</span><span class="o">&lt;</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">next</span><span class="o">)==</span><span class="sc">'A'</span><span class="o">)</span> <span class="n">next</span><span class="o">++;</span>
+            <span class="n">minWay</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minWay</span><span class="o">,</span> <span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="o">-</span><span class="n">next</span><span class="o">);</span> 
+        <span class="o">}</span>
+        
+        <span class="n">answer</span><span class="o">+=</span><span class="n">minWay</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201025_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">A가 아닌 문자는 상/하 중 최소 움직임을 선택한다</span></strong>
+    <ul>
+      <li>i번째 문자를 A로 만들기 위해서 아스키코드를 이용한다.</li>
+      <li>A에서 시작한다면 ch-A이고, Z부터는 Z-ch+1이다(1은 A에서 Z로 가기 위함).</li>
+      <li>둘 중 작은 값을 택한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">이동 방향을 체크한다</span></strong>
+    <ul>
+      <li>이동 방향의 최댓값은 한 방향으로만 가는 경우이다. 따라서 minWay를 n-1로 초기화한다.</li>
+      <li>i번째 문자를 A로 바꿨다면, 다음 문자가 A인지 체크한다. A라면 A가 아닌 문자가 나오는 지점을 next를 통해 찾는다.</li>
+      <li>이동 방향은 양쪽 가능한데, minWay는 오른쪽으로만 이동하는 경우이다. 더 빨리 알파벳을 완성하기 위해서는 왼쪽으로도 이동해야 한다. next를 통해 왼쪽으로 가는 경우를 찾는다.</li>
+      <li>next는 오른쪽 방향으로 i 뒤에 A가 아닌 다른 알파벳으로 가는 거리이다. 왼쪽으로 그곳까지 가기 위해서는 i+i+n-next가 된다.</li>
+      <li>i(현재 내 위치. 원점에서 내 위치까지 가는데 거리)+i(현재 위치에서 시작점으로 돌아가는 거리)+n-next(끝에서 next까지 가는 거리)</li>
+      <li>따라서 기존 minWay(오른쪽으로 가는 경우), i+i+n-next(왼쪽으로 가는 경우)의 최솟값을 택해서 minWay에 넣으면 된다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[프로그래머스] 조이스틱 (java) Greedy <a href="https://parksuu.github.io/139-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1-(java)/">https://parksuu.github.io/139-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A1%B0%EC%9D%B4%EC%8A%A4%ED%8B%B1-(java)/</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 탐욕법(Greedy)_저울</title>
 	  <link>/blog//algo-prog42886</link>
 	  <author></author>
