@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>PS & 개발 기록</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/백준] 10282번: 해킹</title>
+	  <link>/blog//algo-boj10282</link>
+	  <author></author>
+	  <pubDate>2020-11-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-boj10282</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://www.acmicpc.net/problem/10282">https://www.acmicpc.net/problem/10282</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>다익스트라를 이용하여 노드에서 다른 노드로 가는 최소 weight를 기준으로 이동한다.</li>
+  <li>처음 방문하는 노드이면 cnt++하여 전파되는 컴퓨터의 개수를 센다.</li>
+  <li>dist[] 배열에서 INF 값을 제외한 최댓값이 감염되는 최소시간이 된다.</li>
+</ol>
+
+<h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="cm">/**
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>	
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">dist</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="n">BufferedReader</span> <span class="n">br</span><span class="o">=</span><span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+		<span class="n">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">tc</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		
+		<span class="k">while</span><span class="o">(</span><span class="n">tc</span><span class="o">--&gt;</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+			<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span> <span class="c1">// 총 컴퓨터 수</span>
+			<span class="kt">int</span> <span class="n">d</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span> <span class="c1">// 감염 정보 수</span>
+			<span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span> <span class="c1">// 시작 컴퓨터</span>
+			
+			<span class="n">dist</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span> <span class="c1">// 0번은 사용 안함</span>
+			<span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">dist</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span> <span class="c1">// INF로 초기화</span>
+			<span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> 
+				<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
+			<span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// 시작 컴퓨터는 이미 감염되었으므로</span>
+			
+			<span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;&gt;();</span>
+			<span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+			<span class="n">dist</span><span class="o">[</span><span class="n">c</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span> <span class="c1">// 시작 노드이므로 0으로 초기화</span>
+			
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">d</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+				<span class="kt">int</span> <span class="n">s</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>				
+				<span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">s</span><span class="o">));</span> <span class="c1">// b-&gt;a로 감염됨</span>
+			<span class="o">}</span>
+
+			<span class="n">solve</span><span class="o">(</span><span class="n">pq</span><span class="o">);</span>
+			<span class="c1">// dist에서 INF를 제외한 새 배열 생성</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">result</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">dist</span><span class="o">).</span><span class="na">filter</span><span class="o">(</span><span class="n">k</span><span class="o">-&gt;</span><span class="n">k</span><span class="o">!=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>
+			<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cnt</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">result</span><span class="o">[</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">]);</span>
+		<span class="o">}</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">solve</span><span class="o">(</span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">while</span><span class="o">(!</span><span class="n">pq</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">Node</span> <span class="n">node</span><span class="o">=</span><span class="n">pq</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+			<span class="c1">// 내 weight가 계산된 dist보다 크다면 갱신할 필요 없음</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">weight</span><span class="o">&gt;</span><span class="n">dist</span><span class="o">[</span><span class="n">node</span><span class="o">.</span><span class="na">idx</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
+			
+			<span class="k">for</span><span class="o">(</span><span class="n">Node</span> <span class="nl">n:</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">idx</span><span class="o">))</span> <span class="o">{</span> <span class="c1">// node에서 갈 수 있는 n</span>
+				<span class="c1">// n으로 가는 것 중 node에서 n으로 가는 경우가 더 최단이라면</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">dist</span><span class="o">[</span><span class="n">n</span><span class="o">.</span><span class="na">idx</span><span class="o">]&gt;</span><span class="n">dist</span><span class="o">[</span><span class="n">node</span><span class="o">.</span><span class="na">idx</span><span class="o">]+</span><span class="n">n</span><span class="o">.</span><span class="na">weight</span><span class="o">)</span> <span class="o">{</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">dist</span><span class="o">[</span><span class="n">n</span><span class="o">.</span><span class="na">idx</span><span class="o">]==</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="n">cnt</span><span class="o">++;</span> <span class="c1">// n 방문이 처음이라면</span>
+					<span class="n">dist</span><span class="o">[</span><span class="n">n</span><span class="o">.</span><span class="na">idx</span><span class="o">]=</span><span class="n">dist</span><span class="o">[</span><span class="n">node</span><span class="o">.</span><span class="na">idx</span><span class="o">]+</span><span class="n">n</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+					<span class="n">pq</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">idx</span><span class="o">,</span> <span class="n">dist</span><span class="o">[</span><span class="n">n</span><span class="o">.</span><span class="na">idx</span><span class="o">]));</span>
+				<span class="o">}</span>
+				
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Node</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;{</span>
+	<span class="kt">int</span> <span class="n">idx</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">weight</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">w</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">idx</span><span class="o">=</span><span class="n">i</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">=</span><span class="n">w</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// weight 기준 오름차순 정렬</span>
+		<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">weight</span><span class="o">-</span><span class="n">n</span><span class="o">.</span><span class="na">weight</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201104_2.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">초기화 및 다익스트라 실행 준비</span></strong>
+    <ul>
+      <li>컴퓨터 인덱스는 1부터 시작하므로 dist, list를 n+1 크기로 생성한다.</li>
+      <li>cnt는 감염 컴퓨터 개수로, 시작 컴퓨터가 이미 감염되었으므로 1로 초기화한다.</li>
+      <li>우선순위 큐 pq에 시작 노드를 넣는다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">다익스트라</span></strong>
+    <ul>
+      <li>pq는 우선순위 큐이기 때문에 weight(감염 시간)이 작은 순으로 뽑힌다.</li>
+      <li>뽑힌 노드 node의 weight를 체크하여 node에서 다음으로 이동할 수 있는지 확인해야 한다.</li>
+      <li>예를 들어, 테스트케이스 2에서 1-&gt;3으로 가는 것 보다 1-&gt;2-&gt;3으로 가는 게 최단이다. 이를 거르는 작업이 처음 if문이다.</li>
+      <li>for문을 통해 node에서 갈 수 있는, 연결된 노드 n을 하나씩 체크한다.</li>
+      <li>n으로 가기 위해 node에서 n으로 가는 것이 기존 방법보다 최단이면 해당 값으로 갱신한다.</li>
+      <li>이때 n이 처음 방문하는 노드라면 cnt++하여 감염된 컴퓨터가 하나 늘었음을 표시한다.</li>
+      <li>pq에 삽입하여 n에서 갈 수 있는 노드들을 확인할 수 있도록 한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">감염 수와 최소 시간을 출력한다</span></strong>
+    <ul>
+      <li>감염 수는 cnt를 출력하면 된다.</li>
+      <li>최소 시간은 dist에서 INF(Integer.MAX_VALUE)를 제외한 최댓값을 출력하면 된다.</li>
+      <li>처음에는 max 변수를 두고 dist 배열에 값이 변경될 때마다 Math.max()를 이용하여 최댓값을 저장하도록 했는데, 그러면 기존 dist[i]보다 더 작은 dist[i]를 발견하여 값을 수정하였을 때, max에도 수정된 값으로 들어가야하지만 Math.max()로 인해 값이 갱신되지 않음을 알았다.</li>
+      <li>따라서 람다식을 이용하여 dist에서 INF를 제외한 배열을 새로 만든 뒤(result), 이를 오름차순 정렬하여 마지막 값을 뽑았다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[백준 10282] - 해킹 <a href="https://soobarkbar.tistory.com/113">https://soobarkbar.tistory.com/113</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
