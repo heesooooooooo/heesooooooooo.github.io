@@ -33,7 +33,7 @@ title: Tags
             {% if post.link %}
               <a href="{{ post.link }}">
             {% else %}
-              <a href="{{ site.baseurl }}{{ post.url }}">
+              <a href="{{ site.baseurl }}{{ post.url | remove: '/'}}">
             {% endif %}
                 {{ post.title }}
               </a>
