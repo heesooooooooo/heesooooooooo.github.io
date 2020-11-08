@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>...Developing... - Articles</title>
-    <description>PS &amp; 개발 기록</description>
+    <description>세넓코잘많</description>
     <link>
     http://localhost:4000</link>
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 2017 팁스타운: 짝지어 제거하기</title>
+        
+          <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12973&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/12973&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 08 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog12973</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog12973</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] 연습문제: N개의 최소공배수</title>
+        
+          <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12953&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/12953&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 08 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog12953</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog12953</guid>
+      </item>
+      
     
       
       <item>
