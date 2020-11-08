@@ -8,10 +8,10 @@ language: 'utf-8'
 
 # Website info
 name: '...Developing...'
-description: "PS & 개발 기록"
+description: "세넓코잘많"
 
 short_url: 'iamheesoo.github.io/blog/'
-google_analytics: UA-69281367-1
+# google_analytics: UA-69281367-1
 disqus: username
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: /blog/ #/heesooooooooo.github.io/
