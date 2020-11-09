@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>...Developing... - Articles</title>
-    <description>세넓코잘많</description>
+    <description>PS &amp; 개발 기록</description>
     <link>
     http://localhost:4000</link>
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] Summer/Winter Coding(~2018) : 영어 끝말잇기</title>
+        
+          <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12981&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/12981&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog12981</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog12981</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JAVA/프로그래머스] Summer/Winter Coding(~2018) : 점프와 순간 이동</title>
+        
+          <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12980&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/12980&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog12980</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog12980</guid>
+      </item>
+      
     
       
       <item>
