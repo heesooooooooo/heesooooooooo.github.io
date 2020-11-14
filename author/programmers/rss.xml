@@ -5,12 +5,91 @@
    
       <title>iamheesoo.github.io/blog/</title>
    
-   <link>http://localhost:4000</link>
+   <link></link>
    <description>PS & 개발 기록</description>
    <language>utf-8</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
+	<item>
+	  <title>[JAVA/프로그래머스] 2017 팁스다운: 예상 대진표</title>
+	  <link>/blog//algo-prog12985</link>
+	  <author></author>
+	  <pubDate>2020-11-14T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog12985</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12985">https://programmers.co.kr/learn/courses/30/lessons/12985</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>x가 짝수라면 다음 라운드에서 x는 x/2 번째가 된다.</li>
+  <li>홀수라면 x/2+1가 된다.</li>
+  <li>a, b가 같아질 때까지 진행한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">a</span><span class="o">!=</span><span class="n">b</span><span class="o">){</span>
+            <span class="n">a</span><span class="o">=</span><span class="n">solve</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+            <span class="n">b</span><span class="o">=</span><span class="n">solve</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+            <span class="n">answer</span><span class="o">++;</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201114_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">a, b가 다음 라운드에서 몇 번째가 되는지 예상한다.</span></strong>
+    <ul>
+      <li>짝수라면 다음 라운드에서는 x/2, 홀수라면 x/2+1 번째가 된다.</li>
+      <li>둘이 같아질 때까지 반복한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
 	<item>
 	  <title>[JAVA/프로그래머스] Summer/Winter Coding(~2018) : 점프와 순간 이동</title>
 	  <link>/blog//algo-prog12980</link>
@@ -1017,162 +1096,6 @@ DP로 문제를 해결하였으나 효율성에서 메모리, 시간 초과가 �
       <li>내가 선택할 수 있는 종류의 수는 nums.length/2 (canGet)</li>
       <li>nums의 종류가 canGet보다 작다면 nums의 종류를, 종류가 더 많다면 canGet을 리턴하면 된다.</li>
       <li>종류를 세기 위해 HashSet을 이용하여 중복을 거르고 종류들을 저장한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] Summer/Winter Coding(~2018): 소수 만들기</title>
-	  <link>/blog//algo-prog12977</link>
-	  <author></author>
-	  <pubDate>2020-10-29T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog12977</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12977">https://programmers.co.kr/learn/courses/30/lessons/12977</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>에라토스테네스의 체로 소수를 미리 계산한다.</li>
-  <li>조합을 이용하여 3개를 선택한다.</li>
-  <li>선택한 숫자들의 합이 소수인지 확인한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kt">boolean</span><span class="o">[]</span> <span class="n">prime</span><span class="o">,</span> <span class="n">visit</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">solution</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-        <span class="n">n</span><span class="o">=</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
-        <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">nums</span><span class="o">[</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span> <span class="c1">// nums에서 제일 큰 값</span>
-        <span class="n">prime</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">max</span><span class="o">*</span><span class="mi">3</span><span class="o">];</span> <span class="c1">// 3개의 합이 max*3보다는 작음</span>
-        <span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
-        
-        <span class="c1">// 에라토스테네스의 체</span>
-        <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">prime</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>        
-        <span class="kt">int</span> <span class="n">range</span><span class="o">=(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">prime</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">range</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
-            <span class="k">if</span><span class="o">(!</span><span class="n">prime</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">i</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">prime</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">j</span><span class="o">+=</span><span class="n">i</span><span class="o">){</span>
-                <span class="k">if</span><span class="o">(!</span><span class="n">prime</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-                <span class="n">prime</span><span class="o">[</span><span class="n">j</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-        
-        <span class="c1">// 조합으로 3개 선택</span>
-        <span class="n">comb</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">nums</span><span class="o">);</span>
-        
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">comb</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">cnt</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">==</span><span class="mi">3</span><span class="o">){</span> <span class="c1">// 3개 선택 완료</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">prime</span><span class="o">[</span><span class="n">sum</span><span class="o">])</span> <span class="o">{</span> <span class="c1">// 소수 체크</span>
-                <span class="n">answer</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="k">return</span><span class="o">;</span>
-        <span class="o">}</span>
-        
-        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">start</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span> <span class="c1">// 조합</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="k">continue</span><span class="o">;</span>
-            <span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span> <span class="c1">// i를 선택하는 경우</span>
-            <span class="n">comb</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">sum</span><span class="o">+</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">nums</span><span class="o">);</span> <span class="c1">// i값을 sum에 더해서 재귀 호출</span>
-            <span class="n">visit</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="kc">false</span><span class="o">;</span> <span class="c1">// i를 선택하지 않는 경우</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/201029_2.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">소수를 미리 구해놓는다</span></strong>
-    <ul>
-      <li>에라토스테네스의 체를 이용한다.</li>
-      <li>이때 어디까지 찾아 놓을지가 문제인데, nums의 최댓값*3보다는 무조건 작다.</li>
-      <li>따라서 nums를 오름차순 정렬하고 마지막 값을 max에 저장한 후 max*3까지의 소수를 구한다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">서로 다른 3개를 선택한다</span></strong>
-    <ul>
-      <li>조합을 이용한다.</li>
-      <li>중복 선택할 수 없으므로 visit[]를 두고 체크한다.</li>
-      <li>comb()의 파라미터 start는 for문에서 체크할 시작 인덱스(앞까지는 모두 확인했으므로 0부터 또 확인할 필요 없다)</li>
-      <li>cnt: 선택한 숫자 개수</li>
-      <li>sum: 선택한 숫자들의 합</li>
-      <li>cnt==3이면 3개를 모두 선택한 것이므로 미리 구해둔 소수 배열 prime[]을 통해 sum이 소수인지 아닌지 체크한다.</li>
-      <li>소수가 맞다면 answer++</li>
-      <li>여기서 중요한 것은 {1,2,7}을 선택해서 10이 되는 것과 {2,3,5}로 10이 되는 것을 모두 카운트 해야 한다는 것이다.</li>
     </ul>
   </li>
 </ol>

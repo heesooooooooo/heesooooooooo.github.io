@@ -28,7 +28,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//author/git/" />
+        <link rel="canonical" href="/blog//author/git/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
@@ -36,13 +36,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Author" />
     <meta property="og:description" content="PS & 개발 기록" />
-    <meta property="og:url" content="http://localhost:4000/blog//author/git/" />
+    <meta property="og:url" content="/blog//author/git/" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Author" />
     <meta name="twitter:description" content="PS & 개발 기록" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//author/git/" />
+    <meta name="twitter:url" content="/blog//author/git/" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -51,7 +51,7 @@
     "@type": "Website",
     "publisher": "...Developing...",
     "name": "Author",
-    "url": "http://localhost:4000/blog//author/git/",
+    "url": "/blog//author/git/",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "PS & 개발 기록"
 }
@@ -206,10 +206,13 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/gitblog-sol-date">[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제 해결하기</a></h2>
+            <h2 class="post-title"><a href="/blog/gitblog-sol-date">[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>여태까지 지킬을 이용하며 갓 작성한 포스트는 하루 정도 지나야 로컬에서 확인할 수 있었다. md로 작성한 새 파일이 바로 html로 변환되지 않는 게 이상하다 느꼈지만 그냥 넘겼었다.... <a class="read-more" href="/blog/gitblog-sol-date">&raquo;</a></p>
+            <p>
+내가 date에 적는 날짜 +09:00된다는 것을 몰랐다…
+대충 sitemap.xml 만들면서 알게 됐다
+ <a class="read-more" href="/blog/gitblog-sol-date">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -262,7 +265,7 @@
             <h2 class="post-title"><a href="/blog/gitblog-css-code">[Github블로그] 마크다운 코드 블록 폰트, 색상 변경</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>이전 코드 블록 마크다운에서 코드를 넣고 싶을 때에는 (언어)~~~ 형태를 사용한다. 하지만 가독성이 떨어지는 폰트와 배경 색상때문에 눈에 거슬린다. 구글링해도 내가 원하는 해답을 찾지 못해 프로젝트... <a class="read-more" href="/blog/gitblog-css-code">&raquo;</a></p>
+            <p>201114 마크다운에서 코드블럭은 ```지만, asset/css에서 설정한 code를 사용하고 싶다면 안에 코드를 달면 css 반영이 가능하다. 아마 java가 아니라면 사이에 적절히 언어 이름을 넣으면 될 듯 하다.... <a class="read-more" href="/blog/gitblog-css-code">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -311,7 +314,7 @@
             <h2 class="post-title"><a href="/blog/gitblog-sol-jekyll">[Github블로그/Jekyll] 카테고리 404에러 Jekyll로 해결하기</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>내 블로그 테마는 https://github.com/jekyller/jasper를 사용하였다. 근데 나처럼 home과 about을 제외한 카테고리 클릭 시 404가 발생하는 사람들이 많았나보다. 이슈에까지 등록되었으니.. 일단 404의 에러가 코드의 문제는 아니었기 때문에(포크따온... <a class="read-more" href="/blog/gitblog-sol-jekyll">&raquo;</a></p>
+            <p>내 블로그 테마는 https://github.com/jekyller/jasper를 사용하였다. 결론은 jekyll을 사용하지 않아서였다. 다른 테마는 어떤지 모르겠지만 내 것은 보안상의 이유로 Github가 plugins 폴더를 읽지 않아서 이런 오류가 발생하였다. 그리고... <a class="read-more" href="/blog/gitblog-sol-jekyll">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -360,7 +363,7 @@
             <h2 class="post-title"><a href="/blog/gitblog-sol-branch">[Github블로그] 블로그에 코드 적용이 안될 때, 프로젝트 주소 페이지는 브랜치 체크</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>미루고 미루던 유저네임을 변경했다. 덕분에 블로그 css가 또 망가졌다. 나 광광울어 F12로 블로그를 체크해보니 경로주소가 자꾸 이상한 곳을 가리키고 난 분명히 baseurl 바꿨는데 config.yml에 정보를 가져다... <a class="read-more" href="/blog/gitblog-sol-branch">&raquo;</a></p>
+            <p>미루고 미루던 유저네임을 변경했다. 덕분에 블로그 css가 또 망가졌다. F12로 블로그를 체크해보니 경로주소가 자꾸 이상한 곳을 가리키고 난 분명히 baseurl 바꿨는데 config.yml에 정보를 가져다 쓰지 않고... <a class="read-more" href="/blog/gitblog-sol-branch">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
