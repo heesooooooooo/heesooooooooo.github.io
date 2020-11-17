@@ -793,7 +793,87 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
@@ -871,7 +951,7 @@
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200418_1.PNG" alt="실행결과" />
@@ -922,7 +1002,85 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
@@ -998,7 +1156,7 @@
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200414_1.PNG" alt="실행결과" />
@@ -1042,7 +1200,84 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
@@ -1117,7 +1352,7 @@
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200414_2.PNG" alt="실행결과" />
@@ -1162,7 +1397,53 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
@@ -1206,7 +1487,7 @@
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200414_4.PNG" alt="실행결과" />
@@ -1254,7 +1535,73 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
@@ -1318,7 +1665,7 @@
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200413_3.PNG" alt="실행결과" />
@@ -1362,7 +1709,67 @@ visit[xx][yy]=true를 다른 곳에서 하여 메모리 초과가 발생하였�
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
@@ -1420,7 +1827,7 @@ visit[xx][yy]=true를 다른 곳에서 하여 메모리 초과가 발생하였�
 	<span class="o">}</span>
 <span class="o">}</span>
 
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/200412_1.PNG" alt="실행결과" />

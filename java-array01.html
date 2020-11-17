@@ -166,7 +166,18 @@
 </ul>
 
 <h3 id="2-예시">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
@@ -175,8 +186,7 @@
 <span class="cm">/*...*/</span>
 <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">={</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
 <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="내림차순"><span style="color:navy">내림차순</span></h2>
 
@@ -187,7 +197,26 @@
 </ul>
 
 <h3 id="2-예시-1">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -204,8 +233,7 @@
 <span class="n">Integer</span> <span class="n">newArray</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">oldArray</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
 <span class="n">newArray</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">oldArray</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span><span class="c1">//선언 및 초기화</span>
 <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span><span class="c1">//내림차순 정렬</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="참고">참고</h3>
 <ul>

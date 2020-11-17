@@ -349,7 +349,46 @@
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -386,8 +425,8 @@
         <span class="o">}</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191108_2.PNG" alt="실행결과" />
 실패.
@@ -404,7 +443,49 @@
 </ol>
 
 <h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -444,8 +525,8 @@
         <span class="o">}</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>PriorityQueue<Integer> minPQ: 큐를 오름차순으로 정렬한다. 루트에 최솟값이 들어간다.</Integer></li>
   <li>PriorityQueue<Integer> maxPQ: 큐를 내림차순으로 정렬한다. 루트에 최댓값이 들어간다.</Integer></li>
@@ -513,7 +594,65 @@
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -569,8 +708,8 @@
         <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191107_1.PNG" alt="실행결과" />
 실패.
@@ -587,7 +726,65 @@
 </ol>
 
 <h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -643,8 +840,8 @@
         <span class="n">answer</span><span class="o">/=</span><span class="n">jobs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>PriorityQueue<Job> pq: 소요시간이 작은 순서, 같다면 요청시간이 작은 순서로 정렬한다.</Job></li>
   <li>ArrayList<Job> list: pq를 arraylist에 저장하여 코드에 사용한다. 같은 데이터를 가지고 있는데 굳이 arraylist에 저장하여 사용하는 이유는, pq가 요청시간을 기준으로 정렬된 것이 아니기 때문이다. 현재 시간(now)에 따라 이전~현재까지의 작업들을 모두 확인해야하는데, 우선순위큐로는 정렬된 루트노드의 값만 가져올 수 있고 다음 노드를 방문하기 위해서는 무조건 poll해야한다. 하지만 미래의 작업이 루트로 갈 수 있는데, 이때는 삭제하면 안되므로 arrayList를 이용해 값을 삭제하지 않아도 다음 값을 찾을 수 있게 한다.</Job></li>
@@ -680,7 +877,32 @@
 </ul>
 
 <h3 id="2-예시">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -703,8 +925,8 @@
         <span class="o">}</span>
         <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>  
-</code></pre></div></div>
+<span class="o">}</span>  </pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>클래스 뒤에 <code class="highlighter-rouge">implements Comparable</code>를 붙인다.</li>
   <li>기존 메소드에 수정하는 것이므로 <code class="highlighter-rouge">@Override</code>를 붙인다.</li>
@@ -775,7 +997,41 @@
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -807,8 +1063,8 @@
         <span class="o">}</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191106_1.PNG" alt="실행결과" />
 실패. 테스트3, 5에서 틀렸다.</p>
@@ -827,7 +1083,34 @@
 </ol>
 
 <h3 id="2-구현-1">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -852,8 +1135,7 @@
         <span class="o">}</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과-1">3. 결과</h3>
 <p><img src="./assets/images/191106_2.PNG" alt="실행결과" />
@@ -884,7 +1166,36 @@
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
@@ -911,8 +1222,8 @@
          <span class="o">}</span>
          <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
      <span class="o">}</span>
- <span class="o">}</span>
-</code></pre></div></div>
+ <span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>PriorityQueue<Integer> pq: 스코빌 지수가 낮은 순으로 뽑을 수 있게 우선순위큐를 사용한다.</Integer></li>
 </ul>
@@ -963,12 +1274,17 @@
 </ul>
 
 <h3 id="3-선언">3. 선언</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="cm">/*...*/</span>
 <span class="c1">//PriorityQueue&lt;E&gt; pq=new PriorityQueue&lt;E&gt;();</span>
 <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="4-주요-메소드">4. 주요 메소드</h3>
 <ol>

@@ -172,7 +172,57 @@
 </ol>
 
 <h3 id="2-구현">2. 구현</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.lang.Math</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.lang.Math</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Queue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
@@ -220,8 +270,8 @@
         <span class="o">}</span>
         <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>int day: 기능별로 작업 시간을 계산한다. 이때 소수점까지 필요하므로 speeds를 실수형인 double로 형변환, Math 라이브러리의 ceil()메소드를 이용하여 값을 올림한 후 다시 int형으로 변환한다.</li>
   <li>int temp: 큐의 첫 번째 값을 저장하여 뒤의 값들과 비교한다.</li>

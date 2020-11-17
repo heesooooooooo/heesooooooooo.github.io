@@ -1263,36 +1263,30 @@
 25
 26
 27
-28
-29
-30
 </pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
  *
  */</span>
-<span class="kd">class</span> <span class="nc">Solution</span>
-<span class="o">{</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
-	<span class="o">{</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
 		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
 		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
 		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
 
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
-		<span class="o">{</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span> <span class="o">{</span>
 			<span class="kt">char</span><span class="o">[]</span> <span class="n">cards</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
-            <span class="kt">long</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-            <span class="kt">int</span> <span class="n">prevB</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-		
-            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cards</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="k">if</span><span class="o">(</span><span class="n">cards</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="sc">'W'</span><span class="o">)</span> <span class="o">{</span>
-                    <span class="n">answer</span><span class="o">+=(</span><span class="n">i</span><span class="o">-</span><span class="n">prevB</span><span class="o">);</span>
-                    <span class="n">prevB</span><span class="o">++;</span>
-                <span class="o">}</span>
-            <span class="o">}</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+			<span class="kt">long</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">prevB</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cards</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">cards</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="sc">'W'</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">answer</span><span class="o">+=(</span><span class="n">i</span><span class="o">-</span><span class="n">prevB</span><span class="o">);</span>
+					<span class="n">prevB</span><span class="o">++;</span>
+				<span class="o">}</span>
+            			<span class="o">}</span>
+            		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
 		<span class="o">}</span>
 	<span class="o">}</span>
 <span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>

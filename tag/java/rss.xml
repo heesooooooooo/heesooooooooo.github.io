@@ -304,7 +304,18 @@
 </ul>
 
 <h3 id="2-예시">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
@@ -313,8 +324,7 @@
 <span class="cm">/*...*/</span>
 <span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">={</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
 <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="내림차순"><span style="color:navy">내림차순</span></h2>
 
@@ -325,7 +335,26 @@
 </ul>
 
 <h3 id="2-예시-1">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
 <span class="cm">/**
  *
@@ -342,8 +371,7 @@
 <span class="n">Integer</span> <span class="n">newArray</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">oldArray</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
 <span class="n">newArray</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">oldArray</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span><span class="c1">//선언 및 초기화</span>
 <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span><span class="c1">//내림차순 정렬</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="참고">참고</h3>
 <ul>
@@ -369,7 +397,32 @@
 </ul>
 
 <h3 id="2-예시">2. 예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -392,8 +445,8 @@
         <span class="o">}</span>
         <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>  
-</code></pre></div></div>
+<span class="o">}</span>  </pre></td></tr></tbody></table></code></pre></figure>
+
 <ul>
   <li>클래스 뒤에 <code class="highlighter-rouge">implements Comparable</code>를 붙인다.</li>
   <li>기존 메소드에 수정하는 것이므로 <code class="highlighter-rouge">@Override</code>를 붙인다.</li>
@@ -441,12 +494,17 @@
 </ul>
 
 <h3 id="3-선언">3. 선언</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
 <span class="cm">/*...*/</span>
 <span class="c1">//PriorityQueue&lt;E&gt; pq=new PriorityQueue&lt;E&gt;();</span>
 <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="4-주요-메소드">4. 주요 메소드</h3>
 <ol>
@@ -506,14 +564,22 @@
 	     <p><img src="./assets/images/191101_2.PNG" alt="결과화면" /></p>
 
 <h3 id="예시">예시</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="n">Truck</span> <span class="nl">t:</span><span class="n">q</span><span class="o">){</span><span class="c1">//1초 추가</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="k">for</span><span class="o">(</span><span class="n">Truck</span> <span class="nl">t:</span><span class="n">q</span><span class="o">){</span><span class="c1">//1초 추가</span>
     <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
     <span class="n">answer</span><span class="o">++;</span>
     <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span><span class="c1">//경과시간이 다 채워지면 삭제</span>
         <span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <p>코드 설명: for문을 통해 Queue<Truck> q를 순회한다. if 조건에 맞다면 큐의 값을 삭제한다.</Truck></p>
 
 <h3 id="원인">원인</h3>
@@ -522,15 +588,23 @@
 <h3 id="해결-방법">해결 방법</h3>
 <p>Iterator를 사용하여 큐의 원소에 접근, 삭제한다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
 <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
     <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
     <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
     <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
         <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
 <p>iterator()메소드를 이용해 iter를 선언, hasNext()로 현재 iter의 다음 원소가 있는지 파악한 후 있다면 next()로 값을 가져온다. remove()로 원소를 삭제한다.</p>
 
 	  ]]></description>
@@ -556,12 +630,17 @@
 </ul>
 
 <h3 id="3-선언">3. 선언</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
 <span class="cm">/*...*/</span>
 <span class="c1">//Stack&lt;E&gt; st=new Stack&lt;E&gt;();</span>
 <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
-<span class="cm">/*...*/</span>
-</code></pre></div></div>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="4-주요-메소드">4. 주요 메소드</h3>
 <ol>

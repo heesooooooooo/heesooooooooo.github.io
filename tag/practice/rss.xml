@@ -29,7 +29,32 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -52,7 +77,7 @@
          <span class="o">}</span>
      <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_17.PNG" alt="실행결과" />
@@ -84,7 +109,24 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -99,7 +141,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_16.PNG" alt="실행결과" />
@@ -134,7 +176,26 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -151,7 +212,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_15.PNG" alt="실행결과" />
@@ -186,7 +247,30 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -207,7 +291,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_14.PNG" alt="실행결과" />
@@ -244,7 +328,27 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -262,7 +366,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_13.PNG" alt="실행결과" />
@@ -307,7 +411,24 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -322,7 +443,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_12.PNG" alt="실행결과" />
@@ -358,7 +479,27 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -376,7 +517,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_11.PNG" alt="실행결과" />
@@ -417,7 +558,41 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -449,7 +624,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_10.PNG" alt="실행결과" />
@@ -496,7 +671,20 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="cm">/**
  *
  * @author HEESOO
  *
@@ -507,7 +695,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">=</span><span class="n">num</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="s">"Even"</span><span class="o">:</span><span class="s">"Odd"</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_9.PNG" alt="실행결과" />
@@ -543,7 +731,38 @@
 </ol>
 
 <h3 id="2-구현-성공-코드">2. 구현 (성공 코드)</h3>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
 <span class="cm">/**
  *
  * @author HEESOO
@@ -572,7 +791,7 @@
        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
    <span class="o">}</span>
  <span class="o">}</span>
-</code></pre></div></div>
+ </pre></td></tr></tbody></table></code></pre></figure>
 
 <h3 id="3-결과">3. 결과</h3>
 <p><img src="./assets/images/191218_8.PNG" alt="실행결과" />
