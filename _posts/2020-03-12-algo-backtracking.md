@@ -25,7 +25,7 @@ categories: algo
 - 순열(순서있게 배열), 조합(순서 상관없이 뽑는 것에 집중)에도 이용된다.
 
 ### 2. 코드
-```java
+{% highlight java linenos %}
 /**
  *
  * @author HEESOO
@@ -48,7 +48,7 @@ public static void recur(...){
 }
 
 /*...*/
-```
+{% endhighlight %}
 
 ### 4. 결과
 - visit[]로 중복 사용을 없애고, 다시 재귀호출하여 DFS의 depth조건을 만족시킨다.

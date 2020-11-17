@@ -17,7 +17,7 @@ categories: java
 - 리턴값이 음수일 경우 우선순위가 높아진다. 주로 -1, 0, 1을 이용하여 우선순위를 나눈다.
 
 ### 2. 예시
-```java
+{% highlight java linenos %}
 /**
  *
  * @author HEESOO
@@ -42,7 +42,7 @@ class Job implements Comparable<Job>{
         else return 1;
     }
 }  
-```
+{% endhighlight %}
 - 클래스 뒤에 `implements Comparable`를 붙인다.
 - 기존 메소드에 수정하는 것이므로 `@Override`를 붙인다.
 - 위의 경우 time이 작을수록 우선순위가 크다.

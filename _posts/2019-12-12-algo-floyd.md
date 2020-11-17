@@ -32,7 +32,7 @@ categories: algo
 - 이때 INF가 Integer.MAX_VALUE일 경우, 두 값을 더해서 int형에 저장한다면 오버플로우가 발생하므로 INF는 적당히 큰 값으로 초기화하는 것이 좋다(ex. 987654321).
 
 ### 3. 코드
-```java
+{% highlight java linenos %}
 /**
  *
  * @author HEESOO
@@ -49,7 +49,7 @@ for(int k=1;k<=n;k++){//거쳐가는 꼭짓점
   }
 }
 /*...*/
-```
+{% endhighlight %}
 
 ### 4. 결과
 - 0과 INF를 제외한 값들이 최단 경로이다.

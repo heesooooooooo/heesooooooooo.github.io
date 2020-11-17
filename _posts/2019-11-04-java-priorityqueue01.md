@@ -31,13 +31,13 @@ categories: java
 
 
 ### 3. 선언
-```java
+{% highlight java linenos %}
 import java.util.PriorityQueue;
 /*...*/
 //PriorityQueue<E> pq=new PriorityQueue<E>();
 PriorityQueue<Integer> pq=new PriorityQueue<Integer>();
 /*...*/
-```
+{% endhighlight %}
 
 
 ### 4. 주요 메소드
