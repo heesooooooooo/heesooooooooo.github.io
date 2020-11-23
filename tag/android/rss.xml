@@ -12,6 +12,124 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[Android/React-Native] Windows 설치 및 프로젝트 실행</title>
+	  <link>/blog//android-react-setup</link>
+	  <author></author>
+	  <pubDate>2020-11-22T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-react-setup</guid>
+	  <description><![CDATA[
+	     <h2 id="설치">설치</h2>
+
+<h3 id="1-nvm과-node">1. nvm과 node</h3>
+<ul>
+  <li><a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a>에서 nvm-setup.zip 다운로드</li>
+  <li>압축해제 및 설치</li>
+  <li>nvm install <버전></버전></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">10.16</span><span class="o">.</span><span class="mi">2</span> <span class="c1">// 설치</span>
+<span class="n">nvm</span> <span class="n">use</span> <span class="mf">10.16</span><span class="o">.</span><span class="mi">2</span> <span class="c1">// 활성화</span>
+
+<span class="c1">// 버전 확인으로 제대로 설치되었는지 체크</span>
+<span class="n">node</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">npm</span> <span class="o">-</span><span class="n">v</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="2-java-open-jdk">2. Java open jdk</h3>
+<ul>
+  <li>Java 유저라면 있을테니까 패스</li>
+  <li>버전 체크로 설치되어 있는지 체크</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">java</span> <span class="o">-</span><span class="n">version</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>설치 후 환경변수(JAVA_HOME) 등록</li>
+</ul>
+
+<h3 id="3-python">3. Python</h3>
+<ul>
+  <li><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">python</span> <span class="o">--</span><span class="n">version</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>버전 체크로 설치 확인</li>
+  <li>나의 경우 구체적인 버전이 나오지 않고 Python이라고만 출력되었는데도 문제 X</li>
+</ul>
+
+<h3 id="4-react-native-cli">4. React Native CLI</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">react</span><span class="o">-</span><span class="kd">native</span><span class="o">-</span><span class="n">cli</span>
+<span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="o">--</span><span class="n">version</span> <span class="c1">//버전 체크</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="5-안드로이드-스튜디오">5. 안드로이드 스튜디오</h3>
+<ul>
+  <li>기존에 있어서 설치 패스</li>
+  <li>설치 후 시스템 환경 변수 편집&gt; 환경 변수&gt; 시스템 변수&gt; 새로 만들기</li>
+  <li>변수 이름: ANDROID_HOME <br />
+변수 값: 안드로이드 실행&gt; File&gt; Settings&gt; Appearance&amp;Behavior&gt; System Setting&gt; Android SDK 에 Android SDK Location
+<img src="./assets/images/201122_2.PNG" alt="이미지1" /></li>
+  <li>이번에는 시스템 변수 Path 편집</li>
+  <li>새로 만들기&gt; 위에 변수값\platform-tools 추가</li>
+  <li>cmd 켜놓았다면 다 끄고 재실행</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">adb</span> <span class="c1">// adb 명령어가 먹는지 확인</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="6-vs-code">6. VS Code</h3>
+<ul>
+  <li>이미 설치되어 있어서 패스</li>
+</ul>
+
+<h2 id="프로젝트-생성-및-실행">프로젝트 생성 및 실행</h2>
+
+<h3 id="1-vs-code로-프로젝트-생성">1. VS Code로 프로젝트 생성</h3>
+<ul>
+  <li>상단에서 터미널 열기</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">cd</span> <span class="o">&lt;</span><span class="err">위치</span><span class="o">&gt;</span> <span class="c1">// 프로젝트 생성할 폴더로 이동</span>
+<span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="n">init</span> <span class="o">&lt;</span><span class="err">프로젝트</span> <span class="err">이름</span><span class="o">&gt;</span> <span class="c1">//프로젝트 생성</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>파일&gt; 폴더 열기로 생성한 프로젝트 불러오기</li>
+</ul>
+
+<h3 id="2-안드로이드-에뮬레이터-또는-디바이스-실행">2. 안드로이드 에뮬레이터 또는 디바이스 실행</h3>
+<ul>
+  <li>안드로이드 스튜디오 실행</li>
+  <li>에뮬레이터를 사용하려고 한다면 미리 실행시켜 놓고 react를 돌려야 함</li>
+  <li>에뮬레이터 설치 안했다면 설치</li>
+  <li>build.gradle Module의 targetSdkVersion과 맞는 에뮬레이터 설치</li>
+  <li>AVD Manager에서 Create Virutal Device로 설치 가능</li>
+  <li>상단에서 AVD Manager 클릭후 Action에서 실행하여 에뮬레이터 구동
+ <img src="./assets/images/201122_3.PNG" alt="이미지2" /></li>
+  <li>다시 vs 터미널</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">adb</span> <span class="n">devices</span> <span class="c1">// 현재 연결된 디바이스와 에뮬레이터 확인 가능</span>
+<span class="n">npx</span> <span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="n">run</span><span class="o">-</span><span class="n">android</span> <span class="c1">// 실행</span></pre></td></tr></tbody></table></code></pre></figure>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[Android] 안드로이드 앱 프로그래밍</title>
 	  <link>/blog//android01</link>
 	  <author></author>

@@ -8,6 +8,37 @@
     
       
       <item>
+        <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 캐시</title>
+        
+          <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17680&quot;&gt;https://programmers.co.kr/learn/courses/30/lessons/17680&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 23 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/algo-prog17680</link>
+        <guid isPermaLink="true">http://localhost:4000/algo-prog17680</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Android/React-Native] Windows 설치 및 프로젝트 실행</title>
+        
+          <description>&lt;h2 id=&quot;설치&quot;&gt;설치&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Sun, 22 Nov 2020 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-react-setup</link>
+        <guid isPermaLink="true">http://localhost:4000/android-react-setup</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/백준] 16571번: 알파 틱택토</title>
         
           <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;
@@ -5665,7 +5696,6 @@
 &lt;p&gt;마크다운에서 코드블럭은 ```지만, asset/css에서 설정한 code를 사용하고 싶다면 &lt;br /&gt;
 &lt;img src=&quot;./assets/images/201114_2.PNG&quot; alt=&quot;캡처&quot; /&gt;
 안에 코드를 달면 css 반영이 가능하다. 아마 java가 아니라면 사이에 적절히 언어 이름을 넣으면 될 듯 하다.&lt;/p&gt;
-
 </description>
         
         <pubDate>Mon, 30 Sep 2019 09:00:00 +0900</pubDate>

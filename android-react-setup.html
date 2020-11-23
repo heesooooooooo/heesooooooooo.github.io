@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>[Github블로그] 마크다운 코드 블록 폰트, 색상 변경</title>
+    <title>[Android/React-Native] Windows 설치 및 프로젝트 실행</title>
     <meta name="description" content="PS & 개발 기록" />
 
     <!-- Mobile Meta -->
@@ -28,21 +28,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000/blog//gitblog-css-code" />
+        <link rel="canonical" href="http://localhost:4000/blog//android-react-setup" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/blog/page2/" />
 
     <meta property="og:site_name" content="...Developing..." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[Github블로그] 마크다운 코드 블록 폰트, 색상 변경" />
+    <meta property="og:title" content="[Android/React-Native] Windows 설치 및 프로젝트 실행" />
     <meta property="og:description" content="PS & 개발 기록" />
-    <meta property="og:url" content="http://localhost:4000/blog//gitblog-css-code" />
+    <meta property="og:url" content="http://localhost:4000/blog//android-react-setup" />
     <meta property="og:image" content="/blog/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="[Github블로그] 마크다운 코드 블록 폰트, 색상 변경" />
+    <meta name="twitter:title" content="[Android/React-Native] Windows 설치 및 프로젝트 실행" />
     <meta name="twitter:description" content="PS & 개발 기록" />
-    <meta name="twitter:url" content="http://localhost:4000/blog//gitblog-css-code" />
+    <meta name="twitter:url" content="http://localhost:4000/blog//android-react-setup" />
     <meta name="twitter:image:src" content="/blog/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
@@ -50,8 +50,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "...Developing...",
-    "name": "[Github블로그] 마크다운 코드 블록 폰트, 색상 변경",
-    "url": "http://localhost:4000/blog//gitblog-css-code",
+    "name": "[Android/React-Native] Windows 설치 및 프로젝트 실행",
+    "url": "http://localhost:4000/blog//android-react-setup",
     "image": "/blog/assets/images/cover4.jpg",
     "description": "PS & 개발 기록"
 }
@@ -80,7 +80,7 @@
         <li class="nav-swea " role="presentation"><a href="/blog/tag/swea">Java/SWEA</a></li>
         <li class="nav-leetcode " role="presentation"><a href="/blog/tag/leetcode">Java/LeetCode</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
-        <!-- <li class="nav-git  nav-current" role="presentation"><a href="/blog/tag/git">Git</a></li> -->
+        <!-- <li class="nav-git " role="presentation"><a href="/blog/tag/git">Git</a></li> -->
 
         <li class="nav-tags " role="presentation"><a href="/blog/tags">Tag</a></li>
 
@@ -117,10 +117,10 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-git">
+    <article class="post tag-etc">
 
         <header class="post-header">
-            <h1 class="post-title">[Github블로그] 마크다운 코드 블록 폰트, 색상 변경</h1>
+            <h1 class="post-title">[Android/React-Native] Windows 설치 및 프로젝트 실행</h1>
             <section class="post-meta">
             <!-- <a href='/blog/'></a> -->
 
@@ -139,21 +139,13 @@
             
                 
             
-            <time class="post-date" datetime="2019-09-30">30 Sep 2019</time>
+            <time class="post-date" datetime="2020-11-22">22 Nov 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/blog/tag/git'>Git</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/gitblog'>Gitblog</a>,
-                    
-                
-                    
-                       <a href='/blog/tag/css'>Css</a>
+                       <a href='/blog/tag/android'>Android</a>
                     
                 
                 
@@ -162,11 +154,113 @@
 
         <section class="post-content">
 
-            <h3 id="201114">201114</h3>
-<p>마크다운에서 코드블럭은 ```지만, asset/css에서 설정한 code를 사용하고 싶다면 <br />
-<img src="./assets/images/201114_2.PNG" alt="캡처" />
-안에 코드를 달면 css 반영이 가능하다. 아마 java가 아니라면 사이에 적절히 언어 이름을 넣으면 될 듯 하다.</p>
+            <h2 id="설치">설치</h2>
 
+<h3 id="1-nvm과-node">1. nvm과 node</h3>
+<ul>
+  <li><a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a>에서 nvm-setup.zip 다운로드</li>
+  <li>압축해제 및 설치</li>
+  <li>nvm install <버전></버전></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">10.16</span><span class="o">.</span><span class="mi">2</span> <span class="c1">// 설치</span>
+<span class="n">nvm</span> <span class="n">use</span> <span class="mf">10.16</span><span class="o">.</span><span class="mi">2</span> <span class="c1">// 활성화</span>
+
+<span class="c1">// 버전 확인으로 제대로 설치되었는지 체크</span>
+<span class="n">node</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">npm</span> <span class="o">-</span><span class="n">v</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="2-java-open-jdk">2. Java open jdk</h3>
+<ul>
+  <li>Java 유저라면 있을테니까 패스</li>
+  <li>버전 체크로 설치되어 있는지 체크</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">java</span> <span class="o">-</span><span class="n">version</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>설치 후 환경변수(JAVA_HOME) 등록</li>
+</ul>
+
+<h3 id="3-python">3. Python</h3>
+<ul>
+  <li><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">python</span> <span class="o">--</span><span class="n">version</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>버전 체크로 설치 확인</li>
+  <li>나의 경우 구체적인 버전이 나오지 않고 Python이라고만 출력되었는데도 문제 X</li>
+</ul>
+
+<h3 id="4-react-native-cli">4. React Native CLI</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">react</span><span class="o">-</span><span class="kd">native</span><span class="o">-</span><span class="n">cli</span>
+<span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="o">--</span><span class="n">version</span> <span class="c1">//버전 체크</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="5-안드로이드-스튜디오">5. 안드로이드 스튜디오</h3>
+<ul>
+  <li>기존에 있어서 설치 패스</li>
+  <li>설치 후 시스템 환경 변수 편집&gt; 환경 변수&gt; 시스템 변수&gt; 새로 만들기</li>
+  <li>변수 이름: ANDROID_HOME <br />
+변수 값: 안드로이드 실행&gt; File&gt; Settings&gt; Appearance&amp;Behavior&gt; System Setting&gt; Android SDK 에 Android SDK Location
+<img src="./assets/images/201122_2.PNG" alt="이미지1" /></li>
+  <li>이번에는 시스템 변수 Path 편집</li>
+  <li>새로 만들기&gt; 위에 변수값\platform-tools 추가</li>
+  <li>cmd 켜놓았다면 다 끄고 재실행</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">adb</span> <span class="c1">// adb 명령어가 먹는지 확인</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="6-vs-code">6. VS Code</h3>
+<ul>
+  <li>이미 설치되어 있어서 패스</li>
+</ul>
+
+<h2 id="프로젝트-생성-및-실행">프로젝트 생성 및 실행</h2>
+
+<h3 id="1-vs-code로-프로젝트-생성">1. VS Code로 프로젝트 생성</h3>
+<ul>
+  <li>상단에서 터미널 열기</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">cd</span> <span class="o">&lt;</span><span class="err">위치</span><span class="o">&gt;</span> <span class="c1">// 프로젝트 생성할 폴더로 이동</span>
+<span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="n">init</span> <span class="o">&lt;</span><span class="err">프로젝트</span> <span class="err">이름</span><span class="o">&gt;</span> <span class="c1">//프로젝트 생성</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>파일&gt; 폴더 열기로 생성한 프로젝트 불러오기</li>
+</ul>
+
+<h3 id="2-안드로이드-에뮬레이터-또는-디바이스-실행">2. 안드로이드 에뮬레이터 또는 디바이스 실행</h3>
+<ul>
+  <li>안드로이드 스튜디오 실행</li>
+  <li>에뮬레이터를 사용하려고 한다면 미리 실행시켜 놓고 react를 돌려야 함</li>
+  <li>에뮬레이터 설치 안했다면 설치</li>
+  <li>build.gradle Module의 targetSdkVersion과 맞는 에뮬레이터 설치</li>
+  <li>AVD Manager에서 Create Virutal Device로 설치 가능</li>
+  <li>상단에서 AVD Manager 클릭후 Action에서 실행하여 에뮬레이터 구동
+ <img src="./assets/images/201122_3.PNG" alt="이미지2" /></li>
+  <li>다시 vs 터미널</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">adb</span> <span class="n">devices</span> <span class="c1">// 현재 연결된 디바이스와 에뮬레이터 확인 가능</span>
+<span class="n">npx</span> <span class="n">react</span><span class="o">-</span><span class="kd">native</span> <span class="n">run</span><span class="o">-</span><span class="n">android</span> <span class="c1">// 실행</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
         </section>
@@ -199,15 +293,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=[Github블로그] 마크다운 코드 블록 폰트, 색상 변경&amp;url=http://localhost:4000gitblog-css-code"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=[Android/React-Native] Windows 설치 및 프로젝트 실행&amp;url=http://localhost:4000android-react-setup"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000gitblog-css-code"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000android-react-setup"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000gitblog-css-code"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000android-react-setup"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -238,20 +332,20 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42579">
+        <a class="read-next-story " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog17680">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 해시_베스트앨범</h2>
-                <p>## 👀 문제 ## 👊 첫 번째 도전 ### 1. 설계 1. 해시에 장르별로 plays...</p>
+                <h2>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 캐시</h2>
+                <p>## 👀 문제 ## 👊 도전 ### 1. 설계 1. LinkedList를 이용하여 LRU를 구현한다. 2....</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-prog42578">
+        <a class="read-next-story prev " style="background-image: url(/blog/assets/images/cover4.jpg)" href="/blog/algo-boj16571">
             <section class="post">
-                <h2>[JAVA/프로그래머스] 해시_위장: 종류별로 카운트하기</h2>
-                <p>👀 문제 https://programmers.co.kr/learn/courses/30/lessons/42578 👊 첫 번째 도전 1. 설계 key는 의상의 종류(clothes[i][1]), value는 종류의 갯수를...</p>
+                <h2>[JAVA/백준] 16571번: 알파 틱택토</h2>
+                <p>👀 문제 https://www.acmicpc.net/problem/16571 👊 도전 1. 설계 map에서 0 개수가 홀수면 1부터, 짝수면 2부터 시작한다....</p>
             </section>
         </a>
     
