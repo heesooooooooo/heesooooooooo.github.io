@@ -12,6 +12,223 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [3차] 방금그곡</title>
+	  <link>/blog//algo-prog17683</link>
+	  <author></author>
+	  <pubDate>2020-11-24T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-prog17683</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/17683">https://programmers.co.kr/learn/courses/30/lessons/17683</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>i번째 음악의 재생시간을 계산한다.</li>
+  <li>라디오에서 플레이할 수 있는 시간이 음악길이보다 더 짧다면 라디오 길이만큼만 cut한다.</li>
+  <li>아니라면(음악이 반복될 수 있다면) 그만큼 계산한다.</li>
+  <li>완성된 노래에 m이 존재한다면 list에 Node(음악이름, 재생시간) 형태로 넣는다.</li>
+  <li>list에 값이 하나 이상 존재한다면 재생시간기준 내림차순 정렬한다.</li>
+  <li>맨 첫 번째 값이 정답이다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">m</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">musicinfos</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="s">"(None)"</span><span class="o">;</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span> <span class="c1">// 조건 만족하는 값들 모두 저장</span>
+        <span class="n">m</span><span class="o">=</span><span class="n">removeSharp</span><span class="o">(</span><span class="n">m</span><span class="o">);</span> <span class="c1">// # 제거</span>
+        
+        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">music:</span><span class="n">musicinfos</span><span class="o">){</span>
+            <span class="n">String</span><span class="o">[]</span> <span class="n">array</span><span class="o">=</span><span class="n">music</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+            <span class="kt">int</span> <span class="n">time</span><span class="o">=</span><span class="n">getTime</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span> <span class="c1">// 음악시간 가져오기</span>
+            <span class="n">String</span> <span class="n">info</span><span class="o">=</span><span class="n">removeSharp</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="mi">3</span><span class="o">]);</span> <span class="c1">// # 제거</span>
+            <span class="c1">// 재생 가능 시간이 음악보다 짧다면</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">time</span><span class="o">&lt;=</span><span class="n">info</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">time</span><span class="o">);</span>
+            <span class="k">else</span><span class="o">{</span> <span class="c1">// 음악이 replay될 수 있다면</span>
+                <span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="n">time</span><span class="o">/</span><span class="n">info</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="c1">// 몇번 반복 가능한지 저장</span>
+                <span class="n">StringBuilder</span> <span class="n">sb</span><span class="o">=</span><span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">info</span><span class="o">);</span>
+                <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">c</span><span class="o">;</span><span class="n">j</span><span class="o">++)</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">info</span><span class="o">);</span> <span class="c1">// c번 반복                </span>
+                <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">info</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">time</span><span class="o">%</span><span class="n">info</span><span class="o">.</span><span class="na">length</span><span class="o">()));</span> <span class="c1">// c반복하고 나머지도 저장</span>
+                <span class="n">info</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="c1">// 멜로디가 존재한다면 list에 add</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">info</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">m</span><span class="o">))</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span> <span class="n">time</span><span class="o">));</span>
+        <span class="o">}</span>
+        
+        <span class="c1">// 방금그곡을 찾았으면</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;=</span><span class="mi">1</span><span class="o">){</span>
+            <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;(){</span> <span class="c1">// 음악시간 기준 내림차순 정렬</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Node</span> <span class="n">n1</span><span class="o">,</span> <span class="n">Node</span> <span class="n">n2</span><span class="o">){</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">n1</span><span class="o">.</span><span class="na">time</span><span class="o">&gt;</span><span class="n">n2</span><span class="o">.</span><span class="na">time</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+                    <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">n1</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">n2</span><span class="o">.</span><span class="na">time</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+                    <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+            <span class="n">answer</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">name</span><span class="o">;</span> <span class="c1">// 첫번째가 정답</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">removeSharp</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">){</span> <span class="c1">// C#-&gt;c로 변환</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">before</span><span class="o">={</span><span class="s">"C#"</span><span class="o">,</span> <span class="s">"D#"</span><span class="o">,</span> <span class="s">"F#"</span><span class="o">,</span> <span class="s">"G#"</span><span class="o">,</span> <span class="s">"A#"</span><span class="o">};</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">after</span><span class="o">={</span><span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">,</span> <span class="s">"f"</span><span class="o">,</span> <span class="s">"g"</span><span class="o">,</span> <span class="s">"a"</span><span class="o">};</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="n">before</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">after</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getTime</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span> <span class="n">String</span> <span class="n">e</span><span class="o">){</span> <span class="c1">// 플레이 시간 리턴</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">ss</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">ee</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">sTime</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">ss</span><span class="o">[</span><span class="mi">0</span><span class="o">])*</span><span class="mi">60</span><span class="o">+</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">ss</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="kt">int</span> <span class="n">eTime</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">ee</span><span class="o">[</span><span class="mi">0</span><span class="o">])*</span><span class="mi">60</span><span class="o">+</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">ee</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+        <span class="k">return</span> <span class="n">eTime</span><span class="o">-</span><span class="n">sTime</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="n">String</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">=</span><span class="n">n</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/201124_1.PNG" alt="실행결과" />
+🤟 성공 🤟<br />
+시간 계산에서 분 단위로 바꿔서 계산하지 않고 바로 hhmm형태로 뺐더니 테스트케이스 27, 30에서 실패했다. 예를 들어, 12:59, 13:00이면 1을 리턴해야하는데 나의 경우 41을 리턴했기 때문이다.<br />
+그리고 (None)에 `도 없어야 한다.</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">m에서 #을 제거한다</span></strong>
+    <ul>
+      <li>문자 하나당 1분이 걸린다고 계산하기 위해서는 C#같이 두자리 문자도 하나로 변환해야 한다.</li>
+      <li>C#-&gt;c로 변환해주자.</li>
+      <li>removeSharp()에서 이 역할을 수행하고 변환된 문자열을 리턴한다.</li>
+      <li>#이 붙는 경우가 정해져있으므로 before 배열에 넣고, 인덱스를 맞춰서 after에 소문자로 변환할 값을 넣는다.</li>
+      <li>for문으로 s에서 before[i]가 존재한다면, replaceAll()로 after[i]로 바꾼다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">m에서 #을 제거한다</span></strong>
+    <ul>
+      <li>musicinfos에서 음악 정보는 문자열 하나로 이루어져있고, 그 안에서 ‘,’로 구분되므로 split()로 나눈다.</li>
+      <li>getTime()을 이용해 음악의 재생시간을 time에 저장한다.</li>
+      <li>getTime() 역시 :로 구분되므로 split()한 후, 분 형태로 계산하고 리턴한다.</li>
+      <li>악보(array[3])도 removeSharp()로 #을 제거한다.</li>
+      <li>라디오에서 플레이할 수 있는 시간(info)가 악보(time)보다 더 짧다면 info에 맞춰서 자르고 info에 저장한다.</li>
+      <li>반복이 가능하다면 그만큼 반복해서 info에 저장해야한다.</li>
+      <li>문자열의 삽입이 여러 번 이루어지므로 immutable한 String 클래스에서 작업을 수행하는 것보다 StringBuilder가 낫다.</li>
+      <li>반복 횟수는 time/info.length()이고, 반복하고 남은 것은 나머지 연산으로 더해준다.</li>
+      <li>라디오에서 플레이할 음 info에 m이 존재한다면 list에 넣는다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">list를 sort해서 정답을 리턴한다</span></strong>
+    <ul>
+      <li>위 조건을 만족하는 노래가 하나 이상이라면, comparator로 정렬해야 한다.</li>
+      <li>정렬 기준은 time이 큰 것이 앞으로 가도록 한다.</li>
+      <li>time이 같을 수도 있다. 이때는 먼저 들어온 값이 우선순위를 가진다. return 0하면 자리 변화가 일어나지 않기 때문에 들어온 순서대로 놓이게 되므로 문제 없다.</li>
+      <li>answer는 맨 첫번째 값이 된다.</li>
+      <li>list에 값이 없다면 당연히 정렬도 하지 않고, 바로 answer의 초기값인 (None)을 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [1차] 캐시</title>
 	  <link>/blog//algo-prog17680</link>
 	  <author></author>
@@ -1183,98 +1400,6 @@ DP로 문제를 해결하였으나 효율성에서 메모리, 시간 초과가 �
 <ul>
   <li>[Programmers] 2020 카카오 인턴십 - 수식 최대화 <a href="https://velog.io/@pandahun/Programmers-2020-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%9D%B8%ED%84%B4%EC%8B%AD-%EC%88%98%EC%8B%9D-%EC%B5%9C%EB%8C%80%ED%99%94">https://velog.io/@pandahun/Programmers-2020-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%9D%B8%ED%84%B4%EC%8B%AD-%EC%88%98%EC%8B%9D-%EC%B5%9C%EB%8C%80%ED%99%94</a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>[JAVA/프로그래머스] 월간 코드 챌린지 시즌1: 이진 변환 반복하기</title>
-	  <link>/blog//algo-prog70129</link>
-	  <author></author>
-	  <pubDate>2020-11-06T09:00:00+09:00</pubDate>
-	  <guid>/blog//algo-prog70129</guid>
-	  <description><![CDATA[
-	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/70129">https://programmers.co.kr/learn/courses/30/lessons/70129</a></p>
-
-<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
-
-<h3 id="1-설계">1. 설계</h3>
-<ol>
-  <li>replace()로 0을 제거한다.</li>
-  <li>2진수로 변환은 Integer.toBinaryString()을 이용한다.</li>
-</ol>
-
-<h3 id="2-구현">2. 구현</h3>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-<span class="cm">/**
- *
- * @author HEESOO
- *
- */</span>
-<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">solution</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span><span class="o">[]</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">{};</span>
-        <span class="kt">int</span> <span class="n">zero</span><span class="o">=</span><span class="mi">0</span><span class="o">,</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
-        <span class="k">while</span><span class="o">(!</span><span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"1"</span><span class="o">)){</span> <span class="c1">// s==1이 될 때까지 반복</span>
-            <span class="n">cnt</span><span class="o">++;</span> <span class="c1">// 수행 횟수</span>
-            <span class="n">String</span> <span class="n">removeZero</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="na">replace</span><span class="o">(</span><span class="s">"0"</span><span class="o">,</span><span class="s">""</span><span class="o">);</span> <span class="c1">// 0 제거</span>
-            <span class="n">zero</span><span class="o">+=</span><span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="n">removeZero</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="c1">// 삭제한 0 개수 카운트</span>
-            <span class="n">s</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">removeZero</span><span class="o">.</span><span class="na">length</span><span class="o">());</span> <span class="c1">// 변경된 문자열 길이를 이진수 변환</span>
-        <span class="o">}</span>
-        
-        <span class="n">answer</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
-        <span class="n">answer</span><span class="o">[</span><span class="mi">0</span><span class="o">]=</span><span class="n">cnt</span><span class="o">;</span>
-        <span class="n">answer</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="n">zero</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">answer</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="3-결과">3. 결과</h3>
-<p><img src="./assets/images/201106_1.PNG" alt="실행결과" />
-🤟 성공 🤟</p>
-
-<h3 id="4-설명">4. 설명</h3>
-<ol>
-  <li><strong><span style="color:navy">0을 제거한다</span></strong>
-    <ul>
-      <li>제거는 replace()를 이용한다.</li>
-      <li>제거된 0의 개수는 원래 s의 길이에서 변경된 removeZero 길이를 뺀 값과 같다.</li>
-    </ul>
-  </li>
-  <li><strong><span style="color:navy">변경 길이를 2진수로 변환한다</span></strong>
-    <ul>
-      <li>c는 removeZero.length()와 같다.</li>
-      <li>10진수를 2진수 문자열로 변경하는 것은 Integer.toBinaryString()을 이용한다.</li>
-    </ul>
-  </li>
-</ol>
-
-<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
 
 	  ]]></description>
 	</item>
