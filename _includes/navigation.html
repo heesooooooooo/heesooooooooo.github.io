@@ -6,17 +6,15 @@
     <ul>
       <!-- home, boj, etc-->
         <li class="nav-home {% if page.current == 'home' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}">Home</a></li>
-        <li class="nav-algo {% if page.url contains 'algo' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/algorithm">Algorithm</a></li>
-        <li class="nav-java {% if page.url contains 'java' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/java">Java</a></li>
+        <li class="nav-tags {% if page.url contains 'tags' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tags">Tag</a></li>
         <li class="nav-boj {% if page.url contains 'boj' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/boj">Java/백준</a></li>
         <li class="nav-programmers {% if page.url contains 'programmers' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/programmers">Java/프로그래머스</a></li>
         <li class="nav-swea {% if page.url contains 'swea' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/swea">Java/SWEA</a></li>
         <li class="nav-leetcode {% if page.url contains 'leetcode' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/leetcode">Java/LeetCode</a></li>
+        <li class="nav-algo {% if page.url contains 'algo' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/algorithm">Algorithm</a></li>
+        <li class="nav-java {% if page.url contains 'java' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/java">Java</a></li>
         <li class="nav-sql {% if page.url contains 'sql' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/sql">SQL</a></li>
-        <!-- <li class="nav-git {% if page.url contains 'git' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/git">Git</a></li> -->
-
-        <li class="nav-tags {% if page.url contains 'tags' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tags">Tag</a></li>
-
+        <li class="nav-android {% if page.url contains 'android' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/android">Android</a></li>
         <!-- <li class="nav-etc {% if page.url contains '/etc' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}tag/etc">etc</a></li> -->
         <!--
         <li class="nav-about {% if page.current == 'about' %} nav-current{% endif %}" role="presentation"><a href="{{ site.baseurl }}about">About::HEESOO</a></li>
