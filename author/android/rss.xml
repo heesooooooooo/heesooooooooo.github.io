@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>PS & 개발 기록</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[Android/STOMP] STOMP 사용</title>
+	  <link>/blog//android-stomp01</link>
+	  <author></author>
+	  <pubDate>2021-02-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-stomp01</guid>
+	  <description><![CDATA[
+	     <p>Simple Text Oriented Messaging Protocol</p>
+
+<h2 id="-setting">👊 Setting</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repositories</span> <span class="o">{</span> 
+    <span class="n">jcenter</span><span class="o">()</span>
+    <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s">"https://jitpack.io"</span> <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">implementation</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">NaikSoftware</span><span class="o">:</span><span class="nl">StompProtocolAndroid:</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">6</span><span class="err">'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p><a href="https://github.com/NaikSoftware/StompProtocolAndroid">https://github.com/NaikSoftware/StompProtocolAndroid</a>를 이용하였다.</p>
+
+<h3 id="1-stomp-생성-및-connect">1. STOMP 생성 및 Connect</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre></td><td class="code"><pre><span class="kd">private</span> <span class="n">StompClient</span> <span class="n">stompClient</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">StompHeader</span><span class="o">&gt;</span> <span class="n">headerList</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initStomp</span><span class="o">(){</span>
+    <span class="n">stompClient</span><span class="o">=</span> <span class="n">Stomp</span><span class="o">.</span><span class="na">over</span><span class="o">(</span><span class="n">Stomp</span><span class="o">.</span><span class="na">ConnectionProvider</span><span class="o">.</span><span class="na">OKHTTP</span><span class="o">,</span> <span class="n">wsServerUrl</span><span class="o">);</span>
+
+    <span class="n">stompClient</span><span class="o">.</span><span class="na">lifecycle</span><span class="o">().</span><span class="na">subscribe</span><span class="o">(</span><span class="n">lifecycleEvent</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">lifecycleEvent</span><span class="o">.</span><span class="na">getType</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="nl">OPENED:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"Stomp connection opened"</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="nl">ERROR:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"Error"</span><span class="o">,</span> <span class="n">lifecycleEvent</span><span class="o">.</span><span class="na">getException</span><span class="o">());</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">lifecycleEvent</span><span class="o">.</span><span class="na">getException</span><span class="o">().</span><span class="na">getMessage</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"EOF"</span><span class="o">)){</span>
+                    <span class="n">isUnexpectedClosed</span><span class="o">=</span><span class="kc">true</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="nl">CLOSED:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"Stomp connection closed"</span><span class="o">);</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">isUnexpectedClosed</span><span class="o">){</span>
+                    <span class="cm">/**
+                        * EOF Error
+                        */</span>
+                    <span class="n">initStomp</span><span class="o">();</span>
+                    <span class="n">isUnexpectedClosed</span><span class="o">=</span><span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">});</span>
+
+    <span class="c1">// add Header</span>
+    <span class="n">headerList</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">headerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">StompHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="n">G</span><span class="o">.</span><span class="na">accessToken</span><span class="o">));</span>
+    <span class="n">stompClient</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="n">headerList</span><span class="o">);</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>먼저 stomp.over()로 stompClient를 생성한다.</li>
+  <li>첫 번째 파라미터는 connection이다. 현재 OkHttp와 JWS가 가능하다.</li>
+  <li>두 번째 파라미터는 연결하고자 하는 서버 주소이다.</li>
+  <li>다음은 stompClient의 lifeCycle에 따라 필요한 조건이 있을 경우 선언한다.</li>
+  <li>헤더에 추가해야할 것이 있다면 StompHeader()를 이용해서 만든다.</li>
+  <li>이제 connect()로 연결!</li>
+</ul>
+
+<h4 id="주소는-ws">⭐⭐주소는 ws</h4>
+<ul>
+  <li>연결하려는 주소가 http로 시작하면 ws, https는 wss로 시작하며, 마지막에 /websocket을 꼭 붙여야 한다.</li>
+  <li>connect에 성공하면 101을 받는다.</li>
+</ul>
+
+<h3 id="2-send-subscribe">2. Send, Subscribe</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="cm">/**
+* 보낼 JSONObject 만들기
+* */</span>
+<span class="n">stompClient</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">"send할 주소"</span><span class="o">,</span> <span class="n">jsonObject</span><span class="o">.</span><span class="na">toJSONString</span><span class="o">()).</span><span class="na">subscribe</span><span class="o">();</span>
+        
+
+<span class="n">stompClient</span><span class="o">.</span><span class="na">topic</span><span class="o">(</span><span class="s">"subscribe할 주소"</span><span class="o">).</span><span class="na">subscribe</span><span class="o">(</span><span class="n">topicMessage</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">JSONParser</span> <span class="n">parser</span><span class="o">=</span><span class="k">new</span> <span class="n">JSONParser</span><span class="o">();</span>
+    <span class="n">Object</span> <span class="n">obj</span><span class="o">=</span><span class="n">parser</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">topicMessage</span><span class="o">.</span><span class="na">getPayload</span><span class="o">());</span>
+    <span class="o">...</span>
+<span class="o">});</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>tooooooo easy!0!</li>
+  <li>send()할때 뒤에 .subscribe() 잊지 말자.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Android] Service 정리</title>
+	  <link>/blog//android-service01</link>
+	  <author></author>
+	  <pubDate>2021-02-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-service01</guid>
+	  <description><![CDATA[
+	     <h3 id="service">Service</h3>
+<ul>
+  <li>FG, BG, binder</li>
+  <li>back으로 종료하는 경우 service는 살아있고, overview로 종료하면 서비스가 종료된다고 알고 있다.</li>
+  <li>startService로 실행한 서비스는 (중간에 bindService 진행해도) stopService로 종료해야 끝난다.</li>
+  <li>bindSerivce로 실행하면 unbindService로 종료한다.</li>
+  <li>참고로 bindService는 바인딩이 모두 해제되어야 종료된다.</li>
+  <li>startService는 onStartCommand()를 진행, bindService는 바로 onBind() 진행한다.</li>
+  <li>보통 service 호출 및 종료를 같은 액티비티(프래그먼트)에서 진행하지 않는데, 확실하게 죽이고 싶으면 같은 곳에서 하는게 좋다.</li>
+</ul>
+
+<h3 id="stopservice가-ondestroy를-호출하지-않을-때">stopService가 onDestroy()를 호출하지 않을 때</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">getActivity</span><span class="o">().</span><span class="na">bindService</span><span class="o">(</span><span class="n">LoginActivity</span><span class="o">.</span><span class="na">getPushIntent</span><span class="o">(),</span> <span class="n">mConnection</span><span class="o">,</span> <span class="n">Context</span><span class="o">.</span><span class="na">BIND_ADJUST_WITH_ACTIVITY</span><span class="o">);</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>flag를 Context.BIND_AUTO_CREATE가 아니라 위의 값으로 변경</li>
+  <li>근데 같은 코드지만 디바이스마다 onDestory()가 호출되는 시간이 달라보였다🤷‍♂️.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Android/error] ListView Item에 중복된 값이 나오는 문제 해결</title>
+	  <link>/blog//android-error01</link>
+	  <author></author>
+	  <pubDate>2021-02-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-error01</guid>
+	  <description><![CDATA[
+	     <h3 id="-문제">🤦‍ 문제</h3>
+<ul>
+  <li>Adapter를 이용하여 ListView에 item을 띄우는 과정에서, 화면을 스크롤하면 밑에 있는 값들이 제대로 안나옴</li>
+  <li>List에는 제대로 들어가는데, 화면에 이상하게 띄우는 듯</li>
+</ul>
+
+<h3 id="-해결">💃 해결</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre> <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">view</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">viewGroup</span><span class="o">){</span>
+        <span class="n">GroupItem</span> <span class="n">item</span><span class="o">=</span> <span class="n">groupItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">view</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">View</span> <span class="n">itemView</span><span class="o">=</span><span class="n">layoutInflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_group</span><span class="o">,</span> <span class="n">viewGroup</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+            <span class="n">CircleImageView</span> <span class="n">iv</span><span class="o">=</span><span class="n">itemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">iv_group</span><span class="o">);</span>
+            <span class="n">TextView</span> <span class="n">tvTitle</span><span class="o">=</span><span class="n">itemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_groupmsg</span><span class="o">);</span>
+            <span class="n">tvTitle</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">Glide</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">itemView</span><span class="o">).</span><span class="na">load</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getProfile</span><span class="o">()).</span><span class="na">error</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">profile_default</span><span class="o">).</span><span class="na">into</span><span class="o">(</span><span class="n">iv</span><span class="o">);</span>
+
+            <span class="k">return</span> <span class="n">itemView</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="n">CircleImageView</span> <span class="n">iv</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">iv_group</span><span class="o">);</span>
+            <span class="n">TextView</span> <span class="n">tvTitle</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_groupmsg</span><span class="o">);</span>
+            <span class="n">tvTitle</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">Glide</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">view</span><span class="o">).</span><span class="na">load</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getProfile</span><span class="o">()).</span><span class="na">error</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">profile_default</span><span class="o">).</span><span class="na">into</span><span class="o">(</span><span class="n">iv</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>이런식으로 view가 null인지 아닌지로 나눠서 코드를 작성해야 한다.</li>
+  <li>UI가 view를 reuse하기 때문에, view가 null이면 새로 만들고, 아니라면 기존 인스턴스에 item을 넣어야 된다고 한다.</li>
+</ul>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>Duplicated entries in ListView <a href="https://stackoverflow.com/questions/8261376/duplicated-entries-in-listview">https://stackoverflow.com/questions/8261376/duplicated-entries-in-listview</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Android/WebRTC] WebRTC 개념</title>
+	  <link>/blog//android-webrtc02</link>
+	  <author></author>
+	  <pubDate>2021-02-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-webrtc02</guid>
+	  <description><![CDATA[
+	     <ul>
+  <li>Web Real-Time Communications</li>
+  <li>별도의 소프트웨어없이 음성, 영상, 텍스트, 파일 등의 데이터를 브라우저끼리 주고 받을 수 있게 만든 기술</li>
+  <li>P2P 통신에 최적화</li>
+  <li>MediaStream: 카메라, 마이크 등의 데이터 스트림에 접근</li>
+  <li>RTCPeerConnection: 암호화, 대역폭 관리, 오디오/비디오 연결 담당</li>
+  <li>RTCDataChannel: 음성, 영상 데이터가 아닌, json/text 데이터를 주고받음</li>
+</ul>
+
+<h3 id="수행-과정">수행 과정</h3>
+<p><img src="./assets/images/210204_1.jpeg" alt="이미지" width="70%" height="70%" /></p>
+<ol>
+  <li>Fetching: peer에게 보낼 나의 음성, 영상 데이터를 수집</li>
+  <li>Signaling: peer와 연결하기 위해 peer의 정보를 탐색</li>
+  <li>Connection: 발견된 peer와 P2P connection 진행. 채널을 개방해둠</li>
+  <li>Communication: 개방해놓은 채널을 통해 데이터를 주고받음</li>
+</ol>
+
+<h3 id="signaling">Signaling</h3>
+<ul>
+  <li>Peer들이 데이터를 교환할 수 있게 처리해주는 과정</li>
+  <li>peer들이 통신하기 위해서는 서버가 필요하고, 서버를 통해 서로의 SessionDescription을 교환해야함</li>
+  <li>ICE Framework를 사용해 내 ip, port를 찾아서 서로의(peer) network 정보를 교환</li>
+  <li>SDP 형식을 따르는 offer, answer를 주고받으며 Media Capability(각자 사용 가능한 코덱, 해상도 등이 무엇인지) 교환</li>
+  <li>Session Control Messages(통신 연결의 초기화, 종료)를 교환</li>
+</ul>
+
+<h3 id="stunturn-server">STUN/TURN Server</h3>
+<ul>
+  <li>P2P 통신이 가능하도록 해줌</li>
+  <li>peer들이 연결하려면 서로의 ip를 알아야하는데, 실제로는 방화벽 등으로 peer들간의 연결이 쉽지 않음 이때 STUN, TURN 서버를 사용한다.</li>
+</ul>
+
+<h3 id="stun">STUN</h3>
+<ul>
+  <li>Session Traversal Utilities for NAT</li>
+  <li>NAT 환경에서 내 ip 주소를 알려줌</li>
+  <li>클라이언트 A는 STUN 서버를 통해 내 ip 주소가 뭔지 받고, 접근 가능한지 알아냄</li>
+</ul>
+
+<h3 id="nat">NAT</h3>
+<ul>
+  <li>Network Address Translation</li>
+  <li>단말에 공개 ip 주소를 할당하기 위해 사용됨</li>
+  <li>모든 단말들은 라우터에 연결되어있고, 라우터는 공개, 비공개 ip 주소를 가지고 있음</li>
+  <li>peer간의 요청은 단말의 private ip로부터 라우터의 공개 ip 주소, 유일한 포트 기반으로 가능해짐</li>
+</ul>
+
+<h3 id="turn">TURN</h3>
+<ul>
+  <li>Traversal Using Relays around NAT</li>
+  <li>어떤 라우터들은 네트워크에 연결할 수 있는 제한이 있어서, STUN으로 공개 ip 주소를 알아내도 모두가 연결할 수 있는 것은 아님 -&gt; TURN 서버가 필요</li>
+  <li>몇몇 라우터는 Symmetric NAT(이전에 연결한 적이 있는 연결들만 허용함)을 채용하고 있음 -&gt; TURN 서버와 연결하고 모든 정보를 그 서버에 전달하는 것으로 Symmetric NAT 제한을 우회하는 방식으로 진행</li>
+  <li>TURN 서버와 연결한 후 모든 peer들에게 모든 패킷을 보내고 다시 본인에게 전달해달라고 해야하므로 오버헤드가 발생</li>
+</ul>
+
+<h3 id="sdp">SDP</h3>
+<ul>
+  <li>Session Description Protocol</li>
+  <li>스트리밍 미디어 포맷</li>
+  <li>해상도, 형식, 코덱, 암호화 등의 멀티미디어 컨텐츠의 연결을 설명하기 위한 표준 프로토콜</li>
+  <li>peer간의 ice candidate 교환 후 createOffer()로 offer SDP를 생성(내가 사용 가능한 코덱, 해상도 등의 정보가 담김) 및 전송</li>
+  <li>offer sdp를 받은 peer는 setRemoteDescription()을 수행</li>
+  <li>받은 peer는 createAnswer()로 answer SDP를 생성하고 전달</li>
+  <li>쌍방으로 모두 진행되야 함</li>
+  <li>둘 다 setRemoteDescription()이 수행되면 P2P 연결 성공</li>
+</ul>
+
+<h3 id="ice-candidate">ICE Candidate</h3>
+<ul>
+  <li>Interactive Connectivity Establishment</li>
+  <li>브라우저가 peer를 통한 연결이 가능하도록 하게 해주는 프레임워크</li>
+  <li>내 네트워크 정보</li>
+  <li>onIceCandidate()로 내 ice candidate를 확보해서 전달</li>
+  <li>peer의 candidate가 도착하면, addIceCandidate()로 peer의 네트워크 정보를 등록해야함</li>
+</ul>
+
+<h4 id="참고">참고</h4>
+<ul>
+  <li>[WebRTC] WebRTC란? <a href="https://medium.com/@hyun.sang/webrtc-webrtc%EB%9E%80-43df68cbe511">https://medium.com/@hyun.sang/webrtc-webrtc%EB%9E%80-43df68cbe511</a></li>
+  <li>2018 webRTC 정리 <a href="http://jaynewho.com/post/36">http://jaynewho.com/post/36</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[Android/WebRTC] WebRTC 세팅 및 sdp, candidate 생성</title>
+	  <link>/blog//android-webrtc01</link>
+	  <author></author>
+	  <pubDate>2021-01-31T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-webrtc01</guid>
+	  <description><![CDATA[
+	     <h3 id="-setting">👊 Setting</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">implementation</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">webrtc</span><span class="o">:</span><span class="n">google</span><span class="o">-</span><span class="nl">webrtc:</span><span class="mf">1.0</span><span class="o">.+</span><span class="err">'</span>
+</code></pre></div></div>
+<p>로 추가 가능하나, 블로그 대부분의 예시가 arr파일로 되어있어서 나도 arr 파일을 사용하였다 😎</p>
+<ul>
+  <li>아래 코드는 audio를 가져오는 코드로, video도 생성하고 싶은 경우 VideoTrack을 이용하면 쉽게 구현할 수 있다.</li>
+</ul>
+
+<h3 id="1-webrtc-세팅">1. WebRTC 세팅</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.hardware.camera"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.hardware.camera.autofocus"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span>
+    <span class="nl">android:</span><span class="n">glEsVersion</span><span class="o">=</span><span class="s">"0x00020000"</span>
+    <span class="nl">android:</span><span class="n">required</span><span class="o">=</span><span class="s">"true"</span> <span class="o">/&gt;</span>
+
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.INTERNET"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.CHANGE_NETWORK_STATE"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.READ_EXTERNAL_STORAGE"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.RECORD_AUDIO"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.MODIFY_AUDIO_SETTINGS"</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.CAMERA"</span> <span class="o">/&gt;</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>먼저, 필요한 permission을 AndroiMenifest.xml에 추가한다.</li>
+  <li>다음으로, WebRTC에 필요한 생성 및 초기화를 진행한다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initWebRTC</span><span class="o">(){</span>
+    <span class="n">PeerConnectionFactory</span><span class="o">.</span><span class="na">initializeAndroidGlobals</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+
+    <span class="n">PeerConnectionFactory</span><span class="o">.</span><span class="na">Options</span> <span class="n">options</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PeerConnectionFactory</span><span class="o">.</span><span class="na">Options</span><span class="o">();</span>
+    <span class="n">peerConnectionFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PeerConnectionFactory</span><span class="o">(</span><span class="n">options</span><span class="o">);</span>
+
+    <span class="n">audioConstraints</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MediaConstraints</span><span class="o">();</span>
+    <span class="n">audioSource</span> <span class="o">=</span> <span class="n">peerConnectionFactory</span><span class="o">.</span><span class="na">createAudioSource</span><span class="o">(</span><span class="n">audioConstraints</span><span class="o">);</span>
+    <span class="n">localAudioTrack</span> <span class="o">=</span> <span class="n">peerConnectionFactory</span><span class="o">.</span><span class="na">createAudioTrack</span><span class="o">(</span><span class="s">"101"</span><span class="o">,</span> <span class="n">audioSource</span><span class="o">);</span>
+    <span class="n">localAudioTrack</span><span class="o">.</span><span class="na">setEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+    <span class="n">sdpConstraints</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MediaConstraints</span><span class="o">();</span>
+    <span class="n">sdpConstraints</span><span class="o">.</span><span class="na">mandatory</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">MediaConstraints</span><span class="o">.</span><span class="na">KeyValuePair</span><span class="o">(</span><span class="s">"offerToReceiveAudio"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">));</span>
+    <span class="n">sdpConstraints</span><span class="o">.</span><span class="na">mandatory</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">MediaConstraints</span><span class="o">.</span><span class="na">KeyValuePair</span><span class="o">(</span><span class="s">"offerToReceiveVideo"</span><span class="o">,</span> <span class="s">"false"</span><span class="o">));</span> 
+
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">peerConnectionFactory</span><span class="o">.</span><span class="na">createLocalMediaStream</span><span class="o">(</span><span class="s">"102"</span><span class="o">);</span>
+    <span class="n">stream</span><span class="o">.</span><span class="na">addTrack</span><span class="o">(</span><span class="n">localAudioTrack</span><span class="o">);</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>audioSource를 생성하기 위해 PeerConnectionFactory을 생성 및 초기화한다.</li>
+  <li>audioConstraints를 통해 audio를 생성하고, localAudioTrack으로 audio를 setEnable한다.</li>
+  <li>sdpConstraints는 SDP 정보를 생성하는 것으로, 연결하고자 하는 Peer간의 미디어와 네트워크에 관한 정보를 이해하기 위해 사용된다.</li>
+  <li>마지막으로 stream을 통해 생성한 audioTrack을 넣으면 WebRTC 초기 세팅이 끝난다.</li>
+</ul>
+
+<h3 id="2-sdp와-icecandidate-전달">2. SDP와 IceCandidate 전달</h3>
+
+<ul>
+  <li>두 Peer가 서버와 연결되면, 같은 dest를 가지고 있는 Peer들은 sdp와 candidate를 교환해야 한다.</li>
+  <li>SDP(Session Description Protocol)은 미디어 정보를 서로 교환한다.</li>
+  <li>sdp는 (연결하고자 하는) A가 만든 sdp(createOffer())와, 상대방(A)의 sdp를 받고 제대로 받았음을 send할 B의 sdp(createAnswer())가 필요하다.</li>
+</ul>
+
+<h4 id="createoffer">createOffer()</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPeer</span><span class="o">(){</span>
+    <span class="o">...</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">initCall</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">newPeer</span><span class="o">.</span><span class="na">createOffer</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomSdpObserver</span><span class="o">(</span><span class="s">"newPeerCreateOffer"</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreateSuccess</span><span class="o">(</span><span class="n">SessionDescription</span> <span class="n">sessionDescription</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="kd">super</span><span class="o">.</span><span class="na">onCreateSuccess</span><span class="o">(</span><span class="n">sessionDescription</span><span class="o">);</span>
+                    <span class="n">createdDescription</span><span class="o">(</span><span class="n">sessionDescription</span><span class="o">,</span> <span class="n">peerUuid</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">},</span> <span class="n">sdpConstraints</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>createOffer()로 sdp를 생성하면, onCreateSuccess()의 파라미터 sessionDescription으로 생성된 sdp를 확인할 수 있다. 이제 생성된 sdp를 서버로 전송해주면 된다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">createdDescription</span><span class="o">(</span><span class="n">SessionDescription</span> <span class="n">sessionDescription</span><span class="o">,</span> <span class="n">String</span> <span class="n">peerUuid</span><span class="o">){</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"createdDescription"</span><span class="o">);</span>
+
+    <span class="n">CustomPeerConnection</span> <span class="n">tempPeer</span><span class="o">=</span> <span class="n">peerMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">peerUuid</span><span class="o">);</span>
+    <span class="n">tempPeer</span><span class="o">.</span><span class="na">pc</span><span class="o">.</span><span class="na">setLocalDescription</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomSdpObserver</span><span class="o">(</span><span class="s">"createdDescription"</span><span class="o">),</span> <span class="n">sessionDescription</span><span class="o">);</span>
+
+    <span class="cm">/**
+      * createOffer()한 sdp를 서버로 전송
+      */</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="createanswer">createAnswer()</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="n">tempPeer</span><span class="o">.</span><span class="na">pc</span><span class="o">.</span><span class="na">createAnswer</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomSdpObserver</span><span class="o">(</span><span class="s">"offer createAnswer"</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreateSuccess</span><span class="o">(</span><span class="n">SessionDescription</span> <span class="n">sessionDescription</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreateSuccess</span><span class="o">(</span><span class="n">sessionDescription</span><span class="o">);</span>
+        <span class="n">tempPeer</span><span class="o">.</span><span class="na">pc</span><span class="o">.</span><span class="na">setLocalDescription</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomSdpObserver</span><span class="o">(</span><span class="s">"offer setLocal"</span><span class="o">),</span> <span class="n">sessionDescription</span><span class="o">);</span>
+        <span class="n">createdDescription</span><span class="o">(</span><span class="n">sessionDescription</span><span class="o">,</span> <span class="n">peerUuid</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">},</span> <span class="k">new</span> <span class="n">MediaConstraints</span><span class="o">());</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>상대방의 sdp를 제대로 받았음을 전송하는 sdp이다.</li>
+  <li>sdp 교환이 끝나면, Ice Candidates를 교환한다.</li>
+</ul>
+
+<h3 id="onicecandidate">onIceCandidate()</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="n">PeerConnection</span> <span class="n">newPeer</span><span class="o">=</span><span class="n">peerConnectionFactory</span><span class="o">.</span><span class="na">createPeerConnection</span><span class="o">(</span><span class="n">iceServerList</span><span class="o">,</span> <span class="n">sdpConstraints</span><span class="o">,</span>
+    <span class="k">new</span> <span class="nf">CustomPeerConnectionObserver</span><span class="o">(</span><span class="s">"newPeerCreation"</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onIceCandidate</span><span class="o">(</span><span class="n">IceCandidate</span> <span class="n">iceCandidate</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onIceCandidate"</span><span class="o">);</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">onIceCandidate</span><span class="o">(</span><span class="n">iceCandidate</span><span class="o">);</span>
+            <span class="cm">/**
+                * 생성된 iceCandidate(파라미터 값)을 서버로 전송
+                */</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAddStream</span><span class="o">(</span><span class="n">MediaStream</span> <span class="n">mediaStream</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">onAddStream</span><span class="o">(</span><span class="n">mediaStream</span><span class="o">);</span>
+            <span class="n">gotRemoteStream</span><span class="o">(</span><span class="n">mediaStream</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+
+<span class="n">newPeer</span><span class="o">.</span><span class="na">addStream</span><span class="o">(</span><span class="n">stream</span><span class="o">);</span>
+        </pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>onAddStream이 호출되면 Peer 연결에 성공했다는 뜻이다.</li>
+  <li>A와 B가 iceCandidate 교환에 성공하면, connection되어 audio 전송이 가능해진다.</li>
+</ul>
+
+<h3 id="4-참고">4. 참고</h3>
+<h4 id="customsdpobserverjava">CustomSdpObserver.java</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="kd">class</span> <span class="nc">CustomSdpObserver</span> <span class="kd">implements</span> <span class="n">SdpObserver</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">tag</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getCanonicalName</span><span class="o">();</span>
+
+    <span class="n">CustomSdpObserver</span><span class="o">(</span><span class="n">String</span> <span class="n">logTag</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">tag</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">tag</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">logTag</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreateSuccess</span><span class="o">(</span><span class="n">SessionDescription</span> <span class="n">sessionDescription</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="s">"onCreateSuccess() called with: sessionDescription = ["</span> <span class="o">+</span> <span class="n">sessionDescription</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSetSuccess</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="s">"onSetSuccess() called"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreateFailure</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="s">"onCreateFailure() called with: s = ["</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSetFailure</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="s">"onSetFailure() called with: s = ["</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>CustomSdpObserver는 SdpObserver를 implement하여, SDP와 관련된 이벤트들을 체크한다.</li>
+  <li>SdpObserver가 필요한 곳에 override method를 다 써줄 순 없으니까 Custom class를 하나 생성하여, 필요한 메소드가 있을 경우 override해준다.</li>
+</ul>
+
+<h4 id="음량-조절-기능">음량 조절 기능</h4>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">muteAudio</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">action</span><span class="o">){</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"muteAudio"</span><span class="o">);</span>
+    <span class="n">stream</span><span class="o">.</span><span class="na">audioTracks</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">setEnabled</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setVolume</span><span class="o">(</span><span class="kt">long</span> <span class="n">uid</span><span class="o">,</span> <span class="kt">int</span> <span class="n">volume</span><span class="o">){</span>
+    <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"setVolume "</span><span class="o">+</span><span class="n">uid</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">volume</span><span class="o">);</span>
+    <span class="n">audioMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">uid</span><span class="o">).</span><span class="na">setVolume</span><span class="o">((</span><span class="kt">double</span><span class="o">)</span><span class="n">volume</span><span class="o">);</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>audio, video는 MediaStream에서 관리한다.</li>
+  <li>
+    <p>initWebRTC()에서 audio, video를 세팅해주고 addTrack()으로 나의 audio 데이터를 담았다.</p>
+  </li>
+  <li>참고로, MediaStream에는 audioTracks와 videoTracks가 존재한다(둘다 LinkedList).</li>
+  <li>그래서 내 audio는 media.audioTrack.get(0)이 된다.</li>
+  <li>
+    <p>음소거 기능은 setEnabled()로 관리하며, false가 음소거이다.</p>
+  </li>
+  <li>audio는 LinkedList형태로 peer들이 들어올 때마다 뒤에서 삽입되므로 해당 인덱스를 찾는다면 특정 peer의 음량을 조절할 수 있다.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

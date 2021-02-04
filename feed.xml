@@ -8,6 +8,107 @@
     
       
       <item>
+        <title>[Android/WebRTC] WebRTC 개념</title>
+        
+          <description>&lt;ul&gt;
+  &lt;li&gt;Web Real-Time Communications&lt;/li&gt;
+  &lt;li&gt;별도의 소프트웨어없이 음성, 영상, 텍스트, 파일 등의 데이터를 브라우저끼리 주고 받을 수 있게 만든 기술&lt;/li&gt;
+  &lt;li&gt;P2P 통신에 최적화&lt;/li&gt;
+  &lt;li&gt;MediaStream: 카메라, 마이크 등의 데이터 스트림에 접근&lt;/li&gt;
+  &lt;li&gt;RTCPeerConnection: 암호화, 대역폭 관리, 오디오/비디오 연결 담당&lt;/li&gt;
+  &lt;li&gt;RTCDataChannel: 음성, 영상 데이터가 아닌, json/text 데이터를 주고받음&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 04 Feb 2021 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-webrtc02</link>
+        <guid isPermaLink="true">http://localhost:4000/android-webrtc02</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Android/STOMP] STOMP 사용</title>
+        
+          <description>&lt;p&gt;Simple Text Oriented Messaging Protocol&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 04 Feb 2021 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-stomp01</link>
+        <guid isPermaLink="true">http://localhost:4000/android-stomp01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Android] Service 정리</title>
+        
+          <description>&lt;h3 id=&quot;service&quot;&gt;Service&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;FG, BG, binder&lt;/li&gt;
+  &lt;li&gt;back으로 종료하는 경우 service는 살아있고, overview로 종료하면 서비스가 종료된다고 알고 있다.&lt;/li&gt;
+  &lt;li&gt;startService로 실행한 서비스는 (중간에 bindService 진행해도) stopService로 종료해야 끝난다.&lt;/li&gt;
+  &lt;li&gt;bindSerivce로 실행하면 unbindService로 종료한다.&lt;/li&gt;
+  &lt;li&gt;참고로 bindService는 바인딩이 모두 해제되어야 종료된다.&lt;/li&gt;
+  &lt;li&gt;startService는 onStartCommand()를 진행, bindService는 바로 onBind() 진행한다.&lt;/li&gt;
+  &lt;li&gt;보통 service 호출 및 종료를 같은 액티비티(프래그먼트)에서 진행하지 않는데, 확실하게 죽이고 싶으면 같은 곳에서 하는게 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 04 Feb 2021 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-service01</link>
+        <guid isPermaLink="true">http://localhost:4000/android-service01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Android/error] ListView Item에 중복된 값이 나오는 문제 해결</title>
+        
+          <description>&lt;h3 id=&quot;-문제&quot;&gt;🤦‍ 문제&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adapter를 이용하여 ListView에 item을 띄우는 과정에서, 화면을 스크롤하면 밑에 있는 값들이 제대로 안나옴&lt;/li&gt;
+  &lt;li&gt;List에는 제대로 들어가는데, 화면에 이상하게 띄우는 듯&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Thu, 04 Feb 2021 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-error01</link>
+        <guid isPermaLink="true">http://localhost:4000/android-error01</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Android/WebRTC] WebRTC 세팅 및 sdp, candidate 생성</title>
+        
+          <description>&lt;h3 id=&quot;-setting&quot;&gt;👊 Setting&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;webrtc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;webrtc:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;로 추가 가능하나, 블로그 대부분의 예시가 arr파일로 되어있어서 나도 arr 파일을 사용하였다 😎&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;아래 코드는 audio를 가져오는 코드로, video도 생성하고 싶은 경우 VideoTrack을 이용하면 쉽게 구현할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 31 Jan 2021 09:00:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/android-webrtc01</link>
+        <guid isPermaLink="true">http://localhost:4000/android-webrtc01</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[JAVA/프로그래머스] 2018 KAKAO BLIND RECRUITMENT: [3차] 방금그곡</title>
         
           <description>&lt;h2 id=&quot;-문제&quot;&gt;&lt;span style=&quot;color:navy&quot;&gt;👀 문제&lt;/span&gt;&lt;/h2&gt;

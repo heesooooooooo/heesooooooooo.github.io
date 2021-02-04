@@ -12,6 +12,77 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>[Android/error] ListView Item에 중복된 값이 나오는 문제 해결</title>
+	  <link>/blog//android-error01</link>
+	  <author></author>
+	  <pubDate>2021-02-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//android-error01</guid>
+	  <description><![CDATA[
+	     <h3 id="-문제">🤦‍ 문제</h3>
+<ul>
+  <li>Adapter를 이용하여 ListView에 item을 띄우는 과정에서, 화면을 스크롤하면 밑에 있는 값들이 제대로 안나옴</li>
+  <li>List에는 제대로 들어가는데, 화면에 이상하게 띄우는 듯</li>
+</ul>
+
+<h3 id="-해결">💃 해결</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre> <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">view</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">viewGroup</span><span class="o">){</span>
+        <span class="n">GroupItem</span> <span class="n">item</span><span class="o">=</span> <span class="n">groupItems</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">view</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">View</span> <span class="n">itemView</span><span class="o">=</span><span class="n">layoutInflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_group</span><span class="o">,</span> <span class="n">viewGroup</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+            <span class="n">CircleImageView</span> <span class="n">iv</span><span class="o">=</span><span class="n">itemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">iv_group</span><span class="o">);</span>
+            <span class="n">TextView</span> <span class="n">tvTitle</span><span class="o">=</span><span class="n">itemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_groupmsg</span><span class="o">);</span>
+            <span class="n">tvTitle</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">Glide</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">itemView</span><span class="o">).</span><span class="na">load</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getProfile</span><span class="o">()).</span><span class="na">error</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">profile_default</span><span class="o">).</span><span class="na">into</span><span class="o">(</span><span class="n">iv</span><span class="o">);</span>
+
+            <span class="k">return</span> <span class="n">itemView</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="n">CircleImageView</span> <span class="n">iv</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">iv_group</span><span class="o">);</span>
+            <span class="n">TextView</span> <span class="n">tvTitle</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_groupmsg</span><span class="o">);</span>
+            <span class="n">tvTitle</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+            <span class="n">Glide</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">view</span><span class="o">).</span><span class="na">load</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getProfile</span><span class="o">()).</span><span class="na">error</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">profile_default</span><span class="o">).</span><span class="na">into</span><span class="o">(</span><span class="n">iv</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>이런식으로 view가 null인지 아닌지로 나눠서 코드를 작성해야 한다.</li>
+  <li>UI가 view를 reuse하기 때문에, view가 null이면 새로 만들고, 아니라면 기존 인스턴스에 item을 넣어야 된다고 한다.</li>
+</ul>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>Duplicated entries in ListView <a href="https://stackoverflow.com/questions/8261376/duplicated-entries-in-listview">https://stackoverflow.com/questions/8261376/duplicated-entries-in-listview</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>[Github블로그/Jekyll] Liquid Exception: Liquid syntax error 해결</title>
 	  <link>/blog//gitblog-sol-jekyll02</link>
 	  <author></author>
