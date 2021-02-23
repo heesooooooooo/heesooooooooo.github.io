@@ -46,7 +46,7 @@
 .highlight .kt {
   color: #45d291;
 }
-.highlight .kd {
+.highlight .kd, .highlight .nb {
   color: #9699f6;
 }
 .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {

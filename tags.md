@@ -12,7 +12,8 @@ title: Tags
 
 <div class="tags">
   <ul class="label">
-    {% for tag in site.tags %}
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
     <span>
       <a href="#{{ tag[0] }}">
         <span>{{ tag[0] }}</span>
@@ -22,7 +23,7 @@ title: Tags
     {% endfor %}
   </ul>
 
-  {% for tag in site.tags %}
+  {% for tag in sorted_tags %}
     <h2 id="{{ tag[0] }}">
       🎃 {{ tag[0] }}
     </h2>
