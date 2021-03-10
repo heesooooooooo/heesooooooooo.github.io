@@ -4,7 +4,7 @@ cover: 'assets/images/cover6.jpg'
 navigation: True
 title: "[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현"
 date: 2019-11-07 00:00:00
-tags: java priorityqueue
+tags: java
 subclass: 'post tag-java'
 logo: 'assets/images/ghost.png'
 author: heesoo

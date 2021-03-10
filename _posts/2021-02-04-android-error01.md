@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Android/error] ListView Item에 중복된 값이 나오는 문제 해결"
 date: 2021-02-04 00:00:00
-tags: android error
+tags: android
 subclass: 'post android'
 logo: 'assets/images/ghost.png'
 author: heesoo

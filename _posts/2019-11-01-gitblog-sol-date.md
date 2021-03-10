@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 포스트 날짜 불일치, 지킬 로드 시 포스터가 생성 안 되는 문제"
 date: 2019-11-01 00:00:00
-tags: git gitblog jekyll error
+tags: gitblog
 subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
 author: heesoo

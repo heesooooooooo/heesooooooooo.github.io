@@ -4,7 +4,7 @@ cover: 'assets/images/cover6.jpg'
 navigation: True
 title: "[JAVA/자료구조] 우선순위큐: 선언방법과 주요 메소드"
 date: 2019-11-04 00:00:00
-tags: java priorityqueue
+tags: java
 subclass: 'post tag-java'
 logo: 'assets/images/ghost.png'
 author: heesoo

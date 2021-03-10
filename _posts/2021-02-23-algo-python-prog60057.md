@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Python/프로그래머스] 2020 KAKAO BLIND RECRUITMENT: 문자열 압축"
 date: 2021-02-23 00:00:00
-tags: programmers python
+tags: python
 subclass: 'post tag-programmers'
 logo: 'assets/images/ghost.png'
 author: heesoo

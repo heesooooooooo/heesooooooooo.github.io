@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그] 블로그에 css 적용이 안될 때, 깨질 때 해결 방법"
 date: 2019-09-05 00:00:00
-tags: git gitblog error
+tags: gitblog
 subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
 author: heesoo

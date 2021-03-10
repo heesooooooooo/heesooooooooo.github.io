@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Python/프로그래머스] 2021 KAKAO BLIND RECRUITMENT: 순위 검색"
 date: 2021-02-22 00:00:00
-tags: programmers python
+tags: python
 subclass: 'post tag-programmers'
 logo: 'assets/images/ghost.png'
 author: heesoo

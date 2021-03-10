@@ -4,7 +4,7 @@ cover: 'assets/images/cover6.jpg'
 navigation: True
 title: "[JAVA/예외처리] java.util.ConcurrentModificationException"
 date: 2019-11-01 00:00:00
-tags: java exception error
+tags: java
 subclass: 'post tag-java'
 logo: 'assets/images/ghost.png'
 author: heesoo

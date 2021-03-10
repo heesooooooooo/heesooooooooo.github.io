@@ -4,7 +4,7 @@ cover: 'assets/images/cover4.jpg'
 navigation: True
 title: "[Github블로그/Jekyll] 카테고리 404에러 Jekyll로 해결하기"
 date: 2019-09-09 00:00:00
-tags: git gitblog jekyll
+tags: gitblog
 subclass: 'post tag-git'
 logo: 'assets/images/ghost.png'
 author: heesoo
