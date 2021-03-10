@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>PS & 개발 기록</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_여러 기준으로 정렬하기</title>
+	  <link>/blog//sql-prog59404</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59404</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59404">https://programmers.co.kr/learn/courses/30/lessons/59404</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 아이디, 이름, 보호 시작일을 출력하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME, DATETIME</code>이다.</li>
+  <li>이름순으로 오름차순 정렬하고(ASC, 생략가능), 이름이 같은 경우에는 DATETIME이 큰 순서대로 출력하므로 DESC를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_동물의 아이디와 이름</title>
+	  <link>/blog//sql-prog59403</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59403</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59403">https://programmers.co.kr/learn/courses/30/lessons/59403</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 아이디와 이름을 출력하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>ANIMAL_ID 순으로 정렬하므로 ORDER BY를 사용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SUM, MAX, MIN_최솟값 구하기</title>
+	  <link>/blog//sql-prog59038</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59038</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59038">https://programmers.co.kr/learn/courses/30/lessons/59038</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>가장 먼저 들어온 동물을 조회하므로 DATETIME이 가장 큰 동물을 출력한다. <code class="highlighter-rouge">MIN(DATETIME)</code></li>
+  <li>결과가 ‘시간’으로 출력되어야하므로 AS를 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="err">시간</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_상위 n개 레코드: LIMIT 사용하기</title>
+	  <link>/blog//sql-prog59405</link>
+	  <author></author>
+	  <pubDate>2019-11-10T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59405</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59405">https://programmers.co.kr/learn/courses/30/lessons/59405</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>동물의 이름을 조회하므로 <code class="highlighter-rouge">SELECT NAME</code>이다.</li>
+  <li><code class="highlighter-rouge">ORDER BY DATETIME</code>으로 보호소에 들어온 순서대로 조회한다.</li>
+  <li>가장 먼저 들어온 동물 하나를 조회하므로 <code class="highlighter-rouge">LIMIT 1</code>을 이용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DATETIME</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-limit-사용">4. LIMIT 사용</h3>
+<ul>
+  <li>n개 가져오기
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*테이블A에서 5개 조회*/</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_A</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>n번째부터 m개 추출: 0부터 시작.
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*5번째부터 10개 조회*/</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">TABLE_B</span> <span class="k">LIMIT</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[MySQL] Limit 사용법 <a href="https://nolran.tistory.com/57">https://nolran.tistory.com/57</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_아픈 동물 찾기</title>
+	  <link>/blog//sql-prog59036</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59036</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59036">https://programmers.co.kr/learn/courses/30/lessons/59036</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>아이디와 이름을 조회하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>아픈 동물을 조회한다는 조건이 붙었으므로 WHERE을 사용해야한다.</li>
+  <li>INTAKE_CONDITION=”Sick”.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span><span class="o">=</span><span class="nv">"Sick"</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_역순 정렬하기</title>
+	  <link>/blog//sql-prog59035</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59035</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59035">https://programmers.co.kr/learn/courses/30/lessons/59035</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>모든 동물의 이름과 보호 시작일을 조회해야하므로 <code class="highlighter-rouge">SELECT NAME, DATETIME</code>으로 시작한다.</li>
+  <li>ANIMAL_ID 역순으로 정렬이므로 <code class="highlighter-rouge">ORDER BY ANIMAL_ID DESC</code>이다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">DATETIME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_모든 레코드 조회하기</title>
+	  <link>/blog//sql-prog59034</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59034</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59034">https://programmers.co.kr/learn/courses/30/lessons/59034</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>모든 정보를 출력해야하므로 <code class="highlighter-rouge">SELECT *</code>이다.</li>
+  <li>ANIMAL_ID순으로 정렬해야하므로 ORDER BY를 사용한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[SQL/프로그래머스] SELECT_어린 동물 찾기</title>
+	  <link>/blog//sql-prog59037</link>
+	  <author></author>
+	  <pubDate>2019-11-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//sql-prog59037</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/59037">https://programmers.co.kr/learn/courses/30/lessons/59037</a></p>
+
+<h2 id="-첫-번째-도전"><span style="color:navy">👊 첫 번째 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>아이디와 이름을 조회하므로 <code class="highlighter-rouge">SELECT ANIMAL_ID, NAME</code>이다.</li>
+  <li>젊은 동물을 조회하므로 <code class="highlighter-rouge">WHERE INTAKE_CONDITION!="Aged"</code>이다.<br />
+참고로 INTAKE_CONDITION에는 Normal, Sick, Aged가 있다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span><span class="o">!=</span><span class="nv">"Aged"</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/191108_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

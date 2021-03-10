@@ -74,15 +74,14 @@
       <!-- home, boj, etc-->
         <li class="nav-home " role="presentation"><a href="/blog/">Home</a></li>
         <li class="nav-tags " role="presentation"><a href="/blog/tags">Tag</a></li>
-        <!-- <li class="nav-boj " role="presentation"><a href="/blog/tag/boj">백준</a></li>
-        <li class="nav-programmers " role="presentation"><a href="/blog/tag/programmers">프로그래머스</a></li>
-        <li class="nav-swea " role="presentation"><a href="/blog/tag/swea">SWEA</a></li>
-        <li class="nav-leetcode " role="presentation"><a href="/blog/tag/leetcode">LeetCode</a></li>
-        <li class="nav-python " role="presentation"><a href="/blog/tag/python">Python 코테 연습</a></li>
+        <li class="nav-boj " role="presentation"><a href="/blog/tag/boj">Java/백준</a></li>
+        <li class="nav-programmers " role="presentation"><a href="/blog/tag/programmers">Java/프로그래머스</a></li>
+        <li class="nav-swea " role="presentation"><a href="/blog/tag/swea">Java/SWEA</a></li>
+        <li class="nav-leetcode " role="presentation"><a href="/blog/tag/leetcode">Java/LeetCode</a></li>
         <li class="nav-algo " role="presentation"><a href="/blog/tag/algorithm">Algorithm</a></li>
         <li class="nav-java " role="presentation"><a href="/blog/tag/java">Java</a></li>
         <li class="nav-sql " role="presentation"><a href="/blog/tag/sql">SQL</a></li>
-        <li class="nav-android  nav-current" role="presentation"><a href="/blog/tag/android">Android</a></li> -->
+        <li class="nav-android  nav-current" role="presentation"><a href="/blog/tag/android">Android</a></li>
         <!-- <li class="nav-etc " role="presentation"><a href="/blog/tag/etc">etc</a></li> -->
         <!--
         <li class="nav-about " role="presentation"><a href="/blog/about">About::HEESOO</a></li>
@@ -116,7 +115,7 @@
             <h1 class="page-title">Android</h1>
             <h2 class="page-description">
             
-			    A 11-post collection
+			    A 7-post collection
             
             </h2>
         </div>
@@ -132,7 +131,7 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 3 </span>
+    <span class="page-number"> Page 1 of 2 </span>
      
         <a class="older-posts" href="/blog/tag/android/page2/" title="Next Page">Older Posts &raquo;</a>
      
@@ -144,10 +143,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/android-aac01">[Android] AAC(Android Architecture Components) 정리</a></h2>
+            <h2 class="post-title"><a href="/blog/android-stomp01">[Android/STOMP] STOMP 사용</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>AAC 테스트와 유지보수가 쉬운 앱을 디자인할 수 있도록 돕는 라이브러리의 모음이다. 안드로이드 앱을 만들면서 만날 수 있는 문제들을 쉽게 해결할 수 있도록 한다. 총 5개의 라이브러리(Lifecycles,... <a class="read-more" href="/blog/android-aac01">&raquo;</a></p>
+            <p>Simple Text Oriented Messaging Protocol 👊 Setting repositories { jcenter() maven { url "https://jitpack.io" } } dependencies { implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.6' } https://github.com/NaikSoftware/StompProtocolAndroid를 이용하였다. 1. STOMP 생성... <a class="read-more" href="/blog/android-stomp01">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -179,16 +178,16 @@
                     
                 
             
-            <time class="post-date" datetime="2021-03-08">08 Mar 2021</time>
+            <time class="post-date" datetime="2021-02-04">04 Feb 2021</time>
         </footer>
     </article>
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/android-coroutine01">[Android] 코루틴(Coroutine) 정리</a></h2>
+            <h2 class="post-title"><a href="/blog/android-service01">[Android] Service 정리</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>코루틴의 핵심은 light-weight thread이다. GlobalScope 1 2 3 4 5 6 7 8 9 import kotlinx.coroutines.* fun main() { GlobalScope.launch { // launch new coroutine in... <a class="read-more" href="/blog/android-coroutine01">&raquo;</a></p>
+            <p>Service FG, BG, binder back으로 종료하는 경우 service는 살아있고, overview로 종료하면 서비스가 종료된다고 알고 있다. startService로 실행한 서비스는 (중간에 bindService 진행해도) stopService로 종료해야 끝난다. bindSerivce로 실행하면... <a class="read-more" href="/blog/android-service01">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -220,16 +219,16 @@
                     
                 
             
-            <time class="post-date" datetime="2021-03-08">08 Mar 2021</time>
+            <time class="post-date" datetime="2021-02-04">04 Feb 2021</time>
         </footer>
     </article>
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/blog/android-design-pattern01">[Android] 디자인 패턴 정리</a></h2>
+            <h2 class="post-title"><a href="/blog/android-error01">[Android/error] ListView Item에 중복된 값이 나오는 문제 해결</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>다양한 문제 상황에 대한 재사용 가능한 해결책 Creational(창조), Structural(구조), Behavioral(행동)으로 구분된다. Creational Pattern 클래스의 인스턴스를 만드는 것과 관련이 있다. Singleton Pattern 싱글톤 패턴이란, 하나의 인스턴스를 하나만... <a class="read-more" href="/blog/android-design-pattern01">&raquo;</a></p>
+            <p>🤦‍ 문제 Adapter를 이용하여 ListView에 item을 띄우는 과정에서, 화면을 스크롤하면 밑에 있는 값들이 제대로 안나옴 List에는 제대로 들어가는데, 화면에 이상하게 띄우는 듯 💃 해결 1 2... <a class="read-more" href="/blog/android-error01">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -257,52 +256,15 @@
                 on
                 
                     
-                       <a href='/blog/tag/android'>Android</a>
+                       <a href='/blog/tag/android'>Android</a>,
+                    
+                
+                    
+                       <a href='/blog/tag/error'>Error</a>
                     
                 
             
-            <time class="post-date" datetime="2021-03-04">04 Mar 2021</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/blog/android-recyclerview01">[Android] Recyclerview 정리</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Recyclerview를 사용하는 이유 ListView 목록을 구현하는데 사용하는 레이아웃 View를 재활용하는 방식으로, 화면에 보여질 뷰를 처음 inflate한 후 스크롤시 재활용하는 방식 화면에 보이지 않는 View도 미리 그려... <a class="read-more" href="/blog/android-recyclerview01">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/blog/author/heesoo'>HEESOO</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/blog/tag/android'>Android</a>
-                    
-                
-            
-            <time class="post-date" datetime="2021-03-03">03 Mar 2021</time>
+            <time class="post-date" datetime="2021-02-04">04 Feb 2021</time>
         </footer>
     </article>
     
@@ -347,12 +309,53 @@
         </footer>
     </article>
     
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/blog/android-webrtc01">[Android/WebRTC] WebRTC 세팅 및 sdp, candidate 생성</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>👊 Setting implementation 'org.webrtc:google-webrtc:1.0.+' 로 추가 가능하나, 블로그 대부분의 예시가 arr파일로 되어있어서 나도 arr 파일을 사용하였다 😎 아래 코드는 audio를 가져오는 코드로, video도 생성하고 싶은 경우... <a class="read-more" href="/blog/android-webrtc01">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+
+                <img class="author-thumb" src="/blog/assets/images/casper.png" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/blog/author/heesoo'>HEESOO</a>
+
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/blog/tag/android'>Android</a>
+                    
+                
+            
+            <time class="post-date" datetime="2021-01-31">31 Jan 2021</time>
+        </footer>
+    </article>
+    
 
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 3 </span>
+    <span class="page-number"> Page 1 of 2 </span>
      
         <a class="older-posts" href="/blog/tag/android/page2/" title="Next Page">Older Posts &raquo;</a>
      
