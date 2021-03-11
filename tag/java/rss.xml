@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>PS & 개발 기록</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA] String, StringBuilder, StringBuffer 비교</title>
+	  <link>/blog//java-string01</link>
+	  <author></author>
+	  <pubDate>2020-10-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-string01</guid>
+	  <description><![CDATA[
+	     <h3 id="1-string">1. String</h3>
+<ul>
+  <li>immutable(불변)-&gt; 간단하게 사용 가능, 동기화에 신경쓰지 않아도 되므로(Thread-safe) 내부 데이터를 자유롭게 공유 가능</li>
+  <li>대표적인 문자열 관리 클래스</li>
+  <li>+연산자를 통해 문자열을 합칠 수 있음</li>
+  <li>String 객체는 한 번 생성되면 할당된 메모리 공간이 변하지 않음. 따라서 +연산자를 통해 문자열을 합치는 경우, 기존 문자열에 합치는 것이 아니라 새 문자를 포함하는 새로운 문자열 객체를 만들고, 이를 참조</li>
+  <li>처음 문자열의 메모리 영역은 Garbage로 남아있다가 GC(Garbage Collection)에 의해 사라짐</li>
+  <li>짧은 문자열을 더할 경우 사용</li>
+  <li>변하지 않는 문자열을 자주 읽어들이는 경우 좋은 성능을 기대할 수 있음</li>
+  <li>문자열 추가, 수정, 삭제 등의 연산이 빈번하게 일어나는 경우에는 적합하지 않음 (힙 메모리에 많은 임시 가비지가 생성되어 힙메모리 부족 발생 가능)</li>
+  <li>불변성을 가지기 때문에 멀티쓰레드 환경에서의 안정성(thread-safe)을 가짐</li>
+</ul>
+
+<h3 id="2-stringbuilder">2. StringBuilder</h3>
+<ul>
+  <li>문자열 연산으로 기존 객체의 공간이 부족하게 되는 경우, 기존의 버퍼 크기를 늘리며 유연하게 동작(StringBuffer도 동일)</li>
+  <li>동기화를 보장하지 않으므로 단일 쓰레드 환경에서 사용</li>
+  <li>쓰레드에 안전하지 여부가 관계 없는 프로그램을 개발할 때 사용하면 좋음</li>
+</ul>
+
+<h3 id="3-stringbuffer">3. StringBuffer</h3>
+<ul>
+  <li>mutable(가변)</li>
+  <li>각 메서드별로 Synchronized Keyword가 존재하여 멀티쓰레드 환경에서도 동기화를 지원</li>
+</ul>
+
+<h3 id="4-결론">4. 결론</h3>
+<ul>
+  <li>성능(연산이 많은 경우): StringBuilder»StringBuffer»»String</li>
+  <li>String: 문자열 연산이 적고 멀티쓰레드 환경일 경우</li>
+  <li>StringBuilder: 문자열 연산이 많고 단일쓰레드 환경이거나 동기화를 고려하지 않아도 되는 경우</li>
+  <li>StringBuffer: 문자열 연산이 많고 멀티쓰레드 환경일 경우</li>
+</ul>
+
+<h3 id="5-참고">5. 참고</h3>
+<ul>
+  <li>[자바] String, StringBuilder, StringBuffer의 차이 <a href="https://the-dev.tistory.com/2">https://the-dev.tistory.com/2</a></li>
+  <li>[Java] String, StringBuffer, StringBuilder 차이 및 장단점 <a href="https://ifuwanna.tistory.com/221">https://ifuwanna.tistory.com/221</a></li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] Comparable과 Comparator 차이</title>
+	  <link>/blog//java-comparable</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-comparable</guid>
+	  <description><![CDATA[
+	     <h2 id="comparable과-comparator-차이"><span style="color:navy">Comparable과 Comparator 차이</span></h2>
+
+<h3 id="1-comparable">1. Comparable</h3>
+<ul>
+  <li>오름차순, 가나다 등 기본 정렬 기준을 따르는데, 새 클레스에서 정렬할 기준(변수)을 잡아줄 때 사용</li>
+  <li>기존 Integer, String 등의 compareTo()를 이용하는게 보통</li>
+  <li>compareTo()를 오버라이드해서 사용, 파라미터는 하나</li>
+  <li>나 자신과 파라미터를 비교</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Music</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Music</span><span class="o">&gt;{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">idx</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">times</span><span class="o">;</span>
+
+    <span class="o">...</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Music</span> <span class="n">o1</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o1</span><span class="o">.</span><span class="na">name</span><span class="o">);</span> <span class="c1">// name을 기준으로 사전순 정렬</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="2-comparator">2. Comparator</h3>
+<ul>
+  <li>내림차순, 사전 역순 등 기존 정렬 기준이 아닌 새로운 것을 짤 때 사용</li>
+  <li>compare()을 오버라이드</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span><span class="o">{</span>
+	<span class="o">...</span>
+    <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Music</span><span class="o">&gt;(){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Music</span> <span class="n">m1</span><span class="o">,</span> <span class="n">Music</span> <span class="n">m2</span><span class="o">){</span> <span class="c1">// name 기준 사전 역순으로 정렬</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">m1</span><span class="o">.</span><span class="na">name</span><span class="o">&lt;</span><span class="n">m2</span><span class="o">.</span><span class="na">name</span><span class="o">)</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">m1</span><span class="o">.</span><span class="na">name</span><span class="o">==</span><span class="n">m2</span><span class="o">.</span><span class="na">name</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">})</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] 트라이 (Trie)</title>
+	  <link>/blog//java-trie</link>
+	  <author></author>
+	  <pubDate>2020-08-16T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-trie</guid>
+	  <description><![CDATA[
+	     <h2 id="트라이"><span style="color:navy">트라이</span></h2>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/200816_3.png" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>정렬된 트리 구조이다.</li>
+  <li>자식노드를 맵&lt;key, value&gt; 형태로 가지고 있다.</li>
+  <li>루트를 제외한 노드의 자손들은 해당 노드와 공통 접두어를 가진다.</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Trie</span><span class="o">{</span>
+	<span class="n">Node</span> <span class="n">root</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">Trie</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">this</span> <span class="n">root</span><span class="o">=</span><span class="k">new</span> <span class="n">Node</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Node</span> <span class="n">node</span> <span class="n">root</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">node</span><span class="o">.</span><span class="na">count</span><span class="o">++;</span>
+			<span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">computeIfAbsent</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">c</span><span class="o">-&gt;</span><span class="k">new</span> <span class="n">Node</span><span class="o">());</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Node</span> <span class="n">node</span><span class="o">=</span><span class="n">root</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">query</span><span class="o">.</span><span class="na">length</span><span class="o">();</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(!</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)))</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+			<span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">count</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+	<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">,</span> <span class="n">Node</span><span class="o">&gt;</span> <span class="n">children</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">Node</span><span class="o">(){</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">Node</code>
+    <ul>
+      <li>자식노드는 HashMap에 저장된다.</li>
+      <li>현재 노드까지의 같은 접두사를 가지는 노드의 개수를 count에 저장한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public void insert(String word)</code>
+    <ul>
+      <li>역할: word를 트라이에 저장한다.</li>
+      <li>computeIfAbsent()를 통해 word.charAt(i)가 node.children에 없다면 해시맵에 넣은 후, 해당 노드로 이동한다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int getCount(String query)</code>
+    <ul>
+      <li>역할: query가 존재한다면, 그 개수를 리턴한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li>[자료구조] Trie(트라이)-1 : 기초 개념 <a href="https://the-dev.tistory.com/2">https://the-dev.tistory.com/2</a></li>
+  <li>[자료구조] Trie(트라이)-2 : 자바로 구현하기 <a href="https://the-dev.tistory.com/3">https://the-dev.tistory.com/3</a></li>
+  <li>코딩테스트 연습 2020 KAKAO BLIND RECRUITMENT 가사 검색 <a href="https://programmers.co.kr/learn/courses/30/lessons/60060">https://programmers.co.kr/learn/courses/30/lessons/60060</a></li>
+  <li>(코테에 쓴 코드를 복붙한 거라 해당 코드는 정석이 아니다.)</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] 배열: Arrays와 Collections을 이용한 오름차순 내림차순 정렬</title>
+	  <link>/blog//java-array01</link>
+	  <author></author>
+	  <pubDate>2019-11-12T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-array01</guid>
+	  <description><![CDATA[
+	     <h2 id="오름차순"><span style="color:navy">오름차순</span></h2>
+
+<h3 id="1-기본-개념">1. 기본 개념</h3>
+<ul>
+  <li>Arrays.sort()메소드를 이용한다.</li>
+</ul>
+
+<h3 id="2-예시">2. 예시</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/*...*/</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">array</span><span class="o">={</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="내림차순"><span style="color:navy">내림차순</span></h2>
+
+<h3 id="1-기본-개념-1">1. 기본 개념</h3>
+<ul>
+  <li>Collections.reverseOrder()을 이용한다.</li>
+  <li>int배열은 Integer로 변환후 사용한다.</li>
+</ul>
+
+<h3 id="2-예시-1">2. 예시</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="cm">/*...*/</span>
+<span class="c1">//일반적인 경우</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">strArray</span><span class="o">={</span><span class="s">"3"</span><span class="o">,</span><span class="s">"4"</span><span class="o">,</span><span class="s">"2"</span><span class="o">,</span><span class="s">"5"</span><span class="o">,</span><span class="s">"1"</span><span class="o">};</span>
+<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">strArray</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span>
+
+<span class="c1">//int배열</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">oldArray</span><span class="o">={</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">1</span><span class="o">};</span>
+<span class="n">Integer</span> <span class="n">newArray</span><span class="o">=</span><span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">oldArray</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+<span class="n">newArray</span><span class="o">=</span><span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">oldArray</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span><span class="c1">//선언 및 초기화</span>
+<span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">Collections</span><span class="o">.</span><span class="na">reverseOrder</span><span class="o">());</span><span class="c1">//내림차순 정렬</span>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>How to convert int[] to Integer[] in Java? <a href="https://stackoverflow.com/questions/880581/how-to-convert-int-to-integer-in-java">https://stackoverflow.com/questions/880581/how-to-convert-int-to-integer-in-java</a></li>
+  <li>why Arrays.sort() can’t sort primitive type array in descending order? <a href="https://stackoverflow.com/questions/48849381/why-arrays-sort-cant-sort-primitive-type-array-in-descending-order">https://stackoverflow.com/questions/48849381/why-arrays-sort-cant-sort-primitive-type-array-in-descending-order</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] 우선순위큐: CompareTo를 이용한 우선순위 구현</title>
+	  <link>/blog//java-priorityqueue02</link>
+	  <author></author>
+	  <pubDate>2019-11-07T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-priorityqueue02</guid>
+	  <description><![CDATA[
+	     <p>우선순위큐뿐만 아니라 자료구조의 정렬 조건을 바꾸고 싶을 때 CompareTo를 Override하는 방법을 택한다.</p>
+
+<h3 id="1-기본-개념">1. 기본 개념</h3>
+<ul>
+  <li>리턴값이 음수일 경우 우선순위가 높아진다. 주로 -1, 0, 1을 이용하여 우선순위를 나눈다.</li>
+</ul>
+
+<h3 id="2-예시">2. 예시</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Job</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;{</span>
+    <span class="kt">int</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">time</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Job</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">t</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">=</span><span class="n">s</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">=</span><span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Job</span> <span class="n">j</span><span class="o">){</span>
+        <span class="c1">//소요시간 작은 게 우선순위 높음</span>
+        <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+        <span class="c1">//소요시간이 같다면</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">j</span><span class="o">.</span><span class="na">time</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">&lt;</span><span class="n">j</span><span class="o">.</span><span class="na">start</span><span class="o">)</span><span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span><span class="c1">//요청시점 작은게 우선순위 높음</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>  </pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>클래스 뒤에 <code class="highlighter-rouge">implements Comparable</code>를 붙인다.</li>
+  <li>기존 메소드에 수정하는 것이므로 <code class="highlighter-rouge">@Override</code>를 붙인다.</li>
+  <li>위의 경우 time이 작을수록 우선순위가 크다.</li>
+  <li>만약 time이 같다면 start가 작을수록 우선순위가 커진다.</li>
+  <li>이후 sort메소드를 호출할 경우 Override된 compareTo에 따라 정렬된다.</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] 우선순위큐: 선언방법과 주요 메소드</title>
+	  <link>/blog//java-priorityqueue01</link>
+	  <author></author>
+	  <pubDate>2019-11-04T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-priorityqueue01</guid>
+	  <description><![CDATA[
+	     <h2 id="우선순위큐"><span style="color:navy">우선순위큐</span></h2>
+<p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html</a></p>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/191104_2.PNG" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>Queue의 성질을 가지고 있지만, 선입선출(FIFO)이 아닌 가장 가중치가 낮은 순서로 원소를 리턴한다.</li>
+  <li>Min Heap으로 데이터를 정렬한다.</li>
+  <li>때에 따라서는 CompareTo()를 수정하여 Max Heap, 가중치가 높은 순서로 변경하여 사용한다.</li>
+  <li>key(데이터의 priority), value로 이루어진 pair를 저장하는 비선형 자료구조이다.
+<img src="./assets/images/191104_3.png" alt="우선순위큐" /></li>
+  <li>
+    <dl>
+      <dt>Min Heap(최소힙)</dt>
+      <dd>부모 키&lt;자식 키. 루트에 최소값이 들어간다.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>Max Heap(최대힙)</dt>
+      <dd>부모 키&gt;자식 키. 루트에 최대값이 들어간다.</dd>
+    </dl>
+  </li>
+  <li>Min Heap, Max Heap 모두 삭제 연산 시 루트노드를 한다. 이후 힙의 속성을 유지하기 위해 우측 맨 아래 리프노드를 루트 자리에 넣은 후 다시 자식 노드들과 비교하며 자리를 찾는다.</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.PriorityQueue</span><span class="o">;</span>
+<span class="cm">/*...*/</span>
+<span class="c1">//PriorityQueue&lt;E&gt; pq=new PriorityQueue&lt;E&gt;();</span>
+<span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pq</span><span class="o">=</span><span class="k">new</span> <span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">public boolean offer(E item);</code>
+    <ul>
+      <li>역할: 우선순위큐에 값을 넣는다.</li>
+      <li>파라미터: item(삽입할 값)</li>
+      <li>리턴: true(성공), false(실패)</li>
+      <li>특징: add(item)메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element poll();</code>
+    <ul>
+      <li>역할: 루트노드(가중치가 작은/큰)를 삭제한다.</li>
+      <li>리턴: 루트노드</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element peek();</code>
+    <ul>
+      <li>역할: 루트노드를 리턴하되 삭제하지는 않는다.</li>
+      <li>리턴: 루트노드</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="5-예외처리">5. 예외처리</h3>
+<ul>
+  <li>NullPointerException: 넣을 아이템이 null인 경우 발생한다.</li>
+  <li>ClassCastException: 캐스팅이 불가할 때 발생한다.</li>
+</ul>
+
+<h3 id="6-우선순위큐-응용분야">6. 우선순위큐 응용분야</h3>
+<ul>
+  <li>시뮬레이션 시스템(여기서의 우선순위는 대개 사건의 시각이다).</li>
+  <li>네트워크 트래픽 제어.</li>
+  <li>운영체제에서 작업 스케쥴링.</li>
+</ul>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li>우선순위큐, 최소 힙, 최대 힙_JAVA <a href="http://blog.naver.com/PostView.nhn?blogId=zxy826&amp;logNo=220804468536&amp;parentCategoryNo=32&amp;categoryNo=&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search">http://blog.naver.com/PostView.nhn?blogId=zxy826&amp;logNo=220804468536&amp;parentCategoryNo=32&amp;categoryNo=&amp;viewDate=&amp;isShowPopularPosts=true&amp;from=search</a></li>
+  <li>Java Queue, Priority Queue 예제 <a href="https://gamjatwigim.tistory.com/72">https://gamjatwigim.tistory.com/72</a></li>
+  <li>우선순위 큐(priority queue) <a href="https://medium.com/quantum-ant/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-priority-queue-80a161664e3b">https://medium.com/quantum-ant/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%ED%81%90-priority-queue-80a161664e3b</a></li>
+  <li>우선순위 큐(Priority Queue) <a href="https://eremo2002.tistory.com/21">https://eremo2002.tistory.com/21</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/예외처리] java.util.ConcurrentModificationException</title>
+	  <link>/blog//java-exception01</link>
+	  <author></author>
+	  <pubDate>2019-11-01T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-exception01</guid>
+	  <description><![CDATA[
+	     <p><img src="./assets/images/191101_2.PNG" alt="결과화면" /></p>
+
+<h3 id="예시">예시</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="k">for</span><span class="o">(</span><span class="n">Truck</span> <span class="nl">t:</span><span class="n">q</span><span class="o">){</span><span class="c1">//1초 추가</span>
+    <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+    <span class="n">answer</span><span class="o">++;</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span><span class="c1">//경과시간이 다 채워지면 삭제</span>
+        <span class="n">q</span><span class="o">.</span><span class="na">poll</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>코드 설명: for문을 통해 Queue<Truck> q를 순회한다. if 조건에 맞다면 큐의 값을 삭제한다.</Truck></p>
+
+<h3 id="원인">원인</h3>
+<p>for문과 같은 루프문을 통해 데이터를 접근하는 도중에, 데이터 변경이 일어날 때 발생한다.</p>
+
+<h3 id="해결-방법">해결 방법</h3>
+<p>Iterator를 사용하여 큐의 원소에 접근, 삭제한다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="n">Iterator</span> <span class="n">iter</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+    <span class="n">Truck</span> <span class="n">t</span><span class="o">=(</span><span class="n">Truck</span><span class="o">)</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">++;</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">time</span><span class="o">==</span><span class="n">bridge_length</span><span class="o">){</span>
+        <span class="n">iter</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>iterator()메소드를 이용해 iter를 선언, hasNext()로 현재 iter의 다음 원소가 있는지 파악한 후 있다면 next()로 값을 가져온다. remove()로 원소를 삭제한다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/자료구조] 스택: 선언방법과 주요 메소드</title>
+	  <link>/blog//java-stack01</link>
+	  <author></author>
+	  <pubDate>2019-10-30T09:00:00+09:00</pubDate>
+	  <guid>/blog//java-stack01</guid>
+	  <description><![CDATA[
+	     <h2 id="스택"><span style="color:navy">스택</span></h2>
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html</a>
+<img src="./assets/images/191030_3.png" alt="스택" /></p>
+
+<h3 id="1-클래스">1. 클래스</h3>
+<p><img src="./assets/images/191030_4.PNG" alt="구조" /></p>
+
+<h3 id="2-특징">2. 특징</h3>
+<ul>
+  <li>후입선출(last-in-first-out, LIFO)</li>
+</ul>
+
+<h3 id="3-선언">3. 선언</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="cm">/*...*/</span>
+<span class="c1">//Stack&lt;E&gt; st=new Stack&lt;E&gt;();</span>
+<span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="cm">/*...*/</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="4-주요-메소드">4. 주요 메소드</h3>
+<ol>
+  <li><code class="highlighter-rouge">public void push(E item);</code>
+    <ul>
+      <li>역할: 탑처럼 아래서 부터 차곡차곡 쌓는다.</li>
+      <li>파라미터: item(삽입할 값)</li>
+      <li>리턴: item</li>
+      <li>특징: addElement(item)메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element pop();</code>
+    <ul>
+      <li>역할: 스택 맨 위의 값(top)을 삭제한다.</li>
+      <li>리턴: top</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public Element peek();</code>
+    <ul>
+      <li>역할: 스택 맨 위의 값(가장 최근에 넣은 값, top)을 가져온다.</li>
+      <li>리턴: top</li>
+      <li>특징: 스택에서 top이 삭제되지 않는다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public boolean isEmpty();</code>
+    <ul>
+      <li>역할: 스택안에 item이 있는지 확인한다.</li>
+      <li>리턴: true(스택이 비었을 경우), false(아닌 경우)</li>
+      <li>특징: empty()메소드와 같다.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">public int size();</code>
+    <ul>
+      <li>역할: 스택의 크기를 확인한다.</li>
+      <li>리턴: item 갯수</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="5-예외처리">5. 예외처리</h3>
+<ul>
+  <li>EmptyStackException: 스택안에 값이 없을 경우 발생한다.
+st.isEmpty()를 이용해 예외처리를 한다.</li>
+</ul>
+
+<h3 id="6-스택이-사용되는-곳">6. 스택이 사용되는 곳</h3>
+<ul>
+  <li>마지막에 등록된 것을 먼저 사용하는 경우.</li>
+  <li>웹 브라우저 방문 기록, 뒤로가기.</li>
+  <li>실행취소(undo).</li>
+  <li>역순 출력.</li>
+  <li>수식의 괄호 검사(연산자 우선순위 표현).</li>
+  <li>후위표기법 계산.</li>
+  <li>OS, 시스템 스택: 프로그램 호출 순서와 복귀 순서는 반대이기 때문에 가장 나중에 호출된 함수가 제일 먼저 실행된다.</li>
+  <li>Compilers(컴파일러)</li>
+  <li>JVM(자바 가상 머신): 자바가 실행될 때 각각의 스레드는 한 개의 스택을 가지 모든 메소드를 트랙킹한다. 새로운 프레임이 생기면 스택에 삽입, 메소드가 끝나면 스택에서 제거된다.</li>
+</ul>
+
+<h3 id="7-참고">7. 참고</h3>
+<ul>
+  <li><a href="https://wayhome25.github.io/cs/2017/05/28/algorithm/">https://wayhome25.github.io/cs/2017/05/28/algorithm/</a></li>
+  <li><a href="https://muckycode.blogspot.com/2015/01/stack.html">https://muckycode.blogspot.com/2015/01/stack.html</a></li>
+  <li><a href="https://ryumin13.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D%EC%9D%98-%EC%9D%91%EC%9A%A9">https://ryumin13.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D%EC%9D%98-%EC%9D%91%EC%9A%A9</a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

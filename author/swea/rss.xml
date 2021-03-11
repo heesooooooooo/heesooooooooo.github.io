@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>iamheesoo.github.io/blog/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>PS & 개발 기록</description>
+   <language>utf-8</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>[JAVA/SWEA] 9092: 마라톤</title>
+	  <link>/blog//algo-swea9092</link>
+	  <author></author>
+	  <pubDate>2020-09-09T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea9092</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Opy-KWPoDFAWY</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>dp[현재위치][남은 k], 현재 위치에서 0~k까지 뛰어본다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">n</span><span class="o">,</span> <span class="n">k</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">dot</span><span class="o">,</span> <span class="n">dp</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>	
+			<span class="n">n</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">k</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">dot</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">dot</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+				<span class="n">dot</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="o">}</span>
+			
+			<span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="nl">i:</span><span class="n">dp</span><span class="o">)</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">);</span>
+			<span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="n">solve</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">k</span><span class="o">);</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">solve</span><span class="o">(</span><span class="kt">int</span> <span class="n">cur</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">cur</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">// 도착</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">]!=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">)</span> <span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">];</span> <span class="c1">// 중복 계산 방지</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">next</span><span class="o">=</span><span class="n">cur</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// i칸 뛰기</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">&gt;=</span><span class="n">n</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> <span class="c1">//next 범위 체크</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span> 
+			
+			<span class="kt">int</span> <span class="n">dist</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">dot</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]-</span><span class="n">dot</span><span class="o">[</span><span class="n">next</span><span class="o">][</span><span class="mi">0</span><span class="o">])+</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">dot</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">1</span><span class="o">]-</span><span class="n">dot</span><span class="o">[</span><span class="n">next</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+			<span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">]=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">],</span> <span class="n">solve</span><span class="o">(</span><span class="n">next</span><span class="o">,</span> <span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="o">)+</span><span class="n">dist</span><span class="o">);</span> 
+		<span class="o">}</span>
+		
+		<span class="k">return</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="n">k</span><span class="o">];</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200909_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP를 이용한다</span></strong>
+    <ul>
+      <li>dp[현재 위치][남은 k]이다.</li>
+      <li>현재 위치에서 0~k개 뛴 경우를 모두 확인해야 한다.</li>
+      <li>현재 위치에서 k개 뛰는 것과, 0~k개 뛰는 것(재귀로 계산)을 확인하여 이 중 작은 값을 dp[cur][k]에 저장한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+<h3 id="참고">참고</h3>
+<ul>
+  <li>[SWEA] 9092 마라톤 <a href="https://octorbirth.tistory.com/404">https://octorbirth.tistory.com/404</a></li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 6959: 이상한 나라의 덧셈게임</title>
+	  <link>/blog//algo-swea6959</link>
+	  <author></author>
+	  <pubDate>2020-09-08T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea6959</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWjlH0k63joDFAVT</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>어떤 자리를 선택하던 실행 횟수는 같으므로 각 자리수를 스택에 넣은 후 계산한다.</li>
+  <li>실행 횟수가 홀수라면 A가, 짝수라면 B가 이긴다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">maxRoom</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+			<span class="n">String</span><span class="o">[]</span> <span class="n">num</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+			<span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">st</span><span class="o">=</span><span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+			<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">n:</span><span class="n">num</span><span class="o">)</span> <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+			
+			<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">())+</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+				<span class="n">String</span><span class="o">[]</span> <span class="n">str</span><span class="o">=</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">sum</span><span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+				<span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="nl">s:</span><span class="n">str</span><span class="o">)</span> <span class="n">st</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+				<span class="n">cnt</span><span class="o">++;</span>
+			<span class="o">}</span>
+			
+			<span class="n">String</span> <span class="n">answer</span><span class="o">=</span><span class="s">""</span><span class="o">;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">cnt</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="n">answer</span><span class="o">=</span><span class="s">"B"</span><span class="o">;</span>
+			<span class="k">else</span> <span class="n">answer</span><span class="o">=</span><span class="s">"A"</span><span class="o">;</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+	
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200908_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">숫자의 덧셈 규칙 실행 횟수를 구한다</span></strong>
+    <ul>
+      <li>어느 자리를 선택하여 더하던 실행 횟수는 같다.</li>
+      <li>따라서 스택에 각 자리수를 넣은 후 두 개씩 뽑아서 계산하고 cnt로 카운트한다.</li>
+      <li>더한 sum이 10 이상이면 각 자리수의 숫자를 스택에 넣어야 하는 것을 염두한다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">승리자를 찾는다</span></strong>
+    <ul>
+      <li>cnt가 짝수라면 B가 이긴 것이고, 홀수라면 A가 이긴 것과 같다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 8659: GCD</title>
+	  <link>/blog//algo-swea8659</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea8659</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW1l1s2KWn4DFARC</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP를 이용하여 문제를 푼다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
+	<span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+			<span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="kt">long</span><span class="o">[][]</span> <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="mi">2</span><span class="o">];</span>
+			<span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="mi">2</span><span class="o">;</span>
+			<span class="n">dp</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">k</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">];</span>
+				<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">];</span>
+			<span class="o">}</span>
+			
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="s">" "</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]);</span>
+		<span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_2.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP를 이용하기 위해 점화식을 찾는다</span></strong>
+    <ul>
+      <li>(2,1) (3,2) (5,3) (8,5) …와 같은 규칙을 갖고 있다.</li>
+      <li>(a,b)라고 할 때, a=이전 a+이전 b, b=이전 a와 같다.</li>
+      <li>따라서 이차원 배열 dp를 선언하여 dp[i][0]은 %연산자를 i+1번 쓰는 a, dp[i][1]는 b라고 생각한다.</li>
+      <li>따라서, dp[i][0]=dp[i-1][0]+dp[i-1][1], dp[i][1]=dp[i-1][0].</li>
+      <li>
+        <h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 8501: 은비의 동전 뒤집기</title>
+	  <link>/blog//algo-swea8501</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea8501</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>DP로 해결한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
+	<span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="kt">int</span> <span class="n">mod</span><span class="o">=</span><span class="mi">1000000007</span><span class="o">;</span>
+		<span class="kt">long</span><span class="o">[]</span> <span class="n">factorial</span><span class="o">=</span><span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="mi">1001</span><span class="o">];</span>
+		<span class="n">factorial</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="n">factorial</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="mi">2</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">1000</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">factorial</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">i</span><span class="o">*</span><span class="n">factorial</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+			<span class="n">factorial</span><span class="o">[</span><span class="n">i</span><span class="o">]%=</span><span class="n">mod</span><span class="o">;</span>
+		<span class="o">}</span>			
+		
+		<span class="kt">long</span><span class="o">[]</span> <span class="n">dp</span><span class="o">=</span><span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="mi">1001</span><span class="o">];</span>
+		<span class="n">dp</span><span class="o">[</span><span class="mi">1</span><span class="o">]=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="n">dp</span><span class="o">[</span><span class="mi">2</span><span class="o">]=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">1000</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> 
+			<span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]=(</span><span class="n">i</span><span class="o">*</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]+(</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="o">)*</span><span class="n">factorial</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">])%</span><span class="n">mod</span><span class="o">;</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+			<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">dp</span><span class="o">[</span><span class="n">n</span><span class="o">]);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_4.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">DP를 이용한다</span></strong>
+    <ul>
+      <li>a(n) = n * a(n-1) + [n/2]*(n-1)!</li>
+      <li>이해 불가쓰</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 10507: 영어 공부</title>
+	  <link>/blog//algo-swea10507</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea10507</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXNQOb3avD0DFAXS</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>해킹할 수 있는 p개를 적절히 사용하여 영어 공부를 매일한 max값을 리턴한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+    
+	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">visit</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="n">P</span><span class="o">,</span> <span class="n">max</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
+	<span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+           	<span class="n">N</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">P</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="kt">int</span><span class="o">[]</span> <span class="n">input</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="n">input</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="n">visit</span><span class="o">=</span><span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">1000001</span><span class="o">];</span>
+			<span class="n">max</span><span class="o">=</span><span class="n">P</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="nl">day:</span><span class="n">input</span><span class="o">)</span> <span class="n">visit</span><span class="o">[</span><span class="n">day</span><span class="o">]=</span><span class="kc">true</span><span class="o">;</span>
+			
+			<span class="n">search</span><span class="o">();</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">max</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">search</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">end</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> 
+		<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> 
+		<span class="k">while</span><span class="o">(</span><span class="n">end</span><span class="o">&lt;</span><span class="n">visit</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">visit</span><span class="o">[</span><span class="n">end</span><span class="o">])</span> <span class="o">{</span> 
+				<span class="n">cnt</span><span class="o">++;</span>
+				<span class="n">end</span><span class="o">++;</span>
+				<span class="n">max</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="o">{</span> 
+				<span class="k">if</span><span class="o">(</span><span class="n">P</span><span class="o">==</span><span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">max</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span>
+					<span class="k">if</span><span class="o">(!</span><span class="n">visit</span><span class="o">[</span><span class="n">start</span><span class="o">])</span> <span class="n">P</span><span class="o">++;</span> 
+					<span class="n">start</span><span class="o">++;</span> 
+					<span class="n">cnt</span><span class="o">--;</span> 
+				<span class="o">}</span>
+				<span class="k">else</span> <span class="o">{</span>
+					<span class="n">P</span><span class="o">--;</span>
+					<span class="n">cnt</span><span class="o">++;</span>
+					<span class="n">end</span><span class="o">++;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_3.PNG" alt="실행결과" />
+🤟 성공 🤟<br />
+처음에는 DFS로 구현했는데 30일을 넘어가니까 시간이 오래 걸리고 무한루프에 빠져서 다른 방법을 생각했다.</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">공부하지 않은 날은 해킹하면서 최대 공부한 날을 리턴한다</span></strong>
+    <ul>
+      <li>end는 지금까지 체크한 일 수를 뜻한다.</li>
+      <li>cnt는 지금까지 공부했다고 기록된 날을 뜻한다.</li>
+      <li>visit[]를 이용해 공부한 날은 visit[idx]=true로 한다.</li>
+      <li>체크하는 end일(visit[end])이 진짜로 공부한 날이라면 cnt++한다. 그 다음 날을 체크하기 위해 end++한다. cnt가 갱신되었으므로 max를 체크한다.</li>
+      <li>!visit[end]는 실제 공부하지 않았다는 뜻이다.</li>
+      <li>P를 이용하여 해킹 가능한지 여부를 체크한다. P!=0이면 아직 해킹이 가능한 것이므로 end날을 해킹한다. 해킹을 한 번 썼으므로 P–, 해킹해서 end날이 공부한 날이라고 기록되었으므로 cnt++, 다음 날 체크를 위해 end++이다.</li>
+      <li>P==0은 해킹 횟수를 모두 썼다는 뜻이다. 이때는 앞에서부터 해킹한 날을 찾아 취소하고, 현재 end날에 해킹한다.</li>
+      <li>해킹한 날을 취소할 것이므로 cnt값이 변경되어야 한다. 따라서 지금까지의 cnt를 max와 체크해 저장한 후 cnt–한다. visit[start]로 start날이 해킹한 날이라면 그 날을 해킹 취소한다. 따라서 해킹할 기회가 생긴 것이므로 P++. start날 해킹 체크가 완료됐으므로 start++로 다음 탐색에 사용한다. 여기서 end++를 하지 않았기 때문에 while문으로 다시 들어가면 P!=0이므로 해킹 체크를 할 수 있다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 10202: 문자열 동화</title>
+	  <link>/blog//algo-swea10202</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea10202</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXMCa8EaVioDFAWv</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>세 문자열의 i번째 문자가 모두 같은 경우, 하나만 다른 경우, 다 다른 경우를 따진다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
+	<span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>
+			<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">a</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">b</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">c</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			
+			<span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> 
+			<span class="n">answer</span><span class="o">+=</span><span class="n">frequency</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">frequency</span><span class="o">(</span><span class="kt">char</span> <span class="n">a</span><span class="o">,</span> <span class="kt">char</span> <span class="n">b</span><span class="o">,</span> <span class="kt">char</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">==</span><span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span><span class="o">==</span><span class="n">a</span><span class="o">)</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">a</span><span class="o">!=</span><span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">!=</span><span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">c</span><span class="o">!=</span><span class="n">a</span><span class="o">)</span> <span class="k">return</span> <span class="mi">2</span><span class="o">;</span>
+		<span class="k">else</span> <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_5.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">i번째 문자가 같은 개수에 따라 조건을 나눈다</span></strong>
+    <ul>
+      <li>String a, b, c의 i번째 문자열 비교를 쉽게 하기 위해 char형 배열에 저장한다.</li>
+      <li>for문으로 i번째 문자를 체크한다.</li>
+      <li>i번째가 모두 같다면 바꿀 필요가 없으므로 0</li>
+      <li>하나만 다르다면 그것을 바꾸면 되므로 1</li>
+      <li>모두 다르다면 특정 하나를 제외한 나머지 두 개를 바꿔야 하므로 2이다.</li>
+      <li>해당 개수만큼 바꿔야할 최소 숫자를 더한 후, 출력한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 10033: 카드 뒤집기</title>
+	  <link>/blog//algo-swea10033</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea10033</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXJZ8ua6CTkDFAU3</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>W앞에 있는 B의 개수만큼 뒤집기를 할 수 있으므로 연산 횟수는 W위치-B가 시작되는 위치를 모두 누적하면 된다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">char</span><span class="o">[]</span> <span class="n">cards</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">();</span>
+			<span class="kt">long</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+			<span class="kt">int</span> <span class="n">prevB</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">cards</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">cards</span><span class="o">[</span><span class="n">i</span><span class="o">]==</span><span class="sc">'W'</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">answer</span><span class="o">+=(</span><span class="n">i</span><span class="o">-</span><span class="n">prevB</span><span class="o">);</span>
+					<span class="n">prevB</span><span class="o">++;</span>
+				<span class="o">}</span>
+            			<span class="o">}</span>
+            		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_6.PNG" alt="실행결과" />
+🤟 성공 🤟
+문제 설명대로 B, W의 뒤집기를 진짜 하도록 코드를 짰더니 제한시간 초과가 발생했다.<br />
+오답은 answer을 long형으로 선언하지 않아서였다.</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">W 앞의 B 개수를 구한다</span></strong>
+    <ul>
+      <li>BW를 WB로 바꾸면 W가 앞으로 이동하는 것과 같으므로 W의 앞에 B가 있는 만큼 swap할 수 있다.</li>
+      <li>따라서 W 앞에 있는 B의 개수를 구해야 한다.</li>
+      <li>인덱스 i로 문자를 하나하나 체크하다가, W를 발견하면 W 앞에 B의 시작 인덱스 prevB를 구한다.</li>
+      <li>prevB 변수를 생성하여 이전 B의 위치를 저장한다. 현재 i 위치가 W이므로 swap이 모두 끝나면 W가 아까 B의 시작 지점으로 가고 W자리에 B가 온다. 그러면 B의 시작은 이전 B가 끝난 다음+1이므로 prevB++이다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">answer의 오버플로우를 방지한다</span></strong>
+    <ul>
+      <li>문자열 s가 길이가 200,000(=2*10^5)인 “BW…BW”라면 <code class="highlighter-rouge">answer= 1+2+...+200,000-1~=(2*10^5+1)*10^5=2*10^10+10^5</code>이므로 21억을 거뜬히 넘는다. 따라서 long형으로 선언해야 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>[JAVA/SWEA] 9088: 다이아몬드</title>
+	  <link>/blog//algo-swea9088</link>
+	  <author></author>
+	  <pubDate>2020-09-03T09:00:00+09:00</pubDate>
+	  <guid>/blog//algo-swea9088</guid>
+	  <description><![CDATA[
+	     <h2 id="-문제"><span style="color:navy">👀 문제</span></h2>
+<p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY">https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW7Oktj6WMQDFAWY</a></p>
+
+<h2 id="-도전"><span style="color:navy">👊 도전</span></h2>
+
+<h3 id="1-설계">1. 설계</h3>
+<ol>
+  <li>N개 다이아몬드를 오름차순 정렬한다.</li>
+  <li>가장 큰 값과 가장 작은 값의 차이가 k이하인 경우에는 바로 N을 리턴한다.</li>
+  <li>아닌 경우, i번째 다이아몬드와의 차이가 k이하인 것을 일일이 찾는다.</li>
+  <li>이 중 가장 큰 값을 출력한다.</li>
+</ol>
+
+<h3 id="2-구현">2. 구현</h3>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="cm">/**
+ *
+ * @author HEESOO
+ *
+ */</span>
+<span class="kd">class</span> <span class="nc">Solution</span>
+<span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">Exception</span>
+	<span class="o">{</span>
+		<span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">T</span><span class="o">;</span>
+		<span class="n">T</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">test_case</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">test_case</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="o">;</span> <span class="n">test_case</span><span class="o">++)</span>
+		<span class="o">{</span>			
+            <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+            <span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+            <span class="kt">int</span><span class="o">[]</span> <span class="n">number</span><span class="o">=</span><span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+            <span class="kt">int</span> <span class="n">max</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">,</span> <span class="n">min</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+                <span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+                <span class="n">max</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+                <span class="n">min</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+            <span class="o">}</span>
+                
+            <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">max</span><span class="o">-</span><span class="n">min</span><span class="o">&lt;=</span><span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">n</span><span class="o">);</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            
+            <span class="kt">int</span> <span class="n">answer</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+                <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+                <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">;</span><span class="n">j</span><span class="o">++){</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">number</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">number</span><span class="o">[</span><span class="n">j</span><span class="o">])&lt;=</span><span class="n">k</span><span class="o">)</span> <span class="n">cnt</span><span class="o">++;</span>
+                    <span class="k">else</span> <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="n">answer</span><span class="o">=</span><span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">answer</span><span class="o">,</span> <span class="n">cnt</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"#"</span><span class="o">+</span><span class="n">test_case</span><span class="o">+</span><span class="s">" "</span><span class="o">+</span><span class="n">answer</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="3-결과">3. 결과</h3>
+<p><img src="./assets/images/200903_1.PNG" alt="실행결과" />
+🤟 성공 🤟</p>
+
+<h3 id="4-설명">4. 설명</h3>
+<ol>
+  <li><strong><span style="color:navy">다이아몬드의 max와 min의 차이가 k이하면 바로 N을 리턴한다</span></strong>
+    <ul>
+      <li>이 경우 N개를 리턴하므로 굳이 아래 for문을 실행하지 않아도 된다. 따라서 return으로 끝낸다.</li>
+    </ul>
+  </li>
+  <li><strong><span style="color:navy">i와 차이가 k이하인 j를 모두 찾는다</span></strong>
+    <ul>
+      <li>i로 모든 다이아몬드를 체크한다.</li>
+      <li>j로 i와 차이가 k이하인 것을 찾는다. 이때 (i, j) 비교와 (j, i) 비교는 같은 것이므로 오름차순으로 정렬한 후, j=i+1로 지정하여 중복 체크를 없앤다.</li>
+      <li>오름차순으로 정렬했는데 i, j의 차이가 k이상이면 그 뒤의 j값들과도 무조건 k이상 차이가 나므로 break문을 통해 비교를 그만한다.</li>
+      <li>i에 관해 비교가 끝나면 cnt와 기존 answer중 더 큰 값을 answer에 저장하여 최댓값을 answer에 저장할 수 있게 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="-해결-완료"><span style="color:navy">👏 해결 완료!</span></h2>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
